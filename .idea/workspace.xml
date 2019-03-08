@@ -118,7 +118,21 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> dev
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -241,7 +255,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="49" />
     <option name="y" value="28" />
     <option name="width" value="936" />
@@ -324,7 +338,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552056585674" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552056902816" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/bbs.sql" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -477,12 +491,16 @@
       <updated>1551938157999</updated>
       <workItem from="1551938160057" duration="18783000" />
       <workItem from="1552017725022" duration="13244000" />
-      <workItem from="1552034363749" duration="1987000" />
+      <workItem from="1552034363749" duration="2329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="34281000" />
+=======
+    <option name="totallyTimeSpent" value="34356000" />
+>>>>>>> dev
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1041" extended-state="6" />
@@ -505,7 +523,11 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32800853" />
       <window_info anchor="bottom" id="Spring" order="9" weight="0.3290735" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.6699779" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.9039735" />
+>>>>>>> dev
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50106955" side_tool="true" weight="0.9701987" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3289183" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
@@ -974,8 +996,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="168">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+=======
+        <state relative-caret-position="120">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+>>>>>>> dev
         </state>
       </provider>
     </entry>
