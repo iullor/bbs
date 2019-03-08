@@ -1,0 +1,53 @@
+/**
+    =================通用的样式========================
+ */
+
+.text-grey {
+    color: grey;
+}
+
+.text-md {
+    font-size: 25px;
+    font-style: italic;
+}
+
+/*.text-vertical-center{
+    padding-top: 10px;
+}*/
+.bg-grey {
+    background-color: gray;
+}
+
+.label-top {
+    margin-left: -10px;
+    font-style: oblique;
+    /*border: ;*/
+    background-color: red;
+}
+
+.post-content-p {
+    font-size: 18px;
+}
+
+.post-content-part {
+    background-color: #fbffca;
+    font-size: 18px;
+    font-weight: revert;
+}
+
+/*
+=========分页的表单=============
+*/
+
+.form-text {
+    margin-left: 10px;
+    border-radius: 3px;
+    width: 50px;
+}
+/**
+====导航栏选中====
+ */
+
+.nav-select{
+
+}

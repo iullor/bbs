@@ -1,0 +1,88 @@
+/**
+===============侧栏的样式==================
+ */
+#left-navbar {
+    /*background-color: #f5f5f5;*/
+    float: left;
+    top: 50px;
+    height: 900px;
+}
+
+.navbar-fixed-top {
+    height: 20px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 55px;
+    width: 14%;
+}
+
+.sidebar-nav li {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    color: #843534;
+}
+
+.sidebar-nav li a {
+    color: #101010;
+    font-size: medium;
+}
+
+.sidebar-nav li:first-child {
+    margin-top: 15px;
+    text-align: right;
+    color: black;
+    font-size: 20px;
+}
+
+.sidebar-nav li:nth-child(2) {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.sidebar-nav li:nth-child(3) {
+    padding-left: 50px;
+    margin-top: 10px;
+}
+
+.sidebar-nav li:nth-child(4) {
+    margin-top: 40px;
+}
+
+.sidebar-nav li:last-child {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sidebar-nav li span {
+    padding-left: 35px;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #8a6cb6;
+}
+
+/**
+============控制侧栏====================
+ */
+#close {
+    margin-top: 0px;
+    margin-left: 11%;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#open {
+    position: fixed;
+    z-index: 3;
+    margin-top: 70px;
+    float: left;
+    margin-left: 20px;
+    font-size: 20px;
+}

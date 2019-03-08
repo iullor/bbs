@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="bbs:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5d3c5039-7b8c-4734-afd2-d7705b52b816.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5d3c5039-7b8c-4734-afd2-d7705b52b816/storage_v2/_src_/schema/bbs1.XgouAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/gyl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bbs.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bbs.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/UUIDString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserBaseInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/TestMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/404.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/500.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/permission.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/basic_info/basic_info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/basic_info/person_account.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/collection/collection_board.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/collection/collection_posts.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/focus/focus_person.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/message/message.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/person_manage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/post/person_posts.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/person/themes/person_theme_setting.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/write_post_quickly.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_pages.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/board/board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/board/board_post_list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/logon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/top.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/modal/modal_login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/panel/panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/basic_info.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/person_account.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_posts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/focus/focus_person.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/message/message.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/person_manager-left.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/person_settings.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/post/person_posts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/themes/person_themes_setting.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/board/academic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/board/city.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/board/school.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/哈士奇.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/路飞.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/login/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/sidebar-left-control.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/bootstrap/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-2.1.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/StatusCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/UUIDString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/UserBaseInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/TestMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/TestService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/web/controller/IndexController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/web/controller/TestController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/web/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/TestMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/spring/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/spring/spring-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/spring/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/404.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/500.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/permission.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/panel/panel.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/basic_info/basic_info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/basic_info/person_account.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/collection/collection_board.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/collection/collection_posts.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/focus/focus_person.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/message/message.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/person_manage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/post/person_posts.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/person/themes/person_theme_setting.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/write_post_quickly.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/search.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/aspectjweaver-1.8.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/c3p0-0.9.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-beanutils-1.8.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-codec-1.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-collections-3.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-fileupload-1.3.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-io-2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-lang-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/commons-logging-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/ezmorph-1.0.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jackson-annotations-2.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jackson-core-2.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jackson-core-asl-1.9.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jackson-databind-2.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/joda-time-2.9.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/json-lib-2.4-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jsqlparser-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/log4j-api-2.10.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/log4j-core-2.10.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/log4j-slf4j-impl-2.11.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/log4j-web-2.9.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/mchange-commons-java-0.2.3.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/mybatis-3.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/mybatis-spring-1.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/mysql-connector-java-5.1.38.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/pagehelper-5.1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/slf4j-api-1.8.0-alpha2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-aop-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-beans-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-context-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-core-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-expression-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-jcl-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-jdbc-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-test-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-tx-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-web-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/lib/spring-webmvc-5.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/admin/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/admin/admin_pages.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/board/board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/board/board_post_list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/commons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/logon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/sidebar_left.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/commons/top.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/modal/modal_login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/panel/panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/basic_info/basic_info.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/basic_info/person_account.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_posts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/focus/focus_person.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/message/message.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/person_manager-left.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/person_settings.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/post/person_posts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/person/themes/person_themes_setting.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/post/post_edit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/css/post/post_list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/board/academic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/board/city.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/board/school.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/哈士奇.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/images/路飞.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/js/login/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/js/sidebar-left-control.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/lib/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/lib/bootstrap/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/bbs/lib/jQuery/jquery-2.1.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/commons/StatusCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/commons/UUIDString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/UserBaseInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/TestMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/TestService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/web/controller/IndexController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/web/controller/TestController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/gyl/web/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TestMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/spring/spring-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/spring/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/zz/META-INF/MANIFEST.MF" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="test1: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1115887255">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="SCHEMA:bbs" value="1" />
+          <entry key="SCHEMA:bbs1" value="1" />
+          <entry key="SCHEMA:test1" value="2" />
+          <entry key="css" value="4" />
+          <entry key="groovy" value="1" />
+          <entry key="html" value="6" />
+          <entry key="java" value="51" />
+          <entry key="jsp" value="70" />
+          <entry key="properties" value="6" />
+          <entry key="public_sign" value="2" />
+          <entry key="sql" value="12" />
+          <entry key="t_login_information" value="2" />
+          <entry key="t_test" value="4" />
+          <entry key="t_test_1" value="1" />
+          <entry key="t_user" value="9" />
+          <entry key="xml" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="4" />
+          <entry key="DBN-SQL" value="3" />
+          <entry key="Database Element" value="18" />
+          <entry key="HTML" value="6" />
+          <entry key="JAVA" value="51" />
+          <entry key="JSP" value="70" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Scratch" value="10" />
+          <entry key="UML" value="4" />
+          <entry key="XML" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cell" value="30" />
+          <entry key="html" value="2" />
+          <entry key="java" value="3305" />
+          <entry key="jsp" value="612" />
+          <entry key="properties" value="27" />
+          <entry key="sql" value="142" />
+          <entry key="txt" value="5" />
+          <entry key="xml" value="427" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="2" />
+          <entry key="JAVA" value="3305" />
+          <entry key="JSP" value="612" />
+          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="SQL" value="95" />
+          <entry key="Scratch" value="126" />
+          <entry key="XML" value="378" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>html</find>
+      <find>.html</find>
+      <find>*.html</find>
+      <find>login</find>
+      <find>register</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>.jsp</replace>
+      <replace>jsp</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/permission.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/500.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/info.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/user/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/user/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/shield/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/shield/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/post/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/post/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/permission/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/permission/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/panel/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/panel/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/feedback/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/feedback/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/examination/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/board/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/board/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/area/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/area/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/TestMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/TestService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/info.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserBaseInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/UUIDString.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="/usr/share/maven" />
+        <option name="userSettingsFile" value="/etc/maven/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="bbs Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="bbs Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="49" />
+    <option name="y" value="28" />
+    <option name="width" value="936" />
+    <option name="height" value="1052" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Android</id>
+          </State>
+          <State>
+            <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>Internationalization</id>
+          </State>
+          <State>
+            <id>InternationalizationJava</id>
+          </State>
+          <State>
+            <id>InternationalizationLintAndroid</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>LintAndroid</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Ali-Check</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="com.intellij.database" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="com.intellij.database" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+              <item name="schema" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552056585674" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/bbs.sql" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.1537867" />
+    <property name="project.structure.side.proportion" value="0.2853755" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css/admin" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/gyl" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.gyl.entity" />
+      <recent name="com.gyl.mapper" />
+      <recent name="com.gyl.service" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.bbs">
+    <configuration name="UUIDString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gyl.commons.UUIDString" />
+      <module name="bbs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gyl.commons.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bbs" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.13" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="HOT_SWAP_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="bbs:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_bbs" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="45621" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="bbs:war" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.bbs" />
+      <item itemvalue="Application.UUIDString" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UUIDString" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="" />
+      <created>1551938157999</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551938157999</updated>
+      <workItem from="1551938160057" duration="18783000" />
+      <workItem from="1552017725022" duration="13244000" />
+      <workItem from="1552034363749" duration="1987000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="34014000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1041" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.09371672" visible="true" weight="0.17272727" />
+      <window_info id="Structure" order="1" sideWeight="0.90628326" side_tool="true" weight="0.15107527" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.50696677" side_tool="true" weight="0.17634408" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="DB Browser" order="7" weight="0.32994652" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.3245033" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32781458" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49893048" weight="0.40286976" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.687638" />
+      <window_info anchor="bottom" id="Application Servers" order="5" weight="0.32781458" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32800853" />
+      <window_info anchor="bottom" id="Spring" order="9" weight="0.3290735" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="1.0" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50106955" side_tool="true" weight="0.9701987" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3289183" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.4834931" />
+      <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32781458" />
+      <window_info anchor="bottom" id="DB Execution Console" order="16" />
+      <window_info anchor="bottom" id="Database Console" order="17" weight="0.36534217" />
+      <window_info anchor="right" id="RestServices" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" sideWeight="0.4994641" weight="0.2016129" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.22085561" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Web" order="9" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
+      <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="10" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
+      <window_info anchor="right" id="Database" order="11" visible="true" weight="0.22085561" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/info.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/admin/admin.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/TestMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs1/table/t_test_1" />
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs1/table/t_test" />
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/t_test">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216" />
+      </provider>
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/public_sign">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/public_sign">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6e7ec3aa-4663-4a20-a14e-04071014451c/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="uml://DATABASE/5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:bbs">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:bbs</OriginalElement>
+          <nodes>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_role_permission</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.public_sign</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_comment</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_login_information</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_comment_reply</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.user_roles_permissions</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_file</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_post</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_user</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_board</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_area</node>
+            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_collections</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5750169721656484" x="826.0" y="716.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="241" column="44" lean-forward="true" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1</OriginalElement>
+          <nodes>
+            <node x="1093.3166666666666" y="1332.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply</node>
+            <node x="1217.0" y="1058.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment</node>
+            <node x="1356.5" y="602.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post</node>
+            <node x="997.0" y="1098.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_collections</node>
+            <node x="806.75" y="494.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user</node>
+            <node x="0.0" y="683.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_role_permission</node>
+            <node x="1334.0" y="0.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board</node>
+            <node x="0.0" y="1628.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_test</node>
+            <node x="766.0" y="1071.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_login_information</node>
+            <node x="1422.5" y="247.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area</node>
+            <node x="285.0" y="1058.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_file</node>
+            <node x="547.0" y="1085.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.public_sign</node>
+            <node x="53.0" y="1098.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board">
+              <point x="0.0" y="-98.5" />
+              <point x="1529.0" y="222.0" />
+              <point x="1538.75" y="222.0" />
+              <point x="68.25" y="98.5" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment">
+              <point x="80.0" y="-125.5" />
+              <point x="1293.3166666666666" y="1307.0" />
+              <point x="1386.0" y="1307.0" />
+              <point x="0.0" y="112.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area">
+              <point x="57.0" y="-139.0" />
+              <point x="1527.5" y="469.0" />
+              <point x="1529.0" y="469.0" />
+              <point x="0.0" y="98.5" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board">
+              <point x="-57.0" y="-139.0" />
+              <point x="1413.5" y="469.0" />
+              <point x="1412.0" y="469.0" />
+              <point x="1412.0" y="222.0" />
+              <point x="1402.25" y="222.0" />
+              <point x="-68.25" y="98.5" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_file" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="0.0" y="-112.0" />
+              <point x="406.0" y="1018.0" />
+              <point x="852.5" y="1018.0" />
+              <point x="-76.25" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.public_sign" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="0.0" y="-85.0" />
+              <point x="646.5" y="1028.0" />
+              <point x="883.0" y="1028.0" />
+              <point x="-45.75" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_login_information" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="0.0" y="-98.5" />
+              <point x="871.0" y="1038.0" />
+              <point x="913.5" y="1038.0" />
+              <point x="-15.25" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="-84.5" y="-112.0" />
+              <point x="1301.5" y="1008.0" />
+              <point x="1035.5" y="1008.0" />
+              <point x="106.75" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_role_permission">
+              <point x="-53.0" y="-71.5" />
+              <point x="0.0" y="58.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="0.0" y="-125.5" />
+              <point x="1213.3166666666666" y="1307.0" />
+              <point x="1206.5" y="1307.0" />
+              <point x="1206.5" y="1018.0" />
+              <point x="1005.0" y="1018.0" />
+              <point x="76.25" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="53.0" y="-71.5" />
+              <point x="212.0" y="1008.0" />
+              <point x="822.0" y="1008.0" />
+              <point x="-106.75" y="247.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post">
+              <point x="84.5" y="-112.0" />
+              <point x="0.0" y="139.0" />
+            </edge>
+            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_collections" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+              <point x="0.0" y="-71.5" />
+              <point x="1096.5" y="1028.0" />
+              <point x="974.5" y="1028.0" />
+              <point x="45.75" y="247.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.25120772946859904" x="2974.0" y="791.0" />
+          <SelectedNodes>
+            <node>5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/t_login_information">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="40" selection-start-column="40" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/UserBaseInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/TestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/UUIDString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/info.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bbs.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>bbs:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring (bbs)|Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>aopalliance-1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>bbs</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2853755" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

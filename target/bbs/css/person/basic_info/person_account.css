@@ -1,0 +1,10 @@
+/**
+添加图片
+ */
+.glyphicon-plus {
+    font-size: 70px;
+}
+
+#headImage {
+    display: none;
+}

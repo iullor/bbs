@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyl.mapper.UserMapper">
+    <insert id="add" parameterType="com.gyl.entity.User">
+      insert into t_user
+      ( id
+        ,username
+        ,password
+        ,birthday
+        ,nick_name
+        ,create_time
+        ,status
+        ,head_image
+        ,hobbies
+        ,phome_number
+        ,email
+        ,qq_number
+        ,age
+        ,province
+        ,city
+        ,street
+        ,details
+        )
+       values
+      (
+        #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime},#{status}
+        ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phomeNumber},#{email},#{userBaseInfo.qqNumber}
+        ,#{userBaseInfo.age},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details}
+      )
+  </insert>
+
+    <select id="checkUser" resultType="com.gyl.entity.User">
+      select * from t_user where username=#{1};
+   </select>
+</mapper>
