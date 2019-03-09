@@ -1,9 +1,10 @@
 package com.gyl.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
-import java.sql.Date;
-
+import java.util.Date;
 /**
  * 注册用户
  */
@@ -13,6 +14,9 @@ public class User {
     private String username;
     private String password;
     private String nickName;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
     private String status;
     private String email;

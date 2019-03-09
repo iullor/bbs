@@ -10,7 +10,7 @@
 </head>
 <body>
 <p class="pull-right" style="margin-top: -40px;margin-right: 30px">
-    <a href="admin/main.jsp"><span>管理员访问</span></a>
+    <a href="/admin"><span>管理员访问</span></a>
 </p>
 <div class="container">
     <form class="form-logon" action="/checkLogon" method="get">
@@ -83,7 +83,6 @@
 <script>
     $(function () {
         var logon_infos = "${USER_STATUS}";
-        alert(logon_infos)
         if (logon_infos === "101") {
             $("#logon-info").html("用户不存在");
         } else if (logon_infos === "102") {

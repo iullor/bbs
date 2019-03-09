@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
--- Host: localhost    Database: test1
+-- Host: localhost    Database: bbs
 -- ------------------------------------------------------
 -- Server version	5.7.25-0ubuntu0.18.04.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `public_sign` (
   UNIQUE KEY `public_sign_id_uindex` (`id`),
   KEY `public_sign_t_user_id_fk` (`user_id`),
   CONSTRAINT `public_sign_t_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='公示板(简明扼要)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公示板(简明扼要)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `t_area` (
   UNIQUE KEY `t_area_id_uindex` (`id`),
   KEY `t_area_t_board_id_fk` (`board_id`),
   CONSTRAINT `t_area_t_board_id_fk` FOREIGN KEY (`board_id`) REFERENCES `t_board` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='分区表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分区表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,9 +88,12 @@ CREATE TABLE `t_board` (
   `board_description` varchar(200) NOT NULL COMMENT '板块描述200',
   `create_time` datetime NOT NULL COMMENT '板块的创建时间',
   `area_count` int(11) NOT NULL COMMENT '区的个数',
+  `panel_id` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `t_board_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  UNIQUE KEY `t_board_id_uindex` (`id`),
+  KEY `t_board_t_panel_id_fk` (`panel_id`),
+  CONSTRAINT `t_board_t_panel_id_fk` FOREIGN KEY (`panel_id`) REFERENCES `t_panel` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +121,7 @@ CREATE TABLE `t_collections` (
   UNIQUE KEY `t_collections_id_uindex` (`id`),
   KEY `t_collections_t_user_id_fk` (`user_id`),
   CONSTRAINT `t_collections_t_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='用户收藏表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +153,7 @@ CREATE TABLE `t_comment` (
   KEY `t_comment_t_user_id_fk` (`comment_from_uid`),
   CONSTRAINT `t_comment_t_post_id_fk` FOREIGN KEY (`post_id`) REFERENCES `t_post` (`id`),
   CONSTRAINT `t_comment_t_user_id_fk` FOREIGN KEY (`comment_from_uid`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='评论表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +189,7 @@ CREATE TABLE `t_comment_reply` (
   CONSTRAINT `t_comment_reply_t_comment_id_fk` FOREIGN KEY (`comment_id`) REFERENCES `t_comment` (`id`),
   CONSTRAINT `t_comment_reply_t_user_id_fk` FOREIGN KEY (`from_user_id`) REFERENCES `t_user` (`id`),
   CONSTRAINT `t_comment_reply_t_user_id_fk_2` FOREIGN KEY (`to_user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='评论回复表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论回复表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +220,7 @@ CREATE TABLE `t_file` (
   UNIQUE KEY `t_file_id_uindex` (`id`),
   KEY `t_file_t_user_id_fk` (`user_id`),
   CONSTRAINT `t_file_t_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='文件上传表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件上传表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +250,7 @@ CREATE TABLE `t_login_information` (
   UNIQUE KEY `t_login_information_id_uindex` (`id`),
   KEY `t_login_information_t_user_id_fk` (`user_id`),
   CONSTRAINT `t_login_information_t_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='用户登录的信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户登录的信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,6 +260,31 @@ CREATE TABLE `t_login_information` (
 LOCK TABLES `t_login_information` WRITE;
 /*!40000 ALTER TABLE `t_login_information` DISABLE KEYS */;
 /*!40000 ALTER TABLE `t_login_information` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `t_panel`
+--
+
+DROP TABLE IF EXISTS `t_panel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_panel` (
+  `id` varchar(64) NOT NULL,
+  `t_title` varchar(200) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `t_panel_id_uindex` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='模块表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `t_panel`
+--
+
+LOCK TABLES `t_panel` WRITE;
+/*!40000 ALTER TABLE `t_panel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_panel` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -282,7 +310,7 @@ CREATE TABLE `t_post` (
   KEY `t_post_t_board_id_fk` (`board_id`),
   CONSTRAINT `t_post_t_area_id_fk` FOREIGN KEY (`area_id`) REFERENCES `t_area` (`id`),
   CONSTRAINT `t_post_t_board_id_fk` FOREIGN KEY (`board_id`) REFERENCES `t_board` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='贴子表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='贴子表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,7 +335,7 @@ CREATE TABLE `t_role_permission` (
   `permission` varchar(16) NOT NULL COMMENT '权限',
   PRIMARY KEY (`id`),
   UNIQUE KEY `t_role_permission_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='角色权限表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色权限表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,7 +366,7 @@ CREATE TABLE `t_test` (
 
 LOCK TABLES `t_test` WRITE;
 /*!40000 ALTER TABLE `t_test` DISABLE KEYS */;
-INSERT INTO `t_test` VALUES (1,'info1'),(2,'1'),(3,'1afdsafd'),(4,'1afdsafdaaaaaaaaaaaaaaaaaaa'),(5,'1afdsafdaaaaaaaaaaaaaaaaa$$aa'),(6,'1afdsafdaaaaaaaaaaaaaa3333##aaa$$aa'),(7,'明天'),(NULL,'啦啦啦啦');
+INSERT INTO `t_test` VALUES (1,'info1'),(2,'1'),(3,'1afdsafd'),(4,'1afdsafdaaaaaaaaaaaaaaaaaaa'),(5,'1afdsafdaaaaaaaaaaaaaaaaa$$aa'),(6,'1afdsafdaaaaaaaaaaaaaa3333##aaa$$aa'),(7,'明天'),(8,'啦啦啦啦');
 /*!40000 ALTER TABLE `t_test` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,7 +397,7 @@ CREATE TABLE `t_user` (
   `details` varchar(250) DEFAULT NULL COMMENT '详细地址',
   PRIMARY KEY (`id`),
   UNIQUE KEY `t_user_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='用户信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,7 +428,7 @@ CREATE TABLE `user_roles_permissions` (
   KEY `user_roles_permissions_t_user_id_fk` (`user_id`),
   CONSTRAINT `user_roles_permissions_t_role_permission_id_fk` FOREIGN KEY (`role_id`) REFERENCES `t_role_permission` (`id`),
   CONSTRAINT `user_roles_permissions_t_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='用户角色中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色中间表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-08 22:34:37
+-- Dump completed on 2019-03-09 15:46:58

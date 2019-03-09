@@ -7,6 +7,8 @@ import com.gyl.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +20,7 @@ public class UserService {
 
     public int add(User user) {
         user.setId(UUIDString.createId());
+        user.setCreateTime(new Date(System.currentTimeMillis()));
         user.setStatus(StatusCode.USER_NOT_ACTIVE);
         return userMapper.add(user);
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.PanelMapper">
+    <insert id="add" parameterType="com.gyl.entity.Panel">
+        insert into t_panel (id,title,create_time,logo_path,user_manager_id,info,detail)
+        values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail});
+    </insert>
+    <select id="list" resultType="com.gyl.entity.Panel">
+      select * from t_panel;
+    </select>
+</mapper>

@@ -1,15 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>模块</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../../lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="../../../../lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="../../../../../css/admin/admin_pages.css">
+    <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
         .input-group {
             bottom: 20px;
@@ -59,33 +60,20 @@
                     <th>删除</th>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                        <td><a href="#">a</a></td>
-                    </tr>
+                    ${panelList}
+                    <c:forEach items="${panelList}" var="p" varStatus="i">
+                        <tr>
+                            <td><a href="#">${p.id}</a></td>
+                            <td><a href="#">${p.logoPath}</a></td>
+                            <td><a href="#">${p.title}</a></td>
+                            <td><a href="#">${p.info}</a></td>
+                            <td><a href="#">
+                                <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH-mm-ss"/>
+                            </a></td>
+                            <td><a href="/panel/edit?id=${p.id}">编辑</a></td>
+                            <td><a href="/panel/delete?id=${p.id}">删除</a></td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

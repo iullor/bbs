@@ -78,7 +78,7 @@
                     <h3>欢迎</h3>
                 </li>
                 <li>
-                    <a href="info.jsp">
+                    <a href="/admin/info">
                         <span class="glyphicon glyphicon-cog"></span>系统信息<span></span>
                     </a>
                 </li>
@@ -88,8 +88,8 @@
                     </a>
                     <div id="userManager">
                         <ul>
-                            <li><a href="pages/user/list.jsp"> 用户列表</a></li>
-                            <li><a href="pages/user/edit.jsp">编辑</a></li>
+                            <li><a href="/admin/user/list"> 用户列表</a></li>
+                            <li><a href="/admin/user/edit">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -99,8 +99,8 @@
                     </a>
                     <div id="postManager">
                         <ul>
-                            <li><a href="pages/post/list.jsp">列表</a></li>
-                            <li><a href="pages/post/edit.jsp">添加</a></li>
+                            <li><a href="/admin/post/list">列表</a></li>
+                            <li><a href="/admin/post/edit">添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -110,8 +110,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/area/list.jsp">列表</a></li>
-                            <li><a href="pages/area/edit.jsp">编辑</a></li>
+                            <li><a href="/admin/area/list">列表</a></li>
+                            <li><a href="/admin/user/edit">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -121,8 +121,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/board/list.jsp">列表</a></li>
-                            <li><a href="pages/board/edit.jsp">编辑</a></li>
+                            <li><a href="/admin/board/list">列表</a></li>
+                            <li><a href="/admin/board/edit">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -132,8 +132,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/panel/list.jsp">列表</a></li>
-                            <li><a href="pages/panel/edit.jsp">编辑</a></li>
+                            <li><a href="/admin/panel/list">列表</a></li>
+                            <li><a href="/admin/panel/edit">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -143,13 +143,13 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/shield/list.jsp">现有</a></li>
-                            <li><a href="pages/shield/edit.jsp">新增</a></li>
+                            <li><a href="/admin/shield/list">现有</a></li>
+                            <li><a href="/admin/shield/edit">新增</a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a href="pages/examination/list.jsp">
+                    <a href="/admin/examination/list">
                         <span class="glyphicon glyphicon-retweet"></span>审核审查<span></span>
                     </a>
                 </li>
@@ -159,8 +159,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/permission/list.jsp">列表</a></li>
-                            <li><a href="pages/permission/edit.jsp">设置权限</a></li>
+                            <li><a href="/admin/permission/list">列表</a></li>
+                            <li><a href="/admin/permission/edit">设置权限</a></li>
                         </ul>
                     </div>
                 </li>
@@ -170,8 +170,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="pages/feedback/list.jsp">反馈列表</a></li>
-                            <li><a href="pages/feedback/edit.jsp">回复</a></li>
+                            <li><a href="/admin/feedback/list">反馈列表</a></li>
+                            <li><a href="/admin/feedback/edit">回复</a></li>
                         </ul>
                     </div>
                 </li>
@@ -198,7 +198,7 @@
     <!--内容-->
 
     <div class="col-md-10  pull-right">
-        <iframe src="pages/examination/list.jsp" frameborder="0" scrolling="no" id="external-frame" width="100%"
+        <iframe src="/admin/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
                 onload="setIframeHeight(this)"></iframe>
     </div>
 </div>

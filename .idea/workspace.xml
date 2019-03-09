@@ -7,7 +7,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/PanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/gyl/DateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d3c5039-7b8c-4734-afd2-d7705b52b816.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bbs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bbs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,7 +77,21 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="test1: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="test_bbs: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="test_bbs: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="t_panel: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="test_bbs: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="t_user: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -51,94 +100,131 @@
     <session id="1115887255">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.56" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="SCHEMA:bbs" value="1" />
+          <entry key="SCHEMA:bbs" value="2" />
           <entry key="SCHEMA:bbs1" value="1" />
-          <entry key="SCHEMA:test1" value="2" />
+          <entry key="SCHEMA:test1" value="4" />
           <entry key="css" value="4" />
           <entry key="groovy" value="1" />
           <entry key="html" value="6" />
-          <entry key="java" value="51" />
-          <entry key="jsp" value="70" />
-          <entry key="properties" value="6" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="139" />
+          <entry key="jsp" value="80" />
+          <entry key="properties" value="7" />
           <entry key="public_sign" value="2" />
-          <entry key="sql" value="12" />
+          <entry key="sql" value="18" />
+          <entry key="t_board" value="4" />
           <entry key="t_login_information" value="2" />
-          <entry key="t_test" value="4" />
+          <entry key="t_panel" value="7" />
+          <entry key="t_test" value="6" />
           <entry key="t_test_1" value="1" />
-          <entry key="t_user" value="9" />
-          <entry key="xml" value="24" />
+          <entry key="t_user" value="21" />
+          <entry key="user_roles_permissions" value="1" />
+          <entry key="xml" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="DBN-SQL" value="3" />
-          <entry key="Database Element" value="18" />
+          <entry key="DBN-SQL" value="5" />
+          <entry key="Database Element" value="44" />
           <entry key="HTML" value="6" />
-          <entry key="JAVA" value="51" />
-          <entry key="JSP" value="70" />
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Scratch" value="10" />
-          <entry key="UML" value="4" />
-          <entry key="XML" value="24" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="139" />
+          <entry key="JSP" value="80" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Scratch" value="14" />
+          <entry key="UML" value="7" />
+          <entry key="XML" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="30" />
+          <entry key="cell" value="36" />
           <entry key="html" value="2" />
-          <entry key="java" value="3305" />
-          <entry key="jsp" value="612" />
+          <entry key="java" value="5168" />
+          <entry key="jsp" value="1008" />
           <entry key="properties" value="27" />
-          <entry key="sql" value="142" />
-          <entry key="txt" value="5" />
-          <entry key="xml" value="427" />
+          <entry key="sql" value="336" />
+          <entry key="txt" value="246" />
+          <entry key="xml" value="649" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="2" />
-          <entry key="JAVA" value="3305" />
-          <entry key="JSP" value="612" />
-          <entry key="PLAIN_TEXT" value="32" />
-          <entry key="SQL" value="95" />
-          <entry key="Scratch" value="126" />
-          <entry key="XML" value="378" />
+          <entry key="JAVA" value="5168" />
+          <entry key="JSP" value="1008" />
+          <entry key="PLAIN_TEXT" value="273" />
+          <entry key="SQL" value="296" />
+          <entry key="Scratch" value="143" />
+          <entry key="XML" value="582" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
-=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/PanelController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="-10">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#1193#1194#0" expanded="true" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#1468#1469#0" expanded="true" />
+                <element signature="e#1538#1539#0" expanded="true" />
+                <element signature="e#1584#1585#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="632">
+              <caret line="73" column="78" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="73" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
->>>>>>> dev
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="Mybatis Mapper" />
       </list>
     </option>
   </component>
@@ -149,10 +235,17 @@
       <find>*.html</find>
       <find>login</find>
       <find>register</find>
+      <find>log</find>
+      <find>管理员</find>
+      <find>*.jsp</find>
+      <find>CHARSET=latin1</find>
+      <find>panel</find>
     </findStrings>
     <replaceStrings>
       <replace>.jsp</replace>
       <replace>jsp</replace>
+      <replace>*</replace>
+      <replace>CHARSET=UTF8</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp</dir>
@@ -164,16 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/permission.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/500.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/info.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/user/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/user/edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/shield/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/shield/edit.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/post/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/post/edit.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/permission/edit.jsp" />
@@ -187,8 +270,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/board/edit.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/area/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/pages/area/edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/Test.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml" />
@@ -197,15 +278,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/info.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console_1.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserBaseInfo.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/UUIDString.java" />
@@ -213,8 +290,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console.sql" />
+        <option value="$PROJECT_DIR$/bbs.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3fcc52eb-e062-4399-8ea5-f260697bdd6b/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/com/gyl/DateTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/web/controller/PanelController.java" />
       </list>
     </option>
   </component>
@@ -238,6 +331,11 @@
         <option name="userSettingsFile" value="/etc/maven/settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -255,11 +353,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="49" />
-    <option name="y" value="28" />
-    <option name="width" value="936" />
-    <option name="height" value="1052" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1041" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -296,6 +393,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -306,41 +406,161 @@
           <expand>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-              <item name="com.intellij.database" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-              <item name="com.intellij.database" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
-              <item name="schema" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gyl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552056902816" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552148773050" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/bbs.sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bbs.sql" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -349,11 +569,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.gyl.mapper" />
+      <recent name="com.gyl.service" />
+      <recent name="com.gyl.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/css" />
@@ -362,10 +581,11 @@
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/java/com/gyl" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.gyl.entity" />
-      <recent name="com.gyl.mapper" />
-      <recent name="com.gyl.service" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -381,6 +601,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.bbs">
+    <configuration name="DateTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gyl.DateTest" />
+      <module name="bbs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gyl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UUIDString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gyl.commons.UUIDString" />
       <module name="bbs" />
@@ -472,9 +705,11 @@
     <list>
       <item itemvalue="Tomcat Server.bbs" />
       <item itemvalue="Application.UUIDString" />
+      <item itemvalue="Application.DateTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DateTest" />
         <item itemvalue="Application.UUIDString" />
       </list>
     </recent_temporary>
@@ -492,49 +727,52 @@
       <workItem from="1551938160057" duration="18783000" />
       <workItem from="1552017725022" duration="13244000" />
       <workItem from="1552034363749" duration="2329000" />
+      <workItem from="1552144404242" duration="4414000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="34281000" />
-=======
-    <option name="totallyTimeSpent" value="34356000" />
->>>>>>> dev
+    <option name="totallyTimeSpent" value="56071000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1041" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.09371672" visible="true" weight="0.17272727" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.09371672" visible="true" weight="0.22834225" />
       <window_info id="Structure" order="1" sideWeight="0.90628326" side_tool="true" weight="0.15107527" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.50696677" side_tool="true" weight="0.17634408" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="DB Browser" order="7" weight="0.32994652" />
+      <window_info id="DB Browser" order="7" weight="0.32967034" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3245033" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32781458" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49893048" weight="0.40286976" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.687638" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49893048" weight="0.410596" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.303532" />
       <window_info anchor="bottom" id="Application Servers" order="5" weight="0.32781458" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="8" weight="0.32800853" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32781458" />
       <window_info anchor="bottom" id="Spring" order="9" weight="0.3290735" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.6699779" />
-=======
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.9039735" />
->>>>>>> dev
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.7240618" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50106955" side_tool="true" weight="0.9701987" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3289183" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.4834931" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.4834931" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3289183" />
       <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32781458" />
       <window_info anchor="bottom" id="DB Execution Console" order="16" />
-      <window_info anchor="bottom" id="Database Console" order="17" weight="0.36534217" />
+      <window_info anchor="bottom" id="Database Console" order="17" weight="0.18543047" />
       <window_info anchor="right" id="RestServices" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -546,7 +784,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Web" order="9" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
       <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="10" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
-      <window_info anchor="right" id="Database" order="11" weight="0.22085561" />
+      <window_info anchor="right" id="Database" order="11" weight="0.2197861" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,157 +793,37 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/PanelController.java</url>
+          <line>26</line>
+          <properties class="com.gyl.web.controller.PanelController" method="add">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/info.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/admin/admin.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/TestMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs1/table/t_test_1" />
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs1/table/t_test" />
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/t_test">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216" />
-      </provider>
-    </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/public_sign">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true" />
+          <caret column="78" selection-start-column="78" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/public_sign">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6e7ec3aa-4663-4a20-a14e-04071014451c/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="uml://DATABASE/5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:bbs">
+    <entry file="uml://DATABASE/5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>DATABASE</ID>
-          <OriginalElement>5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:bbs</OriginalElement>
-          <nodes>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_role_permission</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.public_sign</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_comment</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_login_information</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_comment_reply</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.user_roles_permissions</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_file</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_post</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_user</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_board</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_area</node>
-            <node x="" y="">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:bbs.t_collections</node>
-          </nodes>
+          <OriginalElement>5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1</OriginalElement>
+          <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.5750169721656484" x="826.0" y="716.0" />
+          <settings layout="Hierarchic Group" zoom="0.4821327283040272" x="941.0" y="862.0" />
           <SelectedNodes />
           <Categories>
             <Category>Key columns</Category>
@@ -715,124 +833,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="241" column="44" lean-forward="true" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/t_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1">
+    <entry file="das://3fcc52eb-e062-4399-8ea5-f260697bdd6b/schema/test1/table/t_test" />
+    <entry file="das://3fcc52eb-e062-4399-8ea5-f260697bdd6b/schema/test1/table/t_board" />
+    <entry file="uml://DATABASE/3fcc52eb-e062-4399-8ea5-f260697bdd6b.SCHEMA:test1">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>DATABASE</ID>
-          <OriginalElement>5d3c5039-7b8c-4734-afd2-d7705b52b816.SCHEMA:test1</OriginalElement>
+          <OriginalElement>3fcc52eb-e062-4399-8ea5-f260697bdd6b.SCHEMA:test1</OriginalElement>
           <nodes>
-            <node x="1093.3166666666666" y="1332.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply</node>
-            <node x="1217.0" y="1058.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment</node>
-            <node x="1356.5" y="602.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post</node>
-            <node x="997.0" y="1098.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_collections</node>
-            <node x="806.75" y="494.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user</node>
-            <node x="0.0" y="683.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_role_permission</node>
-            <node x="1334.0" y="0.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board</node>
-            <node x="0.0" y="1628.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_test</node>
-            <node x="766.0" y="1071.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_login_information</node>
-            <node x="1422.5" y="247.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area</node>
-            <node x="285.0" y="1058.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_file</node>
-            <node x="547.0" y="1085.0">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.public_sign</node>
-            <node x="53.0" y="1098.5">5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions</node>
+            <node x="789.7" y="521.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user</node>
+            <node x="766.0" y="1112.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.public_sign</node>
+            <node x="997.0" y="1098.5">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_login_information</node>
+            <node x="53.0" y="1125.5">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.user_roles_permissions</node>
+            <node x="0.0" y="710.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_role_permission</node>
+            <node x="1344.0" y="0.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_board</node>
+            <node x="504.00000000000006" y="1085.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_file</node>
+            <node x="1315.5" y="274.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_area</node>
+            <node x="1227.0" y="1085.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment</node>
+            <node x="918.8833333333334" y="1359.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment_reply</node>
+            <node x="1662.0" y="0.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_test</node>
+            <node x="0.0" y="1655.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_panel1</node>
+            <node x="1366.5" y="629.0">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_post</node>
+            <node x="285.0" y="1125.5">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_collections</node>
           </nodes>
           <notes />
           <edges>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board">
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_area" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_board">
               <point x="0.0" y="-98.5" />
-              <point x="1529.0" y="222.0" />
-              <point x="1538.75" y="222.0" />
-              <point x="68.25" y="98.5" />
+              <point x="1422.0" y="249.0" />
+              <point x="1412.25" y="249.0" />
+              <point x="-68.25" y="112.0" />
             </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment">
-              <point x="80.0" y="-125.5" />
-              <point x="1293.3166666666666" y="1307.0" />
-              <point x="1386.0" y="1307.0" />
-              <point x="0.0" y="112.0" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_area">
-              <point x="57.0" y="-139.0" />
-              <point x="1527.5" y="469.0" />
-              <point x="1529.0" y="469.0" />
-              <point x="0.0" y="98.5" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_board">
-              <point x="-57.0" y="-139.0" />
-              <point x="1413.5" y="469.0" />
-              <point x="1412.0" y="469.0" />
-              <point x="1412.0" y="222.0" />
-              <point x="1402.25" y="222.0" />
-              <point x="-68.25" y="98.5" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_file" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
-              <point x="0.0" y="-112.0" />
-              <point x="406.0" y="1018.0" />
-              <point x="852.5" y="1018.0" />
-              <point x="-76.25" y="247.0" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.public_sign" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.public_sign" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
               <point x="0.0" y="-85.0" />
-              <point x="646.5" y="1028.0" />
-              <point x="883.0" y="1028.0" />
-              <point x="-45.75" y="247.0" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_login_information" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
-              <point x="0.0" y="-98.5" />
-              <point x="871.0" y="1038.0" />
-              <point x="913.5" y="1038.0" />
+              <point x="865.5" y="1065.0" />
+              <point x="896.45" y="1065.0" />
               <point x="-15.25" y="247.0" />
             </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
               <point x="-84.5" y="-112.0" />
-              <point x="1301.5" y="1008.0" />
-              <point x="1035.5" y="1008.0" />
+              <point x="1311.5" y="1035.0" />
+              <point x="1018.45" y="1035.0" />
               <point x="106.75" y="247.0" />
             </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_role_permission">
-              <point x="-53.0" y="-71.5" />
-              <point x="0.0" y="58.0" />
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_post" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_area">
+              <point x="-57.0" y="-139.0" />
+              <point x="1423.5" y="496.0" />
+              <point x="1422.0" y="496.0" />
+              <point x="0.0" y="98.5" />
             </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment_reply" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
-              <point x="0.0" y="-125.5" />
-              <point x="1213.3166666666666" y="1307.0" />
-              <point x="1206.5" y="1307.0" />
-              <point x="1206.5" y="1018.0" />
-              <point x="1005.0" y="1018.0" />
-              <point x="76.25" y="247.0" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
-              <point x="53.0" y="-71.5" />
-              <point x="212.0" y="1008.0" />
-              <point x="822.0" y="1008.0" />
-              <point x="-106.75" y="247.0" />
-            </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_comment" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_post">
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_post">
               <point x="84.5" y="-112.0" />
               <point x="0.0" y="139.0" />
             </edge>
-            <edge source="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_collections" target="5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.t_user">
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_post" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_board">
+              <point x="57.0" y="-139.0" />
+              <point x="1537.5" y="496.0" />
+              <point x="1539.0" y="496.0" />
+              <point x="1539.0" y="249.0" />
+              <point x="1548.75" y="249.0" />
+              <point x="68.25" y="112.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment_reply" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment">
+              <point x="80.00000000000006" y="-125.5" />
+              <point x="1118.8833333333334" y="1334.0" />
+              <point x="1396.0" y="1334.0" />
+              <point x="0.0" y="112.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_collections" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
               <point x="0.0" y="-71.5" />
-              <point x="1096.5" y="1028.0" />
-              <point x="974.5" y="1028.0" />
+              <point x="384.5" y="1045.0" />
+              <point x="835.45" y="1045.0" />
+              <point x="-76.25" y="247.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_login_information" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
+              <point x="0.0" y="-98.5" />
+              <point x="1102.0" y="1045.0" />
+              <point x="987.95" y="1045.0" />
+              <point x="76.25" y="247.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.user_roles_permissions" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
+              <point x="53.0" y="-71.5" />
+              <point x="212.0" y="1035.0" />
+              <point x="804.95" y="1035.0" />
+              <point x="-106.75" y="247.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_file" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
+              <point x="0.0" y="-112.0" />
+              <point x="625.0" y="1055.0" />
+              <point x="865.95" y="1055.0" />
+              <point x="-45.75" y="247.0" />
+            </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_comment_reply" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_user">
+              <point x="5.6843418860808015E-14" y="-125.5" />
+              <point x="1038.8833333333334" y="1334.0" />
+              <point x="986.5" y="1334.0" />
+              <point x="986.5" y="1055.0" />
+              <point x="957.45" y="1055.0" />
               <point x="45.75" y="247.0" />
             </edge>
+            <edge source="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.user_roles_permissions" target="3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_role_permission">
+              <point x="-53.0" y="-71.5" />
+              <point x="0.0" y="58.0" />
+            </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.25120772946859904" x="2974.0" y="791.0" />
+          <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="172.0" y="67.0" />
           <SelectedNodes>
-            <node>5d3c5039-7b8c-4734-afd2-d7705b52b816.TABLE:test1.user_roles_permissions</node>
+            <node>3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:test1.t_test</node>
           </SelectedNodes>
           <Categories>
             <Category>Key columns</Category>
@@ -842,17 +949,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/bbs/table/t_login_information">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3fcc52eb-e062-4399-8ea5-f260697bdd6b/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="uml://DATABASE/3fcc52eb-e062-4399-8ea5-f260697bdd6b.SCHEMA:bbs">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>3fcc52eb-e062-4399-8ea5-f260697bdd6b.SCHEMA:bbs</OriginalElement>
+          <nodes>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_comment_reply</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_file</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_area</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_collections</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.user_roles_permissions</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_post</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_panel</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_user</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_board</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.public_sign</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_role_permission</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_test</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_login_information</node>
+            <node x="" y="">3fcc52eb-e062-4399-8ea5-f260697bdd6b.TABLE:bbs.t_comment</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.08963133640553" x="283.0" y="503.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/bbs/table/t_test">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5d3c5039-7b8c-4734-afd2-d7705b52b816/console_1.sql">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bbs.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
+        <state relative-caret-position="300">
+          <caret line="265" column="37" selection-start-line="265" selection-start-column="32" selection-end-line="265" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -863,146 +1009,318 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/UserBaseInfo.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.5.RELEASE/spring-context-5.0.5.RELEASE-sources.jar!/org/springframework/format/annotation/DateTimeFormat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="196">
+          <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java">
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/text/DateFormat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+        <state relative-caret-position="292">
+          <caret line="151" column="24" lean-forward="true" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/text/SimpleDateFormat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/TestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="208" selection-start-line="208" selection-end-line="208" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/UUIDString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" column="57" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="57" />
+        <state relative-caret-position="792">
+          <caret line="420" column="41" lean-forward="true" selection-start-line="420" selection-start-column="41" selection-end-line="420" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        <state relative-caret-position="153">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.5.RELEASE/spring-core-5.0.5.RELEASE-sources.jar!/org/springframework/util/Assert.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+        <state relative-caret-position="91">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.5.RELEASE/spring-core-5.0.5.RELEASE-sources.jar!/org/springframework/core/MethodParameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.5.RELEASE/spring-core-5.0.5.RELEASE-sources.jar!/org/springframework/core/annotation/SynthesizingMethodParameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/HandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
+          <folding>
+            <element signature="e#11298#11299#0" expanded="true" />
+            <element signature="e#11353#11354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="852" selection-start-line="852" selection-end-line="852" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3830">
+          <caret line="453" column="28" selection-start-line="453" selection-start-column="23" selection-end-line="453" selection-end-column="28" />
+          <folding>
+            <element signature="e#6390#6391#0" expanded="true" />
+            <element signature="e#6438#6439#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/sql/Timestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bbs.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://5d3c5039-7b8c-4734-afd2-d7705b52b816/schema/test1/table/t_user">
+    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9-sources.jar!/org/joda/time/LocalDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2282">
+          <caret line="383" column="53" lean-forward="true" selection-start-line="383" selection-start-column="21" selection-end-line="383" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/lang/Comparable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9-sources.jar!/org/joda/time/ReadablePartial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9-sources.jar!/org/joda/time/LocalTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/gyl/DateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/sql/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="93" column="49" lean-forward="true" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="17" selection-start-line="17" selection-end-line="18" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="22" column="65" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="22" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="884" selection-start-line="884" selection-end-line="884" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="1000" column="39" lean-forward="true" selection-start-line="1000" selection-start-column="39" selection-end-line="1000" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/user_roles_permissions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="47" column="104" selection-start-line="47" selection-start-column="104" selection-end-line="47" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_panel">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TestMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/info.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/PanelController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="362">
+          <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bbs.sql">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/web/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="168">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-=======
-        <state relative-caret-position="120">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
->>>>>>> dev
+        <state relative-caret-position="-10">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <element signature="e#1538#1539#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="73" column="78" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="73" selection-end-column="78" />
         </state>
       </provider>
     </entry>
