@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * @author gyl
  */
+
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
@@ -61,7 +62,9 @@ public class AdminController {
         return "admin/feedback/list";
     }
 
-    @RequestMapping("/panel/edit")
+
+    @SuppressWarnings("all")
+/*    @RequestMapping("/panel/edit")
     public String toPanelEdit() {
         return "admin/panel/edit";
     }
@@ -69,7 +72,7 @@ public class AdminController {
     @RequestMapping("/panel/list")
     public String toPanelList() {
         return "redirect:/panel/list";
-    }
+    }*/
 
     @RequestMapping("/permission/edit")
     public String toPermissionEdit() {

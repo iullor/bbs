@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -57,5 +58,18 @@ public class UserService {
         }
         userLogonInfo.put("USER_STATUS", StatusCode.USER_NOT_EXIT);
         return userLogonInfo;
+    }
+
+    /**
+     * 通过用户的id来找User
+     *
+     * @return
+     */
+    private User selectUserById(String uid) {
+        return userMapper.selectUserById(uid);
+    }
+
+    public List<User> list() {
+        return userMapper.list();
     }
 }

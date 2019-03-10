@@ -10,6 +10,11 @@
     <!--js-->
     <script src="../../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../../lib/bootstrap/bootstrap.min.js"></script>
+    <style>
+        #pageContainer {
+            top: 50px;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -132,8 +137,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/panel/list">列表</a></li>
-                            <li><a href="/admin/panel/edit">编辑</a></li>
+                            <li><a href="/panel/list">列表</a></li>
+                            <li><a href="/panel/toEdit">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -197,7 +202,7 @@
 
     <!--内容-->
 
-    <div class="col-md-10  pull-right">
+    <div id="pageContainer" class="col-md-10  pull-right">
         <iframe src="/admin/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
                 onload="setIframeHeight(this)"></iframe>
     </div>

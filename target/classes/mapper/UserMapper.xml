@@ -34,4 +34,11 @@
     <select id="checkUser" resultType="com.gyl.entity.User">
       select * from t_user where username=#{1};
    </select>
+
+    <select id="selectUserById" resultType="com.gyl.entity.User">
+      select * from t_user where id=#{uid};
+    </select>
+    <select id="list" resultType="com.gyl.entity.User">
+      select * from test_bbs.t_user;
+    </select>
 </mapper>

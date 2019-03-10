@@ -54,6 +54,7 @@
                     <th>id</th>
                     <th>logo</th>
                     <th>标题</th>
+                    <th>管理者</th>
                     <th>板块简介</th>
                     <th>创建时间</th>
                     <th>修改</th>
@@ -61,17 +62,18 @@
                     </thead>
                     <tbody>
                     ${panelList}
-                    <c:forEach items="${panelList}" var="p" varStatus="i">
+                    <c:forEach items="${panels}" var="p" varStatus="i">
                         <tr>
                             <td><a href="#">${p.id}</a></td>
                             <td><a href="#">${p.logoPath}</a></td>
                             <td><a href="#">${p.title}</a></td>
+                            <td><a href="#">${p.userList[0].username}</a></td>
                             <td><a href="#">${p.info}</a></td>
                             <td><a href="#">
                                 <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH-mm-ss"/>
                             </a></td>
-                            <td><a href="/panel/edit?id=${p.id}">编辑</a></td>
-                            <td><a href="/panel/delete?id=${p.id}">删除</a></td>
+                            <td><a href="/panel/edit/${p.id}">编辑</a></td>
+                            <td><a href="/panel/delete/${p.id}">删除</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class Panel {
@@ -17,6 +19,13 @@ public class Panel {
     private String panelManagerId;
     private String info;
     private String detail;
+    private int isDisabeld;
+
+    /**
+     * panel 的管理者
+     */
+    private List<User> userList = new ArrayList<>();
+
 
     public String getId() {
         return id;
@@ -74,16 +83,20 @@ public class Panel {
         this.detail = detail;
     }
 
-    @Override
-    public String toString() {
-        return "Panel{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", createTime=" + createTime +
-                ", logoPath='" + logoPath + '\'' +
-                ", panelManagerId='" + panelManagerId + '\'' +
-                ", info='" + info + '\'' +
-                ", detail='" + detail + '\'' +
-                '}';
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+
+        this.userList = userList;
+    }
+
+    public int getIsDisabeld() {
+        return isDisabeld;
+    }
+
+    public void setIsDisabeld(int isDisabeld) {
+        this.isDisabeld = isDisabeld;
     }
 }
