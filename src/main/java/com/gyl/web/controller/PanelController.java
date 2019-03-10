@@ -21,7 +21,7 @@ import java.util.List;
  * 模块添加
  */
 @Controller
-@RequestMapping(value = "/panel")
+@RequestMapping
 public class PanelController {
     private static String uploadPath = "/home/gyl/Pictures/bbs-files/";
     @Autowired
@@ -31,13 +31,26 @@ public class PanelController {
     private UserService userService;
 
     /**
+     * panel 列表
+     *
+     * @param map
+     * @return
+     */
+    @RequestMapping("/panel")
+    public String list(ModelMap map) {
+        List<Panel> panels = panelService.list();
+        map.addAttribute("panels", panels);
+        return "admin/panel/list";
+    }
+
+    /**
      * 添加方法
      *
      * @param panel
      * @param multipartFile
      * @return
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/panel", method = RequestMethod.POST)
     public String add(Panel panel, @RequestParam("logo") MultipartFile multipartFile) {
         //调用方法设置上传文件
         setPanelFile(panel, multipartFile);
@@ -46,25 +59,29 @@ public class PanelController {
         return "redirect:/panel/list";
     }
 
-    @RequestMapping("/list")
-    public String list(ModelMap map) {
-        List<Panel> panels = panelService.list();
-        map.addAttribute("panels", panels);
-        return "admin/panel/list";
-    }
 
     /**
      * 更新方法
      *
-     * @param pid 前台传来panel的id
+     * @param id 前台传来panel的id
      * @return
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public String update(Panel panel, @RequestParam("logo") MultipartFile multipartFile, @PathVariable(value = "pid") String pid) {
+    @RequestMapping(value = "/panel/{id}", method = RequestMethod.PUT)
+    public String update(Panel panel, @RequestParam("logo") MultipartFile multipartFile, @PathVariable(value = "id") String id) {
         setPanelFile(panel, multipartFile);
-        //更新方法
-        int status = panelService.update(panel, pid);
-        System.out.println("PanelController.update");
+        int status = panelService.update(panel, id);
+        return "redirect:/panel/list";
+    }
+
+    /**
+     * 删除方法
+     *
+     * @param id panel的id
+     * @return
+     */
+    @RequestMapping(value = "/panel/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable(value = "id") String id) {
+        int delete = panelService.delete(id);
         return "redirect:/panel/list";
     }
 
@@ -73,41 +90,22 @@ public class PanelController {
      *
      * @return
      */
-    @RequestMapping("/edit/{pid}")
-    public String edit(@PathVariable(value = "pid") String pid, ModelMap modelMap) {
+    @RequestMapping(value = "/panel/input/{id}", method = RequestMethod.GET)
+    public String input(@PathVariable(value = "id") String pid, ModelMap modelMap) {
         List<User> users = userService.list();
-        if (pid != null) {
+        Panel panel = new Panel();
+        if (pid != null && !pid.equals("0")) {
             //为了页面回显
-            Panel panelById = getPanelById(pid);
-            if (panelById != null) {
-                modelMap.addAttribute("panelEdit", panelById);
-            }
+            panel = panelService.getPanelById(pid);
         }
+        //为了使用springmvc自动回显功能，如果是编辑的话，springmvcmvc 会自动去请求作用域中找panel，并赋值
+        modelMap.addAttribute("panel", panel);
         modelMap.addAttribute("users", users);
         modelMap.addAttribute("pid", pid);
+
         return "admin/panel/edit";
     }
 
-    @RequestMapping("/toEdit")
-    public String toEdit(ModelMap map) {
-        List<User> users = userService.list();
-        map.addAttribute("users", users);
-        return "admin/panel/edit";
-    }
-
-    /**
-     * 删除方法
-     *
-     * @param pid panel的id
-     * @return
-     */
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public String delete(String pid) {
-
-        int delete = panelService.delete(pid);
-
-        return "redirect:/panel/list";
-    }
 
     /**
      * 设置上传文件
@@ -135,10 +133,4 @@ public class PanelController {
         }
 
     }
-
-    public Panel getPanelById(String pid) {
-        Panel panel = panelService.getPanelById(pid);
-        return panel;
-    }
-
 }

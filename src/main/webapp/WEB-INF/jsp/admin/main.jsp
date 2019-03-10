@@ -137,8 +137,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/panel/list">列表</a></li>
-                            <li><a href="/panel/toEdit">编辑</a></li>
+                            <li><a href="/panel">列表</a></li>
+                            <li><a href="/panel/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
