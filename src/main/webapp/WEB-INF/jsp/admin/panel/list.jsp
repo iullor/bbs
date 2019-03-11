@@ -73,7 +73,10 @@
                                 <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                             </a></td>
                             <td><a href="/panel/input/${p.id}">编辑</a></td>
-                            <td><a href="/panel/delete/${p.id}">删除</a></td>
+                            <td><a class="delete" href="/panel/${p.id}">删除</a></td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="_method" value="DELETE"/>
+                            </form>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -83,6 +86,19 @@
     </div>
 </div>
 <script>
+    $(function () {
+        $(".delete").on("click", function () {
+            var i = confirm("你确定要删除当前用户吗？");
+            alert(i)
+            if (i) {
+                alert($(this).attr("href"));
+                var href = $(this).attr("href");
+                $("form").attr("action", href).submit();
+            }
+            return false;
+        })
+    })
+
 </script>
 </body>
 </html>

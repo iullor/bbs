@@ -4,7 +4,16 @@
 
     <insert id="add" parameterType="com.gyl.entity.Panel">
         insert into t_panel (id,title,create_time,logo_path,user_manager_id,info,detail,is_disabeld)
-        values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},#{isDisabeld});
+        values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},1);
+        <!--
+            <if test="panelDisabled==true">
+                   values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},1);
+             </if>
+             <if test="panelDisabled==false">
+                 values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},0);
+             </if>
+         -->
+
     </insert>
     <select id="list" resultMap="listPanel">
         select * from test_bbs.t_panel ;
@@ -20,7 +29,7 @@
         user_manager_id=#{panel.panelManagerId}
         ,info=#{panel.info}
         ,detail=#{panel.detail}
-        ,is_disabled=#{panel.isDiabled}
+        ,is_disabled=#{panel.panelDisabled}
         where id=#{pid};
     </update>
     <delete id="delete">

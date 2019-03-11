@@ -10,7 +10,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -36,7 +35,7 @@ public class PanelController {
      * @param map
      * @return
      */
-    @RequestMapping("/panel")
+    @RequestMapping(value = "/panel", method = RequestMethod.GET)
     public String list(ModelMap map) {
         List<Panel> panels = panelService.list();
         map.addAttribute("panels", panels);
@@ -47,30 +46,28 @@ public class PanelController {
      * 添加方法
      *
      * @param panel
-     * @param multipartFile
      * @return
      */
     @RequestMapping(value = "/panel", method = RequestMethod.POST)
-    public String add(Panel panel, @RequestParam("logo") MultipartFile multipartFile) {
+    public String add(Panel panel) {
         //调用方法设置上传文件
-        setPanelFile(panel, multipartFile);
+        setPanelFile(panel, panel.getMultipartFile());
         //新增
         int status = panelService.add(panel);
-        return "redirect:/panel/list";
+        return "redirect:/panel";
     }
 
 
     /**
      * 更新方法
      *
-     * @param id 前台传来panel的id
      * @return
      */
-    @RequestMapping(value = "/panel/{id}", method = RequestMethod.PUT)
-    public String update(Panel panel, @RequestParam("logo") MultipartFile multipartFile, @PathVariable(value = "id") String id) {
-        setPanelFile(panel, multipartFile);
-        int status = panelService.update(panel, id);
-        return "redirect:/panel/list";
+    @RequestMapping(value = "/panel", method = RequestMethod.PUT)
+    public String update(Panel panel) {
+        setPanelFile(panel, panel.getMultipartFile());
+        int status = panelService.update(panel, panel.getId());
+        return "redirect:/panel";
     }
 
     /**
@@ -82,7 +79,7 @@ public class PanelController {
     @RequestMapping(value = "/panel/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable(value = "id") String id) {
         int delete = panelService.delete(id);
-        return "redirect:/panel/list";
+        return "redirect:/panel";
     }
 
     /**
@@ -114,8 +111,9 @@ public class PanelController {
      * @param multipartFile
      */
     private void setPanelFile(Panel panel, MultipartFile multipartFile) {
+
         //给panel设置是否可见
-        panel.setIsDisabeld(panel.getIsDisabeld());
+        /*  panel.setIsDisabeld(panel.getIsDisabeld());*/
         if (multipartFile != null && !multipartFile.isEmpty()) {
             String originalFilename = multipartFile.getOriginalFilename();
             System.out.println("originalFilename = " + originalFilename);

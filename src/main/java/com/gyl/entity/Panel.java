@@ -3,13 +3,15 @@ package com.gyl.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Component
-public class Panel {
+public class Panel implements Serializable {
     private String id;
     private String title;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -19,7 +21,16 @@ public class Panel {
     private String panelManagerId;
     private String info;
     private String detail;
-    private int isDisabeld;
+    private boolean panelDisabled;
+    MultipartFile multipartFile;
+
+    public MultipartFile getMultipartFile() {
+        return multipartFile;
+    }
+
+    public void setMultipartFile(MultipartFile multipartFile) {
+        this.multipartFile = multipartFile;
+    }
 
     /**
      * panel 的管理者
@@ -92,11 +103,11 @@ public class Panel {
         this.userList = userList;
     }
 
-    public int getIsDisabeld() {
-        return isDisabeld;
+    public boolean isPanelDisabled() {
+        return panelDisabled;
     }
 
-    public void setIsDisabeld(int isDisabeld) {
-        this.isDisabeld = isDisabeld;
+    public void setPanelDisabled(boolean panelDisabled) {
+        this.panelDisabled = panelDisabled;
     }
 }
