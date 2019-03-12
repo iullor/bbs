@@ -58,4 +58,9 @@ public class PanelService {
     public Panel getPanelById(String pid) {
         return panelMapper.getPanelById(pid);
     }
+
+    public List<Panel> searchByPanelTitle(Panel panel) {
+
+        return panelMapper.searchByPanelTitle(panel);
+    }
 }

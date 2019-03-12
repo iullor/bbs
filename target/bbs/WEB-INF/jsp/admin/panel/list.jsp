@@ -12,7 +12,7 @@
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
-        .input-group {
+        .form-group {
             bottom: 20px;
         }
 
@@ -27,11 +27,14 @@
     <h2 class="text-center">模块列表</h2>
     <br>
     <div class="col-md-offset-9 col-md-2">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="id/昵称">
-            <span class="input-group-btn">
-                    <button class="btn btn-default">查找<span class="glyphicon glyphicon-search"></span></button>
-            </span>
+        <div class="form-group">
+            <form action="" id="searchByPanelTitle">
+                <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">查找<span
+                            class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </form>
         </div>
     </div>
     <div class="col-md-1">
@@ -42,7 +45,7 @@
 
     <br>
     <div class="panel-group">
-        <div class="panel panel-warning">
+        <div class="panel panel-warning" id="allPanels">
             <div class="panel-heading">
                 <div class="panel-title">
                     状态信息
@@ -61,7 +64,6 @@
                     <th>删除</th>
                     </thead>
                     <tbody>
-                    ${panelList}
                     <c:forEach items="${panels}" var="p" varStatus="i">
                         <tr>
                             <td><a href="#">${p.id}</a></td>
@@ -87,6 +89,9 @@
 </div>
 <script>
     $(function () {
+        /**
+         * 页面list之后，搜索结果展示的隐藏
+         */
         $(".delete").on("click", function () {
             var i = confirm("你确定要删除当前用户吗？");
             alert(i)
@@ -94,6 +99,47 @@
                 alert($(this).attr("href"));
                 var href = $(this).attr("href");
                 $("form").attr("action", href).submit();
+            }
+            return false;
+        })
+
+        $("#searchByPanelTitle").submit(function () {
+            var key = $("input[name='inputPanelTitle']").val();
+            /**
+             * 封装为obj对象，再用js将对象转换为json传输
+             * @type {{title: (*|jQuery)}}
+             */
+            var obj = {
+                title: key
+            }
+            alert(key)
+            if (key != null && key !== '') {
+                $.ajax({
+                    url: "/panel/searchByPanelTitle",
+                    type: "post",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data.status == "2000") {
+                            alert("查询到几条结果")
+                           /* var panels = JSON.parse(data["0"]);*/
+                            //data.panels;
+                            $("tbody").empty();
+                            $(data.panels).each(function (key,value) {
+                                console.log(key)
+                                console.log(value)
+                            })
+                        } else if ("2001") {
+                            alert("查询结果为空")
+                        }
+                    },
+                    error: function (e) {
+                        alert(e)
+                    }
+                });
+
+            } else {
+                alert("请输入要查询的关键词")
             }
             return false;
         })

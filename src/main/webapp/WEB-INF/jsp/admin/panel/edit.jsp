@@ -110,7 +110,7 @@
                     <div class="col-md-11">
                         <div class="switch switch-large">
                             <input name="panel.panelDisabled" id="panelDisabled" value="false" type="checkbox"
-                                   checked="${panel.panelDisabled}" />
+                                   checked="${panel.panelDisabled}"/>
                         </div>
                     </div>
                 </div>

@@ -28,4 +28,6 @@ public interface PanelMapper {
     int delete(@Param(value = "pid") String pid);
 
     Panel getPanelById(@Param(value = "pid") String pid);
+
+    List<Panel> searchByPanelTitle(Panel panel);
 }

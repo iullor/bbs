@@ -40,4 +40,11 @@ public class StatusCode {
     public static final String NOT_ASSCESS = "202";
 
 
+    /**
+     * Panel 相关的
+     */
+    public static final String PANET_EXIT = "2000";
+    public static final String PANET_NOT_EXIT = "2001";
+
+
 }

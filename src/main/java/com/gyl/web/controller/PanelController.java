@@ -1,5 +1,6 @@
 package com.gyl.web.controller;
 
+import com.gyl.commons.StatusCode;
 import com.gyl.entity.Panel;
 import com.gyl.entity.User;
 import com.gyl.service.PanelService;
@@ -7,14 +8,14 @@ import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 模块添加
@@ -101,6 +102,22 @@ public class PanelController {
         modelMap.addAttribute("pid", pid);
 
         return "admin/panel/edit";
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/panel/searchByPanelTitle")
+    public Map<String, Object> searchByPanelTitle(@RequestBody Panel panel) {
+        Map<String, Object> map = new HashMap<>();
+        String status = StatusCode.PANET_NOT_EXIT;
+
+        List<Panel> panels = panelService.searchByPanelTitle(panel);
+        if (panels.size() > 0) {
+            status = StatusCode.PANET_EXIT;
+        }
+        map.put("status", status);
+        map.put("panels", panels);
+        return map;
     }
 
 
