@@ -3,13 +3,15 @@ package com.gyl.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author gyl
+ */
 @Component
 public class Panel implements Serializable {
     private String id;
@@ -22,21 +24,17 @@ public class Panel implements Serializable {
     private String info;
     private String detail;
     private boolean panelDisabled;
-    MultipartFile multipartFile;
 
-    public MultipartFile getMultipartFile() {
-        return multipartFile;
-    }
-
-    public void setMultipartFile(MultipartFile multipartFile) {
-        this.multipartFile = multipartFile;
-    }
 
     /**
      * panel 的管理者
      */
     private List<User> userList = new ArrayList<>();
 
+    /**
+     * 板块
+     */
+    private List<Board> boards;
 
     public String getId() {
         return id;
@@ -110,4 +108,14 @@ public class Panel implements Serializable {
     public void setPanelDisabled(boolean panelDisabled) {
         this.panelDisabled = panelDisabled;
     }
+
+    public List<Board> getBoards() {
+        return boards;
+    }
+
+    public void setBoards(List<Board> boards) {
+        this.boards = boards;
+    }
+
+
 }

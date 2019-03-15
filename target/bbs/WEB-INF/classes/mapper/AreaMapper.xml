@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.AreaMapper">
+
+    <resultMap id="areaResultMap" type="com.gyl.entity.Area">
+        <id property="id" column="id"/>
+        <result property="areaTitle" column="area_title"/>
+        <result property="areaManagerId" column="user_id"/>
+        <result property="boardId" column="board_id"/>
+        <result property="details" column="details"/>
+        <result property="createTime" column="create_time"/>
+        <result property="info" column="info"/>
+        <association property="board" javaType="com.gyl.entity.Board">
+            <id property="id" column="id"/>
+            <result property="boardTitle" column="board_title"/>
+        </association>
+        <association property="user" javaType="com.gyl.entity.User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+        </association>
+    </resultMap>
+
+    <select id="list" resultMap="areaResultMap">
+        select
+          a.id,a.area_title,a.create_time,a.info,a.user_id,a.details,a.board_id,b.id,b.board_title,u.id,u.username
+         from test_bbs.t_area a ,test_bbs.t_board b,test_bbs.t_user u
+         where a.user_id = u.id AND a.board_id = b.id;
+    </select>
+    <update id="update" parameterType="com.gyl.entity.Area">
+        update test_bbs.t_area
+        <set>
+            <if test="areaTitle!=null ">area_title=#{areaTitle},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+            <if test="logoPath!=null">logo_path=#{logoPath},</if>
+            <if test="boardId!=null">board_id=#{boardId},</if>
+            <if test="areaManagerId!=null">user_id=#{areaManagerId},</if>
+            <if test="info!=null">info=#{info},</if>
+            <if test="details!=null">details=#{details},</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <insert id="add" parameterType="com.gyl.entity.Area">
+           insert into test_bbs.t_area
+              (id,area_title,create_time,board_id,user_id,info,details)
+              values
+          (#{id},#{areaTitle},#{createTime},#{boardId},#{areaManagerId},#{info},#{details});
+    </insert>
+
+    <delete id="delete">
+          delete from test_bbs.t_area where id=#{id}
+    </delete>
+
+    <select id="getAreaById" resultMap="areaResultMap">
+          select * from test_bbs.t_area where id=#{id};
+    </select>
+
+</mapper>

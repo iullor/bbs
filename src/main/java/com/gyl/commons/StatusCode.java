@@ -43,8 +43,11 @@ public class StatusCode {
     /**
      * Panel 相关的
      */
-    public static final String PANET_EXIT = "2000";
-    public static final String PANET_NOT_EXIT = "2001";
-
+    public static final String PANEL_EXIT = "2000";
+    public static final String PANEL_NOT_EXIT = "2001";
+    public static final String DELET_PANEL_ERROR = "2002";
+    public static final String DELET_PANEL_SUCCESS = "2003";
+    public static final String UPDATE_PANEL_ERROR = "2004";
+    public static final String UPDATE_PANEL_SUCCESS = "2005";
 
 }

@@ -16,8 +16,8 @@
             bottom: 20px;
         }
 
-        #warning-info {
-            margin-top: 150px;
+        .panel-group {
+            margin-top: 5px;
         }
     </style>
 
@@ -26,23 +26,30 @@
 <div class="container-fluid">
     <h2 class="text-center">模块列表</h2>
     <br>
-    <div class="col-md-offset-9 col-md-2">
-        <div class="form-group">
-            <form action="" id="searchByPanelTitle">
-                <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">查找<span
-                            class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </form>
-        </div>
+    <br>
+    <div class="row">
+        <form action="/panel/searchByPanelTitle" method="get">
+            <div class="col-md-offset-6 col-md-1">
+                <a href="/panel/input/0">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button id="search" type="submit" class="btn btn-default">查找<span
+                        class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" id="searchAll">显示全部 <span
+                        class="glyphicon glyphicon-menu-hamburger"></span></button>
+            </div>
+        </form>
     </div>
-    <div class="col-md-1">
-        <div class="input-group">
-            <button class="btn btn-default">显示全部 <span class="glyphicon glyphicon-menu-hamburger"></span></button>
-        </div>
-    </div>
-
     <br>
     <div class="panel-group">
         <div class="panel panel-warning" id="allPanels">
@@ -54,7 +61,7 @@
             <div class="panel-body">
                 <table class="table table-hover table-striped text-left">
                     <thead>
-                    <th>id</th>
+                    <th>模块数</th>
                     <th>logo</th>
                     <th>标题</th>
                     <th>管理者</th>
@@ -62,87 +69,87 @@
                     <th>创建时间</th>
                     <th>修改</th>
                     <th>删除</th>
+                    <th>增加板块</th>
                     </thead>
                     <tbody>
-                    <c:forEach items="${panels}" var="p" varStatus="i">
-                        <tr>
-                            <td><a href="#">${p.id}</a></td>
-                            <td><a href="#">${p.logoPath}</a></td>
-                            <td><a href="#">${p.title}</a></td>
-                            <td><a href="#">${p.userList[0].username}</a></td>
-                            <td><a href="#">${p.info}</a></td>
-                            <td><a href="#">
-                                <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
-                            </a></td>
-                            <td><a href="/panel/input/${p.id}">编辑</a></td>
-                            <td><a class="delete" href="/panel/${p.id}">删除</a></td>
-                            <form action="" method="POST">
-                                <input type="hidden" name="_method" value="DELETE"/>
-                            </form>
-                        </tr>
-                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${empty panels}">
+                            <tr>
+                                <td colspan="7" class="text-center text-info text-lg">
+                                    当前还没有模块,请去 <a href="/panel/input/0">添加</a>
+                                </td>
+                            </tr>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach items="${panels}" var="p" varStatus="i">
+                                <tr>
+                                    <td>
+                                        <a href="#">${i.index+1}</a>
+                                    </td>
+                                    <td>
+                                        <a href="#"><img src="${p.logoPath}" alt="logo" width="30px" height="30px"></a>
+                                    </td>
+                                    <td><a href="#">${p.title}</a></td>
+                                    <td>${p.userList[0].username}</td>
+                                    <td><a href="#">${p.info}</a></td>
+                                    <td><a href="#">
+                                        <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                    </a></td>
+                                    <td><a href="/panel/input/${p.id}">编辑</a></td>
+                                    <td><a class="delete" href="/panel/${p.id}">删除</a></td>
+                                    <td><a class="addBoard" href="/board/addBoardToPanel/${p.id}">添加</a></td>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE"/>
+                                    </form>
+                                </tr>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $(function () {
-        /**
-         * 页面list之后，搜索结果展示的隐藏
-         */
+        $("#searchAll").on("click", function () {
+            window.location.href = "/panel"
+        });
+        //删除确认
         $(".delete").on("click", function () {
-            var i = confirm("你确定要删除当前用户吗？");
-            alert(i)
+            var i = confirm("危险！！！\n您真想清空，该模块下的所有内容吗？");
             if (i) {
-                alert($(this).attr("href"));
                 var href = $(this).attr("href");
                 $("form").attr("action", href).submit();
             }
             return false;
-        })
+        });
 
-        $("#searchByPanelTitle").submit(function () {
-            var key = $("input[name='inputPanelTitle']").val();
-            /**
-             * 封装为obj对象，再用js将对象转换为json传输
-             * @type {{title: (*|jQuery)}}
-             */
-            var obj = {
-                title: key
-            }
-            alert(key)
-            if (key != null && key !== '') {
-                $.ajax({
-                    url: "/panel/searchByPanelTitle",
-                    type: "post",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    success: function (data) {
-                        if (data.status == "2000") {
-                            alert("查询到几条结果")
-                           /* var panels = JSON.parse(data["0"]);*/
-                            //data.panels;
-                            $("tbody").empty();
-                            $(data.panels).each(function (key,value) {
-                                console.log(key)
-                                console.log(value)
-                            })
-                        } else if ("2001") {
-                            alert("查询结果为空")
-                        }
-                    },
-                    error: function (e) {
-                        alert(e)
-                    }
-                });
+        //显示图片
+        $("td>a>img").each(function (key, value) {
+            var pictruePath = $(this).attr("src");
+            var lastIndex = pictruePath.search("/webapp/") + 7;
+            var str = (pictruePath).substring(lastIndex, pictruePath.length)
+            $(this).attr("src", str)
+        });
 
-            } else {
-                alert("请输入要查询的关键词")
-            }
-            return false;
-        })
+        var operationStatus = '${operationStatus}';
+        if (operationStatus === "2002") {
+            alert("操作失败，您不能删除该模块,该模块包含有内容，请联系管理员")
+            /*var dangerConfirm = confirm("您真想清空，该模块下的所有内容吗？");
+            if (dangerConfirm) {
+            }*/
+        }
+        if (operationStatus === "2003") {
+            alert("删除成功")
+        }
+        if (operationStatus === "2005") {
+            alert("更新成功")
+        }
+
+
     })
 
 </script>

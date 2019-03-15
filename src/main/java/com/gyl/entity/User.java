@@ -8,6 +8,7 @@ import java.util.Date;
 
 /**
  * 注册用户
+ * @author gyl
  */
 @Component
 public class User {

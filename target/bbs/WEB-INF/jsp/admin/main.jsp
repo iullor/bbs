@@ -84,9 +84,15 @@
                 </li>
                 <li>
                     <a href="/admin/info">
-                        <span class="glyphicon glyphicon-cog"></span>系统信息<span></span>
+                        <span class="glyphicon glyphicon-cog"></span>系统<span></span>
                     </a>
                 </li>
+                <li>
+                    <a href="/admin/public">
+                        <span class="glyphicon glyphicon-list-alt"></span>广场<span></span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="#userManager">
                         <span class="glyphicon glyphicon-user"></span>用户管理<span class="caret"></span>
@@ -115,8 +121,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/area/list">列表</a></li>
-                            <li><a href="/admin/user/edit">编辑</a></li>
+                            <li><a href="/area">列表</a></li>
+                            <li><a href="/area/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -126,8 +132,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/board/list">列表</a></li>
-                            <li><a href="/admin/board/edit">编辑</a></li>
+                            <li><a href="/board">列表</a></li>
+                            <li><a href="/board/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -243,12 +249,24 @@
             $("iframe").attr("src", tmp);
             return false;
         })
-        //对于那些单个的li
-        $("#navbar-left>ul>li:nth-child(9)").on("click", function () {
+        $("#navbar-left>ul>li:nth-child(3)").on("click", function () {
             var tmp = $(this).children("a").attr("href")
             $("iframe").attr("src", tmp);
             return false;
         })
+        //对于那些单个的li
+        $("#navbar-left>ul>li:nth-child(10)").on("click", function () {
+            var tmp = $(this).children("a").attr("href")
+            $("iframe").attr("src", tmp);
+            return false;
+        })
+        /*$("a[href='/panel']").click(function () {
+            $.ajax({
+                url: "/panel",
+                type: "post",
+                data: "operationStatus:''"
+            })
+        })*/
 
     })
 

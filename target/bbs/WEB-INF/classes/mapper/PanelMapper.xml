@@ -7,21 +7,22 @@
         values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},1);
     </insert>
     <select id="list" resultMap="listPanel">
-        select * from test_bbs.t_panel ;
+        select * from test_bbs.t_panel  order by create_time desc ;
     </select>
     <resultMap id="listPanel" type="com.gyl.entity.Panel">
         <result property="panelManagerId" column="user_manager_id"/>
     </resultMap>
-    <update id="update">
+    <update id="update" parameterType="com.gyl.entity.Panel">
         update test_bbs.t_panel
-        set title=#{panel.title}
-        ,create_time=#{panel.createTime}
-        ,logo_path=#{panel.logoPath},
-        user_manager_id=#{panel.panelManagerId}
-        ,info=#{panel.info}
-        ,detail=#{panel.detail}
-        ,is_disabled=#{panel.panelDisabled}
-        where id=#{pid};
+        <set>
+            <if test="title != null">title=#{title},</if>
+            <if test="createTime != null">create_time=#{createTime},</if>
+            <if test="panelManagerId != null">user_manager_id=#{panelManagerId},</if>
+            <if test="logoPath != null">logo_path=#{logoPath},</if>
+            <if test="info != null">info=#{info},</if>
+            <if test="detail != null">detail=#{detail},</if>
+        </set>
+        where id=#{id};
     </update>
     <delete id="delete">
         delete from test_bbs.t_panel where id=#{pid}
@@ -36,9 +37,7 @@
             <if test="title != null">
                 title = #{title}
             </if>
-            <if test="info != null">
-                AND info like #{info}
-            </if>
         </trim>
+        order by create_time desc;
     </select>
 </mapper>

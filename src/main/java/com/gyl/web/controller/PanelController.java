@@ -1,8 +1,10 @@
 package com.gyl.web.controller;
 
 import com.gyl.commons.StatusCode;
+import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
 import com.gyl.entity.User;
+import com.gyl.service.BoardService;
 import com.gyl.service.PanelService;
 import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +13,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 模块添加
+ *
+ * @author gyl
  */
 @Controller
 @RequestMapping
@@ -29,6 +34,11 @@ public class PanelController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private BoardService boardService;
+
+
+    private String operationStatus = "";
 
     /**
      * panel 列表
@@ -40,6 +50,11 @@ public class PanelController {
     public String list(ModelMap map) {
         List<Panel> panels = panelService.list();
         map.addAttribute("panels", panels);
+        map.addAttribute("operationStatus", operationStatus);
+        /**
+         * 重新初始化
+         */
+        operationStatus = "";
         return "admin/panel/list";
     }
 
@@ -51,9 +66,6 @@ public class PanelController {
      */
     @RequestMapping(value = "/panel", method = RequestMethod.POST)
     public String add(Panel panel) {
-        //调用方法设置上传文件
-        setPanelFile(panel, panel.getMultipartFile());
-        //新增
         int status = panelService.add(panel);
         return "redirect:/panel";
     }
@@ -66,8 +78,8 @@ public class PanelController {
      */
     @RequestMapping(value = "/panel", method = RequestMethod.PUT)
     public String update(Panel panel) {
-        setPanelFile(panel, panel.getMultipartFile());
-        int status = panelService.update(panel, panel.getId());
+        int status = panelService.update(panel);
+        operationStatus = StatusCode.UPDATE_PANEL_SUCCESS;
         return "redirect:/panel";
     }
 
@@ -79,8 +91,18 @@ public class PanelController {
      */
     @RequestMapping(value = "/panel/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable(value = "id") String id) {
-        int delete = panelService.delete(id);
-        return "redirect:/panel";
+        List<Board> boards = boardService.selectBoardsByPanelId(id);
+        if (boards.size() > 0) {
+            operationStatus = StatusCode.DELET_PANEL_ERROR;
+        }
+        try {
+            //可能出现，外键约束错误
+            int delete = panelService.delete(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return "redirect:/panel";
+        }
     }
 
     /**
@@ -100,52 +122,46 @@ public class PanelController {
         modelMap.addAttribute("panel", panel);
         modelMap.addAttribute("users", users);
         modelMap.addAttribute("pid", pid);
-
         return "admin/panel/edit";
     }
 
-
-    @ResponseBody
-    @RequestMapping("/panel/searchByPanelTitle")
-    public Map<String, Object> searchByPanelTitle(@RequestBody Panel panel) {
-        Map<String, Object> map = new HashMap<>();
-        String status = StatusCode.PANET_NOT_EXIT;
-
-        List<Panel> panels = panelService.searchByPanelTitle(panel);
-        if (panels.size() > 0) {
-            status = StatusCode.PANET_EXIT;
-        }
-        map.put("status", status);
-        map.put("panels", panels);
-        return map;
+    @RequestMapping(value = "/panel/searchByPanelTitle", method = RequestMethod.GET)
+    public String searchByPanelTitle(String inputPanelTitle, ModelMap map) {
+        List<Panel> panels = panelService.searchByPanelTitle(inputPanelTitle);
+        map.addAttribute("panels", panels);
+        return "admin/panel/list";
     }
-
 
     /**
      * 设置上传文件
+     * 返回文件的路径,以及信息
      *
-     * @param panel
      * @param multipartFile
      */
-    private void setPanelFile(Panel panel, MultipartFile multipartFile) {
-
-        //给panel设置是否可见
-        /*  panel.setIsDisabeld(panel.getIsDisabeld());*/
+    @SuppressWarnings("all")
+    @ResponseBody
+    @RequestMapping(value = "/panel/fileUpload", method = RequestMethod.POST)
+    public String form(@RequestParam("img") MultipartFile multipartFile, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        String realPath = session.getServletContext().getRealPath("/");
+        File file1 = new File(realPath + "/upload/panel/");
+        if (!file1.exists()) {
+            file1.mkdirs();
+        }
+        uploadPath = file1.getPath() + "/";
         if (multipartFile != null && !multipartFile.isEmpty()) {
             String originalFilename = multipartFile.getOriginalFilename();
             System.out.println("originalFilename = " + originalFilename);
             String fileNamePrefix = originalFilename.substring(0, originalFilename.lastIndexOf("."));
             String fileNameSubfix = originalFilename.substring(originalFilename.lastIndexOf("."));
             String newFileName = fileNamePrefix + System.currentTimeMillis() + fileNameSubfix;
-            File file = new File(uploadPath + newFileName);
-            //将上传文件的路径设置进Panel中
-            panel.setLogoPath(uploadPath + newFileName);
+            File file = new File(uploadPath + "/" + newFileName);
             try {
                 multipartFile.transferTo(file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return uploadPath + newFileName;
         }
-
+        return null;
     }
 }

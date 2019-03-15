@@ -1,43 +1,76 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>区增加</title>
-
+    <title>区域增加</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../../lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="../../../../lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="../../../../../css/admin/admin_pages.css">
+    <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
+        #fileClick > span {
+            margin-left: 50px;
+            font-size: 100px;
+        }
 
+        #fileClick > input {
+            display: none;
+        }
+
+        #showImg {
+            width: 100px;
+            height: 100px;
+        }
+
+        #showImg:hover {
+            transition-delay: 200ms;
+            width: 120px;
+            height: 120px;
+        }
     </style>
-
 </head>
 <body>
 <div class="container-fluid">
-    <h2 class="text-center">区增加/编辑</h2>
+    <h2 class="text-center"></h2>
     <br>
-
     <div class="row">
         <div id="addModel" class="col-md-4">
-            <form action="" method="post">
+            <form:form action="/area" method="post" modelAttribute="area">
+                <c:if test="${not empty area.id}">
+                    <input type="hidden" name="_method" value="put">
+                    <form:hidden path="id"/>
+                    <form:hidden path="createTime"/>
+                </c:if>
                 <div class="row form-group">
                     <div class="col-md-1">
-                        <label for="title">标题</label>
+                        <label for="areaTitle">标题</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="title" name="title">
+                        <form:input path="areaTitle" class="form-control" id="areaTitle"/>
                     </div>
                 </div>
                 <br>
                 <div class="row form-group">
                     <div class="col-md-1">
-                        <label for="areaManager" class="text-left">区主</label>
+                        <label class="text-left">区域管理者</label>
                     </div>
                     <div class="col-md-11">
-                        <input type="text" class="form-control" id="areaManager" name="areaManager" placeholder="ID">
+                        <form:select cssClass="form-control" path="areaManagerId" items="${users}" itemLabel="username"
+                                     itemValue="id"/>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-group">
+                    <div class="col-md-1">
+                        <label class="text-left">添加到板块</label>
+                    </div>
+                    <div class="col-md-11">
+                        <form:select cssClass="form-control" path="boardId" items="${boards}" itemLabel="boardTitle"
+                                     itemValue="id"/>
                     </div>
                 </div>
                 <br>
@@ -46,7 +79,7 @@
                         <label for="info">简介</label>
                     </div>
                     <div class="col-md-11">
-                        <textarea id="info" name="info" cols="40" rows="10"></textarea>
+                        <form:textarea id="info" path="info" cols="40" rows="10"/>
                     </div>
                 </div>
                 <br>
@@ -55,7 +88,7 @@
                         <label for="details">功能详情</label>
                     </div>
                     <div class="col-md-11">
-                        <textarea id="details" name="details" cols="40" rows="10"></textarea>
+                        <form:textarea id="details" path="details" cols="40" rows="10"/>
                     </div>
                 </div>
                 <br>
@@ -67,10 +100,10 @@
                         <button type="reset" class="btn btn-info">重置</button>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
-        <div id="listBoard" class="col-md-offset-2 col-md-6">
-            编辑的时候查询出来的贴子信息列表
+        <div id="listarea" class="col-md-offset-2 col-md-6">
+            编辑的时候查询所有该区的信息
             <div class="row">A</div>
             <div class="row">B</div>
             <div class="row">C</div>
@@ -80,6 +113,10 @@
 
 </div>
 <script>
+    $(function () {
+        var innerValue = ${empty area.id} ? '新增区域' : '修改${area.areaTitle}区';
+        $(".container-fluid>h2").html(innerValue);
+    })
 </script>
 </body>
 </html>

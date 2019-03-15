@@ -3,8 +3,10 @@ package com.gyl.service;
 import com.gyl.commons.UUIDString;
 import com.gyl.entity.Panel;
 import com.gyl.entity.User;
+import com.gyl.mapper.BoardMapper;
 import com.gyl.mapper.PanelMapper;
 import com.gyl.mapper.UserMapper;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class PanelService {
     private PanelMapper panelMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private BoardMapper boardMapper;
 
     /**
      * 新增
@@ -47,8 +51,8 @@ public class PanelService {
         return panels;
     }
 
-    public int update(Panel panel, String pid) {
-        return panelMapper.update(panel, pid);
+    public int update(Panel panel) {
+        return panelMapper.update(panel);
     }
 
     public int delete(String pid) {
@@ -59,8 +63,17 @@ public class PanelService {
         return panelMapper.getPanelById(pid);
     }
 
-    public List<Panel> searchByPanelTitle(Panel panel) {
-
-        return panelMapper.searchByPanelTitle(panel);
+    public List<Panel> searchByPanelTitle(String inputPanelTitle) {
+        return panelMapper.searchByPanelTitle(inputPanelTitle);
     }
+
+    /**
+     * 管理员的delete
+     *
+     */
+    public int deleteByAdmin(String pid) {
+
+        return panelMapper.delete(pid);
+    }
+
 }

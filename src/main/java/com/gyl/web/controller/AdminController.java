@@ -21,10 +21,16 @@ public class AdminController {
         return "admin/main";
     }
 
+    @RequestMapping("/public")
+    public String toAdminPublic() {
+        return "admin/public";
+    }
+
     @RequestMapping("/info")
     public String toAdminInfo() {
         return "admin/info";
     }
+
 
     @RequestMapping("/area/edit")
     public String toAreaEdit() {
@@ -62,17 +68,6 @@ public class AdminController {
         return "admin/feedback/list";
     }
 
-
-    @SuppressWarnings("all")
-/*    @RequestMapping("/panel/edit")
-    public String toPanelEdit() {
-        return "admin/panel/edit";
-    }
-
-    @RequestMapping("/panel/list")
-    public String toPanelList() {
-        return "redirect:/panel/list";
-    }*/
 
     @RequestMapping("/permission/edit")
     public String toPermissionEdit() {

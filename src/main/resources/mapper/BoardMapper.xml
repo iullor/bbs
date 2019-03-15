@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.BoardMapper">
+
+    <resultMap id="listBoards" type="com.gyl.entity.Board">
+        <id column="id" property="id"/>
+        <result column="board_title" property="boardTitle"/>
+        <result column="create_time" property="createTime"/>
+        <result column="board_type" property="boardType"/>
+        <result column="user_id" property="boardManagerId"/>
+        <result column="panel_id" property="panelId"/>
+        <result column="logo_path" property="logoPath"/>
+        <result column="info" property="info"/>
+        <result column="details" property="details"/>
+        <association property="user" javaType="com.gyl.entity.User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+        </association>
+        <association property="panel" javaType="com.gyl.entity.Panel">
+            <id property="id" column="id"/>
+            <result property="title" column="title"/>
+        </association>
+    </resultMap>
+    <select id="list" resultType="list" resultMap="listBoards">
+      select * from test_bbs.t_board b ,test_bbs.t_user u,test_bbs.t_panel p where b.user_id =u.id AND b.panel_id = p.id;
+    </select>
+
+    <insert id="add" parameterType="com.gyl.entity.Board">
+      insert into test_bbs.t_board
+      (id,board_title,create_time,board_type,logo_path,panel_id,user_id,info,details)
+      values
+       (#{id},#{boardTitle},#{createTime},#{boardType},#{logoPath},#{panelId},#{boardManagerId},#{info},#{details});
+    </insert>
+    <update id="update" parameterType="com.gyl.entity.Board">
+        update test_bbs.t_board
+        <set>
+            <if test="boardTitle!=null ">board_title=#{boardTitle},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+            <if test="boardType!=null">board_type=#{boardType},</if>
+            <if test="logoPath!=null">logo_path=#{logoPath},</if>
+            <if test="panelId!=null">panel_id=#{panelId},</if>
+            <if test="boardManagerId!=null">user_id=#{boardManagerId},</if>
+            <if test="info!=null">info=#{info},</if>
+            <if test="details!=null">details=#{details},</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="delete">
+        delete from test_bbs.t_board where id=#{id}
+    </delete>
+
+    <select id="getBoardById" resultMap="listBoards">
+        select * from test_bbs.t_board where id=#{id};
+    </select>
+
+
+    <select id="selectBoardsByPanelId" resultMap="listBoards">
+        select * from test_bbs.t_board where panel_id=#{pid};
+    </select>
+
+
+</mapper>

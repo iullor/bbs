@@ -23,11 +23,11 @@ public interface PanelMapper {
      */
     List<Panel> list();
 
-    int update(@Param(value = "com.gyl.entity.Panel") Panel panel, @Param(value = "pid") String pid);
+    int update(Panel panel);
 
     int delete(@Param(value = "pid") String pid);
 
     Panel getPanelById(@Param(value = "pid") String pid);
 
-    List<Panel> searchByPanelTitle(Panel panel);
+    List<Panel> searchByPanelTitle(@Param(value = "title") String inputPanelTitle);
 }

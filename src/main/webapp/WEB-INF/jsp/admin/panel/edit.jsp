@@ -13,21 +13,27 @@
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
+        #upload_placeholder .glyphicon-plus {
+            font-size: 100px;
+        }
+
         #logo {
             display: none;
         }
 
-        #upload_placeholder > .glyphicon-plus {
-            font-size: 70px;
+        #showImg {
+            width: 100px;
+            height: 100px;
         }
 
-        #upload_placeholder {
-            margin-top: 20px;
+        #showImg:hover {
+            transition-delay: 200ms;
+            height: 150px;
+            width: 150px;
         }
 
-        #upload_placeholder > .glyphicon-plus:hover {
-            width: 80px;
-            background-color: rgba(255, 255, 0, 0.18);
+        #uploadForm > div:nth-child(2) {
+            top: 20px;
         }
     </style>
     <script>
@@ -35,7 +41,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <h2 class="text-center">模块增加/编辑</h2>
+    <h2 class="text-center"></h2>
     <br>
     <div class="row">
         <div id="addModel" class="col-md-4">
@@ -45,9 +51,9 @@
                 该值在/panel/input/{id} 中获取id，
                     用pid，查询db，有的话，赋值给 panel，传递给页面，页面通过panel.id 是否有值，来判断是否添加隐藏域，给springmvc框架标示为restful 接口风格
             --%>
-            <form:form action="/panel" modelAttribute="panel" method="post" enctype="multipart/form-data">
+            <form:form action="/panel" modelAttribute="panel" method="post">
                 <c:if test="${not empty panel.id}">
-                    <input type="hidden" name="_method" value="PUT"/>
+                    <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>
                 </c:if>
                 <div class="row form-group">
@@ -58,30 +64,16 @@
                         <form:input path="title" class="form-control" id="title"/>
                     </div>
                 </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label for="logo" class="text-left">Logo</label>
-                    </div>
-                    <div id="upload_placeholder" class="col-md-offset-1 col-md-4  text-center">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <br>
-                        <form:input path="multipartFile" type="file" formenctype="multipart/form-data" id="logo"/>
-                        <button type="button" class="btn btn-success">
-                            上传图片
-                        </button>
-                    </div>
-                    <div class="col-md-4">
-                        <img id="showImg" src="../../../img/superman.png" width="150" height="150">
-                    </div>
-                </div>
+                <form:hidden path="logoPath"/>
+                <form:hidden path="createTime"/>
                 <br>
                 <div class="row form-group">
                     <div class="col-md-1">
                         <label class="text-left">模块管理者</label>
                     </div>
                     <div class="col-md-11">
-                        <form:select path="panelManagerId" items="${users}" itemLabel="username" itemValue="id"/>
+                        <form:select cssClass="form-control" path="panelManagerId" items="${users}" itemLabel="username"
+                                     itemValue="id"/>
                     </div>
                 </div>
                 <br>
@@ -109,7 +101,7 @@
                     </div>
                     <div class="col-md-11">
                         <div class="switch switch-large">
-                            <input name="panel.panelDisabled" id="panelDisabled" value="false" type="checkbox"
+                            <input name="panel.panelDisabled" id="panelDisabled" type="checkbox"
                                    checked="${panel.panelDisabled}"/>
                         </div>
                     </div>
@@ -124,37 +116,113 @@
                     </div>
                 </div>
             </form:form>
-        </div
-        <div id="listBoard" class="col-md-offset-2 col-md-6">
-            编辑的时候查询出来的板块信息
-            <div class="row">A</div>
-            <div class="row">B</div>
-            <div class="row">C</div>
-            <div class="row">D</div>
+        </div>
+        <div id="addImg" class=" col-md-offset-1 col-md-6">
+            <form action="" id="uploadForm">
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="logo" class="text-left"
+                               style=" writing-mode:vertical-lr; font-size: 30px;margin-top: 30px;margin-left: 30px">Logo</label>
+                    </div>
+                    <div class="col-md-offset-1 col-md-4">
+                        <img id="showImg" src="/images/superman.png">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div id="upload_placeholder" class="col-md-4 text-center">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <br>
+                        <input type="file" formenctype="multipart/form-data" name="img" id="logo"/>
+                        <button id="upload" type="button" class="btn btn-success">
+                            上传图片
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+</div>
 <script>
+
+
     $(function () {
+        var str = ${not empty panel.id} ? '模块修改' : '模块增加';
+        $("h2").html(str)
+
         $(".switch-large>input").bootstrapSwitch({
             onText: 'on',
             offText: 'off',
         })
+
+        //文件上传
         $("#upload_placeholder>span").click(function () {
             $(":file").click()
-            $(":file").on("change", function () {
-                var filePath = $(":file").val()
-                var src = window.URL.createObjectURL(this.files[0]);
-                var fileFormat = filePath.split(".")
-                var fileSuffix = fileFormat[fileFormat.length - 1].toLowerCase()
-                if (!fileSuffix.match("png|jpg|jpeg")) {
-                    return;
-                }
-                $("#showImg").attr("src", src)
-            })
         })
-    })
+        $("#upload").click(function () {
+            var form = new FormData(document.getElementById("uploadForm"));
+            $.ajax({
+                url: "/panel/fileUpload",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data.status == 200) {
+                    }
+                },
+                error: function (e) {
+                    if (e.status == 200) {
+                        alert("上传成功")
+                        /**
+                         * 找到相对位置
+                         * @type {number}
+                         */
+                        var lastIndex = (e.responseText).search("/webapp/") + 7;
+                        var str = (e.responseText).substring(lastIndex, (e.responseText).length)
+                        $("#showImg").attr("src", str)
+                        $("input[name='logoPath']").val(e.responseText)
+                    }
+                }
+            });
+            get();//此处为上传文件的进度条
+        })
 
+        //表单判断
+        $("form:first-child").submit(function () {
+            var title = $(":input[name='title']").val();
+            var info = $(":input[name='info']").val();
+            var detail = $(":input[name='detail']").val();
+            var logoPath = $(":input[name='logoPath']").val();
+            if (title == null || title === '') {
+                alert("请填写标题")
+                return false;
+            }
+            if (info == null || info === '') {
+                alert("请填写简介")
+                return false;
+            }
+            if (detail == null || detail === '') {
+                alert("请填写详情信息")
+                return false;
+            }
+            if (logoPath == null || logoPath === '') {
+                alert("请先上传文件")
+                return false;
+            }
+            return true;
+        })
+
+        //图片回显
+        if (${not empty panel.id}) {
+            var pictruePath = $("#logoPath").val();
+            var lastIndex = pictruePath.search("/webapp/") + 7;
+            var str = (pictruePath).substring(lastIndex, pictruePath.length)
+            $("#showImg").attr("src", str)
+        }
+
+
+    })
 </script>
 </body>
 </html>
