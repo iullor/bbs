@@ -25,6 +25,7 @@ public class Post {
     private String boardId;
     private String areaId;
 
+
     List<Comment> comments;
 
     /**
@@ -36,10 +37,6 @@ public class Post {
      */
     private Integer praise;
 
-    /**
-     * 评论数
-     */
-    /*private Integer comments;*/
     public String getId() {
         return id;
     }

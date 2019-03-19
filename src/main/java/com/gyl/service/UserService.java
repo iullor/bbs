@@ -3,6 +3,7 @@ package com.gyl.service;
 import com.gyl.commons.StatusCode;
 import com.gyl.commons.UUIDString;
 import com.gyl.entity.User;
+import com.gyl.entity.UserAccountStatus;
 import com.gyl.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,10 @@ public class UserService {
     public int add(User user) {
         user.setId(UUIDString.createId());
         user.setCreateTime(new Date(System.currentTimeMillis()));
-        user.setStatus(StatusCode.USER_NOT_ACTIVE);
+        UserAccountStatus userAccountStatus = new UserAccountStatus();
+        userAccountStatus.setStatus(StatusCode.USER_NOT_ACTIVE);
+
+        user.setUserAccountStatus(userAccountStatus);
         return userMapper.add(user);
     }
 
@@ -40,13 +44,13 @@ public class UserService {
         User user = userMapper.checkUser(username);
         if (user != null) {
             if (user.getPassword().equals(password)) {
-                if (user.getStatus().equals(StatusCode.USER_NORMAL)) {
+                if (user.getUserAccountStatus().getStatus().equals(StatusCode.USER_NORMAL)) {
                     userLogonInfo.put("USER_STATUS", StatusCode.USER_NORMAL);
                     userLogonInfo.put("SUCCESS_LOGON", StatusCode.SUCCESS_LOGON);
                     userLogonInfo.put("user", user);
                     return userLogonInfo;
                 }
-                if (user.getStatus().equals(StatusCode.USER_NOT_ACTIVE)) {
+                if (user.getUserAccountStatus().getStatus().equals(StatusCode.USER_NOT_ACTIVE)) {
                     userLogonInfo.put("USER_STATUS", StatusCode.USER_NOT_ACTIVE);
                     return userLogonInfo;
                 }
@@ -65,11 +69,19 @@ public class UserService {
      *
      * @return
      */
-    private User selectUserById(String uid) {
+    public User selectUserById(String uid) {
         return userMapper.selectUserById(uid);
     }
 
     public List<User> list() {
         return userMapper.list();
+    }
+
+    public int update(User user) {
+        return userMapper.update(user);
+    }
+
+    public int delete(String id) {
+        return userMapper.delete(id);
     }
 }

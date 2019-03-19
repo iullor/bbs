@@ -31,7 +31,6 @@
         <set>
             <if test="areaTitle!=null ">area_title=#{areaTitle},</if>
             <if test="createTime!=null">create_time=#{createTime},</if>
-            <if test="logoPath!=null">logo_path=#{logoPath},</if>
             <if test="boardId!=null">board_id=#{boardId},</if>
             <if test="areaManagerId!=null">user_id=#{areaManagerId},</if>
             <if test="info!=null">info=#{info},</if>

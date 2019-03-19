@@ -3,9 +3,44 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gyl.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.gyl.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="email" column="email"/>
+        <association property="userLoginInfo" javaType="com.gyl.entity.UserLoginInfo">
+            <result property="ipAdreess" column="ip_adreess"/>
+            <result property="accessTime" column="access_time"/>
+            <result property="leftTime" column="left_time"/>
+            <result property="accessNum" column="access_num"/>
+        </association>
+        <association property="userAccountStatus" javaType="com.gyl.entity.UserAccountStatus">
+            <result property="allowPost" column="allow_post"/>
+            <result property="allowComment" column="allow_comment"/>
+            <result property="warningInfo" column="waring_info"/>
+            <result property="status" column="status"/>
+        </association>
+        <association property="userBaseInfo" javaType="com.gyl.entity.UserBaseInfo">
+            <result property="realName" column="real_name"/>
+            <result property="age" column="age"/>
+            <result property="birthday" column="birthday"/>
+            <result property="headImage" column="head_image"/>
+            <result property="hobbies" column="hobbies"/>
+            <result property="phoneNumber" column="phone_number"/>
+            <result property="qqNumber" column="qq_number"/>
+            <result property="province" column="province"/>
+            <result property="city" column="city"/>
+            <result property="street" column="street"/>
+            <result property="details" column="details"/>
+        </association>
+    </resultMap>
+
     <insert id="add" parameterType="com.gyl.entity.User">
       insert into t_user
-      ( id
+      (   id
         ,username
         ,password
         ,birthday
@@ -14,7 +49,7 @@
         ,status
         ,head_image
         ,hobbies
-        ,phome_number
+        ,phone_number
         ,email
         ,qq_number
         ,age
@@ -22,23 +57,70 @@
         ,city
         ,street
         ,details
+        ,ip_adreess
+        ,access_time
+        ,left_time
+        ,access_num
+        ,real_name
+        ,allow_post
+        ,allow_comment
+        ,waring_info
         )
        values
       (
-        #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime},#{status}
-        ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phomeNumber},#{email},#{userBaseInfo.qqNumber}
+        #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime}
+        ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phoneNumber},#{email},#{userBaseInfo.qqNumber}
         ,#{userBaseInfo.age},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details}
+        ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum},#{userLoginInfo.realName}
+        ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo},#{userAccountStatus.status}
       )
   </insert>
 
-    <select id="checkUser" resultType="com.gyl.entity.User">
+    <select id="checkUser" resultMap="userMap">
       select * from t_user where username=#{1};
    </select>
 
-    <select id="selectUserById" resultType="com.gyl.entity.User">
+    <select id="selectUserById" resultMap="userMap">
       select * from t_user where id=#{uid};
     </select>
-    <select id="list" resultType="com.gyl.entity.User">
+
+    <select id="list" resultMap="userMap">
       select * from test_bbs.t_user;
     </select>
+
+    <update id="update" parameterType="com.gyl.entity.User">
+        update test_bbs.t_user
+        <set>
+            <if test="username!=null">username=#{username},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="nickName!=null">nick_name=#{nickName},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="userBaseInfo.realName!=null">real_name=#{userBaseInfo.realName},</if>
+            <if test="userBaseInfo.age!=null">age=#{userBaseInfo.age},</if>
+            <if test="userBaseInfo.birthday!=null">birthday=#{userBaseInfo.birthday},</if>
+            <if test="userBaseInfo.headImage!=null">head_image=#{userBaseInfo.headImage},</if>
+            <if test="userBaseInfo.hobbies!=null">hobbies=#{userBaseInfo.hobbies},</if>
+            <if test="userBaseInfo.phoneNumber!=null">phone_number=#{userBaseInfo.phoneNumber},</if>
+            <if test="userBaseInfo.qqNumber!=null">qq_number=#{userBaseInfo.qqNumber},</if>
+            <if test="userBaseInfo.province!=null">province=#{userBaseInfo.province},</if>
+            <if test="userBaseInfo.city!=null">city=#{userBaseInfo.city},</if>
+            <if test="userBaseInfo.street!=null">street=#{userBaseInfo.street},</if>
+            <if test="userBaseInfo.details!=null">details=#{userBaseInfo.details},</if>
+            <if test="userLoginInfo.ipAdreess!=null">ip_adreess=#{userLoginInfo.ipAdreess},</if>
+            <if test="userLoginInfo.accessTime!=null">access_time=#{userLoginInfo.accessTime},</if>
+            <if test="userLoginInfo.leftTime!=null">left_time=#{userLoginInfo.leftTime},</if>
+            <if test="userLoginInfo.accessNum!=null">access_num=#{userLoginInfo.accessNum},</if>
+            <if test="userAccountStatus.allowPost!=null">allow_post=#{userAccountStatus.allowPost},</if>
+            <if test="userAccountStatus.allowComment!=null">allow_comment=#{userAccountStatus.allowComment},</if>
+            <if test="userAccountStatus.warningInfo!=null">waring_info=#{userAccountStatus.warningInfo},</if>
+            <if test="userAccountStatus.status!=null">status=#{userAccountStatus.status},</if>
+        </set>
+        where id=#{id};
+    </update>
+
+    <delete id="delete">
+        delete from test_bbs.t_user where id=#{id}
+    </delete>
+
 </mapper>

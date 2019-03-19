@@ -38,6 +38,9 @@
     <h2 class="text-center"></h2>
     <br>
     <div class="row">
+        <div class="col-md-1" style="margin-top: 10px">
+            <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
+        </div>
         <div id="addModel" class="col-md-4">
             <form:form action="/area" method="post" modelAttribute="area">
                 <c:if test="${not empty area.id}">
@@ -102,7 +105,7 @@
                 </div>
             </form:form>
         </div>
-        <div id="listarea" class="col-md-offset-2 col-md-6">
+        <div id="listarea" class="col-md-offset-2 col-md-5">
             编辑的时候查询所有该区的信息
             <div class="row">A</div>
             <div class="row">B</div>
@@ -114,6 +117,10 @@
 </div>
 <script>
     $(function () {
+        $("#back").click(function () {
+            window.history.go(-1)
+            return false;
+        })
         var innerValue = ${empty area.id} ? '新增区域' : '修改${area.areaTitle}区';
         $(".container-fluid>h2").html(innerValue);
     })

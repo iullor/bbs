@@ -38,6 +38,9 @@
     <h2 class="text-center"></h2>
     <br>
     <div class="row">
+        <div class="col-md-1" style="margin-top: 10px">
+            <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
+        </div>
         <div id="addModel" class="col-md-4">
             <%--文件上传的form表单--%>
             <form action="" id="uploadForm">
@@ -133,7 +136,7 @@
                 </div>
             </form:form>
         </div>
-        <div id="listBoard" class="col-md-offset-2 col-md-6">
+        <div id="listBoard" class="col-md-offset-2 col-md-5">
             编辑的时候查询所有该区的信息
             <div class="row">A</div>
             <div class="row">B</div>
@@ -145,42 +148,49 @@
 </div>
 <script>
     $(function () {
-        var innerValue = ${empty board.id} ? '新增板块' : '修改${board.boardTitle}';
-        $(".container-fluid>h2").html(innerValue);
+        $("#back").click(function () {
+            window.history.go(-1)
+            return false;
+        })
+        $(function () {
+            var innerValue = ${empty board.id} ? '新增板块' : '修改${board.boardTitle}';
+            $(".container-fluid>h2").html(innerValue);
+        })
+        $("#fileClick>span").click(function () {
+            $(":file").click();
+        })
+        $("#upload").click(function () {
+            var form = new FormData(document.getElementById("uploadForm"));
+            $.ajax({
+                url: "/board/fileUpload",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data.status == 200) {
+                    }
+                },
+                error: function (e) {
+                    if (e.status == 200) {
+                        alert("上传成功")
+                        /**
+                         * 找到相对位置
+                         * @type {number}
+                         */
+                        var lastIndex = (e.responseText).search("/webapp/") + 7;
+                        var str = (e.responseText).substring(lastIndex, (e.responseText).length)
+                        $("#showImg").attr("src", str)
+                        $("input[name='logoPath']").val(e.responseText)
+                    }
+                }
+            });
+            get();//此处为上传文件的进度条
+
+        })
+
     })
 
-
-    $("#fileClick>span").click(function () {
-        $(":file").click();
-    })
-    $("#upload").click(function () {
-        var form = new FormData(document.getElementById("uploadForm"));
-        $.ajax({
-            url: "/board/fileUpload",
-            type: "post",
-            data: form,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                if (data.status == 200) {
-                }
-            },
-            error: function (e) {
-                if (e.status == 200) {
-                    alert("上传成功")
-                    /**
-                     * 找到相对位置
-                     * @type {number}
-                     */
-                    var lastIndex = (e.responseText).search("/webapp/") + 7;
-                    var str = (e.responseText).substring(lastIndex, (e.responseText).length)
-                    $("#showImg").attr("src", str)
-                    $("input[name='logoPath']").val(e.responseText)
-                }
-            }
-        });
-        get();//此处为上传文件的进度条
-    })
 
 </script>
 </body>

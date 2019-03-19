@@ -8,18 +8,29 @@
     <link rel="stylesheet" href="../../css/commons/index.css">
     <script src="../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-size: 18px;
+        }
+
+        h2 {
+            margin-top: 100px;
+            margin-left: 350px;
+        }
+
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-1">
-            <p>注册</p>
-        </div>
-        <div class="col-md-8">
-            <form action="/user/save" method="post" role="form" enctype="multipart/form-data">
-                <p>
-                    请认真填写如下信息
-                </p>
+<div class="container-fluid">
+    <h2>
+        注册新用户
+    </h2>
+    <div class="col-md-1" style="margin-top: 10px">
+        <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
+    </div>
+    <div class="row" style="margin-top: 100px;">
+        <div class="col-md-offset-3 col-md-6">
+            <form action="/user" method="post" role="form">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="Username" class="control-label">Username
@@ -35,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-10">
                         <label class="control-label">Password
                             <small>&nbsp;(必填)</small>
                         </label>
@@ -44,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-10">
                         <label class="control-label">Check Password
                             <small>&nbsp;(必填)</small>
                         </label>
@@ -54,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-11">
                         <label class="control-label">Email
                             <small>&nbsp;(必填)</small>
                         </label>
@@ -62,7 +73,6 @@
                                placeholder="abc@gmail.com">
                     </div>
                 </div>
-
                 <%--<p style="margin-top: 30px;">基本信息>非必须，建议完善</p>
                 <hr style="background-color: grey;height: 1px; border: none;width: 92%;margin-left: 0px">
                 <div class="row" style="width: 92%">
@@ -132,29 +142,32 @@
                         <input type="text" class="form-control" name="detail" id="detail">
                     </div>
                 </div>--%>
-                <hr style="background-color: wheat;height: 1px; border: none;width: 92%;margin-left: 0px">
+                <hr style="margin-top: 60px;">
                 <div class="form-group">
-                    <div class="col-md-offset-1 col-md-2">
-                        <button type="reset" class="btn btn-lg btn-default">取消</button>
+                    <div class="col-md-offset-2 col-md-4">
+                        <button type="reset" class="btn btn-lg btn-primary">重置</button>
                     </div>
-                    <div class="col-md-offset-1 col-md-2">
-                        <button type="reset" class="btn btn-lg btn-warning">重置</button>
-                    </div>
-                    <div class="col-md-offset-1 col-md-2">
+                    <div class="col-md-4">
                         <button type="submit" class="btn btn-lg btn-success">注册</button>
                     </div>
                 </div>
             </form>
         </div>
-        <%--<div class="col-md-3 image">
-            <p> 不超过1M</p>
-            <img src="../../images/favicon.ico" width="135px" height="135px"/><br>
-            <input type="file" name="headImage">
-
-        </div>--%>
     </div>
-
-
 </div>
+<script>
+    $(function () {
+        $("input").css({
+            "line-height": "25px",
+            "height": "50px"
+        })
+
+        $("#back").click(function () {
+            window.history.go(-1)
+            return false;
+        })
+    })
+</script>
+
 </body>
 </html>

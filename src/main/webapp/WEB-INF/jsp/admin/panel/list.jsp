@@ -12,29 +12,39 @@
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
-        .form-group {
-            bottom: 20px;
-        }
 
-        .panel-group {
-            margin-top: 5px;
-        }
     </style>
 
 </head>
 <body>
 <div class="container-fluid">
     <h2 class="text-center">模块列表</h2>
-    <br>
-    <br>
+    <hr style=" margin-top: 70px;margin-bottom: 15px;">
+    <%--操作栏--%>
     <div class="row">
+        <%--  <div class="col-md-1" style="margin-top: 10px">
+              <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">后退</span></a>
+          </div>
+          <div class="col-md-1" style="margin-top: 10px">
+              <a href=""><span class="glyphicon glyphicon-arrow-right" id="go">前进</span></a>
+          </div>--%>
+
+        <div class="col-md-offset-5 col-md-1">
+            <a href="/panel/input/0">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
+                </button>
+            </a>
+        </div>
+        <%--排序--%>
+        <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
+            时间&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+        </div>
+        <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
+            热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+        </div>
         <form action="/panel/searchByPanelTitle" method="get">
-            <div class="col-md-offset-6 col-md-1">
-                <a href="/panel/input/0">
-                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
-                    </button>
-                </a>
-            </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
@@ -44,13 +54,14 @@
                 <button id="search" type="submit" class="btn btn-default">查找<span
                         class="glyphicon glyphicon-search"></span></button>
             </div>
-            <div class="col-md-1">
-                <button type="button" class="btn btn-default" id="searchAll">显示全部 <span
-                        class="glyphicon glyphicon-menu-hamburger"></span></button>
-            </div>
         </form>
+        <div class="col-md-1" style="margin-top: -13px">
+            <button type="button" class="btn btn-default" id="searchAll">显示全部 <span
+                    class="glyphicon glyphicon-menu-hamburger"></span></button>
+        </div>
     </div>
-    <br>
+    <hr style="margin-top: 5px">
+    <%--状态栏--%>
     <div class="panel-group">
         <div class="panel panel-warning" id="allPanels">
             <div class="panel-heading">
@@ -107,6 +118,35 @@
                     </c:choose>
                     </tbody>
                 </table>
+            </div>
+            <div class="panel-footer">
+                <nav class="Page navigation text-center">
+                    <ul class="pagination">
+                        <li class="disabled">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <input type="text" class="form-text">&nbsp;/100
+                            <input type="button" class="btn btn-success" value="跳转"/>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

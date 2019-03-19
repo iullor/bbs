@@ -1,32 +1,39 @@
 package com.gyl.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 /**
  * 用户基本信息
+ *
+ * @author gyl
  */
 @Component
 public class UserBaseInfo {
-    private String name;
+    private String realName;
     private Integer age;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
     private String headImage;
     private String hobbies;
-    private String phomeNumber;
+    private String phoneNumber;
     private String qqNumber;
     private String province;
     private String city;
     private String street;
     private String details;
 
-    public String getName() {
-        return name;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public Integer getAge() {
@@ -61,13 +68,6 @@ public class UserBaseInfo {
         this.hobbies = hobbies;
     }
 
-    public String getPhomeNumber() {
-        return phomeNumber;
-    }
-
-    public void setPhomeNumber(String phomeNumber) {
-        this.phomeNumber = phomeNumber;
-    }
 
     public String getQqNumber() {
         return qqNumber;
@@ -109,20 +109,12 @@ public class UserBaseInfo {
         this.details = details;
     }
 
-    @Override
-    public String toString() {
-        return "UserBaseInfo{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", birthday=" + birthday +
-                ", headImage='" + headImage + '\'' +
-                ", hobbies='" + hobbies + '\'' +
-                ", phomeNumber='" + phomeNumber + '\'' +
-                ", qqNumber='" + qqNumber + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", details='" + details + '\'' +
-                '}';
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
 }

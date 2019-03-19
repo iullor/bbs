@@ -43,7 +43,10 @@
 <div class="container-fluid">
     <h2 class="text-center"></h2>
     <br>
-    <div class="row">
+    <div class="row" style="margin-top: 70px;">
+        <div class="col-md-1" style="margin-top: 10px">
+            <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
+        </div>
         <div id="addModel" class="col-md-4">
             <%--
                 modelAttribute="panel"该标签去请求中找一个panel 的对象
@@ -82,7 +85,7 @@
                         <label for="info">简介</label>
                     </div>
                     <div class="col-md-11">
-                        <form:textarea path="info" id="info" cols="40" rows="10"/>
+                        <form:textarea path="info" id="info" cols="60" rows="10"/>
                     </div>
                 </div>
                 <br>
@@ -91,7 +94,7 @@
                         <label for="detail">功能详情</label>
                     </div>
                     <div class="col-md-11">
-                        <form:textarea id="detail" path="detail" cols="40" rows="10"/>
+                        <form:textarea id="detail" path="detail" cols="60" rows="10"/>
                     </div>
                 </div>
                 <br>
@@ -109,10 +112,10 @@
                 <br>
                 <div class="row form-group">
                     <div class="col-md-offset-4  col-md-2">
-                        <button type="submit" class="btn btn-info">添加</button>
+                        <button type="submit" class="btn btn-info btn-lg">添加</button>
                     </div>
                     <div class="col-md-2">
-                        <button type="reset" class="btn btn-info">重置</button>
+                        <button type="reset" class="btn btn-default btn-lg">重置</button>
                     </div>
                 </div>
             </form:form>
@@ -144,9 +147,11 @@
 </div>
 </div>
 <script>
-
-
     $(function () {
+        $("#back").click(function () {
+            window.history.go(-1);
+            return false;
+        })
         var str = ${not empty panel.id} ? '模块修改' : '模块增加';
         $("h2").html(str)
 
@@ -220,9 +225,8 @@
             var str = (pictruePath).substring(lastIndex, pictruePath.length)
             $("#showImg").attr("src", str)
         }
-
-
     })
+
 </script>
 </body>
 </html>

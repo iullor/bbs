@@ -15,4 +15,8 @@ public interface UserMapper {
     User selectUserById(@Param(value = "uid") String uid);
 
     List<User> list();
+
+    int update(User user);
+
+    int delete(@Param(value = "id") String id);
 }

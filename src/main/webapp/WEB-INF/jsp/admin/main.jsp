@@ -99,8 +99,8 @@
                     </a>
                     <div id="userManager">
                         <ul>
-                            <li><a href="/admin/user/list"> 用户列表</a></li>
-                            <li><a href="/admin/user/edit">编辑</a></li>
+                            <li><a href="/user">用户列表</a></li>
+                            <li><a href="/user">违规用户</a></li>
                         </ul>
                     </div>
                 </li>
@@ -110,8 +110,8 @@
                     </a>
                     <div id="postManager">
                         <ul>
-                            <li><a href="/admin/post/list">列表</a></li>
-                            <li><a href="/admin/post/edit">添加</a></li>
+                            <li><a href="/post">列表</a></li>
+                            <li><a href="/post/input/0">添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -122,7 +122,6 @@
                     <div>
                         <ul>
                             <li><a href="/area">列表</a></li>
-                            <li><a href="/area/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -133,7 +132,6 @@
                     <div>
                         <ul>
                             <li><a href="/board">列表</a></li>
-                            <li><a href="/board/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -144,7 +142,6 @@
                     <div>
                         <ul>
                             <li><a href="/panel">列表</a></li>
-                            <li><a href="/panel/input/0">编辑</a></li>
                         </ul>
                     </div>
                 </li>
@@ -260,13 +257,6 @@
             $("iframe").attr("src", tmp);
             return false;
         })
-        /*$("a[href='/panel']").click(function () {
-            $.ajax({
-                url: "/panel",
-                type: "post",
-                data: "operationStatus:''"
-            })
-        })*/
 
     })
 

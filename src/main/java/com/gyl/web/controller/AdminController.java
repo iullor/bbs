@@ -99,15 +99,10 @@ public class AdminController {
         return "admin/shield/list";
     }
 
-    @RequestMapping("/user/edit")
-    public String toUserEdit() {
-        return "admin/user/edit";
-    }
 
-    @RequestMapping("/user/list")
-    public String toUserList() {
-        return "admin/user/list";
+    @RequestMapping("/user/toAdd")
+    public String toUserAddUser() {
+        return "admin/user/addUser";
     }
-
 
 }
