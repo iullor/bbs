@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,8 +8,6 @@
     <title>主页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
-    <!--top栏样式-->
-    <link rel="stylesheet" href="../../css/commons/top.css">
     <!--sidebar-left样式-->
     <link rel="stylesheet" href="../../css/commons/sidebar_left.css">
     <!--每一个板块呈现的样式-->
@@ -41,24 +41,37 @@
                     </button>
 
                     <a class="navbar-brand" href="#">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
+
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                    <form class="navbar-form row">
-                        <div class="form-group col-xs-8 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
+                    <div class="row" style="margin-top: 6px">
+                        <form>
+                            <div class="form-group col-md-8">
+                                <input type="text" class="form-control" id="search" placeholder="Search">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <c:choose>
+                    <c:when test="${empty sessionScope.CURRENT_USER}">
+                        <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-1"
+                             style="margin-top: 8px;font-size: 18px">
+                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
+                                    class="glyphicon glyphicon-log-in"></span></a>
                         </div>
-                        <button type="submit" class="btn btn-default col-xs-4 col-sm-4 col-md-4"><span
-                                class="glyphicon glyphicon-search"></span>Search
-                        </button>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-2 row">
-                    <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
-                            class="glyphicon glyphicon-log-in"></span></a>
-                </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-1"
+                             style="margin-top: 8px;font-size: 18px;">
+                            <a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
@@ -73,35 +86,37 @@
                         <span id="close" class="glyphicon glyphicon-menu-hamburger"></span>
                     </li>
                     <li role="presentation">
-                        <img src="../../images/路飞.jpg" class="img-circle" width="100" height="100"/>
+                        <img id="myHeadImg" src="/images/路飞.jpg"
+                             value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                             class="img-circle"/>
                     </li>
                     <li role="presentation">
-                        <span class="text-danger">路飞</span>
+                        <span class="text-danger">${sessionScope.CURRENT_USER.nickName}</span>
                     </li>
                     <li role="presentation"><a href="./index.jsp"><span
                             class="text-left glyphicon glyphicon-home">&nbsp;</span>首页</a>
                     </li>
-                    <li role="presentation"><a href="foreground/person/basic_info/basic_info.jsp"><span
+                    <li role="presentation"><a href="/person/basic/info"><span
                             class="text-left glyphicon glyphicon-user">&nbsp;</span>基本信息</a></li>
-                    <li role="presentation"><a href="foreground/person/basic_info/person_account.jsp"><span
+                    <li role="presentation"><a href="/person/basic/account"><span
                             class="text-left glyphicon glyphicon-user">&nbsp;</span>账户信息</a></li>
-                    <li role="presentation"><a href="#"><span
+                    <li role="presentation"><a href="/person/message"><span
                             class="text-left glyphicon glyphicon-comment">&nbsp;</span>消息</a></li>
-                    <li role="presentation"><a href="foreground/person/collection/collection_posts.jsp"><span
+                    <li role="presentation"><a href="/person/collection/boards"><span
                             class="text-left glyphicon glyphicon-star">&nbsp;</span>收藏夹</a>
                     </li>
-                    <li role="presentation"><a href="foreground/person/post/person_posts.jsp"><span
+                    <li role="presentation"><a href="/person/mypost"><span
                             class="text-left glyphicon glyphicon-user">&nbsp;</span>我的贴子</a></li>
-                    <li role="presentation"><a href="#"><span
+                    <li role="presentation"><a href="/system/help"><span
                             class="text-left glyphicon glyphicon-question-sign">&nbsp;</span>帮助</a></li>
-                    <li role="presentation"><a href="#"><span
+                    <li role="presentation"><a href="/person/themes/basic"><span
                             class="text-left glyphicon glyphicon-cog">&nbsp;</span>设置</a>
                     </li>
-                    <li role="presentation" class="mt-5 mb-3 text-muted">&copy; 学生论坛版权所有</li>
+                    <li class="mt-5 mb-3 text-muted" style="margin-top: 200px">&copy; 学生论坛版权所有</li>
                 </ul>
             </nav>
         </div>
-        <div id="content" class="col-xs-12 col-sm-11 col-md-11">
+        <div id="content" class="col-xs-12 col-sm-11 col-md-10">
             <!--游客用户登录的模态框-->
             <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
                 <div class="modal-dialog" role="document">
@@ -114,7 +129,7 @@
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <form action="/login" method="post">
+                            <form action="/checkLogon" method="get">
                                 <div class="form-group">
                                     <label for="username" class="control-label">
                                         <small>用户名</small>
@@ -125,7 +140,7 @@
                                     <label for="password" class="control-label">
                                         <small>密码</small>
                                     </label>
-                                    <input type="text" class="form-control" id="password">
+                                    <input type="password" class="form-control" name="password" id="password">
                                 </div>
                                 <div class="form-group">
                                     <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
@@ -170,6 +185,7 @@
                                                 <li><a href="#">今天学校放假了</a></li>
                                                 <li><a href="#">今天学校放假了</a></li>
                                                 <li><a href="#">今天学校放假了</a></li>
+                                                ;
                                             </ul>
                                         </div>
                                     </div>
@@ -282,115 +298,31 @@
                     </div>
                     <hr>
                     <div id="column2">
-                        <div class="col-sm-6 col-md-4 column2 each_top">
-                            <div class="col-sm-12 container-board">
-                                <div class="board-title">
-                                    <a href="foreground/board/board.jsp"><span><span class="text-center"><img
-                                            src="../../images/board/school.svg" width="25"
-                                            height="25"></span>&nbsp;&nbsp;&nbsp;学校院系</span></a>
-                                    <p>
-                                        <span><small><a href="foreground/board/board.jsp">信息技术学院</a></small></span>
-                                        <span><small><a href="foreground/board/board.jsp">康复医学院</a></small></span>
-                                        <span><small><a href="foreground/board/board.jsp">针灸推拿</a></small></span>
-                                        <span><small><a href="foreground/board/board.jsp">人文</a></small></span>
-                                        <span><small><a href="foreground/panel/panel.jsp"><span
-                                                class="pull-right">更多</span></a></small></span>
-                                    </p>
-
-                                </div>
-                                <hr>
-                                <div class="board-content">
-                                    <p><span><a href="#">[板块]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[人文]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[针推]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
+                        <c:forEach items="${panels}" var="p">
+                            <div class="col-sm-6 col-md-6 column2 each_top">
+                                <div class="col-sm-12 container-board">
+                                    <div class="board-title">
+                                        <a href="/panel/${p.id}"><span><span class="text-center"><img
+                                                src="/images/board/school.svg" width="25"
+                                                height="25"></span>&nbsp;&nbsp;&nbsp;${p.title}</span></a>
+                                        <p>
+                                            <c:forEach items="${p.boards}" var="b">
+                                                <span><small><a href="/board/${b.id}">${b.boardTitle}</a></small></span>
+                                            </c:forEach>
+                                            <span><small><a href="/panel/${p.id}"><span
+                                                    class="pull-right">更多</span></a></small></span>
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="board-content">
+                                        <c:forEach items="${p.boards}" var="b">
+                                            <p><span><a href="#">[${b.boardTitle}]</a>&nbsp;<a href="#">贴子${b.posts}</a></span>
+                                            </p>
+                                        </c:forEach>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 column2 each_top">
-                            <div class="col-sm-12 container-board">
-                                <div class="board-title">
-                                    <span><span class="text-center"><img src="../../images/board/academic.svg" width="25"
-                                                                         height="25"></span>&nbsp;&nbsp;&nbsp;学术研究</span>
-                                    <p>
-                                        <span><small><a href="#">信息技术学院</a></small></span>
-                                        <span><small><a href="#">康复医学院</a></small></span>
-                                        <span><small><a href="#">针灸推拿</a></small></span>
-                                        <span><small><a href="#">人文</a></small></span>
-                                        <span><small><a href="foreground/panel/panel.jsp"><span
-                                                class="pull-right">更多</span></a></small></span>
-                                    </p>
-
-                                </div>
-                                <hr>
-                                <div class="board-content">
-                                    <p><span><a href="#">[板块]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[人文]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[针推]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 column2 each_top">
-                            <div class="col-sm-12 container-board">
-                                <div class="board-title">
-                                    <span><span class="text-center"><img src="../../images/board/city.svg" width="25"
-                                                                         height="25"></span>&nbsp;&nbsp;&nbsp;乡愁</span>
-                                    <p>
-                                        <span><small><a href="#">河南</a></small></span>
-                                        <span><small><a href="#">广东</a></small></span>
-                                        <span><small><a href="#">北京</a></small></span>
-                                        <span><small><a href="#">上海</a></small></span>
-                                        <span><small><a href="foreground/panel/panel.jsp"><span
-                                                class="pull-right">更多</span></a></small></span>
-                                    </p>
-
-                                </div>
-                                <hr>
-                                <div class="board-content">
-                                    <p><span><a href="#">[板块]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[人文]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[针推]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 column2 each_top">
-                            <div class="col-sm-12 container-board">
-                                <div class="board-title">
-                                    <span><span class="text-center"><img src="../../images/board/school.svg" width="25"
-                                                                         height="25"></span>&nbsp;&nbsp;&nbsp;学校院系</span>
-                                    <p>
-                                        <span><small><a href="#">信息技术学院</a></small></span>
-                                        <span><small><a href="#">康复医学院</a></small></span>
-                                        <span><small><a href="#">针灸推拿</a></small></span>
-                                        <span><small><a href="#">人文</a></small></span>
-                                        <span><small><a href="foreground/panel/panel.jsp"><span
-                                                class="pull-right">更多</span></a></small></span>
-                                    </p>
-
-                                </div>
-                                <hr>
-                                <div class="board-content">
-                                    <p><span><a href="#">[板块]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[人文]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[针推]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                    <p><span><a href="#">[信息技术学院]</a>&nbsp;<a href="#">贴子xxxxx</a></span></p>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
 
                     </div>
                     <hr>
@@ -408,7 +340,6 @@
         </div>
     </div>
 </div>
-
 <!--button组-->
 <div id="goTop" class="btn-group-vertical dropup">
     <button type="button" class="btn btn-primary" onclick="writePost()">
@@ -422,10 +353,40 @@
 </div>
 
 <script>
+    //头像的显示
+    $(function () {
+        let myHeadImg = $("#myHeadImg").attr("value");
+        if (myHeadImg !== '') {
+            let beginIndex = myHeadImg.lastIndexOf("/webapp/") + 7;
+            let endIndex = myHeadImg.length;
+            let src = myHeadImg.substring(beginIndex, endIndex);
+            $("#myHeadImg").attr("src", src);
+        }
+
+    })
+
+    //修改默认的跳转方式 /person/manager
+    /* $(".sidebar-nav>li>a").on("click", function () {
+         let currentHref = $(this).attr("href");
+
+         let beginIndex = currentHref.lastIndexOf("/person/") + 8;
+         let endIndex = currentHref.length;
+         let href = currentHref.substring(beginIndex, endIndex);
+         $.ajax({
+             type: "post",
+             href: '/person',
+             data: "href",
+             success: function () {
+                 window.location.href = "/person";
+             }
+         })
+         return false
+     })*/
+
 
     /*快速发帖*/
     function writePost() {
-        window.location="foreground/post/write_post_quickly.jsp";
+        window.location = "foreground/post/write_post_quickly.jsp";
     }
 
     /*
@@ -438,7 +399,6 @@
         if ($(window).width() > 750) {
             $(".school-hot").css({"border-right": "2px solid blue"});
             $(".board-hot").css({"border-left": "2px solid blue"})
-
         }
     })
 

@@ -54,7 +54,7 @@
                 该值在/panel/input/{id} 中获取id，
                     用pid，查询db，有的话，赋值给 panel，传递给页面，页面通过panel.id 是否有值，来判断是否添加隐藏域，给springmvc框架标示为restful 接口风格
             --%>
-            <form:form action="/panel" modelAttribute="panel" method="post">
+            <form:form action="/admin/panel" modelAttribute="panel" method="post">
                 <c:if test="${not empty panel.id}">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>
@@ -167,13 +167,14 @@
         $("#upload").click(function () {
             var form = new FormData(document.getElementById("uploadForm"));
             $.ajax({
-                url: "/panel/fileUpload",
+                url: "/admin/panel/fileUpload",
                 type: "post",
                 data: form,
                 processData: false,
                 contentType: false,
                 success: function (data) {
                     if (data.status == 200) {
+
                     }
                 },
                 error: function (e) {

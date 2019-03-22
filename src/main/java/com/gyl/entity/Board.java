@@ -47,7 +47,8 @@ public class Board {
     /**
      * 板块
      */
-    private List<Area> areas;
+    private List<Area> areas = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -151,5 +152,13 @@ public class Board {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

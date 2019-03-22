@@ -26,7 +26,8 @@ public class Post {
     private String areaId;
 
 
-    List<Comment> comments;
+    List<Comment> comments = new ArrayList<>();
+
 
     /**
      * 参与 人数
@@ -132,4 +133,7 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+
+
 }

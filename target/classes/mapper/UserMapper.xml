@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gyl.mapper.UserMapper">
-
     <resultMap id="userMap" type="com.gyl.entity.User">
         <id property="id" column="id"/>
         <result property="username" column="username"/>
@@ -68,11 +67,11 @@
         )
        values
       (
-        #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime}
+        #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime},#{userAccountStatus.status}
         ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phoneNumber},#{email},#{userBaseInfo.qqNumber}
         ,#{userBaseInfo.age},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details}
         ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum},#{userLoginInfo.realName}
-        ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo},#{userAccountStatus.status}
+        ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo}
       )
   </insert>
 
@@ -96,21 +95,25 @@
             <if test="nickName!=null">nick_name=#{nickName},</if>
             <if test="createTime!=null">create_time=#{createTime},</if>
             <if test="email!=null">email=#{email},</if>
-            <if test="userBaseInfo.realName!=null">real_name=#{userBaseInfo.realName},</if>
-            <if test="userBaseInfo.age!=null">age=#{userBaseInfo.age},</if>
-            <if test="userBaseInfo.birthday!=null">birthday=#{userBaseInfo.birthday},</if>
-            <if test="userBaseInfo.headImage!=null">head_image=#{userBaseInfo.headImage},</if>
-            <if test="userBaseInfo.hobbies!=null">hobbies=#{userBaseInfo.hobbies},</if>
-            <if test="userBaseInfo.phoneNumber!=null">phone_number=#{userBaseInfo.phoneNumber},</if>
-            <if test="userBaseInfo.qqNumber!=null">qq_number=#{userBaseInfo.qqNumber},</if>
-            <if test="userBaseInfo.province!=null">province=#{userBaseInfo.province},</if>
-            <if test="userBaseInfo.city!=null">city=#{userBaseInfo.city},</if>
-            <if test="userBaseInfo.street!=null">street=#{userBaseInfo.street},</if>
-            <if test="userBaseInfo.details!=null">details=#{userBaseInfo.details},</if>
-            <if test="userLoginInfo.ipAdreess!=null">ip_adreess=#{userLoginInfo.ipAdreess},</if>
-            <if test="userLoginInfo.accessTime!=null">access_time=#{userLoginInfo.accessTime},</if>
-            <if test="userLoginInfo.leftTime!=null">left_time=#{userLoginInfo.leftTime},</if>
-            <if test="userLoginInfo.accessNum!=null">access_num=#{userLoginInfo.accessNum},</if>
+            <if test="userBaseInfo!=null">
+                <if test="userBaseInfo.realName!=null">real_name=#{userBaseInfo.realName},</if>
+                <if test="userBaseInfo.age!=null">age=#{userBaseInfo.age},</if>
+                <if test="userBaseInfo.birthday!=null">birthday=#{userBaseInfo.birthday},</if>
+                <if test="userBaseInfo.headImage!=null">head_image=#{userBaseInfo.headImage},</if>
+                <if test="userBaseInfo.hobbies!=null">hobbies=#{userBaseInfo.hobbies},</if>
+                <if test="userBaseInfo.phoneNumber!=null">phone_number=#{userBaseInfo.phoneNumber},</if>
+                <if test="userBaseInfo.qqNumber!=null">qq_number=#{userBaseInfo.qqNumber},</if>
+                <if test="userBaseInfo.province!=null">province=#{userBaseInfo.province},</if>
+                <if test="userBaseInfo.city!=null">city=#{userBaseInfo.city},</if>
+                <if test="userBaseInfo.street!=null">street=#{userBaseInfo.street},</if>
+                <if test="userBaseInfo.details!=null">details=#{userBaseInfo.details},</if>
+            </if>
+            <if test="userLoginInfo!=null">
+                <if test="userLoginInfo.ipAdreess!=null">ip_adreess=#{userLoginInfo.ipAdreess},</if>
+                <if test="userLoginInfo.accessTime!=null">access_time=#{userLoginInfo.accessTime},</if>
+                <if test="userLoginInfo.leftTime!=null">left_time=#{userLoginInfo.leftTime},</if>
+                <if test="userLoginInfo.accessNum!=null">access_num=#{userLoginInfo.accessNum},</if>
+            </if>
             <if test="userAccountStatus.allowPost!=null">allow_post=#{userAccountStatus.allowPost},</if>
             <if test="userAccountStatus.allowComment!=null">allow_comment=#{userAccountStatus.allowComment},</if>
             <if test="userAccountStatus.warningInfo!=null">waring_info=#{userAccountStatus.warningInfo},</if>
@@ -122,5 +125,12 @@
     <delete id="delete">
         delete from test_bbs.t_user where id=#{id}
     </delete>
+
+    <!--
+      更改用户名
+    -->
+    <select id="selectUsername" resultType="com.gyl.entity.User">
+        select username from test_bbs.t_user where username=#{username};
+    </select>
 
 </mapper>

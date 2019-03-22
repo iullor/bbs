@@ -99,8 +99,8 @@
                     </a>
                     <div id="userManager">
                         <ul>
-                            <li><a href="/user">用户列表</a></li>
-                            <li><a href="/user">违规用户</a></li>
+                            <li><a href="/admin/user">用户列表</a></li>
+                            <li><a href="/admin/user">违规用户</a></li>
                         </ul>
                     </div>
                 </li>
@@ -110,8 +110,8 @@
                     </a>
                     <div id="postManager">
                         <ul>
-                            <li><a href="/post">列表</a></li>
-                            <li><a href="/post/input/0">添加</a></li>
+                            <li><a href="/admin/post">列表</a></li>
+                            <li><a href="/admin/post/input/0">添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -121,7 +121,7 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/area">列表</a></li>
+                            <li><a href="/admin/area">列表</a></li>
                         </ul>
                     </div>
                 </li>
@@ -131,7 +131,7 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/board">列表</a></li>
+                            <li><a href="/admin/board">列表</a></li>
                         </ul>
                     </div>
                 </li>
@@ -141,7 +141,7 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/panel">列表</a></li>
+                            <li><a href="/admin/panel">列表</a></li>
                         </ul>
                     </div>
                 </li>

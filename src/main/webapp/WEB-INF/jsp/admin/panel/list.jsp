@@ -30,7 +30,7 @@
           </div>--%>
 
         <div class="col-md-offset-5 col-md-1">
-            <a href="/panel/input/0">
+            <a href="/admin/panel/input/0">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
                 </button>
             </a>
@@ -44,7 +44,7 @@
             热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
         </div>
-        <form action="/panel/searchByPanelTitle" method="get">
+        <form action="/admin/panel/searchByPanelTitle" method="get">
             <div class="col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
@@ -87,7 +87,7 @@
                         <c:when test="${empty panels}">
                             <tr>
                                 <td colspan="7" class="text-center text-info text-lg">
-                                    当前还没有模块,请去 <a href="/panel/input/0">添加</a>
+                                    当前还没有模块,请去 <a href="/admin/panel/input/0">添加</a>
                                 </td>
                             </tr>
                         </c:when>
@@ -106,9 +106,9 @@
                                     <td><a href="#">
                                         <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </a></td>
-                                    <td><a href="/panel/input/${p.id}">编辑</a></td>
-                                    <td><a class="delete" href="/panel/${p.id}">删除</a></td>
-                                    <td><a class="addBoard" href="/board/addBoardToPanel/${p.id}">添加</a></td>
+                                    <td><a href="/admin/panel/input/${p.id}">编辑</a></td>
+                                    <td><a class="delete" href="/admin/panel/${p.id}">删除</a></td>
+                                    <td><a class="addBoard" href="/admin/board/addBoardToPanel/${p.id}">添加</a></td>
                                     <form action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
                                     </form>
@@ -155,7 +155,7 @@
 <script>
     $(function () {
         $("#searchAll").on("click", function () {
-            window.location.href = "/panel"
+            window.location.href = "/admin/panel"
         });
         //删除确认
         $(".delete").on("click", function () {

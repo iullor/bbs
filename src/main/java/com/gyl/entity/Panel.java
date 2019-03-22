@@ -34,7 +34,8 @@ public class Panel implements Serializable {
     /**
      * 板块
      */
-    private List<Board> boards;
+    private List<Board> boards = new ArrayList<>();
+    private List<Area> areas = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -117,5 +118,11 @@ public class Panel implements Serializable {
         this.boards = boards;
     }
 
+    public List<Area> getAreas() {
+        return areas;
+    }
 
+    public void setAreas(List<Area> areas) {
+        this.areas = areas;
+    }
 }

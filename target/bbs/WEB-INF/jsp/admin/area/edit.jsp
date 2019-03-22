@@ -42,7 +42,7 @@
             <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
         </div>
         <div id="addModel" class="col-md-4">
-            <form:form action="/area" method="post" modelAttribute="area">
+            <form:form action="/admin/area" method="post" modelAttribute="area">
                 <c:if test="${not empty area.id}">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>

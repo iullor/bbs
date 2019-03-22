@@ -24,7 +24,7 @@
     <%--操作栏--%>
     <div class="row text-center">
         <div class="col-md-offset-5 col-md-1">
-            <a href="/area/input/0">
+            <a href="/admin/area/input/0">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加分区
                 </button>
             </a>
@@ -88,9 +88,9 @@
                                     <td><a href="#">
                                         <f:formatDate value="${a.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </a></td>
-                                    <td><a href="/area/input/${a.id}">编辑</a></td>
+                                    <td><a href="/admin/area/input/${a.id}">编辑</a></td>
                                     <td>
-                                        <a class="delete" href="/area/${a.id}">删除</a>
+                                        <a class="delete" href="/admin/area/${a.id}">删除</a>
                                     </td>
                                     <form action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
@@ -101,7 +101,7 @@
                         <c:otherwise>
                             <tr>
                                 <td colspan="7" class="text-center text-info text-lg">
-                                    当前还没有板块,请去 <a href="/area/input/0">添加</a>
+                                    当前还没有板块,请去 <a href="/admin/area/input/0">添加</a>
                                 </td>
                             </tr>
                         </c:otherwise>

@@ -61,7 +61,7 @@
                 </div>
             </form>
             <br>
-            <form:form action="/board" method="post" modelAttribute="board">
+            <form:form action="/admin/board" method="post" modelAttribute="board">
                 <c:if test="${not empty board.id}">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>
@@ -162,7 +162,7 @@
         $("#upload").click(function () {
             var form = new FormData(document.getElementById("uploadForm"));
             $.ajax({
-                url: "/board/fileUpload",
+                url: "/admin/board/fileUpload",
                 type: "post",
                 data: form,
                 processData: false,

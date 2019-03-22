@@ -23,11 +23,18 @@ public interface PanelMapper {
      */
     List<Panel> list();
 
+    List<Panel> listBoardsAreaPosts();
+
     int update(Panel panel);
 
     int delete(@Param(value = "pid") String pid);
 
     Panel getPanelById(@Param(value = "pid") String pid);
+
+
+    Panel selectPanelById(@Param(value = "pid") String pid);
+
+
 
     List<Panel> searchByPanelTitle(@Param(value = "title") String inputPanelTitle);
 }

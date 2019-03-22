@@ -69,11 +69,24 @@ public class PanelService {
 
     /**
      * 管理员的delete
-     *
      */
     public int deleteByAdmin(String pid) {
 
         return panelMapper.delete(pid);
     }
 
+    public List<Panel> listBoardsAreaPosts() {
+
+        return panelMapper.listBoardsAreaPosts();
+    }
+
+    /**
+     * 通过panel id 查找 board area 等
+     *
+     * @param pid
+     * @return
+     */
+    public Panel selectPanelById(String pid) {
+        return panelMapper.selectPanelById(pid);
+    }
 }

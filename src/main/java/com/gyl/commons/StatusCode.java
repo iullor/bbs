@@ -24,9 +24,9 @@ public class StatusCode {
     public static final String USER_EXIT = "100";
     public static final String USER_NOT_EXIT = "101";
     public static final String USER_PASSWORD_ERROR = "102";
-    public static final String USER_NOT_ACTIVE = "103";
-    public static final String USER_NORMAL = "104";
-    public static final String USER_FREESON = "105";
+    public static final String USER_NOT_ACTIVE = "0";
+    public static final String USER_NORMAL = "1";
+    public static final String USER_FREESON = "-1";
     public static final String SUCCESS_LOGON = "110";
 
     /**

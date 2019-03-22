@@ -1960,14 +1960,14 @@
       <Position>23</Position>
       <Comment>是否可以发帖</Comment>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>1</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="417" parent="246" name="allow_comment">
       <Position>24</Position>
       <Comment>是否可以发帖</Comment>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>1</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="418" parent="246" name="waring_info">

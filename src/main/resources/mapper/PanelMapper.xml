@@ -6,12 +6,55 @@
         insert into t_panel (id,title,create_time,logo_path,user_manager_id,info,detail,is_disabeld)
         values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},1);
     </insert>
-    <select id="list" resultMap="listPanel">
+    <select id="list" resultMap="listPanel1">
         select * from test_bbs.t_panel  order by create_time desc ;
     </select>
-    <resultMap id="listPanel" type="com.gyl.entity.Panel">
+
+    <resultMap id="listPanel1" type="com.gyl.entity.Panel">
         <result property="panelManagerId" column="user_manager_id"/>
     </resultMap>
+
+    <!--连表查询-->
+    <select id="listBoardsAreaPosts" resultMap="listPanel2">
+        select
+          p.id as panel_id,
+          p.title as panel_title,
+          p.logo_path as panel_logo_path,
+          p.info as panel_info,
+          b.id as board_id,
+          b.info as board_info,
+          b.board_title as board_title,
+          a.id as area_id,
+          a.area_title as area_title,
+          post.id as post_id,
+          post.post_title as post_title
+        from test_bbs.t_panel p
+          left outer join test_bbs.t_board b on b.panel_id =p.id
+          left outer join test_bbs.t_area a on b.id = a.board_id
+          left outer join test_bbs.t_post post on post.board_id=b.id
+        order by p.create_time asc
+    </select>
+    <resultMap id="listPanel2" type="com.gyl.entity.Panel">
+        <id property="id" column="panel_id"/>
+        <result property="title" column="panel_title"/>
+        <result property="logoPath" column="panel_logo_path"/>
+        <result property="info" column="panel_info"/>
+        <collection property="boards" ofType="com.gyl.entity.Board">
+            <id property="id" column="board_id"/>
+            <result property="info" column="board_info"/>
+            <result property="boardTitle" column="board_title"/>
+            <!--<collection property="areas" ofType="com.gyl.entity.Area">
+                <id property="id" column="area_id"/>
+                <result property="areaTitle" column="area_title"/>
+            </collection>-->
+            <collection property="posts" ofType="com.gyl.entity.Post">
+                <id property="id" column="post_id"/>
+                <result property="postTitle" column="post_title"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+
     <update id="update" parameterType="com.gyl.entity.Panel">
         update test_bbs.t_panel
         <set>
@@ -27,11 +70,64 @@
     <delete id="delete">
         delete from test_bbs.t_panel where id=#{pid}
     </delete>
-    <select id="getPanelById" resultType="com.gyl.entity.Panel" resultMap="listPanel">
-        select * from test_bbs.t_panel where id=#{pid}
+
+    <select id="getPanelById" resultType="com.gyl.entity.Panel" resultMap="listPanel1">
+        select * from test_bbs.t_panel p where id=#{pid}
     </select>
 
-    <select id="searchByPanelTitle" resultMap="listPanel">
+    <select id="selectPanelById" resultMap="listPanel3">
+        select
+          p.id as panel_id,
+          p.info as panel_info,
+          p.logo_path as panel_logo_path,
+          p.create_time as panel_create_time,
+          p.title as panel_title,
+          p.detail as panel_detail,
+          p.user_manager_id as panel_manager_id,
+          b.id as board_id,
+          b.info as board_info,
+          b.board_title as board_title,
+          b.logo_path as board_logo_path,
+          b.board_type as board_type,
+          b.details as board_details,
+          b.create_time as board_create_time,
+          a.id as area_id,
+          a.info as area_info,
+          a.details as area_details,
+          a.area_title as area_title,
+          a.create_time as area_create_time
+         from test_bbs.t_panel p
+            left outer join test_bbs.t_board b on p.id = b.panel_id
+            left outer join test_bbs.t_area a on b.id = a.board_id
+         where p.id=#{pid}
+    </select>
+
+    <resultMap id="listPanel3" type="com.gyl.entity.Panel">
+        <id property="id" column="panel_id"/>
+        <result property="info" column="panel_info"/>
+        <result property="logoPath" column="panel_logo_path"/>
+        <result property="createTime" column="panel_create_time"/>
+        <result property="title" column="panel_title"/>
+        <result property="detail" column="panel_detail"/>
+        <result property="panelManagerId" column="panel_manager_id"/>
+        <collection property="boards" ofType="com.gyl.entity.Board">
+            <id property="id" column="board_id"/>
+            <result property="info" column="board_info"/>
+            <result property="boardType" column="board_type"/>
+            <result property="boardTitle" column="board_title"/>
+            <result property="logoPath" column="board_logo_path"/>
+            <result property="details" column="board_details"/>
+            <result property="createTime" column="board_create_time"/>
+            <collection property="areas" ofType="com.gyl.entity.Area">
+                <id property="id" column="area_id"/>
+                <result property="info" column="area_info"/>
+                <result property="details" column="area_details"/>
+                <result property="areaTitle" column="area_title"/>
+                <result property="createTime" column="area_create_time"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="searchByPanelTitle" resultMap="listPanel1">
         select * from test_bbs.t_panel
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="title != null">

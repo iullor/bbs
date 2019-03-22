@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -163,7 +166,7 @@
                                     </span>
                                     <span class="pull-right  btn btn-default"
                                           style="margin-right: 20px;margin-top: 7px;">
-                                        <a href="../post/post_edit.jsp"><span
+                                        <a href="/post/input/0"><span
                                                 class="glyphicon glyphicon-comment">发帖</span></a>
                                     </span>
                                 </p>
@@ -196,52 +199,9 @@
                                     <td class="col-md-1 text-left">
                                         <button class="label-top">置顶</button>
                                     </td>
-                                    <td class="col-md-6"><a href="../post/post_list.jsp">计算机行业的现状及发展</a></td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="25" height="25"></td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
-                                <tr class="row">
-                                    <td class="col-md-1">1</td>
-                                    <td class="col-md-6">计算机行业的现状及发展</td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
-                                <tr class="row">
-                                    <a href="../post/post_list.jsp">
-                                        <td class="col-md-1">2</td>
-                                        <td class="col-md-6"><a href="#">计算机行业的现状及发展</a></td>
-                                        <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
-                                        <td class="col-md-2">2018//10/12</td>
-                                        <td class="col-md-2">20</td>
-                                    </a>
-                                </tr>
-                                <tr class="row">
-                                    <td class="col-md-1">6</td>
-                                    <td class="col-md-6">计算机行业的现状及发展</td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
-                                <tr class="row">
-                                    <td class="col-md-1">7</td>
-                                    <td class="col-md-6">计算机行业的现状及发展</td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
-                                <tr class="row">
-                                    <td class="col-md-1">8</td>
-                                    <td class="col-md-6">计算机行业的现状及发展</td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
-                                <tr class="row">
-                                    <td class="col-md-1">9</td>
-                                    <td class="col-md-6">算机行业的现状及发展</td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="23" height="23"></td>
+                                    <td class="col-md-6"><a href="/post">计算机行业的现状及发展</a></td>
+                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="25" height="25">
+                                    </td>
                                     <td class="col-md-2">2018//10/12</td>
                                     <td class="col-md-2">20</td>
                                 </tr>

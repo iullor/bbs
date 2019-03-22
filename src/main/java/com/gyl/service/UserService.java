@@ -39,8 +39,7 @@ public class UserService {
      * @param password
      */
     public Map<String, Object> checkUser(String username, String password) {
-        System.out.println("UserService.checkUser......");
-        userLogonInfo = new HashMap<String, Object>();
+        userLogonInfo = new HashMap<>();
         User user = userMapper.checkUser(username);
         if (user != null) {
             if (user.getPassword().equals(password)) {
@@ -78,10 +77,23 @@ public class UserService {
     }
 
     public int update(User user) {
+
+
+
+
         return userMapper.update(user);
     }
 
     public int delete(String id) {
         return userMapper.delete(id);
+    }
+
+    public String selectUsername(String uname) {
+        User user = userMapper.selectUsername(uname);
+        if (user != null) {
+            return "用户名已经被注册";
+        }
+
+        return "可以使用";
     }
 }

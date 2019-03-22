@@ -7,9 +7,8 @@ body {
 }
 
 #main {
-    margin-top: 30px;
-    /*height: 1000px;*/
-
+    background-color: white;
+    padding-top: 30px;
 }
 
 /**
@@ -29,9 +28,6 @@ body {
 
 }
 
-.drop_span {
-    font-size: 20px;
-}
 
 /**
     更改行的高度

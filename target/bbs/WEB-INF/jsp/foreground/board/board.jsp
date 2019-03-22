@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -137,14 +140,13 @@
                 <span id="open" class="glyphicon glyphicon-menu-hamburger"></span>
                 <div id="main" class="container">
                     <!--路径导航栏-->
-                    <div class="row" style="border-bottom: grey solid 1px">
+                    <div class="row" style="border-bottom: grey solid 1px;background-color: white">
                         <ol class="breadcrumb">
-                            <li><a href="../../public/index.jsp">Home</a></li>
+                            <li><a href="/public">Home</a></li>
                             <li><a href="../panel/panel.jsp">Panel</a></li>
                             <li class="active">School</li>
                         </ol>
                     </div>
-                    <hr>
                     <div id="collapseParent" class="panel-group">
                         <div class="panel">
                             <div class="panel-heading panel-hot">
@@ -210,108 +212,62 @@
                         </div>
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                <p class="text-justify">所有的板块<span
+                                <p class="lead">${panel.title}<span
                                         class="glyphicon glyphicon-menu-hamburger pull-right"></span></p>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span>信息技术学院</span>
-                                <div class="drop_span pull-right">
-                                    <a role="button" data-toggle="collapse" href="#collapseOne"
-                                       aria-expanded="true"
-                                       aria-controls="collapseOne"><span class="caret"></span></a>
-                                </div>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
-                                <div class="panel-body panel-border">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="../area/area.jsp">[计算机科学与技术]</a>
+                        <c:choose>
+                            <c:when test="${not empty panel.boards}">
+                                <c:forEach items="${panel.boards}" var="b" varStatus="i">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="lead">${b.boardTitle}</span>
+                                            <div class="pull-right">
+                                                <a role="button" data-toggle="collapse" href="#collapse${i.index}"
+                                                   aria-expanded="true"
+                                                   aria-controls="collapseOne" style="font-size: 18px">抽屉<span
+                                                        class="caret"></span></a>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <p class="text-info">[贴子数]:1354</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p>
-                                                <small>2018年10月13日&nbsp;&nbsp;&nbsp;15:20</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="#">[信息管理]</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            111
-                                        </div>
-                                        <div class="col-md-3">
-                                            最新更新时间
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="#">[软件工程]</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            111
-                                        </div>
-                                        <div class="col-md-3">
-                                            最新更新时间
+                                        <div id="collapse${i.index}" class="panel-collapse collapse in">
+                                            <div class="panel-body panel-border">
+                                                <c:forEach items="${b.areas}" var="a">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <a href="/area/${a.id}">[${a.areaTitle}]</a>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p class="text-info">[贴子数]:1354</p>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <p>
+                                                                <small>
+                                                                    <f:formatDate value="${a.createTime}"
+                                                                                  pattern="yyyy-MM-dd HH:mm:ss"/>
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <span>School</span>
-                                <div class="drop_span pull-right">
-                                    <a role="button" data-toggle="collapse" href="#collapseTwo"
-                                       aria-expanded="true"
-                                       aria-controls="collapseOne"><span class="caret"></span></a>
-                                </div>
-                                </button>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse in">
-
-                                <div class="panel-body panel-border">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="#">[计算机科学与技术]</a>
+                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <span>暂时为空</span>
+                                        <div class="drop_span pull-right">
+                                            <a role="button" data-toggle="collapse" href="#collapse1"
+                                               aria-expanded="true"
+                                               aria-controls="collapseOne"><span class="caret"></span></a>
                                         </div>
-                                        <div class="col-md-4">
-                                            <p class="text-success">[贴子数]：1354</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            最新更新时间
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="#">[信息管理]</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            111
-                                        </div>
-                                        <div class="col-md-3">
-                                            最新更新时间
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="#">[软件工程]</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            111
-                                        </div>
-                                        <div class="col-md-3">
-                                            <最新更新时间></最新更新时间>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>

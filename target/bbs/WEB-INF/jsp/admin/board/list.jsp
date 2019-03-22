@@ -25,7 +25,7 @@
     <div class="row text-center">
 
         <div class="col-md-offset-5 col-md-1">
-            <a href="/board/input/0">
+            <a href="/admin/board/input/0">
                 <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加板块
                 </button>
             </a>
@@ -90,15 +90,15 @@
                                     <td><a href="#">
                                         <f:formatDate value="${b.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </a></td>
-                                    <td><a href="/board/input/${b.id}">编辑</a></td>
+                                    <td><a href="/admin/board/input/${b.id}">编辑</a></td>
                                     <td>
-                                        <a class="delete" href="/board/${b.id}">删除</a>
+                                        <a class="delete" href="/admin/board/${b.id}">删除</a>
                                     </td>
                                     <form action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
                                     </form>
                                     <td>
-                                        <a href="/addAreaToBoard/${b.id}">添加</a>
+                                        <a href="/admin/area/addAreaToBoard/${b.id}">添加</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -106,7 +106,7 @@
                         <c:otherwise>
                             <tr>
                                 <td colspan="7" class="text-center text-info text-lg">
-                                    当前还没有板块,请去 <a href="/board/input/0">添加</a>
+                                    当前还没有板块,请去 <a href="/admin/board/input/0">添加</a>
                                 </td>
                             </tr>
                         </c:otherwise>

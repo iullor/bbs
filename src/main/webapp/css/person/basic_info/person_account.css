@@ -8,3 +8,21 @@
 #headImage {
     display: none;
 }
+
+.container-inner {
+    margin-top: 10px;
+    background-color: white;
+    height: 800px;
+}
+
+.container-inner h3 {
+    margin-top: 30px;
+}
+
+.input-board-info {
+    border: 1px solid green;
+}
+
+.input-board-danger {
+    border: 1px solid red;
+}

@@ -31,7 +31,8 @@
     </div>
     <div class="row" style="margin-top: 100px;">
         <div class="col-md-offset-3 col-md-6">
-            <form action="/user/add" method="post" role="form">
+            <form action="/admin/user/add" method="post" role="form">
+                <input type="hidden" name="userAccountStatus.status" value="1"/>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="Username" class="control-label">Username

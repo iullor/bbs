@@ -1,10 +1,22 @@
 /*
 =========关注的板块样式==========
 */
-li.active {
+.container-inner {
+    margin-top: 10px;
+    background-color: white;
+    height: 800px;
+}
+
+.container-inner h3 {
+    margin-top: 30px;
+}
+
+
+.active {
     color: #fff;
     background-color: rgba(138, 108, 182, 0.63);
 }
+
 #list .row {
     margin-top: 30px;
 }

@@ -19,14 +19,14 @@
         }
 
         .panel-group {
-            height: 900px;
+            height: 1000px;
         }
 
         td > .panel {
             width: 103%;
             margin-left: -22px;
             margin-top: -3px;
-            height: 450px;
+            height: 430px;
         }
     </style>
 
@@ -104,7 +104,13 @@
                                     <td>${i.index+1}</td>
                                     <td>${u.nickName}</td>
                                     <td>${u.username}</td>
-                                    <td>${u.userBaseInfo.headImage}</td>
+                                    <td>
+                                        <a href="" target="_Blank">
+                                            <img src="" value='${u.userBaseInfo.headImage}'
+                                                 width="50"
+                                                 height="50" alt="点击查看大图">
+                                        </a>
+                                    </td>
                                     <td><a href="#">${u.userAccountStatus.status}</a></td>
                                     <td><a href="#">${u.userAccountStatus.status}</a></td>
                                     <td><a href="/user/userBaseInfo/${u.id}">查看</a></td>
@@ -120,7 +126,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-body">
-                                                <form action="/user/updateUserAccountStatus" method="post">
+                                                <form action="/admin/user/updateUserAccountStatus" method="post">
                                                     <table class="table table-hover">
                                                         <input type="hidden" name="id" value="${u.id}"/>
                                                         <thead>
@@ -132,28 +138,28 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr>
-                                                            <td>
+                                                            <td colspan="1">
                                                                     <%-- <div class="bootstrap-switch bootstrap-switch-on">
                                                                          <input type="checkbox" class="checkbox"
                                                                                 name="userAccountStatus.allowPost"
                                                                                 value="${u.userAccountStatus.allowPost}"/>
                                                                      </div>--%>
                                                                 <input type="checkbox" class="checkbox"
-                                                                       name="userAccountStatus.allowPost"
+                                                                       name="allowPost"
                                                                     ${u.userAccountStatus.allowPost==1?'checked':''}/>
                                                             </td>
-                                                            <td>
+                                                            <td colspan="1">
                                                                     <%-- <div class="bootstrap-switch bootstrap-switch-on">
                                                                          <input type="checkbox" class="checkbox"
                                                                                 name="userAccountStatus.allowComment"
                                                                                 value="${u.userAccountStatus.allowComment}"/>
                                                                      </div>--%>
                                                                 <input type="checkbox" class="checkbox"
-                                                                       name="userAccountStatus.allowComment"
+                                                                       name="allowComment"
                                                                     ${u.userAccountStatus.allowComment==1?'checked':''}/>
                                                             </td>
                                                             <td colspan="2">
-                                                                <select name="userAccountStatus.status"
+                                                                <select name="status"
                                                                         class="form-control">
                                                                     <option value="-1" ${u.userAccountStatus.status == -1?'selected':''}>
                                                                         冻结
@@ -170,26 +176,29 @@
                                                                 <a href="#warning-info">添加</a>
                                                             </td>
                                                             <td colspan="1">
-                                                                <a id="deleteA" href="/user/${u.id}">删除</a>
+                                                                <a class="delete" href="/admin/user/${u.id}">删除</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="5">
-                                                                <span>警告信息</span>
-                                                                <textarea cols="50" rows="10"
-                                                                          name="userAccountStatus.waringInfo"
-                                                                ></textarea>
-                                                            </td>
-                                                            <td colspan="3">
+                                                            <td colspan="4">
                                                                 <span>历史</span>
-                                                                <p>${u.userAccountStatus.warningInfo}</p>
+                                                                <div class="well" style="width: 550px">
+                                                                    <blockquote>
+                                                                        <p>${u.userAccountStatus.warningInfo}</p>
+                                                                    </blockquote>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <p>警告信息</p>
+                                                                <textarea cols="80" rows="8"
+                                                                          name="warningInfo" readonly></textarea>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="7">
                                                                 <button type="submit"
                                                                         class="btn btn-sm btn-success pull-right update-option">
-                                                                    修改
+                                                                    提交
                                                                 </button>
                                                             </td>
                                                         </tr>
@@ -341,27 +350,35 @@
                 }
             }
         }).bootstrapSwitch('state', true);*/
+        /*
+            $("input[type='checkbox']").each(function (a, b, c) {
+                console.log(a)
+                console.log(b)
+                console.log(c)
+                if ($(b).attr("checked") === 'checked') {
+                    $(b).val('1');
+                } else {
+                    $(b).val('0');
+                }
+                //console.log($(b).val());
+            })
 
-        $("input[type='checkbox']").each(function (a, b, c) {
-            console.log(a)
-            console.log(b)
-            console.log(c)
-            if ($(b).attr("checked") === 'checked') {
-                $(b).val('1');
-            } else {
-                $(b).val('0');
-            }
-            //console.log($(b).val());
-        })
+            $("input[type='checkbox']").on("change", function () {
+                if ($(this).val() == '1') {
+                    $(this).val("0")
+                } else {
+                    $(this).val("1")
+                }
+            })*/
 
-        $("input[type='checkbox']").on("change", function () {
-            if ($(this).val() == '1') {
-                $(this).val("0")
-            } else {
-                $(this).val("1")
-            }
-        })
-
+        $("img").each(function () {
+            let tmp = $(this).attr("value");
+            let beginIndex = tmp.lastIndexOf("/webapp/") + 7;
+            let endIndex = tmp.length;
+            var realPath = tmp.substring(beginIndex, endIndex);
+            $(this).attr("src", realPath);
+            $(this).parent("a").attr("href", realPath);
+        });
 
         //再渲染完页面之后，将一些模块隐藏
         $(".options").hide();
@@ -371,14 +388,31 @@
             return false;
         })
 
-
         //设置textarea可以添加信息
         $("a[href='#warning-info']").click(function () {
-            /* $(this).parents("td").parents("tr").next("tr").children("td").children("textarea").attr("readonly", false);*/
+            $(this).parents("td").parents("tr").next("tr").children("td").children("textarea").attr("readonly", false);
             return false;
         })
 
+        $("tr textarea").click(function () {
+            if ($(this).attr("readonly") === 'readonly') {
+                alert("请点击添加，解除封印")
+            }
+        })
 
+
+        //删除用户
+       /* $(".delete").on("click", function () {
+            let tmp = confirm("您确认删除该用户吗？");
+            var url = $(this).attr("href");
+            alert(url)
+            $.ajax({
+                async: false,
+                url: "https://www.baidu.com",
+                type: 'get'
+            })
+
+        })*/
     })
 </script>
 </body>
