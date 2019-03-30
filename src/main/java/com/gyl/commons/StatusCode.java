@@ -50,4 +50,25 @@ public class StatusCode {
     public static final String UPDATE_PANEL_ERROR = "2004";
     public static final String UPDATE_PANEL_SUCCESS = "2005";
 
+
+    /**
+     * collection收藏
+     * <p>
+     * 3000 关注用户成功
+     * 3001 取消用户成功
+     * <p>
+     * 3002 收藏贴子成功
+     * 3003 取消收藏贴子
+     * <p>
+     * 3004 关注板块成功
+     * 3005 取消板块成功
+     */
+    public static final String COLLECT_USER_SUCCESS = "3000";
+    public static final String CANCEL_USER_SUCCESS = "3001";
+    public static final String COLLECT_POST_SUCCESS = "3002";
+    public static final String CANCEL_POST_SUCCESS = "3003";
+    public static final String COLLECT_AREA_SUCCESS = "3004";
+    public static final String CANCEL_AREA__SUCCESS = "3005";
+
+
 }

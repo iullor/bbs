@@ -1,23 +1,22 @@
 /**
 ===============侧栏的样式==================
  */
-#left-navbar {
-    float: left;
-    top: 50px;
-    height: 900px;
-}
 
 .navbar-fixed-top {
-    height: 20px;
+    height: 0px;
 }
 
 .sidebar-nav {
+    background-color: silver;
     list-style: none;
-    margin: 0;
+    margin-top: -5px;
+    margin-left: -11px;
     padding: 0;
     position: absolute;
     top: 55px;
-    width: 14%;
+    border-right: 1px #f1f5f5 solid;
+    height: 980px;
+    width: 16%;
 }
 
 .sidebar-nav li {
@@ -39,8 +38,9 @@
 
 .sidebar-nav li:first-child {
     margin-top: 15px;
-    text-align: right;
+    margin-left: 220px;
     color: black;
+    font-size: 22px;
 }
 
 .sidebar-nav li:nth-child(2) {
@@ -81,13 +81,6 @@
 /**
 ============控制侧栏====================
  */
-#close {
-    margin-top: 0px;
-    margin-left: 11%;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
 #open {
     position: fixed;
     z-index: 3;

@@ -31,9 +31,6 @@
                     </button>
 
                     <a class="navbar-brand" href="../../public/index.jsp">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="row" style="margin-top: 6px">
@@ -126,8 +123,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/posts" class="">贴子</a></li>
-                                <li><a href="/person/collection/boards" class="">板块</a></li>
+                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +132,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/focus" class="">
+                            <a href="/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -163,10 +160,7 @@
         <div id="list" class="col-md-8">
             <div class="sort-search">
                 <div class="row">
-                    <div class="col-md-1">
-                        <p><b>查询</b></p>
-                    </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-4 text-center">
                         <b>时间</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="#">升序 <span class="glyphicon glyphicon-sort-by-order"></span></a>&nbsp;&nbsp;
                         <a href="#">降序 <span class="glyphicon glyphicon-sort-by-order-alt"></span></a>
@@ -175,99 +169,74 @@
                         <b>分类</b>
                     </div>
                     <div class="col-md-2">
-                        <select name="choose" id="" class="form-control">
+                        <select name="choose" id="myPostType" class="form-control">
+                            <option value="">全部</option>
                             <option value="">娱乐</option>
                             <option value="">求助</option>
                             <option value="">学术</option>
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-offset-1 col-md-4">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="关键字">
+                            <span class="input-group-btn" style="padding-top: 8px;">
+                               <button class="btn btn-default" type="button"><span
+                                       class="glyphicon glyphicon-search">查找</span></button>
+                           </span>
                         </div>
+
                     </div>
-                    <div class="col-md-1">
-                        <button class="btn btn-default" type="button"><span
-                                class="glyphicon glyphicon-search">查找</span></button>
-                    </div>
+
                 </div>
             </div>
+            <hr>
             <div id="post-list" class="panel-group">
-                <div class="panel">
-                    <div class="panel-body">
-                        <a href="#"><h4>BAT缩招，AI跻身2019年最赚钱职业榜首！（附薪酬表）</h4></a>
-                    </div>
-                    <div class="footer">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <span>&nbsp;&nbsp;&nbsp;<i>学术</i></span>
-                            </div>
-                            <div class="col-md-4">
-                                <span><small>2018年12月10日&nbsp;&nbsp;21:00</small></span>
-                            </div>
-                            <div class="col-md-offset-3 col-md-1">
-                                <a href="../../foreground/post/post_list.jsp">查看</a>
-                            </div>
-                            <div class="col-md-1">
-                                <span><a href="../../foreground/post/post_edit.jsp">编辑</a></span>
-                            </div>
-                            <div class="col-md-1">
-                                <span><a href="#" class="text-danger">删除</a></span>
-                            </div>
-                        </div>
-                    </div>
+                <c:choose>
+                    <c:when test="${not empty posts}">
+                        <c:forEach items="${posts}" var="post">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <a href="/post/${post.id}"><h4>${post.postTitle}</h4></a>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <span>&nbsp;&nbsp;&nbsp;<i>${post.postType}</i></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                           <span><small>
+                                                <f:formatDate value="${post.createTime}" pattern="yyyy-MM-dd hh:mm:ss"/>
+                                            </small></span>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="/post/input/${post.id}"><span
+                                                    class="glyphicon glyphicon-edit btn btn-sm btn-primary">&nbsp;编辑</span></a>
 
-                </div>
-                <div class="panel">
-                    <div class="panel-body">
-                        <p>post-title</p>
-
-                    </div>
-                    <div class="footer">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <span>&nbsp;&nbsp;&nbsp;<i>学术</i></span>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="#" class="pull-right secret"
+                                               val="${post.id}"
+                                               style="margin-left: 20px;"><span
+                                                    class="btn btn-sm btn-default  glyphicon glyphicon-eye-open">&nbsp;公开</span></a>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="#" class="btn btn-sm btn-default pull-right banComment"
+                                               val="${post.id}"
+                                               style="margin-left: 10px;">&nbsp;允许评论</a>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="/post/delete/${post.id}"><span
+                                                    class="glyphicon glyphicon-remove text-danger btn-sm btn btn btn-danger">&nbsp;删除</span></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <span><small>2018年12月10日&nbsp;&nbsp;21:00</small></span>
-                            </div>
-                            <div class="col-md-offset-3 col-md-1">
-                                <a href="../../foreground/post/post_list.jsp">查看</a>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="#">编辑</a>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="#">删除</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel">
-                    <div class="panel-body">
-                        <p>post-title</p>
-
-                    </div>
-                    <div class="footer">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <span>&nbsp;&nbsp;&nbsp;<i>学术</i></span>
-                            </div>
-                            <div class="col-md-4">
-                                <span><small>2018年12月10日&nbsp;&nbsp;21:00</small></span>
-                            </div>
-                            <div class="col-md-offset-3 col-md-1">
-                                <a href="../../foreground/post/post_list.jsp">查看</a>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="#">编辑</a>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="#">删除</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        您暂时没有贴子，请去<a href="/post/input/0">添加</a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
@@ -307,6 +276,109 @@
             })
         })
 
+        //改变贴子的显示状态
+        $(".secret").on("click", function () {
+            var postId = $(this).attr("val")
+            var id = {
+                id: postId
+            }
+            var tmpClass = $(this).children("span").attr("class");
+            //找到了,就设置为私密
+            if (tmpClass.match("glyphicon-eye-open") !== null) {
+                //公开
+                var isOpen = window.confirm("设置为私密?");
+                if (isOpen) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 1,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+
+                        }
+                    })
+                    //更改状态，显示私密
+                    $(this).children("span").removeClass("glyphicon-eye-open").removeClass("btn-default");
+                    $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
+                    $(this).children("span").html("&nbsp;私密")
+                }
+            } else {
+                //私密
+                var isOpen = window.confirm("设置为公开?");
+                if (isOpen) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 0,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+
+                        }
+                    });
+                    //更改状态，显示私密
+                    $(this).children("span").addClass("glyphicon-eye-open").addClass("btn-default");
+                    $(this).children("span").removeClass("glyphicon-eye-close").removeClass("btn-warning");
+                    $(this).children("span").html("&nbsp;公开")
+                }
+            }
+
+            return false;
+        })
+
+        //改变贴子的是否禁止评论状态
+        $(".banComment").on("click", function () {
+            var postId = $(this).attr("val")
+            var id = {
+                id: postId
+            }
+            var tmpClass = $(this).attr("class");
+            //找到了,就设置为私密
+            if (tmpClass.match("btn-default") !== null) {
+                //公开
+                var isBan = window.confirm("禁止评论?");
+                if (isBan) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 3,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+                        }
+                    })
+                    //更改状态，显示私密
+                    $(this).removeClass("btn-default");
+                    $(this).addClass("btn-warning");
+                    $(this).html("&nbsp;禁止评论")
+                }
+            } else {
+                //私密
+                var isBan = window.confirm("打开评论?");
+                if (isBan) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 2,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+                        }
+                    });
+                    //更改状态，显示私密
+                    $(this).addClass("btn-default");
+                    $(this).removeClass("btn-warning");
+                    $(this).html("&nbsp;允许评论")
+                }
+            }
+            return false;
+        })
+
+        /*
+        * 状态按钮回显
+        * */
+
+
+        //想后台发送一个查询，返回来一个map
+        $("#myPostType").on("change", function () {
+        })
     })
 </script>
 </body>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.CommentMapper">
+    <insert id="add">
+      insert into test_bbs.t_comment
+      (id,post_id,comment_content,user_id,create_time)
+      values
+      (#{id},#{postId},#{commentContent},#{userId},#{createTime})
+  </insert>
+
+    <!--通过贴子的id，查出，该贴子下面的所有的评论，以及回复-->
+    <resultMap id="commentsByPostIdMap" type="com.gyl.entity.Comment">
+        <id property="id" column="id"/>
+        <result property="userId" column="post_id"/>
+        <result property="postId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="commentContent" column="comment_content"/>
+        <association property="user" javaType="com.gyl.entity.User">
+            <id property="id" column="user_id"/>
+            <result property="nickName" column="nick_name"/>
+            <result property="email" column="email"/>
+            <result property="userBaseInfo.age" column="age"/>
+            <result property="userBaseInfo.headImage" column="headImage"/>
+        </association>
+        <collection property="replies" ofType="com.gyl.entity.Reply">
+            <id property="id" column="reply_id"/>
+        </collection>
+    </resultMap>
+    <select id="listCommentsByPostId" resultMap="commentsByPostIdMap">
+      select
+      c.id as id ,
+      c.post_id as post_id,
+      c.comment_content as comment_content,
+      c.user_id as user_id,
+      c.create_time as create_time,
+      u.nick_name as nick_name,
+      u.email as email,
+      u.age as age,
+      u.head_image as headImage,
+      r.id as reply_id
+      from test_bbs.t_comment c
+      left outer join test_bbs.t_user u on u.id=c.user_id
+      left outer join test_bbs.t_comment_reply r on c.id=r.to_comment_id
+      where c.post_id=#{postId}
+      order by c.create_time ASC
+  </select>
+
+</mapper>

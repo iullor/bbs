@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.PostMapper">
+
+
+    <insert id="addPost" parameterType="com.gyl.entity.Post">
+      insert into test_bbs.t_post
+       (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id)
+      values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId})
+  </insert>
+
+    <delete id="delete">
+    delete from test_bbs.t_post where id=#{id};
+    </delete>
+
+    <update id="update">
+        update test_bbs.t_post
+        <set>
+            <if test="userId!=null">user_id=#{userId},</if>
+            <if test="postType!=null">post_type=#{postType},</if>
+            <if test="postTitle!=null">post_title=#{postTitle},</if>
+            <if test="postContent">post_content=#{postContent},</if>
+            <if test="createTime">create_time=#{createTime},</if>
+            <if test="boardId!=null">board_id=#{boardId},</if>
+            <if test="areaId!=null">area_id=#{areaId},</if>
+            <if test="participants!=null">participants=#{participants},</if>
+            <if test="praise!=null">praise=#{praise}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--前台列出are中所有的post-->
+    <select id="listById" resultMap="postMap1">
+            select
+                   post.id as id ,
+                   post.user_id as user_id,
+                   post.post_title as post_title,
+                   post.post_content as post_content,
+                   post.create_time as create_time,
+                   post.area_id as area_id,
+                   post.board_id as board_id,
+                   post.participants as participants,
+                   post.praise as praise,
+                   post.comments as comments,
+                   type.name as post_type,
+                   u.nick_name as nick_name,
+                   u.head_image as head_image
+            from test_bbs.t_post post
+                   left outer join test_bbs.post_type type on  post.post_type=type.id
+                   left outer join test_bbs.t_user u on u.id=post.user_id
+            where post.id=#{id};
+    </select>
+
+    <resultMap id="postMap1" type="com.gyl.entity.Post">
+        <id property="id" column="id"/>
+        <result property="postType" column="post_type"/>
+        <result property="user.nickName" column="nick_name"/>
+        <result property="user.userBaseInfo.headImage" column="head_image"/>
+    </resultMap>
+
+
+    <!--getMyPostById-->
+    <select id="getMyPostById" resultMap="postMap1">
+        select
+          post.id as id ,
+          post.user_id as user_id,
+          post.post_title as post_title,
+          post.post_content as post_content,
+          post.create_time as create_time,
+          post.area_id as area_id,
+          post.board_id as board_id,
+          post.participants as participants,
+          post.praise as praise,
+          post.comments as comments,
+          type.name as post_type
+        from test_bbs.t_post post ,test_bbs.post_type type
+        where post.user_id=#{id} and post.post_type =type.id ;
+    </select>
+</mapper>

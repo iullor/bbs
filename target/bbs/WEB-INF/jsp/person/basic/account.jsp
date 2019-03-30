@@ -125,8 +125,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/posts" class="">贴子</a></li>
-                                <li><a href="/person/collection/boards" class="">板块</a></li>
+                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/focus" class="">
+                            <a href="/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -153,6 +153,59 @@
                             <ul class="list-unstyled">
                                 <li><a href="/person/themes/basic" class="">基本样式</a></li>
                                 <li><a href="#" class="">颜色搭配</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#person_apply" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-send"></span><span>我的申请</span></a>
+                        </div>
+                    </div>
+                    <div id="person_apply" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="/person/apply" class="">申请版主</a></li>
+                                <li><a href="#" class="">申请区主</a></li>
+                                <li><a href="#" class="">申请贴子置顶</a></li>
+                                <li><a href="#" class="">申请公版展示</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#friends_circle" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-globe"></span><span>朋友圈</span></a>
+                        </div>
+                    </div>
+                    <div id="friends_circle" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="">我的分享</a></li>
+                                <li><a href="#" class="">他人</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#createMyBoard" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-cloud"></span><span>我的公版</span></a>
+                        </div>
+                    </div>
+                    <div id="createMyBoard" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="">创造</a></li>
+                                <li><a href="#" class="">维修</a></li>
                             </ul>
                         </div>
                     </div>

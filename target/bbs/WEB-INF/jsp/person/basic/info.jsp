@@ -126,8 +126,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/posts" class="">贴子</a></li>
-                                <li><a href="/person/collection/boards" class="">板块</a></li>
+                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/focus" class="">
+                            <a href="/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>

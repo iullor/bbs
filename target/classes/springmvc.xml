@@ -25,6 +25,7 @@
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
+    <mvc:resources mapping="/lib/**" location="/lib/"/>
 
     <!--重新注入bean 需要的bean
         功能更强大，支持前台数据的校验，自定义视图，自定义类型转换器 DataBinder

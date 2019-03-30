@@ -14,6 +14,24 @@
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <style>
+        .collectedPost {
+            height: 50px;
+            border-bottom: 1px slategrey dashed;
+            color: black;
+            font-size: 17px;
+            padding-top: 18px;
+        }
+
+        .collectedPost:hover {
+            background-color: #f1f4f5;
+        }
+
+        .collectedPost > div:last-child {
+            margin-top: -8px;
+        }
+
+    </style>
 </head>
 <body>
 <header class="navbar navbar-fixed-top navbar-inverse">
@@ -126,8 +144,8 @@
                     <div id="person_collections" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li class="active"><a href="/person/collection/posts" class="">贴子</a></li>
-                                <li><a href="/person/collection/boards" class="">板块</a></li>
+                                <li class="active"><a href="/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +153,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/focus" class="">
+                            <a href="/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -163,29 +181,65 @@
         <div id="list" class="col-md-8">
             <p>
                 <span class="text-danger">收藏贴子</span>
-                <span class="text-info pull-right">条数:230</span>
+                <span class="text-info pull-right">条数:${posts.size()}</span>
             </p>
-            <ul id="post-list" class="list-unstyled">
-                <li>
-                    <a href="#"><span>BAT缩招，AI跻身2019年最赚钱职业榜首！（附薪酬表）</span></a>
-                    <label class="text-right">
-                        <span>2019-01-02</span>
-                        <span>取消</span>
-                    </label>
-                </li>
-                <li>
-                    <a href="#"><span>BAT缩招，AI跻身2019年最赚钱职业榜首！（附薪酬表）</span></a>
-                    <label class="text-right">
-                        <span>2019-01-02</span>
-                        <span>取消</span>
-                    </label>
-                </li>
-            </ul>
+
+            <c:choose>
+                <c:when test="${not empty posts}">
+                    <c:forEach items="${posts}" var="p" varStatus="i">
+                        <div class="row collectedPost">
+                            <div class="col-md-1">
+                                <span>${i.index+1}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/post/${p.postId}"><span>${p.post.postTitle}</span></a>
+                            </div>
+                            <div class="col-md-3">
+                                 <span>
+                                        收藏时间:
+                                        <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                    </span>
+                            </div>
+                            <div class="col-md-2">
+                                <span><a href="#" value="${p.postId}"
+                                         class="btn btn-default cancelCollectedPost">取消收藏</a></span>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
-
-
 </div>
+
+<script>
+    $(function () {
+
+
+        //收藏贴子
+        $(".cancelCollectedPost").on("click", function () {
+            let curPostId = $(this).attr("value");
+            let obj = {
+                postId: curPostId
+            }
+            $.ajax({
+                url: '/person/collection/mypost/' + 0,
+                type: 'post',
+                data: JSON.stringify(obj),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data.status === '3003') {
+                        alert("取消成功")
+                        window.location.href = '/person/collection/myPosts';
+                    }
+                }
+            })
+        })
+    })
+</script>
 </body>
 </html>

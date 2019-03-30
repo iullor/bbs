@@ -1,6 +1,10 @@
 package com.gyl.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,14 +24,25 @@ public class Post {
     private String postType;
     private String postTitle;
     private String postContent;
-    private String postFooter;
-    private String createTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date createTime;
     private String boardId;
     private String areaId;
 
 
+    /**
+     * 发帖人的信息
+     */
+    private User user;
+
+
     List<Comment> comments = new ArrayList<>();
 
+    /**
+     * 贴子的类型
+     */
+    List<PostType> types = new ArrayList<>();
 
     /**
      * 参与 人数
@@ -37,6 +52,19 @@ public class Post {
      * 点赞数
      */
     private Integer praise;
+
+    /**
+     * 是否禁止评论
+     */
+    private Integer banComment;
+    /**
+     * 是否置顶
+     */
+    private Integer up;
+    /**
+     * 贴子是否私密
+     */
+    private Integer secret;
 
     public String getId() {
         return id;
@@ -78,19 +106,11 @@ public class Post {
         this.postContent = postContent;
     }
 
-    public String getPostFooter() {
-        return postFooter;
-    }
-
-    public void setPostFooter(String postFooter) {
-        this.postFooter = postFooter;
-    }
-
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -134,6 +154,43 @@ public class Post {
         this.comments = comments;
     }
 
+    public List<PostType> getTypes() {
+        return types;
+    }
 
+    public void setTypes(List<PostType> types) {
+        this.types = types;
+    }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Integer getBanComment() {
+        return banComment;
+    }
+
+    public void setBanComment(Integer banComment) {
+        this.banComment = banComment;
+    }
+
+    public Integer getUp() {
+        return up;
+    }
+
+    public void setUp(Integer up) {
+        this.up = up;
+    }
+
+    public Integer getSecret() {
+        return secret;
+    }
+
+    public void setSecret(Integer secret) {
+        this.secret = secret;
+    }
 }

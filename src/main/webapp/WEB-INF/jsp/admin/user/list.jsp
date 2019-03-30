@@ -113,9 +113,9 @@
                                     </td>
                                     <td><a href="#">${u.userAccountStatus.status}</a></td>
                                     <td><a href="#">${u.userAccountStatus.status}</a></td>
-                                    <td><a href="/user/userBaseInfo/${u.id}">查看</a></td>
-                                    <td><a href="/user/loginStatus/${u.id}">查看</a></td>
-                                    <td><a href="/user/options/${u.id}">修改</a></td>
+                                    <td><a href="/admin/user/userBaseInfo/${u.id}">查看</a></td>
+                                    <td><a href="/admin/user/loginStatus/${u.id}">查看</a></td>
+                                    <td><a href="/admin/user/options/${u.id}">修改</a></td>
                                 </tr>
                                 <tr class="options">
                                     <td colspan="12">
@@ -139,21 +139,13 @@
                                                         <tbody>
                                                         <tr>
                                                             <td colspan="1">
-                                                                    <%-- <div class="bootstrap-switch bootstrap-switch-on">
-                                                                         <input type="checkbox" class="checkbox"
-                                                                                name="userAccountStatus.allowPost"
-                                                                                value="${u.userAccountStatus.allowPost}"/>
-                                                                     </div>--%>
+
                                                                 <input type="checkbox" class="checkbox"
                                                                        name="allowPost"
                                                                     ${u.userAccountStatus.allowPost==1?'checked':''}/>
                                                             </td>
                                                             <td colspan="1">
-                                                                    <%-- <div class="bootstrap-switch bootstrap-switch-on">
-                                                                         <input type="checkbox" class="checkbox"
-                                                                                name="userAccountStatus.allowComment"
-                                                                                value="${u.userAccountStatus.allowComment}"/>
-                                                                     </div>--%>
+
                                                                 <input type="checkbox" class="checkbox"
                                                                        name="allowComment"
                                                                     ${u.userAccountStatus.allowComment==1?'checked':''}/>
@@ -265,112 +257,6 @@
             return false;
         })
 
-        /*$(".checkbox").bootstrapSwitch({
-            onText: "ON",      // 设置ON文本  
-            offText: "OFF",    // 设置OFF文本  
-            onColor: 'success',
-            offColor: 'warning',
-            reverse: true,
-            size: 'mini',
-            // 当开关状态改变时触发  
-            onSwitchChange: function (event, state) {
-                let access_comment = event.target.defaultValue;
-                if (state === true) {
-                    //打开禁止
-                    let i = confirm("确定要禁用吗?")
-                    if (i) {
-                        //使用ajax改变用户状态
-                        if (access_comment === '1') {
-                            $(this).val("0")
-                        } else if (access_comment === '0') {
-                            $(this).val("1")
-                        }
-                        alert(access_comment);
-                        return true;
-                    }
-                    return false;
-                } else {
-                    let i = confirm("确定要恢复吗?")
-                    if (i) {
-                        //使用ajax改变用户状态
-                        if (access_comment === '1') {
-                            $(this).val("0")
-                        } else if (access_comment === '0') {
-                            $(this).val("1")
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-            }
-        });*/
-
-        /*//默认全局启用，在渲染页面之前，就去改变状态，允许发帖
-        $("input[name='userAccountStatus.allowPost']").bootstrapSwitch({
-            onText: 'ON',
-            OffText: 'OFF',
-            onColor: 'warning',
-            onSwitchChange: function (event, state) {
-                let defaultValue = event.target.defaultValue;
-                alert(defaultValue)
-                //1 0 0 1 1
-                //0 表示不禁止
-                //1 表示禁止
-
-            }
-        }).bootstrapSwitch('state', false);
-
-        //默认全局启用，在渲染页面之前，就去改变状态，允许评论
-        $("input[name='userAccountStatus.allowComment']").bootstrapSwitch({
-            onText: 'ON',
-            OffText: 'OFF',
-            onColor: 'success',
-            onSwitchChange: function (event, state) {
-                let defaultValue = event.target.defaultValue;
-                //alert(defaultValue)
-                //1 0 0 1 1
-                //0 表示不禁止
-                //1 表示禁止
-                if (defaultValue === '0') {
-                    //状态不变
-                    if (state) {
-                        //alert("即将改变状态，屏蔽贴子")
-                        $(this).bootstrapSwitch("state", true);
-                        $(this).val("1")
-                    }
-                }
-                //后台数据为1
-                if (defaultValue === '1') {
-                    //如果状态发生改变,手动点击
-                    if (state) {
-                        //alert("即将改变状态，不禁止贴子")
-                        $(this).bootstrapSwitch("state", false);
-                        $(this).val("0");
-                    }
-                }
-            }
-        }).bootstrapSwitch('state', true);*/
-        /*
-            $("input[type='checkbox']").each(function (a, b, c) {
-                console.log(a)
-                console.log(b)
-                console.log(c)
-                if ($(b).attr("checked") === 'checked') {
-                    $(b).val('1');
-                } else {
-                    $(b).val('0');
-                }
-                //console.log($(b).val());
-            })
-
-            $("input[type='checkbox']").on("change", function () {
-                if ($(this).val() == '1') {
-                    $(this).val("0")
-                } else {
-                    $(this).val("1")
-                }
-            })*/
-
         $("img").each(function () {
             let tmp = $(this).attr("value");
             let beginIndex = tmp.lastIndexOf("/webapp/") + 7;
@@ -400,19 +286,6 @@
             }
         })
 
-
-        //删除用户
-       /* $(".delete").on("click", function () {
-            let tmp = confirm("您确认删除该用户吗？");
-            var url = $(this).attr("href");
-            alert(url)
-            $.ajax({
-                async: false,
-                url: "https://www.baidu.com",
-                type: 'get'
-            })
-
-        })*/
     })
 </script>
 </body>

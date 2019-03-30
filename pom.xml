@@ -249,6 +249,13 @@
             <version>1.10</version>
         </dependency>
 
+        <!--引入百度的UEditor编辑器-->
+        <dependency>
+            <groupId>com.gitee.qdbp.thirdparty</groupId>
+            <artifactId>ueditor</artifactId>
+            <version>1.4.3.3</version>
+        </dependency>
+
     </dependencies>
 
 

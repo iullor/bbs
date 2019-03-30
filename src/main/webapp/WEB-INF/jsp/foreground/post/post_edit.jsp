@@ -8,13 +8,16 @@
     <title>编辑贴子</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <!--top栏样式-->
-
+    <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../css/commons/commons.css">
     <link rel="stylesheet" href="../../../../css/post/post_edit.css">
     <link rel="stylesheet" href="../../../../css/commons/top.css">
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="/lib/ueditor/ueditor.config.js"></script>
+    <script src="/lib/ueditor/ueditor.all.js"></script>
 
-    <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
 <header class="navbar navbar-fixed-top navbar-inverse">
@@ -58,7 +61,7 @@
 <div class="container">
     <div class="main">
         <div class="row">
-            <div class="col-md-offset-1 col-md-9">
+            <div class="col-md-offset-1 col-md-5">
                 <div class="row">
                     <ol class="breadcrumb">
                         <li><a href="../../public/index.jsp">Home</a></li>
@@ -69,55 +72,81 @@
                     </ol>
                 </div>
                 <p><span class="text-grey text-md">编辑新帖子</span></p>
-                <form action="">
+                <form:form action="/post" method="post" modelAttribute="post">
+                    <c:choose>
+                        <c:when test="${not empty post.id}">
+                            <input type="hidden" name="_method" value="put">
+                            <form:hidden path="id"/>
+                            <input type="hidden" name="areaId" value="${post.areaId}"/>
+                            <input type="hidden" name="boardId" value="${post.boardId}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="hidden" name="areaId" value="${sessionScope.area.id}"/>
+                            <input type="hidden" name="boardId" value="${sessionScope.area.boardId}"/>
+                        </c:otherwise>
+                    </c:choose>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="标题">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="内容"
-                                  style="height: 500px"></textarea>
+                        <label>标题</label>
+                        <form:input type="text" path="postTitle" class="form-control" placeholder="北京的那一夜"/>
                     </div>
                     <div class="row">
-                        <div class="col-md-1" style="text-align: center;height: 30px;padding-top: 10px">
-                            <span>类型</span>
-                        </div>
                         <div class="col-md-4">
-                            <select name="post_type" class="form-control">
-                                <option value="">闲文</option>
-                                <option value="">销售</option>
-                                <option value="">健身</option>
-                                <option value="">学术</option>
+                            <label>类型</label>
+                                <%--<form:select cssClass="form-control" path="postType" items="${types}" itemLabel="name"
+                                             itemValue="id">
+                                </form:select>--%>
+                            <select name="postType" class="form-control">
+                                <c:forEach items="${types}" var="type">
+                                    <option value="${type.id}"
+                                        ${post.postType == type.name?'selected':''}>${type.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            是否私密
+                        <div class="col-md-4">
+                            <label>分享到，关注的区</label>
+                                <%--<form:select name="collection" class="form-control">
+                                    <option value="">闲文</option>
+                                    <option value="">销售</option>
+                                    <option value="">健身</option>
+                                    <option value="">学术</option>
+                                </form:select>--%>
                         </div>
-                        <div class="col-md-1">
-                            <input type="checkbox">
+                    </div>
+                    <br>
+                    <label>贴子内容</label>
+                    <script id="content" name="postContent">
+                        ${post.postContent}
+                    </script>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-4">
+                            <label for="view">私密</label>
+                            <input id="view" type="checkbox"/>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: 20px;margin-bottom:80px">
                         <div class="form-group text-center">
-                            <button class="btn btn-success" type="submit">发送</button>
-                            <button class="btn btn-default" type="button">取消</button>
+                            <button class="btn btn-md btn-default" type="button">取消</button>
+                            <button class="btn btn-md btn-warning" type="button">暂存</button>
+                            <button class="btn btn-md btn-success" type="submit">发送</button>
                         </div>
                     </div>
-                </form>
+                </form:form>
             </div>
         </div>
-        <!--&lt;!&ndash;按钮&ndash;&gt;
-        <div class="row">
-            <div class="text-center">
-                <button class="btn btn-info">取消</button>
-                <button class="btn btn-success">保存</button>
-            </div>
-        </div>-->
     </div>
 </div>
 <script>
-
+    UE.getEditor('content', {
+        initialFrameHeight: 600,
+        initialFrameWidth: 900,
+        topOffset: 60,
+        toolbars: [
+            ['fullscreen', 'undo', 'redo', 'attachment', 'autotypeset', 'horizontal', 'inserttable', 'edittable',
+                'simpleupload', 'emotion', 'spechars', 'rowspacingtop', 'rowspacingbottom'],
+            ['formatmatch', 'indent', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify',
+                'bold', 'inserttitle', 'fontfamily', 'fontsize', 'forecolor', 'pagebreak', 'edittip', 'preview'],
+        ]
+    });
 </script>
 </body>
 </html>

@@ -7,21 +7,19 @@
     <meta charset="UTF-8">
     <title>一个area</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../css/panel/panel.css">
+    <link rel="stylesheet" href="/css/panel/panel.css">
 
     <!--引入一些样式-->
-    <link rel="stylesheet" href="../../../../css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="../../../../css/commons/top.css">
-    <link rel="stylesheet" href="../../../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="../../../../css/commons/commons.css">
-    <link rel="stylesheet" href="../../../../css/board/board.css">
-    <link rel="stylesheet" href="../../../../css/board/board_post_list.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/top.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
+    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="/css/board/board_post_list.css">
 
-
-    <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../../js/sidebar-left-control.js"></script>
-    <script src="../../../../js/commons.js"></script>
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <a href="area.jsp">进入该版</a>
@@ -72,10 +70,11 @@
                         <span id="close" class="glyphicon glyphicon-menu-hamburger"></span>
                     </li>
                     <li role="presentation">
-                        <img src="../../../../images/路飞.jpg" class="img-circle" width="100" height="100"/>
+                        <img src="/images/favicon.ico" class="img-circle showUserHeadImg" width="100" height="100"
+                             value="${sessionScope.CURRENT_USER.userBaseInfo.headImage}"/>
                     </li>
                     <li role="presentation">
-                        <span class="text-danger">路飞</span>
+                        <span class="text-danger">${sessionScope.CURRENT_USER.nickName}</span>
                     </li>
                     <li role="presentation"><a href="#"><span
                             class="text-left glyphicon glyphicon-home">&nbsp</span>首页</a>
@@ -158,10 +157,10 @@
                         <div class="panel-heading">
                             <div class="panel-title">
                                 <p class="text-vertical-center">
-                                    <span class="text-md text-grey">Computer Science</span>
-                                    <span class="glyphicon glyphicon-star-empty btn btn-info pull-right"
+                                    <span class="text-md text-grey">${area.areaTitle}</span>
+                                    <span id="collectArea"
+                                          class="glyphicon glyphicon-star-empty btn btn-info pull-right"
                                           style="margin-top: 5px;"
-                                          onclick="changeUpDown(event,this)"
                                           tempClass="glyphicon glyphicon-star btn btn-success pull-right ">收藏</span>
                                     </span>
                                     <span class="pull-right  btn btn-default"
@@ -171,16 +170,19 @@
                                     </span>
                                 </p>
                                 <p>
-                                    <small>板块信息：信息技术学院，计算机科学与技术班</small>
+                                    <small>板块信息：${area.details}</small>
                                 </p>
                                 <p>
                                     <small>在线:2 人</small>&nbsp;&nbsp;&nbsp;<span>贴子:1000K</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a
                                         href="#">Rank&nbsp;100</a></span>
                                 </p>
                                 <p>
-                                    <span>版主：路飞</span>
+                                    <span>版主：${area.user.nickName}</span>
                                 </p>
-
+                                <p>
+                                    <span>创建时间：<f:formatDate value="${area.createTime}"
+                                                             pattern="yyyy-MM-dd HH:mm:ss"/> </span>
+                                </p>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -195,16 +197,31 @@
                                 </th>
                                 </thead>
                                 <tbody>
-                                <tr class="row">
-                                    <td class="col-md-1 text-left">
-                                        <button class="label-top">置顶</button>
-                                    </td>
-                                    <td class="col-md-6"><a href="/post">计算机行业的现状及发展</a></td>
-                                    <td class="col-md-1"><img src="../../../../images/路飞.jpg" width="25" height="25">
-                                    </td>
-                                    <td class="col-md-2">2018//10/12</td>
-                                    <td class="col-md-2">20</td>
-                                </tr>
+                                <c:choose>
+                                    <c:when test="${not empty area.posts}">
+                                        <c:forEach items="${area.posts}" var="p" varStatus="i">
+                                            <tr class="row">
+                                                <td class="col-md-1 text-left">
+                                                    <button class="label-top">置顶${i.index+1}</button>
+                                                </td>
+                                                <td class="col-md-6"><a href="/post/${p.id}">${p.postTitle}</a>
+                                                </td>
+                                                <td class="col-md-1">
+                                                    <img src="/images/路飞.jpg" class="post_user"
+                                                         value="${p.user.userBaseInfo.headImage}" width="25"
+                                                         height="25" style="margin-left: -10px">
+                                                        ${p.user.nickName}
+                                                </td>
+                                                <td class="col-md-2">
+                                                    <f:formatDate value="${p.createTime}"
+                                                                  pattern="yyyy-MM-hh HH:mm:ss"/>
+                                                </td>
+                                                <td class="col-md-2">20</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:when>
+                                </c:choose>
+
                                 </tbody>
                             </table>
                         </div>
@@ -253,11 +270,95 @@
     </div>
 </div>
 <script>
+    $(function () {
+        $("#collectArea").on("click", function () {
+            //收藏板块
+            let areaId = '${area.id}'
+            let obj = {
+                areaId: areaId
+            };
+            let currentClass = $(this).attr("class");
+            if (currentClass.match("btn-success") == null) {
+                $.ajax({
+                    url: "/collection/area/" + 1,
+                    type: "post",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data)
+                        if (data.status === '3004') {
+                            alert("收藏成功")
+                        } else {
+                            alert("网络问题")
+                        }
+                    }
+                })
+                $(this).removeClass("glyphicon-star-empty").removeClass("btn-info");
+                $(this).addClass("glyphicon-star").addClass("btn-success");
+                $(this).html("已收藏")
+            } else {
+                //取消收藏
+                $.ajax({
+                    url: "/collection/area/" + 0,
+                    type: "post",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data)
+                        if (data.status === '3005') {
+                            alert("已取消")
+                        } else {
+                            alert("网络问题")
+                        }
+                    }
+                })
+                $(this).removeClass("glyphicon-star").removeClass("btn-success");
+                $(this).addClass("glyphicon-star-empty").addClass("btn-info");
+                $(this).html(" 收藏")
+            }
+        })
 
-    /*
-    * */
+        let curUserId = '${sessionScope.CURRENT_USER.id}'
+        let curaAreaId = '${area.id}'
+        if (curaAreaId != null && curUserId != null) {
+            let obj = {
+                currentUserId: curUserId,
+                areaId: curaAreaId
+            }
+            $.ajax({
+                url: '/collection/area',
+                type: 'post',
+                data: JSON.stringify(obj),
+                contentType: "application/json",
+                success: function (data) {
+                    //表明数据库中有值
+                    if (data.collectedArea === '1') {
+                        $("#collectArea").removeClass("glyphicon glyphicon-heart-empty btn btn-info");
+                        $("#collectArea").addClass("glyphicon glyphicon-star btn btn-success");
+                        $("#collectArea").html("已收藏")
+                    }
+                }
+            });
+        }
+
+        /*
+        * 显示发帖人照片
+        *
+        * */
+        $(".post_user").each(function () {
+            var headImg = $(this).attr("value");
+            let beginIndex = headImg.indexOf("/webapp/") + 7;
+            let endIndex = headImg.length;
+            let src = headImg.substring(beginIndex, endIndex);
+            $(this).attr("src", src);
+        })
+
+
+
+    })
     $("tr").click(function () {
-        window.location.href = '../post/post_list.jsp';
+        let href = $(this).children("td:nth-child(2)").children("a").attr("href");
+        window.location.href = href;
     })
 </script>
 </body>

@@ -16,6 +16,27 @@
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
+    <style>
+        .collectedUser {
+            padding-top: 18px;
+            height: 60px;
+            border-bottom: 2px #f1f4f5 solid;
+            margin-top: 3px;
+            border-radius: 5px;
+        }
+
+        .collectedUser:first-child {
+            margin-top: 50px;
+        }
+
+        .collectedUser > div:first-child {
+            margin-top: -12px;
+        }
+
+        .collectedUser:hover {
+            background-color: #f1f4f5;
+        }
+    </style>
 </head>
 <body>
 <header class="navbar navbar-fixed-top navbar-inverse">
@@ -128,8 +149,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/posts" class="">贴子</a></li>
-                                <li><a href="/person/collection/boards" class="">板块</a></li>
+                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,7 +158,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/focus" class="">
+                            <a href="/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -163,47 +184,104 @@
             </div>
         </div>
 
-        <div  id="list" class="col-md-8 container-inner">
+        <div id="list" class="col-md-8 container-inner">
             <p>
                 <span class="text-danger">我的关注</span>
-                <span class="pull-right">人数 1</span>
+                <span class="pull-right">人数${myFocusUsers.size()}</span>
             </p>
-            <ul id="post-list" class="list-unstyled">
-                <li>
-                   <span>
+            <c:choose>
+                <c:when test="${not empty myFocusUsers}">
+                    <c:forEach items="${myFocusUsers}" var="fu">
+                        <div class="row collectedUser">
+                            <div class="col-md-2">
+                    <span>
                            <a href="#">
-                             <img src="../../../images/哈士奇.jpg" alt="">
+                             <img class="headImg" src="/images/路飞.jpg" value="${fu.user.userBaseInfo.headImage}" alt=""
+                                  width="50"
+                                  height="50" style="border-radius: 50%;">
                            </a>
                    </span>
+                            </div>
+                            <div class="col-md-2">
                     <span>
-                        <a href="#">名犬</a>
+                        <a href="/account/${fu.user.id}">${fu.user.nickName}</a>
                     </span>
+                            </div>
+                            <div class="col-md-4">
+                                <small>
+                                    <label>
+                                        最近上线时间:
+                                        <f:formatDate value="${fu.user.userLoginInfo.accessTime}"
+                                                      pattern="yyyy-MM-dd HH:mm:ss"/>
+                                    </label>
+                                </small>
+                            </div>
+                            <div class="col-md-offset-1  col-md-1">
+                                <a href="/chat/${fu.user.id}">
+                                    <span class="glyphicon glyphicon-comment"
+                                          style="font-size: 18px;color: darkblue"></span>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="pull-right" style="line-height: 25px">
+                                   <a href="#" value="${fu.user.id}" class="btn btn-primary cancelFocusUser"><span
+                                           class="glyphicon glyphicon-heart-empty">&nbsp;取消关注</span></a>
+                                </span>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
 
-                    <span class="pull-right btn btn-default">
-                        取消关注
-                    </span>
-                </li>
-                <li>
-                   <span>
-                           <a href="#">
-                             <img src="../../../images/哈士奇.jpg" alt="">
-                           </a>
-                   </span>
-
-                    <span>
-                        <a href="#">名犬</a>
-                    </span>
-
-                    <span class="pull-right btn btn-default">
-                        取消关注
-                    </span>
-                </li>
-            </ul>
+                <c:otherwise>
+                    <div class="row" style="margin-top: 100px">
+                        <div class="col-md-offset-4 col-md-4">
+                            <h4>
+                                暂无关注的人，前去 <a href="/index">浏览</a>
+                            </h4>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
-
-
 </div>
+<script>
+    $(function () {
+        $(".headImg").each(function () {
+            var headImg = $(this).attr("value");
+            let beginIndex = headImg.indexOf("/webapp/") + 7;
+            let endIndex = headImg.length;
+            let src = headImg.substring(beginIndex, endIndex);
+            $(this).attr("src", src);
+        })
+
+        $(".cancelFocusUser").on("click", function () {
+
+            let curFuId = $(this).attr("value");
+            var obj = {
+                userId: curFuId
+            }
+            $.ajax({
+                url: "/person/collection/myfocus/" + 0,
+                type: "post",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+                success: function (data) {
+                    if (data.status === '3001') {
+                        alert("取消成功");
+                        window.location.href = "/person/myfocus";
+                    } else {
+                        alert("网络错误，请稍后再试")
+                    }
+                }
+            })
+            return false;
+        })
+
+    })
+
+
+</script>
 </body>
 </html>

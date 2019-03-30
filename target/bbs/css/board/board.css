@@ -2,10 +2,6 @@
    定义每一个板块的样式
 */
 
-.container {
-    width: 88%;
-}
-
 .column2 {
     border-radius: 10px;
     height: 350px;

@@ -43,10 +43,6 @@
             <id property="id" column="board_id"/>
             <result property="info" column="board_info"/>
             <result property="boardTitle" column="board_title"/>
-            <!--<collection property="areas" ofType="com.gyl.entity.Area">
-                <id property="id" column="area_id"/>
-                <result property="areaTitle" column="area_title"/>
-            </collection>-->
             <collection property="posts" ofType="com.gyl.entity.Post">
                 <id property="id" column="post_id"/>
                 <result property="postTitle" column="post_title"/>

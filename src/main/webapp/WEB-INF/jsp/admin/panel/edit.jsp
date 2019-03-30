@@ -7,7 +7,7 @@
     <title>模块增加</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>

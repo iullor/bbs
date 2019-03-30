@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.ReplyMapper">
+
+    <insert id="addReplyToComment">
+        insert into test_bbs.t_comment_reply
+        (id,to_comment_id,reply_id,reply_type,reply_content,from_user_id,to_user_id,create_time)
+        values
+        (#{id},#{toCommentId},#{replyId},#{replyType},#{replyContent},#{fromUserId},#{toUserId},#{createTime})
+    </insert>
+    <!--
+        通过评论的id 去回复表里查，找到的查回复的用户，和回复信息
+    -->
+    <resultMap id="listRepliesUser" type="com.gyl.entity.Reply">
+        <id property="id" column="id"/>
+        <result property="replyContent" column="reply_content"/>
+        <result property="fromUserId" column="from_user_id"/>
+        <result property="user.id" column="reply_user_id"/>
+        <result property="user.nickName" column="nick_name"/>
+        <result property="user.userBaseInfo.headImage" column="head_image"/>
+    </resultMap>
+    <select id="listReplyByCommentId" resultMap="listRepliesUser">
+        select
+         reply.id as id,
+         reply.reply_content,
+         reply.from_user_id as from_user_id,
+         u.id as reply_user_id,
+         u.nick_name as nick_name,
+         u.head_image as head_image
+         from test_bbs.t_comment_reply reply
+         left outer join test_bbs.t_user u on u.id =reply.from_user_id
+        where reply.to_comment_id =#{id} order by reply.create_time asc;
+    </select>
+
+</mapper>

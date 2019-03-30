@@ -77,10 +77,6 @@ public class UserService {
     }
 
     public int update(User user) {
-
-
-
-
         return userMapper.update(user);
     }
 
@@ -93,7 +89,6 @@ public class UserService {
         if (user != null) {
             return "用户名已经被注册";
         }
-
         return "可以使用";
     }
 }
