@@ -50,7 +50,17 @@ public class BoardService {
      * @return
      */
     public List<Board> selectBoardsByPanelId(String id) {
-        
         return boardMapper.selectBoardsByPanelId(id);
     }
+
+
+    /**
+     * 查找所有的board 以及每个board下面的所有area
+     *
+     * @return
+     */
+    public List<Board> listBoardsAndAreas() {
+        return boardMapper.listBoardsAndAreas();
+    }
+
 }

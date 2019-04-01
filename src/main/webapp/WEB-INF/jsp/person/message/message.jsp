@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="/css/person/message/message.css">
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
     <script src="/lib/bootstrap/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
+    <style>
+
+    </style>
 
 </head>
 <body>
@@ -166,48 +170,141 @@
                 <div class="row">
                     <ul class="nav nav-tabs" style="margin-left: 15px">
                         <li class="active">
-                            <a href="#unRead" data-toggle="tab">
-                                未读&nbsp;<span class="badge">20</span>
+                            <a href="#unRead" data-toggle="tab" target="/person/message/0">
+                                未读&nbsp;<span class="badge" style="background-color: red">${messages.size()}</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#hasRead" data-toggle="tab">
+                            <a href="#hasRead" target="/person/message/1" data-toggle="tab">
                                 已读
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#removeAll" data-toggle="tab">
-                                清空
                             </a>
                         </li>
                     </ul>
                 </div>
+                <div class="row" style="margin-left:5px;margin-bottom: -20px;padding-top: 10px">
+                    <div class="col-md-2">
+                        <input type="checkbox" class="checkAll">
+                        <label>全选</label>
+                    </div>
+                    <div class="col-md-1 pull-right" style="margin-bottom: 5px">
+                        <button id="markHadRead" class="btn btn-sm btn-primary">标记已读</button>
+                    </div>
+                </div>
+                <hr>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="unRead">
-                        <p>
-                            <span>计算机板块&nbsp;&nbsp;<small>&vert;</small></span>
-                            <span><a href="#">xxx @ 你</a></span>
-                            <span><a href="#">内容：啦啦啦啦啦了啦啦啦啦啦啦啦.....</a></span>
-                            <span class="pull-right"><a href="#">查看回复</a></span>
-                        </p>
-                        <hr>
-                        <p>
-                            <span>计算机板块&nbsp;&nbsp;<small>&vert;</small></span>
-                            <span><a href="#">xxx @ 你</a></span>
-                            <span class="pull-right"><a href="#">查看回复</a></span>
-                        </p>
+                        <c:if test="${not empty messages}">
+                            <c:forEach items="${messages}" var="message" varStatus="i">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <span style="padding-left: 15px;font-size: 18px" mid="${message.id}">
+                                                <input type="checkbox">
+                                        </span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <span style="font-size: 18px">
+                                                ${i.index+1}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-1"><a href="#">${message.user.nickName}&nbsp;&nbsp;@你</a></div>
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-5" style="line-height: 10px;">
+                                            ${message.message}
+                                    </div>
+                                    <div class="col-md-1"><a href="#">查看回复</a></div>
+                                </div>
+                                <hr>
+                            </c:forEach>
+                        </c:if>
+                        <c:if test="${empty messages}">
+                            <div class="row" style="margin-top: 150px;text-align: center;">
+                                <h4>暂无新消息</h4>
+                            </div>
+                        </c:if>
                     </div>
                     <div class="tab-pane fade" id="hasRead">
-                        已读内容
-                    </div>
-                    <div class="tab-pane fade" id="removeAll">
-                        清空
+                        <%--渲染json结果--%>
+                        <script type="text/x-jsrender" id="msg">
+                            <%--
+                                先做判断
+                                如果messages.size 大于0 显示
+                            --%>
+                            {{for messages}}
+                                {{:messages}}
+                             {{else}}
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <span style="margin-left:18px;">{{:#getIndex()+1}}</span>
+                                        </div>
+                                        <div class="col-md-1"><a href="/account/{{:user.id}}">{{:user.nickName}}</a></div>
+                                        <div class="col-md-3">
+                                            在 <a href="#">什么地方</a>&nbsp;&nbsp;@你
+                                        </div>
+                                        <div class="col-md-6" style="line-height: 10px;">
+                                                {{:message}}
+                                        </div>
+                                        <div class="col-md-1"><a href="#">查看回复</a></div>
+                                    </div>
+                                 <hr>
+                             {{/for}}
+
+
+                        </script>
+                        <div class="row" style="margin-top: 150px;text-align: center;">
+                            <h4>暂无新消息</h4>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    /* var ueditor = UE.getEditor('showMessage');
+     ueditor.getContentTxt()*/
 
+    $("a[href='#hasRead']").click(function () {
+        $.ajax({
+            url: '/person/message/hasRead/1',
+            type: "get",
+            contentType: "application/json",
+            success: function (messages) {
+                console.log(messages)
+                //渲染结果
+                var html = $("#msg").render(messages);
+                $("#hasRead").html(html);
+            }
+        })
+    })
+
+
+    $(function () {
+        $("#markHadRead").on("click", function () {
+            $("#unRead input[type='checkbox']").each(function (k, v) {
+                //如果标记，就发送请求，标记为已读
+                console.log(v)
+                console.log($(v).is(":checked"))
+                if ($(v).is(":checked")) {
+                    var messageId = $(this).parent("span").attr("mid")
+                    alert(messageId)
+                    $.ajax({
+                        url: "/person/message/update/" + messageId,
+                        type: "post",
+                        contentType: "application/json",
+                        success: function () {
+                            window.location.href = "/person/message/0";
+                        }
+                    })
+                }
+            })
+        })
+        var numbersNoRead = '${messages.size()}'
+        let numbers = parseInt(numbersNoRead);
+        if (numbers <= 0) {
+            $(".badge").hide();
+        }
+    })
+</script>
 </body>
 </html>

@@ -20,4 +20,6 @@ public interface AreaMapper {
     int delete(String id);
 
     Area getAreaById(@Param(value = "id") String id);
+
+    List<Area> getAreasByBoardId(@Param("boardId") String boardId);
 }

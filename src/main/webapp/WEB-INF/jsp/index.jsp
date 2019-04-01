@@ -40,20 +40,17 @@
                             data-target="#sidebar-wrapper" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="#">BBS-Student</a>
 
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="row" style="margin-top: 6px">
                         <form>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="search" placeholder="Search">
                             </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                            <div class="form-group col-md-6">
                                 <button type="submit" class="btn btn-default"><span
                                         class="glyphicon glyphicon-search"></span>Search
                                 </button>
@@ -63,14 +60,19 @@
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-xs-12 col-sm-12 col-md-offset-1"
-                             style="margin-top: 0px;font-size: 18px">
+                        <div class="col-md-1">
+                            <img src="/images/路飞.jpg" width="40" height="40"
+                                 value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                 class="img-circle showUserHeadImg"/>
+                            <span class="text-danger" style="margin-left: 5px;">${sessionScope.CURRENT_USER.nickName}</span>
+                        </div>
+                        <div class="col-md-1" style="margin-top: 0px;font-size: 18px">
                             <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
                                     class="glyphicon glyphicon-log-in"></span></a>
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-1"
+                        <div class="col-md-1"
                              style="margin-top: 8px;font-size: 18px;">
                             <a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
                         </div>
@@ -82,7 +84,7 @@
 </header>
 <div class="container-fluid">
     <%--侧边栏--%>
-    <nav id="sidebar-wrapper" class="collapse navbar-fixed-top navbar-collapse"
+    <nav id="left-navbar" class="collapse navbar-fixed-top navbar-collapse"
          role="navigation">
         <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
@@ -103,7 +105,7 @@
                     class="text-left glyphicon glyphicon-user">&nbsp;</span>基本信息</a></li>
             <li role="presentation"><a href="/person/basic/account"><span
                     class="text-left glyphicon glyphicon-user">&nbsp;</span>账户信息</a></li>
-            <li role="presentation"><a href="/person/message"><span
+            <li role="presentation"><a href="/person/message/0"><span
                     class="text-left glyphicon glyphicon-comment">&nbsp;</span>消息</a></li>
             <li role="presentation"><a href="/person/collection/myAreas"><span
                     class="text-left glyphicon glyphicon-star">&nbsp;</span>收藏夹</a>
@@ -319,7 +321,7 @@
                                 <div class="board-content">
                                     <c:forEach items="${p.boards}" var="b">
                                         <p>
-                                            <%--板块--%>
+                                                <%--板块--%>
                                             <span><a href="#">[${b.boardTitle}]</a>&nbsp;</span>
                                             <span><a href="/post/${b.posts[0].id}"><span
                                                     class="glyphicon glyphicon-fire"></span> ${b.posts[0].postTitle}</a></span>
@@ -360,7 +362,7 @@
 <script>
     /*快速发帖*/
     function writePost() {
-        window.location = "/post/quickInput/{0}";
+        window.location = "/post/input/0";
     }
 
     /*

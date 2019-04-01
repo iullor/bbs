@@ -4,7 +4,8 @@
 $(function () {
     $("#open").hide();
     $("#close").click(function () {
-        $("#left-navbar").css("display", "none");
+        //$("#left-navbar").css("display", "none");
+        $("#left-navbar").hide();
         $("#content").removeClass("col-md-10");
         $("#content").addClass("col-md-12");
         $("#open").show();

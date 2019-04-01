@@ -1,6 +1,7 @@
 package com.gyl.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
@@ -30,13 +31,18 @@ public class Post {
     private String boardId;
     private String areaId;
 
-
+    /**
+     * 评论数
+     */
+    private Integer comm;
     /**
      * 发帖人的信息
      */
     private User user;
 
-
+    /**
+     * 评论的列表
+     */
     List<Comment> comments = new ArrayList<>();
 
     /**
@@ -51,7 +57,7 @@ public class Post {
     /**
      * 点赞数
      */
-    private Integer praise;
+    private int praises;
 
     /**
      * 是否禁止评论
@@ -65,6 +71,8 @@ public class Post {
      * 贴子是否私密
      */
     private Integer secret;
+
+    private Praise praise;
 
     public String getId() {
         return id;
@@ -138,11 +146,19 @@ public class Post {
         this.participants = participants;
     }
 
-    public Integer getPraise() {
+    public int getPraises() {
+        return praises;
+    }
+
+    public void setPraises(int praises) {
+        this.praises = praises;
+    }
+
+    public Praise getPraise() {
         return praise;
     }
 
-    public void setPraise(Integer praise) {
+    public void setPraise(Praise praise) {
         this.praise = praise;
     }
 
@@ -193,4 +209,13 @@ public class Post {
     public void setSecret(Integer secret) {
         this.secret = secret;
     }
+
+    public Integer getComm() {
+        return comm;
+    }
+
+    public void setComm(Integer comm) {
+        this.comm = comm;
+    }
+
 }

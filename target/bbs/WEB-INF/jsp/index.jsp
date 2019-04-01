@@ -82,7 +82,7 @@
 </header>
 <div class="container-fluid">
     <%--侧边栏--%>
-    <nav id="sidebar-wrapper" class="collapse navbar-fixed-top navbar-collapse"
+    <nav id="left-navbar" class="collapse navbar-fixed-top navbar-collapse"
          role="navigation">
         <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
@@ -103,7 +103,7 @@
                     class="text-left glyphicon glyphicon-user">&nbsp;</span>基本信息</a></li>
             <li role="presentation"><a href="/person/basic/account"><span
                     class="text-left glyphicon glyphicon-user">&nbsp;</span>账户信息</a></li>
-            <li role="presentation"><a href="/person/message"><span
+            <li role="presentation"><a href="/person/message/0"><span
                     class="text-left glyphicon glyphicon-comment">&nbsp;</span>消息</a></li>
             <li role="presentation"><a href="/person/collection/myAreas"><span
                     class="text-left glyphicon glyphicon-star">&nbsp;</span>收藏夹</a>
@@ -360,7 +360,7 @@
 <script>
     /*快速发帖*/
     function writePost() {
-        window.location = "/post/quickInput/{0}";
+        window.location = "/post/input/0";
     }
 
     /*

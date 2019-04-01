@@ -22,7 +22,9 @@
         </association>
     </resultMap>
     <select id="list" resultType="list" resultMap="listBoards">
-      select * from test_bbs.t_board b ,test_bbs.t_user u,test_bbs.t_panel p where b.user_id =u.id AND b.panel_id = p.id;
+      select * from test_bbs.t_board b
+      left outer join test_bbs.t_user u on b.user_id =u.id
+      left outer join test_bbs.t_panel p on b.panel_id = p.id;
     </select>
 
     <insert id="add" parameterType="com.gyl.entity.Board">
@@ -59,5 +61,22 @@
         select * from test_bbs.t_board where panel_id=#{pid};
     </select>
 
-
+    <!--找到所有的board，以及每个board下面的area的信息-->
+    <resultMap id="listBoardsAndAreasMap" type="com.gyl.entity.Board">
+        <id property="id" column="id"/>
+        <result property="boardTitle" column="board_title"/>
+        <collection property="areas" ofType="com.gyl.entity.Area">
+            <id property="id" column="area_id"/>
+            <result property="areaTitle" column="area_title"/>
+        </collection>
+    </resultMap>
+    <select id="listBoardsAndAreas" resultMap="listBoardsAndAreasMap">
+        select
+        b.id,
+        b.board_title,
+        a.id as area_id,
+        a.area_title
+        from test_bbs.t_board b,test_bbs.t_area a
+        where b.id =a.board_id;
+    </select>
 </mapper>

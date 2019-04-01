@@ -2,6 +2,7 @@ package com.gyl.controller;
 
 
 import com.gyl.entity.*;
+import com.gyl.service.BoardService;
 import com.gyl.service.CommentService;
 import com.gyl.service.PostService;
 
@@ -27,6 +28,9 @@ public class PostController {
     @Autowired
     private ReplyService replyService;
 
+    @Autowired
+    private BoardService boardService;
+
     /**
      * 显示一个贴子
      *
@@ -36,11 +40,12 @@ public class PostController {
     public String list(@PathVariable("id") String id, Model model, HttpServletRequest request) {
         Post post = postService.listById(id);
         //设置观看度，没点击一次就加1
-        post.setParticipants(post.getParticipants());
+        post.setParticipants(post.getParticipants() + 1);
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        postService.update(post);
+        int a = postService.update(post);
         //显示所有的评论,以及下面所有的回复
         int status = postService.listPraiseById(user.getId(), id);
+        post = postService.listById(id);
         if (status > 0) {
             model.addAttribute("hasPraised", "hasPraised");
         }
@@ -98,12 +103,16 @@ public class PostController {
     public String input(@PathVariable("id") String id, Model model) {
         Post post = new Post();
         List<PostType> types = postService.listPostType();
+        //查找到所有的板块,机器下面的areas
+        List<Board> boards = boardService.listBoardsAndAreas();
         if (id != null && !id.equals("0")) {
             //从数据库中查出来数据
             post = postService.selectPostById(id);
+
         }
         model.addAttribute("post", post);
         model.addAttribute("types", types);
+        model.addAttribute("boards", boards);
         return "foreground/post/post_edit";
     }
 
@@ -145,16 +154,16 @@ public class PostController {
             //去点赞表中插入一条数据，贴子的点赞数加1
             int status = postService.add(user.getId(), p.getId());
             if (status > 0) {
-                num = post.getPraise() + 1;
-                post.setPraise(num);
+                num = post.getPraises() + 1;
+                post.setPraises(num);
             }
         } else {
             //取消点赞
             int status = postService.deletePaise(user.getId(), post.getId());
             if (status > 0) {
-                num = post.getPraise() - 1;
+                num = post.getPraises() - 1;
                 if (num > -1) {
-                    post.setPraise(num);
+                    post.setPraises(num);
                 }
             }
         }

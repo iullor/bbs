@@ -57,7 +57,7 @@ public class PostService {
     public int addPost(Post post) {
         post.setId(UUIDString.createId());
         post.setCreateTime(new Date(System.currentTimeMillis()));
-        post.setPraise(0);
+        post.setPraises(0);
         post.setParticipants(0);
         return postMapper.addPost(post);
     }

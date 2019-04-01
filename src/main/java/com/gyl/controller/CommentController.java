@@ -4,6 +4,7 @@ import com.gyl.entity.Comment;
 import com.gyl.entity.Reply;
 import com.gyl.entity.User;
 import com.gyl.service.CommentService;
+import com.gyl.service.MessageService;
 import com.gyl.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +26,19 @@ public class CommentController {
     @Autowired
     private ReplyService replyService;
 
+    @Autowired
+    private MessageService messageService;
+
+
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
-    public String add(Comment comment, HttpServletRequest request) {
+    public String add(Comment comment, String postUserId, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
         comment.setUserId(user.getId());
         int status = commentService.add(comment);
+        //添加成功，发送一条消息给对方
+        if (status > 0) {
+            int status2 = messageService.sendCommentToUser(comment, postUserId);
+        }
         String postId = comment.getPostId();
         return "redirect:/post/" + postId;
     }
@@ -45,5 +54,4 @@ public class CommentController {
         int stauts = replyService.addReplyToComment(reply);
         return "redirect:/post/" + postId;
     }
-
 }

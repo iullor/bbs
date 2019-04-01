@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gyl.mapper.AreaMapper">
-
     <resultMap id="areaResultMap" type="com.gyl.entity.Area">
         <id property="id" column="id"/>
         <result property="areaTitle" column="area_title"/>
@@ -27,21 +26,21 @@
     </resultMap>
 
     <select id="list" resultMap="areaResultMap">
-        select
-          a.id,
-          a.area_title,
-          a.create_time,
-          a.info,
-          a.user_id,
-          a.details,
-          a.board_id,
-          b.id,
-          b.board_title,
-          u.id,
-          u.username
-         from
-         test_bbs.t_area a ,test_bbs.t_board b,test_bbs.t_user u,test_bbs.t_post post
-         where a.user_id = u.id AND a.board_id = b.id AND a.id=post.area_id;
+           select
+            a.id,
+            a.area_title,
+            a.create_time,
+            a.info,
+            a.user_id,
+            a.details,
+            a.board_id,
+            b.id,
+            b.board_title,
+            u.id,
+            u.username
+            from test_bbs.t_area a
+            left outer join test_bbs.t_board b   on b.id=a.board_id
+            left outer join test_bbs.t_user u   on u.id =a.user_id
     </select>
     <update id="update" parameterType="com.gyl.entity.Area">
         update test_bbs.t_area
@@ -82,40 +81,48 @@
             <result property="boardTitle" column="board_title"/>
         </association>
         <association property="user" javaType="com.gyl.entity.User">
-            <id property="id" column="id"/>
-            <result property="nickName" column="nick_name"/>
+            <id property="id" column="area_manager_id"/>
+            <result property="nickName" column="area_manager_nick_name"/>
         </association>
         <collection property="posts" ofType="com.gyl.entity.Post">
             <id property="id" column="post_id"/>
             <result property="postTitle" column="post_title"/>
             <result property="createTime" column="post_create_time"/>
-            <result property="userId" column="user_id"/>
+            <result property="userId" column="post_user_id"/>
+            <result property="comm" column="post_comments"/>
         </collection>
     </resultMap>
 
     <select id="getAreaById" resultMap="areaPostsMap">
-          select
-              a.id,
-              a.area_title,
-              a.create_time,
-              a.info,
-              a.user_id,
-              a.details,
-              a.board_id,
-              b.id,
-              b.board_title,
-              u.id,
-              u.nick_name,
-              post.id as  post_id,
-              post.post_title as post_title,
-              post.create_time as post_create_time,
-              post.user_id as user_id
-         from
-          test_bbs.t_area a
-          left outer join  test_bbs.t_board b    on  a.board_id = b.id
-          left outer join  test_bbs.t_user u     on a.user_id = u.id
-          left outer join  test_bbs.t_post post  on a.id=post.area_id
-           where a.id=#{id};
+         select
+           a.id,
+           a.area_title,
+           a.create_time,
+           a.info,
+           a.user_id,
+           a.details,
+           a.board_id,
+           b.id,
+           b.board_title,
+           u.id as area_manager_id,
+           u.nick_name as area_manager_nick_name,
+           post.id as  post_id,
+           post.post_title as post_title,
+           post.create_time as post_create_time,
+           post.user_id as post_user_id,
+           post.comments as post_comments
+        from
+           test_bbs.t_area a
+                  left outer join  test_bbs.t_board b    on  a.board_id = b.id
+                  left outer join  test_bbs.t_user u     on a.user_id = u.id
+                  left outer join  test_bbs.t_post post  on a.id=post.area_id
+        where a.id=#{id} and post.secret=0;
     </select>
 
+    <!--
+        通过boardId来查询areas
+    -->
+    <select id="getAreasByBoardId" resultType="com.gyl.entity.Area">
+        select * from test_bbs.t_area where board_id=#{boardId};
+    </select>
 </mapper>

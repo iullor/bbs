@@ -77,13 +77,13 @@
                         <c:when test="${not empty post.id}">
                             <input type="hidden" name="_method" value="put">
                             <form:hidden path="id"/>
-                            <input type="hidden" name="areaId" value="${post.areaId}"/>
-                            <input type="hidden" name="boardId" value="${post.boardId}"/>
+                            <%-- <input type="hidden" name="areaId" value="${post.areaId}"/>
+                             <input type="hidden" name="boardId" value="${post.boardId}"/>--%>
                         </c:when>
-                        <c:otherwise>
-                            <input type="hidden" name="areaId" value="${sessionScope.area.id}"/>
-                            <input type="hidden" name="boardId" value="${sessionScope.area.boardId}"/>
-                        </c:otherwise>
+                        <%-- <c:otherwise>
+                             <input type="hidden" name="areaId" value="${sessionScope.area.id}"/>
+                             <input type="hidden" name="boardId" value="${sessionScope.area.boardId}"/>
+                         </c:otherwise>--%>
                     </c:choose>
                     <div class="form-group">
                         <label>标题</label>
@@ -92,9 +92,6 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label>类型</label>
-                                <%--<form:select cssClass="form-control" path="postType" items="${types}" itemLabel="name"
-                                             itemValue="id">
-                                </form:select>--%>
                             <select name="postType" class="form-control">
                                 <c:forEach items="${types}" var="type">
                                     <option value="${type.id}"
@@ -103,13 +100,18 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label>分享到，关注的区</label>
-                                <%--<form:select name="collection" class="form-control">
-                                    <option value="">闲文</option>
-                                    <option value="">销售</option>
-                                    <option value="">健身</option>
-                                    <option value="">学术</option>
-                                </form:select>--%>
+                            <label>分享到板块</label>
+                            <select id="board" name="boardId" class="form-control">
+                                <option value="-1">请选择</option>
+                                <c:forEach items="${boards}" var="board">
+                                    <option value="${board.id}" ${post.boardId==board.id?"selected":''}>${board.boardTitle}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>分享到分区</label>
+                            <select id="area" name="areaId" class="form-control">
+                            </select>
                         </div>
                     </div>
                     <br>
@@ -147,6 +149,61 @@
                 'bold', 'inserttitle', 'fontfamily', 'fontsize', 'forecolor', 'pagebreak', 'edittip', 'preview'],
         ]
     });
+    $(function () {
+
+        $("#board").on("change", function () {
+            //拿到postid ，从数据库再查出来
+            var boardId = $(this).val();
+            //先移除
+            $("#area").empty();
+            $.ajax({
+                url: '/area/' + boardId,
+                type: "post",
+                contentType: "application/json",
+                success: function (areas) {
+                    $("#area").append("<option value=\"-1\">请选择</option>")
+                    $.each(areas, function (index, area) {
+                        console.log(index)
+                        console.log(area)
+                        var option = '<option value="' + area.id + '">' + area.areaTitle + '</option>'
+                        $("#area").append(option)
+                    })
+                }
+            })
+        })
+
+        //级联回显
+        var boardId = $("#board").val();
+        var areaId = '${post.areaId}'
+        $.ajax({
+            url: '/area/' + boardId,
+            type: "post",
+            contentType: "application/json",
+            success: function (areas) {
+                $("#area").append("<option value=\"-1\">请选择</option>")
+                $.each(areas, function (index, area) {
+                    console.log(index)
+                    console.log(area)
+                    var tmp = area.id;
+                    if (areaId === tmp) {
+                        var option = '<option value="' + area.id + '" selected>' + area.areaTitle + '</option>';
+
+                    } else {
+                        var option = '<option value="' + area.id + '">' + area.areaTitle + '</option>';
+                    }
+                    $("#area").append(option)
+                })
+            }
+        })
+
+
+        //级联
+        $("#area").on("click", function () {
+            if ($("#area").children("option").length === 1) {
+                alert("请先选择板块")
+            }
+        })
+    })
 </script>
 </body>
 </html>

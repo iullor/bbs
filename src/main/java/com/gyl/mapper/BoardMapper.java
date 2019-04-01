@@ -14,6 +14,13 @@ public interface BoardMapper {
 
     List<Board> list();
 
+    /**
+     * 找到所有板块中的分区
+     *
+     * @return
+     */
+    List<Board> listBoardsAndAreas();
+
     int delete(String id);
 
     int add(Board board);

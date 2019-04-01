@@ -3,9 +3,12 @@
 <mapper namespace="com.gyl.mapper.PraiseMapper">
 
     <insert id="add">
-        insert into test_bbs.t_praise (post_id,user_id) values (#{userId},#{postId})
+        insert into test_bbs.t_praise (user_id,post_id) values (#{userId},#{postId})
     </insert>
     <delete id="deletePaise">
         delete from test_bbs.t_praise where user_id=#{userId} and post_id =#{postId};
     </delete>
+    <select id="listPraiseById" resultType="integer">
+        select count(id) from test_bbs.t_praise where user_id=#{userId} and post_id=#{postId} ;
+    </select>
 </mapper>

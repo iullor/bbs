@@ -173,7 +173,7 @@
                                     <small>板块信息：${area.details}</small>
                                 </p>
                                 <p>
-                                    <small>在线:2 人</small>&nbsp;&nbsp;&nbsp;<span>贴子:1000K</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a
+                                    <small>在线:2 人</small>&nbsp;&nbsp;&nbsp;<span>贴子:${post}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a
                                         href="#">Rank&nbsp;100</a></span>
                                 </p>
                                 <p>
@@ -216,7 +216,7 @@
                                                     <f:formatDate value="${p.createTime}"
                                                                   pattern="yyyy-MM-hh HH:mm:ss"/>
                                                 </td>
-                                                <td class="col-md-2">20</td>
+                                                <td class="col-md-2">${p.comm}</td>
                                             </tr>
                                         </c:forEach>
                                     </c:when>
@@ -352,7 +352,6 @@
             let src = headImg.substring(beginIndex, endIndex);
             $(this).attr("src", src);
         })
-
 
 
     })

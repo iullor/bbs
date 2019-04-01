@@ -5,8 +5,8 @@
 
     <insert id="addPost" parameterType="com.gyl.entity.Post">
       insert into test_bbs.t_post
-       (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id)
-      values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId})
+       (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id,participants,praises,comments,ban_comment,up,secret)
+      values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId},#{participants},#{praises},#{comm},#{banComment},#{up},#{secret})
   </insert>
 
     <delete id="delete">
@@ -24,7 +24,8 @@
             <if test="boardId!=null">board_id=#{boardId},</if>
             <if test="areaId!=null">area_id=#{areaId},</if>
             <if test="participants!=null">participants=#{participants},</if>
-            <if test="praise!=null">praise=#{praise},</if>
+            <if test="praises!=null">praises=#{praises},</if>
+            <if test="comm!=null">comments=#{comm},</if>
             <if test="banComment!=null">ban_comment=#{banComment},</if>
             <if test="up!=null">up=#{up},</if>
             <if test="secret!=null">secret=#{secret}</if>
@@ -32,7 +33,7 @@
         where id=#{id}
     </update>
 
-    <!--前台列出are中所有的post-->
+    <!--前台列出area中所有的post-->
     <select id="listById" resultMap="postMap1">
             select
                    post.id as id ,
@@ -43,8 +44,11 @@
                    post.area_id as area_id,
                    post.board_id as board_id,
                    post.participants as participants,
-                   post.praise as praise,
+                   post.praises as praises,
                    post.comments as comments,
+                   post.ban_comment,
+                   post.up,
+                   post.secret,
                    type.name as post_type,
                    u.nick_name as nick_name,
                    u.head_image as head_image
@@ -54,15 +58,15 @@
             where post.id=#{id};
     </select>
 
+
+    <!--getMyPostById-->
     <resultMap id="postMap1" type="com.gyl.entity.Post">
         <id property="id" column="id"/>
+        <result property="comm" column="comments"/>
         <result property="postType" column="post_type"/>
         <result property="user.nickName" column="nick_name"/>
         <result property="user.userBaseInfo.headImage" column="head_image"/>
     </resultMap>
-
-
-    <!--getMyPostById-->
     <select id="getMyPostById" resultMap="postMap1">
         select
           post.id as id ,
@@ -73,8 +77,11 @@
           post.area_id as area_id,
           post.board_id as board_id,
           post.participants as participants,
-          post.praise as praise,
+          post.praises as praises,
           post.comments as comments,
+          post.ban_comment as ban_comment,
+          post.up as up,
+          post.secret as secret,
           type.name as post_type
         from test_bbs.t_post post ,test_bbs.post_type type
         where post.user_id=#{id} and post.post_type =type.id ;

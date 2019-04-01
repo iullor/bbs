@@ -21,6 +21,7 @@ import java.util.List;
  * @author gyl
  */
 @Controller
+@SuppressWarnings("all")
 public class AdminAreaController {
     @Autowired
     private UserService userService;

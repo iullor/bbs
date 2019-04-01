@@ -2,7 +2,10 @@ package com.gyl.service;
 
 import com.gyl.commons.UUIDString;
 import com.gyl.entity.Area;
+import com.gyl.entity.Post;
+import com.gyl.entity.User;
 import com.gyl.mapper.AreaMapper;
+import com.gyl.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,8 @@ import java.util.List;
 public class AreaService {
     @Autowired
     private AreaMapper areaMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     public List<Area> list() {
         return areaMapper.list();
@@ -37,8 +42,19 @@ public class AreaService {
     }
 
     public Area getAreaById(String id) {
+        Area area = areaMapper.getAreaById(id);
+        if (area != null) {
+            List<Post> posts = area.getPosts();
+            for (Post post : posts) {
+                User user = userMapper.selectUserById(post.getUserId());
+                post.setUser(user);
+            }
+        }
+        return area;
 
-        return areaMapper.getAreaById(id);
+    }
 
+    public List<Area> getAreasByBoardId(String boardId) {
+        return areaMapper.getAreasByBoardId(boardId);
     }
 }

@@ -81,7 +81,14 @@
                                 <tr>
                                     <td><a href="#">${i.index+1}</a></td>
                                     <td><a href="#">${a.areaTitle}</a></td>
-                                    <td><a href="#">${a.board.boardTitle}</a></td>
+                                    <td>
+                                        <c:if test="${not empty a.board.boardTitle}">
+                                            ${a.board.boardTitle}
+                                        </c:if>
+                                        <c:if test="${empty a.board.boardTitle}">
+                                           &nbsp;&nbsp;&nbsp;---
+                                        </c:if>
+                                    </td>
                                     <td><a href="#">${a.user.username}</a></td>
                                     <td><a href="#">${a.info}</a></td>
                                     <td><a href="#">${a.details}</a></td>

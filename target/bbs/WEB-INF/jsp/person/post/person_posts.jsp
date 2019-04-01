@@ -208,22 +208,27 @@
                                                 <f:formatDate value="${post.createTime}" pattern="yyyy-MM-dd hh:mm:ss"/>
                                             </small></span>
                                         </div>
+                                        <div class="col-md-1">
+                                            <a href="/post/input/${post.id}"><span
+                                                    class="glyphicon glyphicon-edit btn btn-sm btn-primary">&nbsp;编辑</span></a>
 
+                                        </div>
                                         <div class="col-md-1">
-                                            <a href="#" class="btn btn-sm btn-success pull-right"
+                                            <a href="#" class="pull-right secret"
+                                               val="${post.id}"
+                                               status="${post.secret}"
                                                style="margin-left: 20px;"><span
-                                                    class="glyphicon glyphicon-eye-open"></span>公开</a>
+                                                    class="btn btn-sm btn-default  glyphicon glyphicon-eye-open">&nbsp;公开</span></a>
                                         </div>
                                         <div class="col-md-1">
-                                            <a href="#" class="btn btn-sm btn-warning pull-right"
-                                               style="margin-left: 10px;">禁止评论</a>
+                                            <a href="#" class="btn btn-sm btn-default pull-right banComment"
+                                               val="${post.id}"
+                                               status="${post.banComment}"
+                                               style="margin-left: 10px;">&nbsp;允许评论</a>
                                         </div>
                                         <div class="col-md-1">
-                                            <span><a href="/post/input/${post.id}" class="btn btn-sm btn-success">编辑</a></span>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <span><a href="/post/delete/${post.id}"
-                                                     class="text-danger btn btn-sm btn-default">删除</a></span>
+                                            <a href="/post/delete/${post.id}"><span
+                                                    class="glyphicon glyphicon-remove text-danger btn-sm btn btn btn-danger">&nbsp;删除</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -273,9 +278,122 @@
             })
         })
 
+        //改变贴子的显示状态
+        $(".secret").on("click", function () {
+            var postId = $(this).attr("val")
+            var id = {
+                id: postId
+            }
+            var tmpClass = $(this).children("span").attr("class");
+            //找到了,就设置为私密
+            if (tmpClass.match("glyphicon-eye-open") !== null) {
+                //公开
+                var isOpen = window.confirm("设置为私密?");
+                if (isOpen) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 1,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+
+                        }
+                    })
+                    //更改状态，显示私密
+                    $(this).children("span").removeClass("glyphicon-eye-open").removeClass("btn-default");
+                    $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
+                    $(this).children("span").html("&nbsp;私密")
+                }
+            } else {
+                //私密
+                var isOpen = window.confirm("设置为公开?");
+                if (isOpen) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 0,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+
+                        }
+                    });
+                    //更改状态，显示私密
+                    $(this).children("span").addClass("glyphicon-eye-open").addClass("btn-default");
+                    $(this).children("span").removeClass("glyphicon-eye-close").removeClass("btn-warning");
+                    $(this).children("span").html("&nbsp;公开")
+                }
+            }
+
+            return false;
+        })
+
+        //改变贴子的是否禁止评论状态
+        $(".banComment").on("click", function () {
+            var postId = $(this).attr("val")
+            var id = {
+                id: postId
+            }
+            var tmpClass = $(this).attr("class");
+            //找到了,就设置为私密
+            if (tmpClass.match("btn-default") !== null) {
+                //公开
+                var isBan = window.confirm("禁止评论?");
+                if (isBan) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 3,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+                        }
+                    })
+                    //更改状态，显示私密
+                    $(this).removeClass("btn-default");
+                    $(this).addClass("btn-warning");
+                    $(this).html("&nbsp;禁止评论")
+                }
+            } else {
+                //私密
+                var isBan = window.confirm("打开评论?");
+                if (isBan) {
+                    $.ajax({
+                        url: '/person/mypost/update/' + 2,
+                        type: 'post',
+                        data: JSON.stringify(id),
+                        contentType: 'application/json',
+                        success: function (data) {
+                        }
+                    });
+                    //更改状态，显示私密
+                    $(this).addClass("btn-default");
+                    $(this).removeClass("btn-warning");
+                    $(this).html("&nbsp;允许评论")
+                }
+            }
+            return false;
+        })
+        /*
+        * 状态按钮回显
+        * */
+
+        $(".secret").each(function () {
+            if ($(this).attr("status") === '1') {
+                $(this).children("span").removeClass("glyphicon-eye-open").removeClass("btn-default");
+                $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
+                $(this).children("span").html("&nbsp;私密")
+            }
+        })
+        $(".banComment").each(function () {
+            if ($(this).attr("status") === '1') {
+                $(this).removeClass("btn-default");
+                $(this).addClass("btn-warning");
+                $(this).html("&nbsp;禁止评论")
+            }
+        })
+
+
         //想后台发送一个查询，返回来一个map
         $("#myPostType").on("change", function () {
-
         })
     })
 </script>

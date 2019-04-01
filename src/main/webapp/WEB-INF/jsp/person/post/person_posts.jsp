@@ -216,12 +216,14 @@
                                         <div class="col-md-1">
                                             <a href="#" class="pull-right secret"
                                                val="${post.id}"
+                                               status="${post.secret}"
                                                style="margin-left: 20px;"><span
                                                     class="btn btn-sm btn-default  glyphicon glyphicon-eye-open">&nbsp;公开</span></a>
                                         </div>
                                         <div class="col-md-1">
                                             <a href="#" class="btn btn-sm btn-default pull-right banComment"
                                                val="${post.id}"
+                                               status="${post.banComment}"
                                                style="margin-left: 10px;">&nbsp;允许评论</a>
                                         </div>
                                         <div class="col-md-1">
@@ -370,10 +372,24 @@
             }
             return false;
         })
-
         /*
         * 状态按钮回显
         * */
+
+        $(".secret").each(function () {
+            if ($(this).attr("status") === '1') {
+                $(this).children("span").removeClass("glyphicon-eye-open").removeClass("btn-default");
+                $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
+                $(this).children("span").html("&nbsp;私密")
+            }
+        })
+        $(".banComment").each(function () {
+            if ($(this).attr("status") === '1') {
+                $(this).removeClass("btn-default");
+                $(this).addClass("btn-warning");
+                $(this).html("&nbsp;禁止评论")
+            }
+        })
 
 
         //想后台发送一个查询，返回来一个map
