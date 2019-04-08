@@ -14,8 +14,6 @@ import java.util.List;
  * @author gyl
  */
 public class Post {
-
-
     private String id;
     private String userId;
     /**
@@ -31,6 +29,7 @@ public class Post {
     private String boardId;
     private String areaId;
 
+    private String boardTitle;
     /**
      * 评论数
      */
@@ -73,6 +72,11 @@ public class Post {
     private Integer secret;
 
     private Praise praise;
+
+    /**
+     * 贴子中的第一张图片的url
+     */
+    private String firstImage;
 
     public String getId() {
         return id;
@@ -218,4 +222,19 @@ public class Post {
         this.comm = comm;
     }
 
+    public String getFirstImage() {
+        return firstImage;
+    }
+
+    public void setFirstImage(String firstImage) {
+        this.firstImage = firstImage;
+    }
+
+    public String getBoardTitle() {
+        return boardTitle;
+    }
+
+    public void setBoardTitle(String boardTitle) {
+        this.boardTitle = boardTitle;
+    }
 }

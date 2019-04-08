@@ -47,6 +47,19 @@
 ====导航栏选中====
  */
 
-.nav-select{
+/*====================热点贴子===================*/
 
+.hotPost{
+    padding-top: 30px;
+    width: auto;
+    height: 300px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.hotPost>p{
+    padding-top: 10px;
+    border-bottom: 1px gray dashed;
+}
+.hotPost>p>a{
+    color: black;
 }

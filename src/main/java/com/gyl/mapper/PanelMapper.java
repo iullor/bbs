@@ -1,5 +1,6 @@
 package com.gyl.mapper;
 
+import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -37,4 +38,6 @@ public interface PanelMapper {
 
 
     List<Panel> searchByPanelTitle(@Param(value = "title") String inputPanelTitle);
+
+    List<Panel> listBoardsId();
 }

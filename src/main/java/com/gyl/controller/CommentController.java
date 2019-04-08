@@ -39,6 +39,7 @@ public class CommentController {
         if (status > 0) {
             int status2 = messageService.sendCommentToUser(comment, postUserId);
         }
+        //贴子的评论数目加1
         String postId = comment.getPostId();
         return "redirect:/post/" + postId;
     }

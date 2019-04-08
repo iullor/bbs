@@ -14,7 +14,9 @@
         <result property="panelManagerId" column="user_manager_id"/>
     </resultMap>
 
-    <!--连表查询-->
+    <!--
+        连表查询,查出来所有panel中所有board的所有贴子，废弃
+    -->
     <select id="listBoardsAreaPosts" resultMap="listPanel2">
         select
           p.id as panel_id,
@@ -23,7 +25,10 @@
           p.info as panel_info,
           b.id as board_id,
           b.info as board_info,
+          b.details as board_details,
           b.board_title as board_title,
+          b.logo_path as board_logo_path,
+          b.create_time as board_crate_time,
           a.id as area_id,
           a.area_title as area_title,
           post.id as post_id,
@@ -43,6 +48,9 @@
             <id property="id" column="board_id"/>
             <result property="info" column="board_info"/>
             <result property="boardTitle" column="board_title"/>
+            <result property="details" column="board_details"/>
+            <result property="logoPath" column="board_logo_path"/>
+            <result property="createTime" column="board_crate_time"/>
             <collection property="posts" ofType="com.gyl.entity.Post">
                 <id property="id" column="post_id"/>
                 <result property="postTitle" column="post_title"/>
@@ -132,4 +140,26 @@
         </trim>
         order by create_time desc;
     </select>
+
+
+    <!--
+        查出每个panel中的board
+    -->
+    <select id="listBoardsId" resultMap="listPanel2">
+       select
+           p.id as panel_id,
+           p.title as panel_title,
+           p.logo_path as panel_logo_path,
+           p.info as panel_info,
+           b.id as board_id,
+           b.info as board_info,
+           b.details as board_details,
+           b.board_title as board_title,
+           b.logo_path as board_logo_path,
+           b.create_time as board_crate_time
+        from test_bbs.t_panel p,test_bbs.t_board b
+        where p.id=b.panel_id order by p.create_time asc;
+    </select>
+
+
 </mapper>

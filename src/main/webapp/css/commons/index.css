@@ -1,130 +1,185 @@
 body {
     overflow-x: hidden;
-    /*background-image: url("/images/bg/Blurred-Background-Sunset-3c-Free.jpg");*/
+    background-color: #f5f5f5;
 }
 
-/**
-===============主容器的样式==================
- */
+body div {
+    border-radius: 3px;
+}
+
+body a {
+    color: black;
+}
+
+/*====================轮播图===================*/
+.messageImg {
+    float: left;
+    margin-top: 100px;
+    background-color: #0000ff;
+    width: 800px;
+    height: 460px;
+    margin-left: -10px;
+}
+
+.messageTopic > h3 {
+    text-align: right;
+    color: #3714B0;
+}
+
+.messageTopic {
+    margin-top: 80px;
+    width: 350px;
+    height: 460px;
+    float: right;
+
+}
+
+.messageTopic > div {
+    width: auto;
+    height: 140px;
+    border: 1px solid #0000ff;
+}
+
+/*====================head导航===================*/
+.head {
+    margin-top: 50px;
+    background-color: white;
+    width: auto;
+    height: 50px;
+}
+
+.head li {
+    font-size: 18px;
+}
+
+/*====================热门推荐===================*/
+.hot {
+    margin-top: 50px;
+    border: 1px solid gray;
+}
+.hot > p {
+    padding-top: 5px;
+    background-color: #1F0772;
+    color: white;
+}
+
+.hot > p > span:first-child {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.piece {
+    width: 250px;
+    height: 270px;
+    margin-left: 18px;
+    margin-bottom: 5px;
+}
+
+/*====================近期事项====================*/
+.nowdays-activity h4 {
+    padding-left: 5px;
+
+}
+
+.nowdays-activity p {
+    border-bottom: 1px gray dashed;
+}
+
+.nowdays-activity > p > a {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    font-size: 16px;
+}
+
+
+/*====================板块====================*/
 
 #main {
-    background-color: rgba(255, 255, 255, 0.09);
-    margin-top: 40px;
+    /*border: 1px solid gray;*/
+    margin-top: 50px;
     padding-top: 20px;
 }
 
-#column1-left {
-    float: left;
-    height: 500px;
-    width: 100%;
-    border-radius: 10px;
-    border-top: 2px solid red;
-    border-bottom: 2px solid grey;
-}
 
-#column1-right {
-    border-top: 2px solid #8a6cb6;
-    float: right;
-    border-radius: 10px;
-    width: 100%;
-    height: 500px;
+.compent {
+    margin-bottom: 100px;
 }
 
 
-/**
-=========板块的样式================
- */
-.school-hot {
-    margin-top: 2px;
-    margin-right: -16px;
-    height: 200px;
-}
-
-.school-hot label {
-    padding-left: 10px;
-    margin-top: 5px;
-}
-
-.cycleContainer {
-    border-radius: 10px;
-    width: 100%;
-    height: 300px;
-}
-
-/*===========index的板块设置============*/
-.board-content {
+.compent > h4 {
     margin-top: -10px;
-    /*background-color: white;*/
+    margin-left: 10px;
+    color: #3714B0;
 }
 
-/**
-=======热门话题===================
- */
-.hotTopic {
-    padding-left: 20px;
-    border-radius: 10px;
-    width: 100%;
+.compent > p {
+    margin-left: 30px;
+}
+
+.board-items {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #0000cc;
+    margin-left: 0;
+    margin-right: 0;
+    height: 400px;
+    overflow: scroll; /*溢出*/
+    overflow-y: hidden !important;
+}
+
+.items-content {
+    border: 3px solid #1F0772;
+    box-shadow: 20px 20px 20px #1F0772;
+    list-style: none;
+    width: 4000px;
+}
+
+.board-item {
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 360px;
+    width: 400px;
+    float: left;
+    border: 1px #0000ff solid;
+}
+.board-hot-posts{
+    margin-top: 20px;
+    width: auto;
     height: 150px;
+/*    border: 1px crimson solid;*/
 }
 
-hotTopic .well {
-    margin-left: -10px;
-    margin-bottom: 5px;
-    border: 0px;
-
-}
-
-.board-hot {
-    margin-top: 2px;
+.board-info {
+    width: 400px;
+    height: 180px;
+    border-radius: 5px;
+    background-color: #004b8d;
+    z-index: 2;
+    border: 1px solid black;
     margin-left: -16px;
-    height: 200px;
+    margin-top: -10px;
+    color: white;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-.board-hot label {
-    margin-top: 5px;
-    padding-left: 10px;
-}
-
-.school-hot ul li {
-    margin-left: 30px;
+.board-info>div{
     padding-top: 5px;
 }
+/*====================尾部====================*/
 
-.board-hot ul li {
-    margin-left: 30px;
-    padding-top: 5px;
-}
-
-.hotTopic ul li {
-    padding-top: 5px;
-}
-
-.hotTopic ul li:first-child {
-    padding-top: 8px;
-}
-
-/*====================返回home====================*/
-#goTop {
-    float: right;
-    right: 40px;
-    bottom: 50px;
-    position: fixed;
+#foot {
+    height: 100px;
+    background: white;
+    margin-top: 200px;
+    padding-top: 30px;
 }
 
 #foot a {
     color: grey;
     text-decoration: none;
 }
-
-/*====================尾部====================*/
-
-#foot {
-    height: 100px;
-    background: white;
-}
-
-
-
-
-
 

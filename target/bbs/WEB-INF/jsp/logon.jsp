@@ -12,32 +12,35 @@
     <script src="../../lib/bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
+<h3>BBS-Student</h3>
 <p class="pull-right" style="margin-top: -40px;margin-right: 30px">
     <a href="/admin"><span>管理员访问</span></a>
 </p>
-<div class="container">
-    <form class="form-logon" action="/checkLogon" method="get">
-        <h3 class="text-center">BBS-Student</h3>
-        <p class="text-red" id="logon-info"></p>
-        <lable><strong>Username</strong></lable>
-        <input type="text" class="form-control" name="username">
-        <label>Password</label>
-        <span class="text-right"><a href="reset_password.jsp"><small
-                class="pull-right">forget password?</small></a></span>
-        <input type="password" class="form-control" name="password">
-        <div class="checkbox text-left">
-            <label>
-                <input type="checkbox" value="remember-me">Remember Me
-            </label>
-            <label>
-                <input type="checkbox" value="Admin">Admin Login
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Logon</button>
-        <span><a href="/index">游客访问</a></span>
-        <span><a href="/register">新用户注册</a></span>
 
-    </form>
+<div class="container">
+    <div class="form-logon">
+        <form action="/checkLogon" method="get">
+            <p class="text-red" id="logon-info"></p>
+            <lable><strong>Username</strong></lable>
+            <input type="text" class="form-control" name="username">
+            <label>Password</label>
+            <span class="text-right"><a href="reset_password.jsp"><small
+                    class="pull-right">forget password?</small></a></span>
+            <input type="password" class="form-control" name="password">
+            <div class="checkbox text-left">
+                <label>
+                    <input type="checkbox" value="remember-me">Remember Me
+                </label>
+                <label>
+                    <input type="checkbox" value="Admin">Admin Login
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Logon</button>
+            <span><a href="/index">游客访问</a></span>
+            <span><a href="/register">新用户注册</a></span>
+
+        </form>
+    </div>
     <p class="mt-5 mb-3 text-muted">&copy; 学生论坛版权所有<span><a href="#" data-toggle="modal" data-target="#exampleModal">&nbsp;&nbsp;&nbsp;联系管理员</a></span>
     </p>
     <!--添加模态框，当点击联系管理员时弹出-->

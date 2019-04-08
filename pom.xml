@@ -256,9 +256,13 @@
             <version>1.4.3.3</version>
         </dependency>
 
+        <!--lombok插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-maven</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
-
-
     <build>
         <finalName>bbs</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

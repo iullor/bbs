@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +14,6 @@
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
-
     </style>
 
 </head>
@@ -85,8 +85,38 @@
                                     <td><a href="#">${b.boardTitle}</a></td>
                                     <td><a href="#">${b.panel.title}</a></td>
                                     <td><a href="#">${b.user.username}</a></td>
-                                    <td><a href="#">${b.info}</a></td>
-                                    <td><a href="#">${b.details}</a></td>
+                                    <td width="20%">
+                                        <c:set var="infoString" value="${b.info}"/>
+                                        <c:set var="info1String"
+                                               value="${fn:substring(infoString, 0, 15)}"/>
+                                        <div class="showMoreInfo">
+                                                ${info1String}
+                                            <c:if test="${infoString.length()>15}">
+                                                ...<a href="#">更多</a>
+                                            </c:if>
+                                            <c:if test="${infoString.length()<15}">
+                                            </c:if>
+                                        </div>
+                                        <div class="showShortInfo">
+                                            &nbsp;&nbsp;${b.info} &nbsp;&nbsp;&nbsp;<a href="#">收起</a>
+                                        </div>
+                                    </td>
+                                    <td width="20%">
+                                        <c:set var="detailString" value="${b.details}"/>
+                                        <c:set var="detail1String"
+                                               value="${fn:substring(detailString, 0, 15)}"/>
+                                        <div class="showMoreInfo">
+                                                ${detail1String}
+                                            <c:if test="${detailString.length()>15}">
+                                                ...<a href="#">更多</a>
+                                            </c:if>
+                                            <c:if test="${detailString.length()<15}">
+                                            </c:if>
+                                        </div>
+                                        <div class="showShortInfo">
+                                            &nbsp;&nbsp;${b.details}&nbsp;&nbsp;<a href="#">收起</a>
+                                        </div>
+                                    </td>
                                     <td><a href="#">
                                         <f:formatDate value="${b.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </a></td>
@@ -154,6 +184,17 @@
             var href = $(this).attr("href");
             $("form").attr("action", href).submit();
         }
+        return false;
+    })
+    $(".showShortInfo").hide();
+    $(".showMoreInfo>a").on("click", function () {
+        $(this).parent().siblings("div.showShortInfo").show();
+        $(this).parent("div").hide();
+        return false;
+    })
+    $(".showShortInfo>a").on("click", function () {
+        $(this).parent().siblings("div.showMoreInfo").show();
+        $(this).parent("div").hide();
         return false;
     })
 </script>

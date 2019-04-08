@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,19 +11,19 @@
 
     <!--sidebar-left样式-->
     <link rel="stylesheet" href="../../css/commons/sidebar_left.css">
-    <!--每一个板块呈现的样式-->
-    <link rel="stylesheet" href="../../css/board/board.css">
     <!--login的模态框-->
     <link rel="stylesheet" href="../../css/modal/modal_login.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--主样式，覆盖前面的样式-->
     <link rel="stylesheet" href="../../css/commons/index.css">
     <!--=====================js=============================-->
-    <script src="../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../lib/bootstrap/bootstrap.min.js"></script>
-
+    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--%>
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <!--控制侧栏-->
-    <script src="../../js/sidebar-left-control.js"></script>
+    <script src="/js/sidebar-left-control.js"></script>
     <style>
         .glyphicon-fire {
             color: red;
@@ -30,7 +31,9 @@
     </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-inverse">
+<link rel="stylesheet" href="../../css/commons/sidebar_left.css">
+<script src="../../js/sidebar-left-control.js"></script>
+<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -40,20 +43,18 @@
                             data-target="#sidebar-wrapper" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
-
-                    <a class="navbar-brand" href="#">BBS-Student</a>
-
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
                         <form>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="search" placeholder="Search">
                             </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                            <div class="form-group col-md-6">
                                 <button type="submit" class="btn btn-default"><span
                                         class="glyphicon glyphicon-search"></span>Search
                                 </button>
@@ -61,18 +62,43 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-md-2 nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
+                    <a href="/person/myCircle"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-xs-12 col-sm-12 col-md-offset-1"
-                             style="margin-top: 0px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
-                                    class="glyphicon glyphicon-log-in"></span></a>
+                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
+                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
+                                请登录
+                                <span class="glyphicon glyphicon-log-in"></span>
+                            </a>
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-1"
-                             style="margin-top: 8px;font-size: 18px;">
-                            <a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                        <div class="col-md-1">
+                            <div class="myAccount img-circle">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img src="" width="40" height="40"
+                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                         class="showUserHeadImg"/>
+                                    <span class="caret" style="margin-left: 13px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/person/basic/account">账户</a></li>
+                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="#">我的创作</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">添加</a></li>
+                                    <li><a href="#">维修</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -80,45 +106,237 @@
         </div>
     </nav>
 </header>
-<div class="container-fluid">
-    <%--侧边栏--%>
-    <nav id="left-navbar" class="collapse navbar-fixed-top navbar-collapse"
-         role="navigation">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <span id="close" class="glyphicon glyphicon-menu-hamburger"></span>
-            </li>
-            <li role="presentation">
-                <img src="/images/路飞.jpg"
-                     value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                     class="img-circle showUserHeadImg"/>
-            </li>
-            <li role="presentation">
-                <span class="text-danger">${sessionScope.CURRENT_USER.nickName}</span>
-            </li>
-            <li role="presentation"><a href="./index.jsp"><span
-                    class="text-left glyphicon glyphicon-home">&nbsp;</span>首页</a>
-            </li>
-            <li role="presentation"><a href="/person/basic/info"><span
-                    class="text-left glyphicon glyphicon-user">&nbsp;</span>基本信息</a></li>
-            <li role="presentation"><a href="/person/basic/account"><span
-                    class="text-left glyphicon glyphicon-user">&nbsp;</span>账户信息</a></li>
-            <li role="presentation"><a href="/person/message/0"><span
-                    class="text-left glyphicon glyphicon-comment">&nbsp;</span>消息</a></li>
-            <li role="presentation"><a href="/person/collection/myAreas"><span
-                    class="text-left glyphicon glyphicon-star">&nbsp;</span>收藏夹</a>
-            </li>
-            <li role="presentation"><a href="/person/mypost"><span
-                    class="text-left glyphicon glyphicon-user">&nbsp;</span>我的贴子</a></li>
-            <li role="presentation"><a href="/system/help"><span
-                    class="text-left glyphicon glyphicon-question-sign">&nbsp;</span>帮助</a></li>
-            <li role="presentation"><a href="/person/themes/basic"><span
-                    class="text-left glyphicon glyphicon-cog">&nbsp;</span>设置</a>
-            </li>
-            <li class="mt-5 mb-3 text-muted" style="margin-top: 200px">&copy; 学生论坛版权所有</li>
-        </ul>
-    </nav>
+<div class="container">
     <div class="row">
+        <%--侧边栏--%>
+        <div class="right-nav">
+            <div>
+                <img src="/images/nav/center.png" width="30" height="30"><br>
+                <label>个人中心</label>
+            </div>
+            <div>
+                <img src="/images/nav/collect.png" width="30" height="30"><br>
+                <label>收藏</label>
+            </div>
+            <div>
+                <img src="/images/nav/editor.png" width="30" height="30"><br>
+                <label>发帖</label>
+            </div>
+            <div>
+                <img src="/images/nav/message.png" width="30" height="30"><br>
+                <label>消息</label>
+            </div>
+            <div>
+                <img src="/images/nav/up.png" width="30" height="30"><br>
+                <label>返回顶部</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="messageImg">
+                <div class="slider">
+                    <div>
+                        <img src="/images/index/1.jpg" alt="" width="800" height="450">
+                    </div>
+                    <div>
+                        <img src="/images/index/2.jpg" alt="" alt="" width="800" height="450">
+                    </div>
+                    <div>
+                        <img src="/images/index/3.jpg" alt="" alt="" width="800" height="450">
+                    </div>
+                </div>
+            </div>
+            <div class="messageTopic">
+                <h3>本站热点</h3>
+                <div class="nowdays-activity">
+                    <h4>二手交易</h4>
+                    <p>
+                        <a href="#"><span class="glyphicon glyphicon-option-vertical"></span>雪山美景</a>
+                    </p>
+                </div>
+                <div class="nowdays-activity">
+                    <h4>西操场面基</h4>
+                    <p>
+                        <a href="#"><span class="glyphicon glyphicon-option-vertical">加入我们吧</span></a>
+                    </p>
+                </div>
+                <div class="nowdays-activity">
+                    <h4>毕业季分手季</h4>
+                    <p>
+                        <a href="#"><span class="glyphicon glyphicon-option-vertical">别说了，上车</span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row head">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">公共圈子</a></li>
+                            <li><a href="#">我的圈子</a></li>
+                            <li><a href="#"><span class="sr-only">|</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">院系<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">信息技术学院</a></li>
+                                    <li><a href="#">基础医学院</a></li>
+                                    <li><a href="#">第一临床医学院</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">运动健身 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">球类</a></li>
+                                    <li><a href="#">田径</a></li>
+                                    <li><a href="#">骑行</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <%--个性热门推荐--%>
+        <div class="hot row">
+            <p>
+                <span>猜你喜欢</span>
+                <a href="#" class="changeOthers">
+                    <span class="pull-right" style="color: white;margin-right: 5px">换一批</span>
+                </a>
+            </p>
+            <!--
+                json字符串
+            -->
+            <div class="hot-posts-holder">
+                <c:forEach items="${hotPosts}" var="hotPost">
+                    <div class="col-md-3">
+                        <div class="piece">
+                            <div class="text-center">
+                                <a href="/post/${hotPost.id}">
+                                    <img src="" class="showPostFirstImage" value='${hotPost.firstImage}' alt=""
+                                         height="220"
+                                         width="220">
+                                </a>
+                            </div>
+                            <p style="margin-top:3px;padding-left:10px">
+                                <lead>
+                                    <a href="/account/${hotPost.userId}" target="_blank"
+                                       class="text-primary">${hotPost.user.nickName}</a>
+                                </lead>
+                                <strong>
+                                    <a href="/post/${hotPost.id}" target="_blank">&nbsp;&nbsp;${hotPost.postTitle}</a>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                </c:forEach>
+                <%-- <script type="text/x-jsrender" id="showHotPosts">
+                   {{for hostPosts}}
+                         {{:hostPosts}}
+                     {{else}}
+                      <div class="col-md-3">
+                             <div class="piece">
+                                 <div class="text-center">
+                                     <a href="/post/{{:id}}">
+                                         <img src="" class="showPostFirstImage" value='{{:firstImage}}' alt="" height="220" width="220">
+                                     </a>
+                                 </div>
+                                 <p style="margin-top:3px;padding-left:10px">
+                                     <lead><a href="/account/{{:userId}}" class="text-primary">{{:user.nickName}}</a></lead>
+                                     <strong><a href="/post/{{:id}}">&nbsp;&nbsp;{{:postTitle}}</a></strong>
+                                 </p>
+                             </div>
+                       </div>
+                     {{/for}}
+                 </script>--%>
+            </div>
+        </div>
+        <div id="main" class="row">
+            <c:forEach items="${panels}" var="p">
+                <c:if test="${p.boards.size()>0}">
+                    <div class="compent">
+                        <h3>
+                            <a href="/panel/${p.id}">
+                                <img src="" class="showUserHeadImg" value="${p.logoPath}" width="25" height="25"
+                                     style="margin-top: -10px">
+                                    ${p.title}
+                            </a>
+                        </h3>
+                        <p>
+                            <c:forEach items="${p.boards}" var="b">
+                                <span><small><a href="/board/${b.id}">${b.boardTitle}</a></small></span>
+                            </c:forEach>
+                            <span>
+                           <small><a href="/panel/${p.id}">
+                               <span class="pull-right">更多</span></a>
+                           </small>
+                    </span>
+                        </p>
+                        <div class="row board-items">
+                                <%--板块--%>
+                            <div class="items-content">
+                                <c:forEach items="${p.boards}" var="b">
+                                    <div class="col-md-3 board-item">
+                                        <div class="text-left" style="margin-top: 10px">
+                                            <a href="#" style="font-size: 18px;"><span>[${b.boardTitle}]</span></a>&nbsp;
+                                        </div>
+                                        <div class="text-center" style="margin-bottom: 5px">
+                                            <img src="" value="${b.logoPath}" class="showUserHeadImg" width="150"
+                                                 height="150">
+                                        </div>
+                                        <div class="board-hot-posts">
+                                            <!--找到浏览量比较多的-->
+                                            <c:forEach items="${b.posts}" var="post">
+                                                <p>
+                                                    <a href="/post/${post.id}">
+                                                        <span class="glyphicon glyphicon-fire">&nbsp;</span>${post.postTitle}
+                                                    </a>
+                                                </p>
+                                            </c:forEach>
+                                        </div>
+                                        <div class="board-info">
+                                            <div>
+                                                创建时间：
+                                                <f:formatDate value="${b.createTime}" pattern="yyyy-MM-dd HH:mm"/>
+                                            </div>
+                                            <!--院系的详情-->
+                                            <c:set var="detailsString" value="${b.details}"/>
+                                            <c:set var="details1String"
+                                                   value="${fn:substring(detailsString, 0,100)}"/>
+                                            <div>
+                                                详情:${details1String}
+                                                <c:if test="${detailsString.length()>100}">
+                                                    ... <a href="#">更多</a>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+            <div id="foot" class="row">
+                <p class="text-center"><span><a href="#">联系我们</a>&nbsp;&nbsp;<small>--</small></span>友情连接&nbsp;<a
+                        href="https://www.baidu.com">百度</a>&nbsp;<a
+                        href="https://www.google.com">Google</a>&nbsp;<a
+                        href="https://www.github.com">GitHub</a></p>
+                <div class="text-center">
+                    <p>© 学生论坛版权所有</p>
+                </div>
+            </div>
+        </div>
         <!--游客用户登录的模态框-->
         <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
             <div class="modal-dialog" role="document">
@@ -155,227 +373,87 @@
                 </div>
             </div>
         </div>
-        <div class="content-inner">
-            <span id="open" class="glyphicon glyphicon-menu-hamburger"></span>
-            <div id="main" class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div id="column1-left">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="school-hot">
-                                        <label>学校热点</label>
-                                        <ul class="list-unstyled">
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="board-hot">
-                                        <label>站内热点</label>
-                                        <ul class="list-unstyled">
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            <li><a href="#">今天学校放假了</a></li>
-                                            ;
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr style="border-color: #2e6da4;margin-top: 0px;margin-bottom: 0px">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <p>我的圈子</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div id="column1-right">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span style="margin-left: 20px;color: red;">热门话题</span>
-                                        <div class="hotTopic">
-                                            <ul class="list-unstyled" style="margin-left: 20px;">
-                                                <li><a href="#">校园春招</a></li>
-                                                <li><a href="#">医学健康</a></li>
-                                                <li><a href="#">健身锻炼</a></li>
-                                                <li><a href="#">求职</a></li>
-                                                <li><a href="#">跳蚤市场</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span style="margin-left: 20px;color: red;">失物公示</span>
-                                        <div class="hotTopic">
-                                            <div class="well">
-                                                <p>小红丢了1w$... </p>
-                                                <p><a href="#">联系</a></p>
-                                            </div>
-                                            <div class="well">
-                                                <p>小红丢了1w$... </p>
-                                                <p><a href="#">联系</a></p>
-                                            </div>
-                                            <button class="btn btn-default pull-right" data-toggle="modal"
-                                                    data-target="#addLostModal"
-                                                    style="margin-top: 20px">发布公告
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--查找业务modal框-->
-                                <div class="modal fade" id="addLostModal" tabindex="-1" role="dialog"
-                                     aria-labelledby="loginModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content modal-sm">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span
-                                                        aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title text-center" id="addLostModalLabel">
-                                                    <small>请认真填写以下信息</small>
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/login" method="post" enctype="multipart/form-data">
-                                                    <div class="form-group">
-                                                        <label for="username" class="control-label">
-                                                            <small>用户名</small>
-                                                        </label>
-                                                        <input type="text" class="form-control has-feedback"
-                                                               name="username">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="password" class="control-label">
-                                                            <small>邮箱</small>
-                                                        </label>
-                                                        <input type="email" class="form-control" name="email">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>请选择情况</label>
-                                                        <select name="situation" class="form-control">
-                                                            <option value="-1">请选择</option>
-                                                            <option value="0">捡到</option>
-                                                            <option value="1">遗失</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        详细描述
-                                                        <textarea class="form-control" rows="5"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>上传合适的图片</label>
-                                                        <input type="file" class="form-control" name="picture">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-md btn-default"
-                                                                data-dismiss="modal">
-                                                            Quit
-                                                        </button>
-                                                        <button type="submit" class="btn btn-md btn-primary">Submit
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div id="column2">
-                    <c:forEach items="${panels}" var="p">
-                        <div class="col-sm-6 col-md-6 column2 each_top">
-                            <div class="col-sm-12 container-board">
-                                <div class="board-title">
-                                    <a href="/panel/${p.id}"><span><span class="text-center"><img
-                                            src="/images/board/school.svg" width="25"
-                                            height="25"></span>&nbsp;&nbsp;&nbsp;${p.title}</span></a>
-                                    <p>
-                                        <c:forEach items="${p.boards}" var="b">
-                                            <span><small><a href="/board/${b.id}">${b.boardTitle}</a></small></span>
-                                        </c:forEach>
-                                        <span><small><a href="/panel/${p.id}"><span
-                                                class="pull-right">更多</span></a></small></span>
-                                    </p>
-                                </div>
-                                <hr>
-                                <div class="board-content">
-                                    <c:forEach items="${p.boards}" var="b">
-                                        <p>
-                                            <%--板块--%>
-                                            <span><a href="#">[${b.boardTitle}]</a>&nbsp;</span>
-                                            <span><a href="/post/${b.posts[0].id}"><span
-                                                    class="glyphicon glyphicon-fire"></span> ${b.posts[0].postTitle}</a></span>
-                                        </p>
-                                    </c:forEach>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-
-                </div>
-                <hr>
-            </div>
-            <div id="foot" class="container">
-                <p class="text-center"><span><a href="#">联系我们</a>&nbsp;&nbsp;<small>--</small></span>友情连接&nbsp;<a
-                        href="https://www.baidu.com">百度</a>&nbsp;<a
-                        href="https://www.google.com">Google</a>&nbsp;<a
-                        href="https://www.github.com">GitHub</a></p>
-                <div class="text-center">
-                    <p>© 学生论坛版权所有</p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-<!--button组-->
-<div id="goTop" class="btn-group-vertical dropup">
-    <button type="button" class="btn btn-primary" onclick="writePost()">
-        <span class="glyphicon glyphicon-comment"></span>
-        发帖
-    </button>
-    <button type="button" data-toggle="dropup" class="btn btn-success">
-        <span class="caret"></span>
-        Home
-    </button>
-</div>
-
 <script>
-    /*快速发帖*/
-    function writePost() {
-        window.location = "/post/input/0";
-    }
-
     /*
     * 点击回顶部
     * */
     $(function () {
+        //轮播图
+        $('.slider').bxSlider({
+            speed: 800,
+            auto: true,
+        });
+        //鼠标悬浮，显示板块信息
+        $(".board-info").hide();
+        $(".showUserHeadImg").mouseover(function () {
+            $(this).parent("div").siblings("div.board-hot-posts").hide();
+            /* $(this).parents("div.board-item").css({
+                 "background-color":''
+             })*/
+            $(this).parent("div").siblings("div.board-info").show();
+        }).mouseleave(function () {
+            $(this).parent("div").siblings("div.board-info").hide();
+            $(this).parent("div").siblings("div.board-hot-posts").show();
+        })
+
         $("#goTop button").click(function () {
             window.scrollTo(0, 0, 0, 0);
         })
         if ($(window).width() > 750) {
-            $(".school-hot").css({"border-right": "2px solid blue"});
-            $(".board-hot").css({"border-left": "2px solid blue"})
         }
-    })
+        //获取请求中热门贴子,获取到json 字符串
+        //转化为js对象
+        /* var hostPostsJS = JSON.parse(hostPosts);
+         for(var index in hostPostsJS){
+             console.log(hostPostsJS[index])
+         }
+         console.log(hostPostsJS[0].areaId)*/
+        /*var hostPosts = '
+        console.log(hostPosts)
+        var html = $("#showHotPosts").render(hostPosts);
+        $(".hot-posts-holder").html(html);*/
+        //显示图片
+        $(".showPostFirstImage").each(function () {
+            var headImg = $(this).attr("value");
+            $(this).attr("src", headImg);
+            //添加动画效果
+            $(this).mouseover(function () {
+                $(this).css({
+                    'height': '240',
+                    'width': '240'
+                })
+            }).mouseleave(function () {
+                $(this).css({
+                    'height': '220',
+                    'width': '220'
+                })
+            })
+        })
 
+        //换一批
+        $(".changeOthers").on("click", function () {
+            $.ajax({
+                'url': '/post/changeOthers',
+                'method': 'get',
+                'contentType': 'application/json',
+                success: function (data) {
+                    $(".piece").each(function (index, post) {
+                        $(this).children("div.text-center").children("a").attr("href", "/post/" + data[index].id);
+                        $(this).children("div.text-center").children("a").children("img.showPostFirstImage").attr("src", data[index].firstImage)
+                        $(this).children("p").children("lead").children("a").attr("href", "/account/" + data[index].userId).html(data[index].user.nickName)
+                        $(this).children("p").children("strong").children("a").attr("href", "/post/" + data[index].id).html("&nbsp;&nbsp;" + data[index].postTitle)
+                    })
+                }
+            })
+            return false;
+        })
+
+
+        //动态改变宽度.items-content
+        /*$(".items-content").css("w")*/
+    })
 </script>
 </body>
 </html>

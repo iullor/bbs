@@ -5,14 +5,13 @@
 
     <insert id="addPost" parameterType="com.gyl.entity.Post">
       insert into test_bbs.t_post
-       (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id,participants,praises,comments,ban_comment,up,secret)
-      values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId},#{participants},#{praises},#{comm},#{banComment},#{up},#{secret})
+       (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id,participants,praises,comments,ban_comment,up,secret,first_image)
+      values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId},#{participants},#{praises},#{comm},#{banComment},#{up},#{secret},#{firstImage})
   </insert>
 
     <delete id="delete">
     delete from test_bbs.t_post where id=#{id};
     </delete>
-
     <update id="update">
         update test_bbs.t_post
         <set>
@@ -28,7 +27,8 @@
             <if test="comm!=null">comments=#{comm},</if>
             <if test="banComment!=null">ban_comment=#{banComment},</if>
             <if test="up!=null">up=#{up},</if>
-            <if test="secret!=null">secret=#{secret}</if>
+            <if test="secret!=null">secret=#{secret},</if>
+            <if test="firstImage!=null">first_image=#{firstImage}</if>
         </set>
         where id=#{id}
     </update>
@@ -49,6 +49,7 @@
                    post.ban_comment,
                    post.up,
                    post.secret,
+                   post.first_image,
                    type.name as post_type,
                    u.nick_name as nick_name,
                    u.head_image as head_image
@@ -62,8 +63,10 @@
     <!--getMyPostById-->
     <resultMap id="postMap1" type="com.gyl.entity.Post">
         <id property="id" column="id"/>
+        <result property="firstImage" column="first_image"/>
         <result property="comm" column="comments"/>
         <result property="postType" column="post_type"/>
+        <result property="boardTitle" column="board_title"/>
         <result property="user.nickName" column="nick_name"/>
         <result property="user.userBaseInfo.headImage" column="head_image"/>
     </resultMap>
@@ -82,8 +85,88 @@
           post.ban_comment as ban_comment,
           post.up as up,
           post.secret as secret,
+          post.first_image as first_image,
           type.name as post_type
         from test_bbs.t_post post ,test_bbs.post_type type
         where post.user_id=#{id} and post.post_type =type.id ;
     </select>
+
+    <!--
+        根据分区的id去查所有的贴子
+    -->
+    <select id="listByAreaId" resultMap="postMap1">
+        select
+        from test_bbs.t_post p
+        where p.area_id=#{id}
+    </select>
+
+    <!--
+      查数据的时候，按照日期分组，3天之内，浏览人数排序的所有
+    -->
+    <select id="listHotPosts" resultMap="postMap1">
+        select
+        post.id as id ,
+        post.user_id as user_id,
+        post.post_title as post_title,
+        post.create_time as create_time,
+        post.area_id as area_id,
+        post.board_id as board_id,
+        post.participants as participants,
+        post.praises as praises,
+        post.comments as comments,
+        post.ban_comment as ban_comment,
+        post.up as up,
+        post.secret as secret,
+        post.first_image as first_image,
+        type.name as post_type,
+        user.nick_name as nick_name,
+        user.head_image as head_image
+        from test_bbs.t_post post ,test_bbs.post_type type,test_bbs.t_user user
+        where DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND post.user_id=user.id AND post.post_type =type.id order by RAND()  limit 4;
+    </select>
+
+
+    <!--
+        根据board的id搜索最近5天，点击率最高的贴子
+    -->
+    <select id="selectPostsByBoardId" resultMap="postMap1">
+        select
+        post.id as id ,
+        post.user_id as user_id,
+        post.post_title as post_title,
+        post.participants as participants,
+        post.create_time as create_time,
+        post.praises as praises,
+        post.comments as comm,
+        post.first_image as first_image,
+        post.up as up
+        from test_bbs.t_post post
+        where post.board_id=#{boardId} and DATEDIFF(post.create_time,NOW())&lt;1 and DATEDIFF(post.create_time,NOW())&gt;-5
+        order by post.participants desc limit 5;
+    </select>
+
+
+    <select id="selecthotPostsByPanelId" resultMap="postMap1">
+        select
+        post.id as id ,
+        post.user_id as user_id,
+        post.post_title as post_title,
+        post.participants as participants,
+        post.create_time as create_time,
+        post.praises as praises,
+        post.comments as comm,
+        post.first_image as first_image,
+        post.up as up,
+        b1.board_title as board_title
+        from test_bbs.t_post post,test_bbs.t_board b1
+        where post.board_id in (
+                select id
+                from test_bbs.t_board board
+                where board.panel_id =#{panelId})
+        and DATEDIFF(post.create_time, NOW())&lt;1
+        and DATEDIFF(post.create_time, NOW())&gt; -5
+        and post.board_id=b1.id
+        order by post.participants desc limit 5
+    </select>
+
 </mapper>

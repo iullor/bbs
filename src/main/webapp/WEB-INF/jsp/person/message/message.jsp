@@ -85,12 +85,12 @@
                             </a>
                         </div>
                     </div>
-                    <div id="person-basic-info" class="panel-collapse collapse">
+                    <div id="person-basic-info" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/basic/account" class="">账号信息</a>
+                                <li class="active"><a href="/person/basic/account" class="">账号信息</a>
                                 </li>
-                                <li class="active"><a href="/person/basic/info" class="">基本信息</a></li>
+                                <li><a href="/person/basic/info" class="">基本信息</a></li>
                             </ul>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/message">
+                            <a href="/person/message/0">
                                 <span class="glyphicon glyphicon-comment"></span><span>消息</span>
                             </a>
                         </div>
@@ -159,6 +159,59 @@
                             <ul class="list-unstyled">
                                 <li><a href="/person/themes/basic" class="">基本样式</a></li>
                                 <li><a href="#" class="">颜色搭配</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#person_apply" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-send"></span><span>我的申请</span></a>
+                        </div>
+                    </div>
+                    <div id="person_apply" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="/person/apply" class="">申请版主</a></li>
+                                <li><a href="#" class="">申请区主</a></li>
+                                <li><a href="#" class="">申请贴子置顶</a></li>
+                                <li><a href="#" class="">申请公版展示</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#friends_circle" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-globe"></span><span>朋友圈</span></a>
+                        </div>
+                    </div>
+                    <div id="friends_circle" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="">我的分享</a></li>
+                                <li><a href="#" class="">他人</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#createMyBoard" data-toggle="collapse"
+                               data-parent="#panel-parent"><span
+                                    class="glyphicon glyphicon-cloud"></span><span>我的公版</span></a>
+                        </div>
+                    </div>
+                    <div id="createMyBoard" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="">创造</a></li>
+                                <li><a href="#" class="">维修</a></li>
                             </ul>
                         </div>
                     </div>
@@ -248,8 +301,6 @@
                                     </div>
                                  <hr>
                              {{/for}}
-
-
                         </script>
                         <div class="row" style="margin-top: 150px;text-align: center;">
                             <h4>暂无新消息</h4>
@@ -278,7 +329,6 @@
         })
     })
 
-
     $(function () {
         $("#markHadRead").on("click", function () {
             $("#unRead input[type='checkbox']").each(function (k, v) {
@@ -304,6 +354,16 @@
         if (numbers <= 0) {
             $(".badge").hide();
         }
+
+        $(".checkAll").on("change", function () {
+            //如果全选选中，它下面所有的checkbox 都选中
+            if ($(this).is(":checked")) {
+                $("#unRead input[type='checkbox']").attr("checked",true);
+            }else {
+                $("#unRead input[type='checkbox']").attr("checked",false);
+            }
+
+        })
     })
 </script>
 </body>

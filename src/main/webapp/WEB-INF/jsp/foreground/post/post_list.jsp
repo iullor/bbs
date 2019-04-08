@@ -5,17 +5,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>一个panel</title>
+    <title>post</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../css/panel/panel.css">
+    <link rel="stylesheet" href="/css/panel/panel.css">
 
     <!--引入一些样式-->
-    <link rel="stylesheet" href="../../../../css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="../../../../css/commons/top.css">
-    <link rel="stylesheet" href="../../../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="../../../../css/board/board.css">
-    <link rel="stylesheet" href="../../../../css/commons/commons.css">
-    <link rel="stylesheet" href="../../../../css/post/post_list.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="stylesheet" href="/css/post/post_list.css">
 
 
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -25,11 +23,6 @@
     <!--动态添加留言的对话框-->
     <script src="/lib/ueditor/ueditor.config.js"></script>
     <script src="/lib/ueditor/ueditor.all.js"></script>
-    <%-- <link href="/lib/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-     <script type="text/javascript" charset="utf-8" src="/lib/umeditor/umeditor.config.js"></script>
-     <script type="text/javascript" charset="utf-8" src="/lib/umeditor/umeditor.min.js"></script>
-     <script type="text/javascript" src="/lib/umeditor/lang/zh-cn/zh-cn.js"></script>--%>
-
     <style>
         .container .glyphicon-comment {
             color: rgba(0, 183, 238, 0.59);
@@ -38,12 +31,10 @@
         .glyphicon-thumbs-up-done {
             color: rgba(255, 0, 0, 0.97);
         }
-
     </style>
 </head>
 <body>
-<a href="../area/area.jsp">进入该版</a>
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -53,222 +44,181 @@
                             data-target="#sidebar-wrapper" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="#">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <form class="navbar-form row">
-                        <div class="form-group col-xs-8 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
+                <div class="col-md-5">
+                    <div class="row" style="margin-top: 6px">
+                        <form>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="search" placeholder="Search">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2 nav-addon">
+                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
+                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                </div>
+                <c:choose>
+                    <c:when test="${empty sessionScope.CURRENT_USER}">
+                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
+                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
+                                请登录
+                                <span class="glyphicon glyphicon-log-in"></span>
+                            </a>
                         </div>
-                        <button type="submit" class="btn btn-default col-xs-4 col-sm-4 col-md-4"><span
-                                class="glyphicon glyphicon-search"></span>Search
-                        </button>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-2 row">
-                    <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
-                            class="glyphicon glyphicon-log-in"></span></a>
-                </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-md-1">
+                            <div class="myAccount img-circle">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img src="" width="40" height="40"
+                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                         class="showUserHeadImg"/>
+                                    <span class="caret" style="margin-left: 13px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/person/basic/account">账户</a></li>
+                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="#">我的创作</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">添加</a></li>
+                                    <li><a href="#">维修</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
 </header>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <nav id="left-navbar" class="collapse navbar-fixed-top navbar-collapse"
-             role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <span id="close" class="glyphicon glyphicon-menu-hamburger"></span>
-                </li>
-                <li role="presentation">
-                    <img src="/images/路飞.jpg"
-                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                         class="img-circle showUserHeadImg"/>
-                </li>
-                <li role="presentation">
-                    <span class="text-danger">${sessionScope.CURRENT_USER.nickName}</span>
-                </li>
-                <li role="presentation"><a href="./index.jsp"><span
-                        class="text-left glyphicon glyphicon-home">&nbsp;</span>首页</a>
-                </li>
-                <li role="presentation"><a href="/person/basic/info"><span
-                        class="text-left glyphicon glyphicon-user">&nbsp;</span>基本信息</a></li>
-                <li role="presentation"><a href="/person/basic/account"><span
-                        class="text-left glyphicon glyphicon-user">&nbsp;</span>账户信息</a></li>
-                <li role="presentation"><a href="/person/message/0"><span
-                        class="text-left glyphicon glyphicon-comment">&nbsp;</span>消息</a></li>
-                <li role="presentation"><a href="/person/collection/myAreas"><span
-                        class="text-left glyphicon glyphicon-star">&nbsp;</span>收藏夹</a>
-                </li>
-                <li role="presentation"><a href="/person/mypost"><span
-                        class="text-left glyphicon glyphicon-user">&nbsp;</span>我的贴子</a></li>
-                <li role="presentation"><a href="/system/help"><span
-                        class="text-left glyphicon glyphicon-question-sign">&nbsp;</span>帮助</a></li>
-                <li role="presentation"><a href="/person/themes/basic"><span
-                        class="text-left glyphicon glyphicon-cog">&nbsp;</span>设置</a>
-                </li>
-                <li class="mt-5 mb-3 text-muted" style="margin-top: 200px">&copy; 学生论坛版权所有</li>
-            </ul>
-        </nav>
-        <div id="content" class="col-xs-12 col-sm-11 col-md-11">
-            <!--游客用户登录的模态框-->
-            <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content modal-sm">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title text-center" id="loginModalLabel">
-                                <small>请您先登录，再操作</small>
-                            </h4>
+        <!--路径导航栏-->
+        <div class="row post-nav">
+            <ol class="breadcrumb">
+                <li><a href="../../public/index.jsp">Home</a></li>
+                <li><a href="../panel/panel.jsp">Panel</a></li>
+                <li><a href="../board/board.jsp">School</a></li>
+                <li><a href="../area/area.jsp">Computer Science</a></li>
+                <li class="active">计算机发展</li>
+            </ol>
+        </div>
+        <div id="main">
+            <div class="row post-container">
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <a href="#"><img src="/images/路飞.jpg" class="showUserHeadImg"
+                                             value="${post.user.userBaseInfo.headImage}"/></a>
+                            <p><a href="#">${post.user.nickName}</a></p>
                         </div>
-                        <div class="modal-body">
-                            <form action="/login" method="post">
-                                <div class="form-group">
-                                    <label for="username" class="control-label">
-                                        <small>用户名</small>
-                                    </label>
-                                    <input type="text" class="form-control has-feedback" name="username" id="username">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="control-label">
-                                        <small>密码</small>
-                                    </label>
-                                    <input type="text" class="form-control" id="password">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
-                                    </button>
-                                    <button type="submit" class="btn btn-md btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="content-inner">
-                <span id="open" class="glyphicon glyphicon-menu-hamburger"></span>
-                <div id="main" class="container">
-                    <!--路径导航栏-->
-                    <div class="row">
-                        <ol class="breadcrumb">
-                            <li><a href="../../public/index.jsp">Home</a></li>
-                            <li><a href="../panel/panel.jsp">Panel</a></li>
-                            <li><a href="../board/board.jsp">School</a></li>
-                            <li><a href="../area/area.jsp">Computer Science</a></li>
-                            <li class="active">计算机发展</li>
-                        </ol>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading text-center">
-                                    <a href="#"><img src="/images/路飞.jpg" class="showUserHeadImg"
-                                                     value="${post.user.userBaseInfo.headImage}"/></a>
-                                    <p><a href="#">${post.user.nickName}</a></p>
-                                </div>
-                                <div class="panel-border panel-default">
-                                    <p class="text-center"><a href="#"><span class="text-grey">发帖：100</span></a></p>
-                                    <p class="text-center">
+                        <div class="panel-border panel-default">
+                            <p class="text-center"><a href="#"><span class="text-grey">发帖：100</span></a></p>
+                            <p class="text-center">
                                             <span id="collectUser" class="glyphicon glyphicon-heart-empty btn btn-info"
                                                   tempClass="glyphicon glyphicon-heart btn btn-success">&nbsp;关注</span>
-                                        <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
-                                    </p>
-                                    <p class="text-center">
-                                        <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
-                                        <span class="glyphicon glyphicon-envelope"></span>
-                                    </p>
-                                </div>
-                            </div>
+                                <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
+                            </p>
+                            <p class="text-center">
+                                <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </p>
                         </div>
-                        <div class="col-md-9">
-                            <div class="post-content">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="post-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
                                         <span id="collectPost"
                                               class="glyphicon glyphicon-star-empty btn btn-info pull-right"
                                               tempClass="glyphicon glyphicon-star btn btn-success pull-right ">&nbsp;收藏</span>
-                                        <div class="panel-title">
-                                            <h2>${post.postTitle}</h2>
-                                        </div>
-                                        <p class="post-content-part">&nbsp;&nbsp;
-                                            <span> </span>
-                                            <span class="pull-right">[${post.postType}]</span>
-                                        </p>
-                                    </div>
-                                    <div id="post-content" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <p class="post-content-p">
-                                                ${post.postContent}
-                                            </p>
-                                            <p class="text-center pull-right"
-                                               style="font-size: 18px;padding-top: 13px;">
+                                <div class="panel-title">
+                                    <h2>${post.postTitle}</h2>
+                                </div>
+                                <p class="post-content-part">&nbsp;&nbsp;
+                                    <span> </span>
+                                    <span class="pull-right">[${post.postType}]</span>
+                                </p>
+                            </div>
+                            <div id="post-content" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p class="post-content-p">
+                                        ${post.postContent}
+                                    </p>
+                                    <p class="text-center pull-right"
+                                       style="font-size: 18px;padding-top: 13px;">
                                                 <span class="glyphicon glyphicon-thumbs-up good-post"
                                                       style="padding-left: 10px"></span>
-                                                <span>
+                                        <span>
 
                                                 </span>
-                                                <span href="#comment1" class="glyphicon glyphicon-comment"
-                                                      style="padding-left: 10px"></span>&nbsp;&nbsp;
-                                                <span style="padding-left: 50px;">
+                                        <span href="#comment1" class="glyphicon glyphicon-comment"
+                                              style="padding-left: 10px"></span>&nbsp;&nbsp;
+                                        <span style="padding-left: 50px;">
                                                     发布于：<em>
                                                                 <f:formatDate value="${post.createTime}"
                                                                               pattern="yyyy-MM-dd HH:mm:ss"/>
                                                             </em>
                                                 </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer text-center">
-                                        <a href="#post-content" data-toggle="collapse" data-target="#post-content"><span
-                                                class="glyphicon glyphicon-menu-up"
-                                                tempClass="glyphicon glyphicon-menu-down"
-                                                onclick="changeUpDown(event,this)"></span></a>
-                                    </div>
+                                    </p>
                                 </div>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <a href="#post-content" data-toggle="collapse" data-target="#post-content"><span
+                                        class="glyphicon glyphicon-menu-up"
+                                        tempClass="glyphicon glyphicon-menu-down"
+                                        onclick="changeUpDown(event,this)"></span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-group">
-                        <!--评论列表-->
-                        <c:choose>
-                            <c:when test="${not empty post.comments}">
-                                <c:forEach items="${post.comments}" var="comment" varStatus="i">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <div class="media">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="media-left">
-                                                            <span>${i.index+1}楼</span>
-                                                            <a href="#">
-                                                                <img src="/images/哈士奇.jpg" class="showUserHeadImg"
-                                                                     value="${comment.user.userBaseInfo.headImage}"
-                                                                     width="60" height="60">
-                                                            </a>
-                                                            <span>
+                </div>
+            </div>
+            <div class="panel-group">
+                <!--评论列表-->
+                <c:choose>
+                    <c:when test="${not empty post.comments}">
+                        <c:forEach items="${post.comments}" var="comment" varStatus="i">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="media">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="media-left">
+                                                    <span>${i.index+1}楼</span>
+                                                    <a href="#">
+                                                        <img src="/images/哈士奇.jpg" class="showUserHeadImg"
+                                                             value="${comment.user.userBaseInfo.headImage}"
+                                                             width="60" height="60">
+                                                    </a>
+                                                    <span>
                                                                 <a href="/account/${comment.user.id}">${comment.user.nickName}</a></span>
-                                                        </div>
-                                                        <p></p>
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="media-body">
+                                                    <div class="comment-level1">
+                                                        <p>${comment.commentContent}</p>
                                                     </div>
-                                                    <div class="col-md-11">
-                                                        <div class="media-body">
-                                                            <div class="comment-level1">
-                                                                <p>${comment.commentContent}</p>
-                                                            </div>
-                                                            <div class="comment-bar media-bottom">
-                                                                <p class="text-center pull-right"
-                                                                   style="font-size: 16px;padding-top: 13px">
-                                                                    <c:if test="${comment.replyNumber>0}">
+                                                    <div class="comment-bar media-bottom">
+                                                        <p class="text-center pull-right"
+                                                           style="font-size: 16px;padding-top: 13px">
+                                                            <c:if test="${comment.replyNumber>0}">
                                                                         <span>
                                                                             <a href="#comment-level2-${i.index+1}"
                                                                                data-toggle="collapse"><span
@@ -278,47 +228,47 @@
                                                                                         <small><em>查看</em></small>
                                                                                     ${comment.replyNumber}</span></a>
                                                                          </span>
-                                                                    </c:if>
-                                                                        <%--<span class="glyphicon glyphicon-thumbs-up good"></span>&nbsp;&nbsp;--%>
-                                                                    <span class="glyphicon glyphicon-comment reply-comment"
-                                                                          CID="${comment.id}"
-                                                                          CNickName="${comment.user.nickName}"
-                                                                          CToUserId="${comment.user.id}"></span>&nbsp;&nbsp;
-                                                                    <span style="padding-right: 50px">时间：<em>
+                                                            </c:if>
+                                                                <%--<span class="glyphicon glyphicon-thumbs-up good"></span>&nbsp;&nbsp;--%>
+                                                            <span class="glyphicon glyphicon-comment reply-comment"
+                                                                  CID="${comment.id}"
+                                                                  CNickName="${comment.user.nickName}"
+                                                                  CToUserId="${comment.user.id}"></span>&nbsp;&nbsp;
+                                                            <span style="padding-right: 50px">时间：<em>
                                                                         <f:formatDate value="${comment.createTime}"
                                                                                       pattern="yyyy-MM-dd HH:mm:ss"/>
                                                                     </em></span>
-                                                                </p>
-                                                            </div>
-                                                            <!--二级评论-->
-                                                            <div id="comment-level2-${i.index+1}"
-                                                                 class="panel-collapse collapse comment-level2">
-                                                                <c:choose>
-                                                                    <c:when test="${not empty comment.replies}">
-                                                                        <c:forEach items="${comment.replies}"
-                                                                                   var="reply" varStatus="j">
-                                                                            <div class="panel-body panel-comment">
-                                                                                <div class="media">
-                                                                                    <div class="media-left">
-                                                                                        <a href="/account/${reply.user.id}">
-                                                                                            <img
-                                                                                                    class="showUserHeadImg"
-                                                                                                    src="/images/favicon.ico"
-                                                                                                    width="50"
-                                                                                                    height="50"
-                                                                                                    value="${reply.user.userBaseInfo.headImage}"></a>
-                                                                                        <small><a
-                                                                                                href="/account/${reply.user.id}">${reply.user.nickName}</a>
-                                                                                        </small>
-                                                                                    </div>
-                                                                                    <div class="media-body media-middle">
-                                                                                            ${reply.replyContent}
-                                                                                    </div>
-                                                                                    <div class="media-bottom comment-bar">
+                                                        </p>
+                                                    </div>
+                                                    <!--二级评论-->
+                                                    <div id="comment-level2-${i.index+1}"
+                                                         class="panel-collapse collapse comment-level2">
+                                                        <c:choose>
+                                                            <c:when test="${not empty comment.replies}">
+                                                                <c:forEach items="${comment.replies}"
+                                                                           var="reply" varStatus="j">
+                                                                    <div class="panel-body panel-comment">
+                                                                        <div class="media">
+                                                                            <div class="media-left">
+                                                                                <a href="/account/${reply.user.id}">
+                                                                                    <img
+                                                                                            class="showUserHeadImg"
+                                                                                            src="/images/favicon.ico"
+                                                                                            width="50"
+                                                                                            height="50"
+                                                                                            value="${reply.user.userBaseInfo.headImage}"></a>
+                                                                                <small><a
+                                                                                        href="/account/${reply.user.id}">${reply.user.nickName}</a>
+                                                                                </small>
+                                                                            </div>
+                                                                            <div class="media-body media-middle">
+                                                                                    ${reply.replyContent}
+                                                                            </div>
+                                                                            <div class="media-bottom comment-bar">
                                                                     <span style="float: left">
                                                                         <em>${j.index+1}层</em>
                                                                     </span>
-                                                                                        <span>
+                                                                                <span>
                                                                          <a href="#" class="replyToReply"
                                                                             replyId="${reply.id}"
                                                                             toCommentId="${comment.id}"
@@ -326,106 +276,129 @@
                                                                             toUserNickName="${reply.user.nickName}"
                                                                          >回复Ta</a>
                                                                      </span>
-                                                                                    </div>
-                                                                                </div>
                                                                             </div>
-                                                                        </c:forEach>
-                                                                    </c:when>
+                                                                        </div>
+                                                                    </div>
+                                                                </c:forEach>
+                                                            </c:when>
 
-                                                                    <c:otherwise>
+                                                            <c:otherwise>
 
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                            </div>
-                                                        </div>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </c:forEach>
-                                <div class="panel-footer row comment-textarea">
-                                    <form action="" class="col-md-offset-1 col-md-11">
-                                        <div class="form-group">
-                                            <script id="comment2" class="secondComment" name="postContent"
-                                                    type="text/plain">
-                                            </script>
-                                        </div>
-                                        <div class="form-group">
-                                            <button class="btn btn-success" type="submit">评论
-                                            </button>
-                                        </div>
-                                    </form>
                                 </div>
-                                <%--分页--%>
-                                <div class="panel-footer panel-default">
-                                    <nav class="Page navigation text-center">
-                                        <ul class="pagination">
-                                            <li>
-                                                <a href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                </a>
-                                            </li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">6</a></li>
-                                            <li><a href="#">7</a></li>
-                                            <li><a href="#">8</a></li>
-                                            <li><a href="#">9</a></li>
-                                            <li>
-                                                <a href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <input type="text" class="form-text">&nbsp;/100
-                                                <input type="button" class="btn btn-success" value="跳转"/>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                暂无评论
-                            </c:otherwise>
-                        </c:choose>
+                            </div>
+                        </c:forEach>
+                        <%--分页--%>
+                        <div class="panel-footer panel-default">
+                            <nav class="Page navigation text-center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><a href="#">7</a></li>
+                                    <li><a href="#">8</a></li>
+                                    <li><a href="#">9</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <input type="text" class="form-text">&nbsp;/100
+                                        <input type="button" class="btn btn-success" value="跳转"/>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="row" style="text-align: center;margin-top: 50px;margin-bottom: 30px">
+                            <h3>暂无评论</h3>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+            <div class="row" style="width: 1150px;margin-left: 10px">
+                <form id="myInput" action="/comment" method="post">
+                    <%--当前用户--%>
+                    <input type="hidden" name="userId">
+                    <input type="hidden" name="postUserId" value="${post.userId}">
+                    <input type="hidden" name="postId" value="${post.id}"/>
+                    <input type="hidden" name="toCommentId"/>
+                    <input type="hidden" name="toUserId">
+                    <input type="hidden" name="replyId">
+                    <script id="comment1" name="commentContent"
+                            type="text/plain">
+                    </script>
+                    <div class="form-group">
+                        <span>&nbsp;</span>
+                        <button type="submit" class="btn btn-success pull-right">评论</button>
                     </div>
-                    <div class="row">
-                        <form id="myInput" action="/comment" method="post">
-                            <%--当前用户--%>
-                            <input type="hidden" name="userId">
-                            <input type="hidden" name="postUserId" value="${post.userId}">
-                            <input type="hidden" name="postId" value="${post.id}"/>
-                            <input type="hidden" name="toCommentId"/>
-                            <input type="hidden" name="toUserId">
-                            <input type="hidden" name="replyId">
-                            <script id="comment1" name="commentContent"
-                                    type="text/plain">
-                            </script>
+                </form>
+            </div>
+        </div>
+        <div id="foot" class="container">
+            <p class="text-center"><span><a href="#">联系我们</a>&nbsp;&nbsp;<small>--</small></span>友情连接&nbsp;<a
+                    href="https://www.baidu.com">百度</a>&nbsp;<a
+                    href="https://www.google.com">Google</a>&nbsp;<a
+                    href="https://www.github.com">GitHub</a></p>
+            <div class="text-center">
+                <p>© 学生论坛版权所有</p>
+            </div>
+        </div>
+        <!--游客用户登录的模态框-->
+        <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-sm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center" id="loginModalLabel">
+                            <small>请您先登录，再操作</small>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/login" method="post">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">评论</button>
+                                <label for="username" class="control-label">
+                                    <small>用户名</small>
+                                </label>
+                                <input type="text" class="form-control has-feedback" name="username" id="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">
+                                    <small>密码</small>
+                                </label>
+                                <input type="text" class="form-control" id="password">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
+                                </button>
+                                <button type="submit" class="btn btn-md btn-primary">Login</button>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div id="foot" class="container">
-                    <p class="text-center"><span><a href="#">联系我们</a>&nbsp;&nbsp;<small>--</small></span>友情连接&nbsp;<a
-                            href="https://www.baidu.com">百度</a>&nbsp;<a
-                            href="https://www.google.com">Google</a>&nbsp;<a
-                            href="https://www.github.com">GitHub</a></p>
-                    <div class="text-center">
-                        <p>© 学生论坛版权所有</p>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-
     /*
     * 主评论的
     * */
@@ -436,8 +409,6 @@
             ]
         }
     );
-
-
     $(function () {
         $(".comment-textarea").hide();
         $(".glyphicon-comment").on("click", function () {
@@ -445,13 +416,6 @@
             console.log(comment2)
             $(this).parents("div.panel-body").append(comment2);
         })
-
-
-        $(".panel-border .row:even").css("border-left", "blue solid 3px")
-        $(".panel-border .row:odd").css("border-left", "red solid 3px")
-        $(".board-hot-topic .row:even").css("border-top", "black solid 1px")
-        $(".board-hot-topic .row:odd").css("border-top", "red solid 1px")
-
         //点赞
         $(".good-post").on("click", function () {
             //两种状态
@@ -701,21 +665,16 @@
         })
         var isComment = '${post.banComment}'
         //禁止评论
-        alert(isComment)
-        alert(isComment !== '0')
+        /*alert(isComment)
+        alert(isComment !== '0')*/
 
         if (isComment !== '0') {
             $("#myInput").submit(function () {
-                alert("该贴不可以评论")
+                alert("贴主已设置不可评论")
                 return false;
             })
         }
-
     });
-
-
 </script>
-
-
 </body>
 </html>

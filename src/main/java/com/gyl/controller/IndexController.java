@@ -1,7 +1,10 @@
 package com.gyl.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.gyl.entity.Panel;
+import com.gyl.entity.Post;
 import com.gyl.service.PanelService;
+import com.gyl.service.PostService;
 import com.gyl.service.UserService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ public class IndexController {
     @Autowired
     private PanelService panelService;
 
+    @Autowired
+    private PostService postService;
+
     /**
      * 页面跳转到首页
      *
@@ -34,7 +40,12 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(Model model) {
         List<Panel> panels = panelService.listBoardsAreaPosts();
+        List<Post> hotPosts = postService.listHotPosts(0);
+        //转成json格式
+        Object hotPostsString = JSON.toJSONString(hotPosts);
         model.addAttribute("panels", panels);
+        model.addAttribute("hotPosts", hotPosts);
+        //model.addAttribute("hotPostsString", hotPostsString);
         return "index";
     }
 

@@ -1,6 +1,7 @@
 package com.gyl.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.gyl.entity.*;
 import com.gyl.service.BoardService;
 import com.gyl.service.CommentService;
@@ -69,16 +70,28 @@ public class PostController {
      * @return
      */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String add(Post post, HttpServletRequest request) {
+    public String add(Post post, HttpServletRequest request, String code) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
         String areaId = post.getAreaId();
         post.setUserId(user.getId());
+        //去获取是否发帖的时候私密
+        if (code != null && "on".equals(code)) {
+            post.setSecret(1);
+        } else {
+            post.setSecret(0);
+        }
+
         int status = postService.addPost(post);
         return "redirect:/area/" + areaId;
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.PUT)
-    public String update(Post post, HttpServletRequest request) {
+    public String update(Post post, HttpServletRequest request, String code) {
+        if (code != null && "on".equals(code)) {
+            post.setSecret(1);
+        } else {
+            post.setSecret(0);
+        }
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
         post.setUserId(user.getId());
         int status = postService.update(post);
@@ -92,7 +105,7 @@ public class PostController {
     }
 
     /**
-     * 进入发帖的页面
+     * 进入发帖的编辑页面
      *
      * @param id
      * @param model
@@ -173,4 +186,18 @@ public class PostController {
         }
         return 0;
     }
+
+    /**
+     * 主页点击换一批，更换一批贴子的推荐
+     * json 格式传输
+     */
+    @ResponseBody
+    @RequestMapping(value = "/post/changeOthers", method = RequestMethod.GET)
+    public String changeOtherPosts() {
+        List<Post> hotPosts = postService.listHotPosts(4);
+        String hotPostsString = JSON.toJSONString(hotPosts);
+        return hotPostsString;
+    }
+
+
 }

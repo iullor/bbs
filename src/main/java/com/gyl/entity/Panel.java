@@ -25,6 +25,10 @@ public class Panel implements Serializable {
     private String detail;
     private boolean panelDisabled;
 
+    /**
+     * 该板块panel下面所有的热门的贴子
+     */
+    private List<Post> hotPosts = new ArrayList<>();
 
     /**
      * panel 的管理者
@@ -124,5 +128,13 @@ public class Panel implements Serializable {
 
     public void setAreas(List<Area> areas) {
         this.areas = areas;
+    }
+
+    public List<Post> getHotPosts() {
+        return hotPosts;
+    }
+
+    public void setHotPosts(List<Post> hotPosts) {
+        this.hotPosts = hotPosts;
     }
 }

@@ -1,68 +1,64 @@
-/*
-   定义每一个板块的样式
-*/
-
-.column2 {
-    border-radius: 10px;
-    height: 350px;
+/*====================小导航样式===================*/
+.border-nav {
+    width: 1220px;
+    margin-top: 50px;
+    position: fixed;
+    z-index: 3;
 }
 
-.each_top {
+#main {
+    margin-top: 100px;
+}
+
+/*====================单个panel的信息介绍===================*/
+.panel-message {
+    background-color: #f5f5f5;
+    border-top: 1px solid blue;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    width: 1200px;
+    height: 400px;
+}
+
+.panel-message > div:first-child {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.logo-title{
     margin-top: 20px;
+    font-size: 20px;
 }
 
-.container-board {
-    border-radius: 10px;
-    margin-left: -5px;
-    height: 350px;
+.panel-detail {
+    border-radius: 5px;
+    /*background-color: rgba(44, 36, 39, 0.59);*/
+    background-color: #f1f2f1;
+    color: #0000ff;
+    padding-top: 0px;
+    margin-top: -50px;
+    height: 150px;
+    width: 350px;
+    margin-left: -16px;
+    padding-left: 25px;
+    padding-top: 20px;
+    z-index: 2;
 }
 
-.board-title {
-    width: 100%;
-    margin-top: 5px;
-    line-height: 25px;
-    font-size: 15px;
+.panel-detail > div>p{
+    font-size: 16px;
+    padding-top: 5px;
 }
 
-.board-content {
-    margin-top: -30px;
-    /*background-color: white;*/
-}
 
+/*====================定义每一个板块的样式===================*/
 .board-title p a {
     margin-left: 10px;
 }
 
-/*边框设置*/
-
-#column2 .container-board:first-child {
-    border-top: 3px solid green;
-    background-color: #f8f8f8;
-}
-
-#column2 .container-board:nth-child(2) {
-    border-top: 2px solid blueviolet;
-}
-
-#column2 .container-board:nth-child(3) {
-    border-top: 2px solid blue;
-}
-
-#column2 .container-board:nth-child(4) {
-    border-top: 2px solid blue;
-}
-
-/**
-============board的panel样式===============
- */
-
-div.panel {
-
-}
-
-.panel-hot {
-    background-color: silver;
-}
+/*====================board的panel样式===================*/
 
 .panel-border div.row:first-child {
     margin-top: -10px;
@@ -84,27 +80,20 @@ div.panel {
     background-color: #f5f5f5;
 }
 
-.panel-group .panel:nth-child(2) {
-    margin-top: 40px;
-}
+/*====================热点贴子===================*/
 
-.board-hot-topic {
-    background-color: #f5f5f5;
-    margin-left: -1px;
+.hotPost{
+    padding-top: 30px;
+    width: auto;
+    height: 300px;
+    padding-left: 10px;
+    font-size: 18px;
 }
-
-.board-hot-topic .row:first-child {
-    margin-top: -10px;
+.hotPost>p{
+    padding-top: 10px;
+    border-bottom: 1px gray dashed;
 }
-
-.board-hot-topic .row {
-    border-top-radius: 20px;
-    margin-top: 10px;
-}
-.board-hot-topic .row{
-    background-color: white;
-}
-.board-hot-topic .row:hover{
-    background-color:#fff7ff;
+.hotPost>p>a{
+    color: black;
 }
 

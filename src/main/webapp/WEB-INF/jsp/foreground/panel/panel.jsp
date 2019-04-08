@@ -9,22 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
     <!--引入一些样式-->
-    <link rel="stylesheet" href="../../../../css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="../../../../css/commons/top.css">
-    <link rel="stylesheet" href="../../../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="../../../../css/board/board.css">
-
-    <link rel="stylesheet" href="../../../../css/panel/panel.css">
-
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/top.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
+    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="/css/panel/panel.css">
     <!--js-->
-    <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../../js/sidebar-left-control.js"></script>
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/sidebar-left-control.js"></script>
 
 </head>
 <body>
-<a href="../area/area.jsp">进入该版</a>
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -34,112 +31,70 @@
                             data-target="#sidebar-wrapper" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="#">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <form class="navbar-form row">
-                        <div class="form-group col-xs-8 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
+                <div class="col-md-5">
+                    <div class="row" style="margin-top: 6px">
+                        <form>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="search" placeholder="Search">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2 nav-addon">
+                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
+                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                </div>
+                <c:choose>
+                    <c:when test="${empty sessionScope.CURRENT_USER}">
+                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
+                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
+                                请登录
+                                <span class="glyphicon glyphicon-log-in"></span>
+                            </a>
                         </div>
-                        <button type="submit" class="btn btn-default col-xs-4 col-sm-4 col-md-4"><span
-                                class="glyphicon glyphicon-search"></span>Search
-                        </button>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-2 row">
-                    <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">请登录<span
-                            class="glyphicon glyphicon-log-in"></span></a>
-                </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-md-1">
+                            <div class="myAccount img-circle">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img src="" width="40" height="40"
+                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                         class="showUserHeadImg"/>
+                                    <span class="caret" style="margin-left: 13px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/person/basic/account">账户</a></li>
+                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="#">我的创作</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">添加</a></li>
+                                    <li><a href="#">维修</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
 </header>
-<div class="container-fluid">
+<div class="containe">
     <div class="row">
-        <div id="left-navbar" class="col-xs-12 col-sm-1 col-md-1">
-            <nav id="sidebar-wrapper" class="collapse navbar-fixed-top navbar-collapse"
-                 role="navigation">
-                <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand">
-                        <span id="close" class="glyphicon glyphicon-menu-hamburger"></span>
-                    </li>
-                    <li role="presentation">
-                        <img src="../../../../images/favicon.ico" class="img-circle" width="100" height="100"/>
-                    </li>
-                    <li role="presentation">
-                        <span class="text-danger">金彪</span>
-                    </li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-home">&nbsp</span>首页</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-user">&nbsp</span>基本信息</a></li>
-                    <li role="  presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-comment">&nbsp</span>消息</a></li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-star">&nbsp</span>收藏夹</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-user">&nbsp</span>我的贴子</a></li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-question-sign">&nbsp</span>帮助</a></li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-calendar">&nbsp</span>日期</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-time">&nbsp</span>时间</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span
-                            class="text-left glyphicon glyphicon-cog">&nbsp</span>设置</a>
-                    </li>
-                    <li role="presentation" class="mt-5 mb-3 text-muted">&copy; 学生论坛版权所有</li>
-                </ul>
-            </nav>
-        </div>
-        <div id="content" class="col-xs-12 col-sm-11 col-md-11">
-            <!--游客用户登录的模态框-->
-            <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content modal-sm">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title text-center" id="loginModalLabel">
-                                <small>请您先登录，再操作</small>
-                            </h4>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/login" method="post">
-                                <div class="form-group">
-                                    <label for="username" class="control-label">
-                                        <small>用户名</small>
-                                    </label>
-                                    <input type="text" class="form-control has-feedback" name="username" id="username">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="control-label">
-                                        <small>密码</small>
-                                    </label>
-                                    <input type="text" class="form-control" id="password">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
-                                    </button>
-                                    <button type="submit" class="btn btn-md btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        <div id="content" class="row">
             <div class="content-inner">
                 <span id="open" class="glyphicon glyphicon-menu-hamburger"></span>
                 <div id="main" class="container">
@@ -273,7 +228,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="foot" class="container">
                     <p class="text-center"><span><a href="#">联系我们</a>&nbsp;&nbsp;<small>--</small></span>友情连接&nbsp;<a
                             href="https://www.baidu.com">百度</a>&nbsp;<a
@@ -281,6 +235,42 @@
                             href="https://www.github.com">GitHub</a></p>
                     <div class="text-center">
                         <p>© 学生论坛版权所有</p>
+                    </div>
+                </div>
+                <!--游客用户登录的模态框-->
+                <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content modal-sm">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title text-center" id="loginModalLabel">
+                                    <small>请您先登录，再操作</small>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/checkLogon" method="get">
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">
+                                            <small>用户名</small>
+                                        </label>
+                                        <input type="text" class="form-control has-feedback" name="username" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">
+                                            <small>密码</small>
+                                        </label>
+                                        <input type="password" class="form-control" name="password" id="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
+                                        </button>
+                                        <button type="submit" class="btn btn-md btn-primary">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

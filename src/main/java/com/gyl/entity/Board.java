@@ -48,7 +48,15 @@ public class Board {
      * 板块
      */
     private List<Area> areas = new ArrayList<>();
+    /**
+     * 当前该板块下所有的贴子
+     */
     private List<Post> posts = new ArrayList<>();
+
+    /**
+     * 该板块下当前比较或的贴子
+     */
+    private List<Post> hotPosts = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -160,5 +168,13 @@ public class Board {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public List<Post> getHotPosts() {
+        return hotPosts;
+    }
+
+    public void setHotPosts(List<Post> hotPosts) {
+        this.hotPosts = hotPosts;
     }
 }

@@ -5,22 +5,9 @@ body {
 .main {
     margin-top: 50px;
 }
-
-/*
-========顶栏高度=========
-*/
-.navbar-fixed-top {
-    height: 60px;
-}
-
-
-
 /**
 =======main=======
  */
 .main{
     margin-top: 80px;
-}
-.row{
-    margin-top: 10px;
 }

@@ -1,91 +1,76 @@
 /**
-===============侧栏的样式==================
+    上导航栏的样式
  */
+.navbar {
+    height: 55px;
+    background-color: #1F0772;
+    }
 
-.navbar-fixed-top {
-    height: 0px;
+.navbar a {
+    color: white;
 }
 
-.sidebar-nav {
-    background-color: silver;
-    list-style: none;
-    margin-top: -5px;
-    margin-left: -11px;
-    padding: 0;
-    position: absolute;
-    top: 55px;
-    border-right: 1px #f1f5f5 solid;
-    height: 980px;
-    width: 16%;
+.navbar a:hover {
+    color: red;
 }
-
-.sidebar-nav li {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    line-height: 20px;
-    color: #843534;
-}
-
-.sidebar-nav li a {
-    color: #101010;
-    font-size: 17px;
-}
-
-.sidebar-nav li {
-    margin-top: 5px;
-}
-
-.sidebar-nav li:first-child {
+.nav-addon{
     margin-top: 15px;
-    margin-left: 220px;
-    color: black;
-    font-size: 22px;
+    font-size: 15px;
 }
-
-.sidebar-nav li:nth-child(2) {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.sidebar-nav li:nth-child(2) > img {
-    width: 100px;
-    height: 100px;
-    border: 1px green solid;
-}
-
-.sidebar-nav li:nth-child(3) {
-    text-align: center;
-    margin-left: -15px;
-    margin-top: 10px;
-    font-size: 20px;
-}
-
-.sidebar-nav li:nth-child(4) {
-    margin-top: 80px;
-}
-
-.sidebar-nav li:last-child {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.sidebar-nav li span {
-    padding-left: 35px;
-}
-
-.sidebar-nav li a:hover {
-    background-color: #8a6cb6;
+.nav-addon a{
+    margin-left: 40px;
 }
 
 /**
-============控制侧栏====================
+===============侧栏的样式==================
  */
-#open {
+.right-nav {
     position: fixed;
-    z-index: 3;
-    margin-top: 70px;
-    float: left;
-    margin-left: 20px;
-    font-size: 20px;
+    width: 75px;
+    height: 375px;
+    top: 350px;
+    right: 0px;
 }
+
+.right-nav > div {
+    border-bottom: 1px gray solid;
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+.right-nav > div:last-child {
+    border-bottom: 1px gray dashed;
+    width: 75px;
+    height: 75px;
+    background-color: #ff003e;
+}
+
+.right-nav > div:hover {
+    background-color: #398bff;
+}
+
+/*
+重构的
+
+*/
+.myAccount {
+    background-color: #0055aa;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 15px;
+    padding-top: 4px;
+    padding-left: 0px;
+    height: 50px;
+    width: 50px;
+    border: 1px white groove;
+}
+
+
+.myAccount:hover {
+    background-color: rgba(192, 192, 192, 0.11);
+}
+

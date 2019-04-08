@@ -108,7 +108,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/message">
+                            <a href="/person/message/0">
                                 <span class="glyphicon glyphicon-comment"></span><span>消息</span>
                             </a>
                         </div>

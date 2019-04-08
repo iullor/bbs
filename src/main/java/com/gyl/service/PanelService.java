@@ -1,10 +1,13 @@
 package com.gyl.service;
 
 import com.gyl.commons.UUIDString;
+import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
+import com.gyl.entity.Post;
 import com.gyl.entity.User;
 import com.gyl.mapper.BoardMapper;
 import com.gyl.mapper.PanelMapper;
+import com.gyl.mapper.PostMapper;
 import com.gyl.mapper.UserMapper;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,9 @@ public class PanelService {
     private UserMapper userMapper;
     @Autowired
     private BoardMapper boardMapper;
+
+    @Autowired
+    private PostMapper postMapper;
 
     /**
      * 新增
@@ -75,9 +81,23 @@ public class PanelService {
         return panelMapper.delete(pid);
     }
 
+    /**
+     * 不能满足需求，查每个board下面最火的5条
+     */
     public List<Panel> listBoardsAreaPosts() {
+        //分步查询1 ，先找到每个panel中的board 的id
+        List<Panel> panels = panelMapper.listBoardsId();
+        for (Panel panel : panels) {
+            List<Board> boards = panel.getBoards();
+            //根据每个boardId 查找post 并按照 参观的人数排序
+            for (Board board : boards) {
+                String id = board.getId();
+                List<Post> posts = postMapper.selectPostsByBoardId(id);
+                board.setPosts(posts);
+            }
+        }
 
-        return panelMapper.listBoardsAreaPosts();
+        return panels;
     }
 
     /**
@@ -87,6 +107,9 @@ public class PanelService {
      * @return
      */
     public Panel selectPanelById(String pid) {
-        return panelMapper.selectPanelById(pid);
+        Panel panel = panelMapper.selectPanelById(pid);
+        List<Post> posts = postMapper.selecthotPostsByPanelId(pid);
+        panel.setHotPosts(posts);
+        return panel;
     }
 }

@@ -11,8 +11,11 @@ import com.gyl.mapper.PraiseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author gyl
@@ -55,10 +58,18 @@ public class PostService {
 
 
     public int addPost(Post post) {
+        //为post设置一些初始化信息
         post.setId(UUIDString.createId());
         post.setCreateTime(new Date(System.currentTimeMillis()));
         post.setPraises(0);
         post.setParticipants(0);
+
+        //设置不禁止评论
+        post.setBanComment(0);
+        //设置不置顶
+        post.setUp(0);
+        //设置评论的数量
+        post.setComm(0);
         return postMapper.addPost(post);
     }
 
@@ -68,7 +79,6 @@ public class PostService {
     }
 
     public List<Post> getMyPostById(String id) {
-
         return postMapper.getMyPostById(id);
     }
 
@@ -96,4 +106,16 @@ public class PostService {
     public int listPraiseById(String userId, String postId) {
         return praiseMapper.listPraiseById(userId, postId);
     }
+
+
+    /**
+     * 给主页显示热门的贴子
+     *
+     * @return
+     */
+    public List<Post> listHotPosts(Integer pageNum) {
+        //查数据的时候，按照日期分组，3天之内，浏览人数排序的所有
+        return postMapper.listHotPosts(pageNum);
+    }
+
 }

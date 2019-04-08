@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <!--top栏样式-->
     <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../css/commons/commons.css">
-    <link rel="stylesheet" href="../../../../css/post/post_edit.css">
-    <link rel="stylesheet" href="../../../../css/commons/top.css">
+    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="stylesheet" href="/css/post/post_edit.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="/lib/ueditor/ueditor.config.js"></script>
     <script src="/lib/ueditor/ueditor.all.js"></script>
 
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -28,32 +30,64 @@
                     <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
                             data-toggle="collapse"
                             data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="#">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <form class="navbar-form row">
-                        <div class="form-group col-xs-8 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
+                <div class="col-md-5">
+                    <div class="row" style="margin-top: 6px">
+                        <form>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="search" placeholder="Search">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2 nav-addon">
+                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
+                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                </div>
+                <c:choose>
+                    <c:when test="${empty sessionScope.CURRENT_USER}">
+                        <div class="col-md-1" style=" margin-top:15px;font-size: 17px">
+                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
+                                请登录
+                                <span class="glyphicon glyphicon-log-in"></span>
+                            </a>
                         </div>
-                        <button type="submit" class="btn btn-default col-xs-4 col-sm-4 col-md-4"><span
-                                class="glyphicon glyphicon-search"></span>Search
-                        </button>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-2 row text-center">
-                    <a href="#">当前用户</a>
-                    <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">注销<span
-                            class="glyphicon glyphicon-log-out"></span></a>
-                </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-md-1">
+                            <div class="myAccount img-circle">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img src="" width="40" height="40"
+                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                         class="showUserHeadImg"/>
+                                    <span class="caret" style="margin-left: 13px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/person/basic/account">账户</a></li>
+                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="#">我的创作</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">添加</a></li>
+                                    <li><a href="#">维修</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
@@ -61,29 +95,23 @@
 <div class="container">
     <div class="main">
         <div class="row">
-            <div class="col-md-offset-1 col-md-5">
-                <div class="row">
-                    <ol class="breadcrumb">
-                        <li><a href="../../public/index.jsp">Home</a></li>
-                        <li><a href="../panel/panel.jsp">Panel</a></li>
-                        <li><a href="../board/board.jsp">School</a></li>
-                        <li><a href="../area/area.jsp">Computer Science</a></li>
-                        <li class="active">new</li>
-                    </ol>
-                </div>
-                <p><span class="text-grey text-md">编辑新帖子</span></p>
+            <div>
+                <ol class="breadcrumb">
+                    <li><a href="../../public/index.jsp">Home</a></li>
+                    <li><a href="../panel/panel.jsp">Panel</a></li>
+                    <li><a href="../board/board.jsp">School</a></li>
+                    <li><a href="../area/area.jsp">Computer Science</a></li>
+                    <li class="active">new</li>
+                </ol>
+            </div>
+            <div class="col-md-offset-1 col-md-6">
+                <h4><span class="text-grey">编辑新帖子</span></h4>
                 <form:form action="/post" method="post" modelAttribute="post">
                     <c:choose>
                         <c:when test="${not empty post.id}">
                             <input type="hidden" name="_method" value="put">
                             <form:hidden path="id"/>
-                            <%-- <input type="hidden" name="areaId" value="${post.areaId}"/>
-                             <input type="hidden" name="boardId" value="${post.boardId}"/>--%>
                         </c:when>
-                        <%-- <c:otherwise>
-                             <input type="hidden" name="areaId" value="${sessionScope.area.id}"/>
-                             <input type="hidden" name="boardId" value="${sessionScope.area.boardId}"/>
-                         </c:otherwise>--%>
                     </c:choose>
                     <div class="form-group">
                         <label>标题</label>
@@ -113,29 +141,34 @@
                             <select id="area" name="areaId" class="form-control">
                             </select>
                         </div>
+                        <div class="col-md-8" style="height: 30px;margin-bottom: 10px;margin-top: 5px">
+                            <label for="view">私密
+                                <small>(开启后，您发的贴子，将不会显示在分区中)</small>
+                            </label>
+                                <%--<input id="view" type="checkbox"/>--%>
+                            <div class="switch switch-small">
+                                <input id="view" name="code" type="checkbox" checked>
+                            </div>
+                        </div>
                     </div>
                     <br>
                     <label>贴子内容</label>
                     <script id="content" name="postContent">
                         ${post.postContent}
                     </script>
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-4">
-                            <label for="view">私密</label>
-                            <input id="view" type="checkbox"/>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 20px;margin-bottom:80px">
-                        <div class="form-group text-center">
+                    <input type="hidden" name="firstImage">
+                    <div class="row" style="margin-top: 50px;">
+                        <div class="form-group pull-right" style="padding-left: 30px;">
                             <button class="btn btn-md btn-default" type="button">取消</button>
                             <button class="btn btn-md btn-warning" type="button">暂存</button>
-                            <button class="btn btn-md btn-success" type="submit">发送</button>
+                            <button id="getContent" class="btn btn-md btn-success" type="submit">发送</button>
                         </div>
                     </div>
                 </form:form>
             </div>
         </div>
     </div>
+
 </div>
 <script>
     UE.getEditor('content', {
@@ -149,8 +182,36 @@
                 'bold', 'inserttitle', 'fontfamily', 'fontsize', 'forecolor', 'pagebreak', 'edittip', 'preview'],
         ]
     });
-    $(function () {
+    //获取第一张图片的url
+    $("#getContent").on("click", function () {
+            var ueditorContent = UE.getEditor("content").getContent();
+            var imgReg = /<img.*?(?:>|\/>)/g;
+            //匹配src属性
+            var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
 
+            var imgSuffixReg = /\w+\.(jpg|png|svg|jpeg)$/
+            var arr = ueditorContent.match(imgReg);
+            var fisrtImgSrc = '';
+            //alert('所有已成功匹配图片的数组：' + arr);
+            for (var i = 0; i < arr.length; i++) {
+                var src = arr[i].match(srcReg);
+                //获取图片地址url
+                var imgSrc = src[1].match(imgSuffixReg)
+                if (imgSrc != null) {
+                    //获取富文本框里面的第一张，不是表情的 图片
+                    console.log(imgSrc)
+                    fisrtImgSrc = imgSrc.input;
+                    $(":hidden[name='firstImage']").val(fisrtImgSrc)
+                    console.log(fisrtImgSrc)
+                    return;
+                }
+                if (imgSrc == null) {
+                    console.log("空")
+                }
+            }
+        }
+    )
+    $(function () {
         $("#board").on("change", function () {
             //拿到postid ，从数据库再查出来
             var boardId = $(this).val();
@@ -196,12 +257,15 @@
             }
         })
 
-
         //级联
         $("#area").on("click", function () {
             if ($("#area").children("option").length === 1) {
                 alert("请先选择板块")
             }
+        })
+        $(".switch-small>input").bootstrapSwitch({
+            onText: 'on',
+            offText: 'off'
         })
     })
 </script>
