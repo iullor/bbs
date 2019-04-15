@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyl.mapper.OptionMapper">
+    <resultMap id="BaseResultMap" type="com.gyl.entity.Option">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="apply_user_id" jdbcType="VARCHAR" property="applyUserId"/>
+        <result column="handle_user_id" jdbcType="VARCHAR" property="handleUserId"/>
+        <result column="apply_reason" jdbcType="VARCHAR" property="applyReason"/>
+        <result column="apply_type" jdbcType="VARCHAR" property="applyType"/>
+        <result column="apply_time" property="applyTime"/>
+        <result column="handle_time" property="handleTime"/>
+        <result column="brief" property="brief"/>
+        <result column="post_id" jdbcType="VARCHAR" property="postId"/>
+        <result column="area_id" jdbcType="VARCHAR" property="areaId"/>
+        <result column="board_id" jdbcType="VARCHAR" property="boardId"/>
+        <result column="remakes" jdbcType="VARCHAR" property="remakes"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <!--user的级联-->
+        <!--申请人的id-->
+        <result column="apply_user_id" property="user.id"/>
+        <result column="apply_nick_name" property="user.nickName"/>
+        <!--处理人的id-->
+        <result column="handle_user_id" property="user.id"/>
+        <result column="apply_username" property="user.username"/>
+        <!--贴子的级联-->
+        <result column="post_id" property="post.id"/>
+        <result column="post_title" property="post.postTitle"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+            id, apply_user_id, handle_user_id, apply_reason, apply_type, apply_time, handle_time,
+            post_id, area_id, board_id, remakes, `status`,brief
+    </sql>
+
+    <select id="selectById" parameterType="java.lang.String" resultMap="map1">
+         select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            post.id        as post_id,
+            post.post_title as post_title
+         from test_bbs.t_options op,
+              test_bbs.t_post post,
+              test_bbs.t_user user
+         where op.id = #{id}
+         and op.apply_user_id = user.id
+         and op.post_id = post.id;
+    </select>
+    <delete id="deleteById" parameterType="java.lang.String">
+    delete from test_bbs.t_options
+    where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.gyl.entity.Option">
+    insert into test_bbs.t_options (id, apply_user_id, handle_user_id, 
+      apply_reason, apply_type, apply_time, 
+      handle_time, post_id, area_id, 
+      board_id, remakes, `status`,brief
+      )
+    values (#{id}, #{applyUserId}, #{handleUserId}, 
+      #{applyReason}, #{applyType}, #{applyTime},
+      #{handleTime}, #{postId}, #{areaId}, 
+      #{boardId}, #{remakes}, #{status},#{brief}
+      )
+  </insert>
+    <update id="updateById" parameterType="com.gyl.entity.Option">
+        update test_bbs.t_options
+        set apply_user_id = #{applyUserId},
+          `status` = #{status}
+        where id = #{id}
+  </update>
+
+    <!--
+      列出来所有的审核
+    -->
+    <select id="selectAllOptionsByStatus" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from test_bbs.t_options op where op.status=#{status} ;
+    </select>
+
+    <select id="selectByApplyUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from test_bbs.t_options op
+        where op.apply_user_id=#{applyUserId} order by apply_time desc
+    </select>
+
+    <!--
+       列出来所有贴子的操作
+     -->
+    <resultMap id="map1" type="com.gyl.entity.Option">
+        <id column="id" property="id"/>
+        <result column="apply_reason" property="applyReason"/>
+        <result column="apply_type" property="applyType"/>
+        <result column="apply_time" property="applyTime"/>
+        <result column="brief" property="brief"/>
+        <result column="remakes" property="remakes"/>
+        <result column="status" property="status"/>
+        <!--user的级联-->
+        <!--申请人的id-->
+        <association property="user" javaType="com.gyl.entity.User">
+            <result column="apply_user_id" property="id"/>
+            <result column="nick_name" property="nickName"/>
+        </association>
+        <!--贴子的级联-->
+        <association property="post" javaType="com.gyl.entity.Post">
+            <result column="post_id" property="id"/>
+            <result column="post_title" property="postTitle"/>
+        </association>
+    </resultMap>
+    <select id="selectAllPostsOptionsByStatus" resultMap="map1" parameterType="integer">
+       select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            post.id        as post_id,
+            post.post_title as post_title
+        from test_bbs.t_options op,
+             test_bbs.t_post post,
+             test_bbs.t_user user
+        where op.status = #{status}
+        and op.apply_user_id = user.id
+        and op.post_id = post.id order by op.apply_time desc;
+    </select>
+    <update id="updateOptionById" parameterType="com.gyl.entity.Option">
+        update test_bbs.t_options
+        set
+        <if test="option.status!=null">status=#{option.status},</if>
+        <if test="option.remakes!=null">remakes=#{option.remakes}</if>
+        where id=#{option.id}
+    </update>
+
+    <select id="selectAllPostsOptionsHasChecked" resultMap="map1" parameterType="integer">
+         select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            op.remakes,
+            op.status,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            post.id        as post_id,
+            post.post_title as post_title
+        from test_bbs.t_options op,
+             test_bbs.t_post post,
+             test_bbs.t_user user
+        where op.status >2
+        and op.apply_user_id = user.id
+        and op.post_id = post.id order by op.apply_time desc;
+    </select>
+</mapper>

@@ -27,7 +27,35 @@ public interface PostMapper {
 
     List<Post> listHotPosts(@Param("pageNum") Integer pageNum);
 
-    List<Post> selectPostsByBoardId(@Param("boardId")String boardId);
+    List<Post> selectPostsByBoardId(@Param("boardId") String boardId);
 
-    List<Post> selecthotPostsByPanelId(@Param("panelId")String panelId);
+    List<Post> selecthotPostsByPanelId(@Param("panelId") String panelId);
+
+
+    /**
+     * 查看所有的贴子
+     *
+     * @return
+     */
+    List<Post> selectPosts();
+
+    /**
+     * 根据用户的角色去查找，它管理模块下的所有贴子
+     *
+     * @param id
+     * @return
+     */
+    List<Post> selectPostsByBoardIdAndPanelManagerId(@Param("id") String id);
+
+    /**
+     * 根据panel 版主的id，来查看他管理下的所有贴子
+     *
+     * @param id
+     * @return
+     */
+    List<Post> selectPostsByBoardIdAndBoardIdManagerId(String id);
+
+    List<Post> selectPostsPage(@Param("currentPage")int currentPage, @Param("pageSize")int pageSize);
+
+
 }

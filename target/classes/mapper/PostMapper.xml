@@ -122,7 +122,7 @@
         user.nick_name as nick_name,
         user.head_image as head_image
         from test_bbs.t_post post ,test_bbs.post_type type,test_bbs.t_user user
-        where DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND post.user_id=user.id AND post.post_type =type.id order by RAND()  limit 4;
+        where /*DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND*/ post.user_id=user.id AND post.post_type =type.id order by RAND()  limit 4;
     </select>
 
 
@@ -141,7 +141,7 @@
         post.first_image as first_image,
         post.up as up
         from test_bbs.t_post post
-        where post.board_id=#{boardId} and DATEDIFF(post.create_time,NOW())&lt;1 and DATEDIFF(post.create_time,NOW())&gt;-5
+        where post.board_id=#{boardId} /*and DATEDIFF(post.create_time,NOW())&lt;1 and DATEDIFF(post.create_time,NOW())&gt;-5*/
         order by post.participants desc limit 5;
     </select>
 
@@ -167,6 +167,102 @@
         and DATEDIFF(post.create_time, NOW())&gt; -5
         and post.board_id=b1.id
         order by post.participants desc limit 5
+    </select>
+    <resultMap id="postMap2" type="com.gyl.entity.Post">
+        <id property="id" column="id"/>
+        <result property="postTitle" column="post_title"/>
+        <result property="userId" column="user_id"/>
+        <result property="user.nickName" column="nick_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="boardTitle" column="board_title"/>
+        <result property="up" column="up"/>
+        <result property="banComment" column="ban_comment"/>
+        <result property="secret" column="secret"/>
+    </resultMap>
+    <select id="selectPosts" resultMap="postMap2">
+      select
+            post.id,
+            post.post_title,
+            post.user_id,
+            user.nick_name,
+            post.create_time,
+            board.board_title,
+            board.user_id as board_manager_id,
+            post.up,
+            post.ban_comment,
+            post.secret
+      from test_bbs.t_post post,
+            t_board board,
+            t_user user
+      where board.id = post.board_id
+        and user.id = board.user_id;
+    </select>
+
+
+    <select id="selectPostsByBoardIdAndPanelManagerId" parameterType="string" resultMap="postMap2">
+       select
+                post.id,
+                post.post_title,
+                post.user_id,
+                u.nick_name,
+                post.create_time,
+                b1.board_title,
+                post.up,
+                post.ban_comment,
+                post.secret
+        from    test_bbs.t_post post,
+                test_bbs.t_board b1,
+                test_bbs.t_user u
+        where   post.board_id in (
+                select id
+                from test_bbs.t_board board
+                where board.panel_id in (
+                    select id from test_bbs.t_panel panel where panel.user_manager_id = #{id}
+                ))
+          and    post.board_id = b1.id and u.id=post.user_id
+        order by post.create_time desc;
+    </select>
+
+    <select id="selectPostsByBoardIdAndBoardIdManagerId" resultMap="postMap2" parameterType="string">
+        select
+               post.id,
+               post.post_title,
+               post.user_id,
+               user.nick_name,
+               post.create_time,
+               board.board_title,
+               post.up,
+               post.ban_comment,
+               post.secret,
+               board.board_title as board_title
+        from   test_bbs.t_post post,
+               test_bbs.t_board board,
+               test_bbs.t_user user
+        where  post.board_id = board.id
+          and  board.id in (
+               select id from test_bbs.t_board b where b.user_id = #{id}
+        )
+          and user.id = post.user_id;
+    </select>
+
+    <select id="selectPostsPage" resultMap="postMap2" parameterType="int">
+      select
+            post.id,
+            post.post_title,
+            post.user_id,
+            user.nick_name,
+            post.create_time,
+            board.board_title,
+            board.user_id as board_manager_id,
+            post.up,
+            post.ban_comment,
+            post.secret
+      from test_bbs.t_post post,
+            t_board board,
+            t_user user
+      where board.id = post.board_id
+        and user.id = board.user_id
+        limit #{currentPage} ,#{pageSize};
     </select>
 
 </mapper>

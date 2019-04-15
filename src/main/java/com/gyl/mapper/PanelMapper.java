@@ -36,8 +36,12 @@ public interface PanelMapper {
     Panel selectPanelById(@Param(value = "pid") String pid);
 
 
-
     List<Panel> searchByPanelTitle(@Param(value = "title") String inputPanelTitle);
 
     List<Panel> listBoardsId();
+
+    /**
+     * 根据模块管理者的id查
+     */
+    List<Panel> listByPanelManagerId(@Param("id") String id);
 }

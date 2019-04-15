@@ -4,7 +4,7 @@ html,body {
 
 body {
     display: -ms-flexbox;
-    background-image: url("/images/bg/bg-logon.jpg");
+    background-image: url("/images/bg/user-logon-bg.jpg");
 }
 
 body > h3 {
@@ -13,8 +13,6 @@ body > h3 {
 }
 
 .form-logon {
-    /*margin-top: 200px;
-    margin-left: 300px;*/
     width: 100%;
     background-color: white;
     max-width: 300px;

@@ -1,5 +1,6 @@
 package com.gyl.controller;
 
+import com.gyl.commons.page.PageResult;
 import com.gyl.entity.Area;
 import com.gyl.entity.Board;
 import com.gyl.entity.Post;
@@ -26,10 +27,17 @@ public class AreaController {
     @Autowired
     private UserService userService;
 
-
     @RequestMapping(value = "/area/{id}", method = RequestMethod.GET)
-    public String list(@PathVariable("id") String id, Model model) {
-        Area area = areaService.getAreaById(id);
+    public String list(@PathVariable("id") String id, Model model, Integer currentPage, Integer pageSize) {
+        if (currentPage == null || pageSize == null) {
+            //默认值
+            currentPage = 1;
+            pageSize = 5;
+        }
+        //分区的分页
+        Area area = areaService.getAreaPostsById(id, currentPage, pageSize);
+        PageResult pageResult = areaService.listPosts(id, currentPage, pageSize);
+        model.addAttribute("pageResult", pageResult);
         model.addAttribute("area", area);
         return "/foreground/area/area";
     }

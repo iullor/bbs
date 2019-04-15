@@ -6,358 +6,196 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" line="143" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" line="135" mnemonic="1" />
     <bookmark url="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql" line="91" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" line="617" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" line="645" />
     <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" line="166" />
     <bookmark url="file://$PROJECT_DIR$/src/main/resources/mapper/MessageMapper.xml" line="4" />
     <bookmark url="file://$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" line="63" />
     <bookmark url="file://$PROJECT_DIR$/src/main/webapp/css/commons/index.css" line="131" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" line="100" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MyBatisCodeHelperDatasource.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PublicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCircleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/myCircle.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/public.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/1554629241_653081.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/1554629304_702398.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/1554629378_742229.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/bg-logon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/index/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/index/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/index/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/center.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/collect.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/editor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/message.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/trash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/external/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_444444_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_555555_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_777620_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_777777_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_cc0000_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/images/ui-icons_ffffff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.structure.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery-ui-1.12.1.custom/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery.mCustomScrollbar.concat.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery.mCustomScrollbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jQuery/jquery.mCustomScrollbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyApplyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-email.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/acount_active_info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/board_manager_check.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/panel_manager_check.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/show.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_logon.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply_progress.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/show.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/admin-logon-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/random-code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/upload/headImage/default-headImg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MyBatisCodeHelperDatasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyBatisCodeHelperDatasource.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c9e8cdef-c172-46ed-ae97-62d638adc765.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c9e8cdef-c172-46ed-ae97-62d638adc765.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/commons/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/commons/StatusCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserAccountStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserAccountStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BoardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/MessageMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_areas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_areas.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/focus/focus_person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/focus/focus_person.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/post/person_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/post/person_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/themes/person_theme_setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/themes/person_theme_setting.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/board/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/board/board.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/show_reason.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_pages.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/logon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/logon.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/top.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/panel/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/panel/panel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/bg/Blurred-Background-Sunset-3c-Free.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/sidebar-left-control.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/sidebar-left-control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/controller.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/controller.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/emotion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/emotion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/bface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/cface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/fface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/jxface2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/neweditor-tab-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/tface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/wface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/emotion/images/yface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/formula/formula.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/formula/formula.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/formula/formula.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/formula/images/formula.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/image/image.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/image/image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/image/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/image/images/upload1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/image/images/upload2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/link/link.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/map/map.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/map/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/images/center_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/images/left_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/images/none_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/images/right_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/video.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/dialogs/video/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/Uploader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/commons-fileupload-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/getContent.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/imageUp.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/ueditor-mini.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/addimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/alldeletebtnhoverskin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/alldeletebtnupskin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/deletedisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/deleteenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/imglabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/listbackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/localimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/music.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/rotateleftdisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/rotateleftenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/rotaterightdisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/rotaterightenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/en/images/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/images/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/images/imglabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/images/localimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/images/music.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/images/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/lang/zh-cn/zh-cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/css/umeditor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/css/umeditor.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/caret.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/ok.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/pop-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/spacer.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/themes/default/images/videologo.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/Symbola.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/Symbola.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/Symbola.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/Symbola.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/Symbola.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/STIXFontLicense2010.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/mathquill.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/mathquill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/third-party/mathquill/mathquill.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/umeditor.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/umeditor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/lib/umeditor/umeditor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/bg/bg-logon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images/bg/user-logon-bg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/MessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/MessageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/StatusCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/commons/StatusCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/AreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/AreaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/IndexController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminAreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminAreaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPanelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyPostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/UserAccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/UserAccountStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/AreaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/AreaMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BoardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BoardMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/MessageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/MessageMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PanelMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PanelMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/AreaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/AreaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/MessageService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PanelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PanelService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/AreaMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/CollectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/MessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/MessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PanelMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/area/area.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/panel/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/panel/panel.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_areas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_areas.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/focus/focus_person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/focus/focus_person.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/message/message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/message/message.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/post/person_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/post/person_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/themes/person_theme_setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/themes/person_theme_setting.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/board/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/board/board.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/reset_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/success.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/css/admin/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/admin/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/css/admin/admin_pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/admin/admin_pages.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/logon.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/logon.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/sidebar_left.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/sidebar_left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/top.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/panel/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/panel/panel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/basic_info/person_account.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/basic_info/person_account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/message/message.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/message/message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/post/post_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/post/post_edit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/post/post_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/post/post_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/images/bg/Blurred-Background-Sunset-3c-Free.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/js/sidebar-left-control.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/js/sidebar-left-control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/ueditor/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/lib/ueditor/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/ueditor/controller.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/lib/ueditor/controller.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/ueditor/jsp/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/lib/ueditor/jsp/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/emotion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/emotion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/bface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/cface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/fface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/jxface2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/neweditor-tab-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/tface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/wface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/emotion/images/yface.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/formula/formula.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/formula/formula.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/formula/formula.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/formula/images/formula.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/image/image.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/image/image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/image/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/image/images/upload1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/image/images/upload2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/link/link.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/map/map.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/map/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/images/center_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/images/left_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/images/none_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/images/right_focus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/video.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/dialogs/video/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/jsp/Uploader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/jsp/commons-fileupload-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/jsp/getContent.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/jsp/imageUp.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/jsp/ueditor-mini.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/addimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/alldeletebtnhoverskin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/alldeletebtnupskin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/deletedisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/deleteenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/imglabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/listbackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/localimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/music.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/rotateleftdisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/rotateleftenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/rotaterightdisable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/rotaterightenable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/en/images/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/images/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/images/imglabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/images/localimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/images/music.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/images/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/lang/zh-cn/zh-cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/css/umeditor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/css/umeditor.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/caret.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/ok.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/pop-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/spacer.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/themes/default/images/videologo.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/Symbola.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/Symbola.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/Symbola.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/Symbola.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/Symbola.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/STIXFontLicense2010.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/mathquill.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/mathquill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/third-party/mathquill/mathquill.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/umeditor.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/umeditor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/lib/umeditor/umeditor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs/images/bg/bg-logon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/commons/MessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/commons/MessageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/commons/StatusCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/commons/StatusCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/AreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/AreaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/IndexController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminAreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminAreaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPanelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyPostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/UserAccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/UserAccountStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/AreaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/AreaMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BoardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BoardMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/MessageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/MessageMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PanelMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PanelMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/AreaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/AreaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/MessageService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/PanelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/PanelService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/AreaMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CollectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PanelMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_bbs.sql" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -405,7 +243,7 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="test_bbs: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="t_board: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="t_broken_rules: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -417,145 +255,56 @@
     <favorites_list name="bbs" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3528">
-              <caret line="147" column="63" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3816">
-              <caret line="159" column="37" selection-start-line="159" selection-start-column="37" selection-end-line="159" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3600">
-              <caret line="232" column="35" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
-              <folding>
-                <element signature="e#4293#4294#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1728">
-              <caret line="92" selection-start-line="92" selection-end-line="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15312">
-              <caret line="638" column="68" selection-start-line="638" selection-start-column="45" selection-end-line="638" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4392">
-              <caret line="215" selection-start-line="215" selection-end-line="215" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Mybatis Mapper" />
-        <option value="Jsp File" />
         <option value="JavaScript File" />
         <option value="Interface" />
+        <option value="Jsp File" />
+        <option value="Arquillian JUnit Test Class" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowEditorPreview>false</toolWindowEditorPreview>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showShortInfo</find>
-      <find>板块信息</find>
-      <find>info</find>
-      <find>Info</find>
-      <find>收藏</find>
-      <find>imagePathFormat</find>
-      <find>tr</find>
-      <find>test_user</find>
-      <find>&lt;!--auto generated Code--&gt;</find>
+      <find>manager</find>
+      <find>boards</find>
+      <find>请</find>
+      <find>添加</find>
+      <find>format</find>
+      <find>201</find>
+      <find>fromUserId</find>
+      <find>User</find>
+      <find>getFrom</find>
+      <find>option1</find>
+      <find>撤销</find>
+      <find>hasChecked</find>
+      <find>post_user</find>
+      <find>贴子数</find>
+      <find>board_logo_path</find>
+      <find>listHotPosts</find>
+      <find>贴子类型</find>
+      <find>contentValidity</find>
+      <find>版块内置顶</find>
+      <find>屏蔽</find>
+      <find>&lt;!--@mbg.generated--&gt;</find>
+      <find>,jdbcType=INTEGER</find>
       <find>,jdbcType=VARCHAR</find>
-      <find>boardId</find>
-      <find>add</find>
-      <find>全选</find>
-      <find>私密</find>
-      <find>猜你</find>
-      <find>imageSrcList</find>
-      <find>hasRead</find>
-      <find>jsrender</find>
-      <find>showHotPosts</find>
-      <find>piece</find>
-      <find>left</find>
-      <find>showPostFirstImage</find>
-      <find>board-hot-posts</find>
-      <find>postContent</find>
-      <find>该</find>
-      <find>换一批</find>
-      <find>changeOthers</find>
-      <find>target</find>
-      <find>show</find>
-      <find>postMap1</find>
+      <find>/admin/post/update</find>
+      <find>pageResult</find>
+      <find>时间</find>
+      <find>foot</find>
+      <find>楼</find>
+      <find>层</find>
+      <find>回复</find>
     </findStrings>
     <replaceStrings>
       <replace>.jsp</replace>
@@ -576,10 +325,14 @@
       <replace>myfocus</replace>
       <replace>praises</replace>
       <replace>test_user1</replace>
+      <replace>t_apply</replace>
+      <replace>test_bbs.t_options</replace>
+      <replace>option</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp</dir>
       <dir>$PROJECT_DIR$/src/main/java/com/gyl</dir>
+      <dir>$PROJECT_DIR$/src/main/webapp</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -588,57 +341,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/webapp/css/admin/admin.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/BrokenRules.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BrokenRulesMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/BrokenRulesMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/BrokenRulesService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/post/person_posts.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/themes/person_theme_setting.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/panel/panel.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/board/board.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/myCycle.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/PublicController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCircleController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/public.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PostServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageIndex.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/admin/admin_pages.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PageService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/admin-page.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/admin-page.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/BoardService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminBoardController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Area.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/ueditor/config.json" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/CommentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/CommentController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/ueditor/controller.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Test.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/test/TestUser.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/test/TestUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/TestUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/test/TestUserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/test/TestUserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp/config.json" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/sidebar-left-control.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MessageMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/commons/MessageType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/MessageMapper.java" />
       </list>
     </option>
   </component>
@@ -681,9 +434,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="y" value="28" />
-    <option name="width" value="960" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="455" />
+    <option name="y" value="33" />
+    <option name="width" value="1717" />
     <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -694,6 +448,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -717,94 +473,7 @@
               <item name="bbs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="gyl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="gyl" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="foreground" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="foreground" type="462c0819:PsiDirectoryNode" />
-              <item name="board" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
@@ -814,8 +483,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -825,10 +492,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553788071116" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/images/bg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -839,19 +509,18 @@
     <property name="settings.editor.selected.configurable" value="MyBatisCodeHelper" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.gyl.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/webapp/images/bg" />
       <recent name="$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp" />
       <recent name="$PROJECT_DIR$/src/test/com/gyl" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/upload" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/images/bg" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp/lib" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/images/public" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/lib/jQuery" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.gyl.mapper" />
@@ -859,6 +528,13 @@
       <recent name="com.gyl.controller" />
       <recent name="com.gyl.controller.person" />
       <recent name="com.gyl.web.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/gyl/commons" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.gyl.mapper" />
@@ -870,10 +546,10 @@
     <treeState>
       <expand>
         <path>
-          <item name="Found 39 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 101 services " type="fcff1e1b:RestServiceStructure$RootNode" />
         </path>
         <path>
-          <item name="Found 39 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 101 services " type="fcff1e1b:RestServiceStructure$RootNode" />
           <item name="bbs" type="c588b436:RestServiceStructure$ProjectNode" />
         </path>
       </expand>
@@ -1145,12 +821,26 @@
       <workItem from="1554529731166" duration="18005000" />
       <workItem from="1554551740685" duration="15022000" />
       <workItem from="1554611889463" duration="39434000" />
-      <workItem from="1554704292289" duration="521000" />
+      <workItem from="1554704292289" duration="15481000" />
+      <workItem from="1554722744290" duration="17042000" />
+      <workItem from="1554782893019" duration="23466000" />
+      <workItem from="1554813305636" duration="14121000" />
+      <workItem from="1554875687620" duration="26723000" />
+      <workItem from="1554971016130" duration="8543000" />
+      <workItem from="1554991446615" duration="10582000" />
+      <workItem from="1555048135358" duration="15964000" />
+      <workItem from="1555077823133" duration="10375000" />
+      <workItem from="1555132740154" duration="17672000" />
+      <workItem from="1555150884559" duration="2285000" />
+      <workItem from="1555159045681" duration="16577000" />
+      <workItem from="1555212700759" duration="15113000" />
+      <workItem from="1555245358271" duration="11578000" />
+      <workItem from="1555302316363" duration="24752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="889102000" />
+    <option name="totallyTimeSpent" value="1118855000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1163,10 +853,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60745615" visible="true" weight="0.19078243" />
-      <window_info id="Structure" order="1" sideWeight="0.39254385" side_tool="true" weight="0.16345124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.57236844" visible="true" weight="0.187567" />
+      <window_info id="Structure" order="1" sideWeight="0.4276316" side_tool="true" weight="0.19882101" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -1174,15 +863,67 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="DB Browser" order="7" weight="0.19893049" />
       <window_info id="JRebel" order="8" sideWeight="0.84233737" side_tool="true" weight="0.18235295" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.46820176" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.5546624" weight="0.2741228" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32745314" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.60053474" visible="true" weight="0.4517544" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3267544" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.539657" weight="0.49122807" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.36824697" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49946523" weight="0.3267544" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.41118422" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.39254385" />
+      <window_info anchor="bottom" id="Spring" order="9" weight="0.32785088" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.46034297" side_tool="true" weight="0.40899122" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.4834931" />
+      <window_info anchor="bottom" id="DB Execution Console" order="13" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="14" weight="0.32894737" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32785088" />
+      <window_info anchor="bottom" id="Problems" order="16" weight="0.32894737" />
+      <window_info anchor="bottom" id="Database Console" order="17" weight="0.29385966" />
+      <window_info anchor="bottom" id="Database Changes" order="18" weight="0.3256579" />
+      <window_info anchor="bottom" id="Docker" order="19" show_stripe_button="false" />
+      <window_info anchor="bottom" id="JRebel Executor" order="20" weight="0.5071665" />
+      <window_info anchor="bottom" id="JRebel Console" order="21" sideWeight="0.44533762" side_tool="true" weight="0.2741228" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="22" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="23" />
+      <window_info anchor="bottom" id="TODO" order="24" weight="0.3234649" />
+      <window_info active="true" anchor="right" id="JRebel Setup Guide" order="0" weight="0.32994652" />
+      <window_info anchor="right" id="Coverage" order="1" side_tool="true" />
+      <window_info anchor="right" id="RestServices" order="2" sideWeight="0.4989035" weight="0.15326902" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" sideWeight="0.4994641" weight="0.2016129" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.22085561" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Web" order="10" sideWeight="0.5005359" side_tool="true" weight="0.25026795" />
+      <window_info anchor="right" id="Mybatis datasource" order="11" sideWeight="0.5010965" side_tool="true" weight="0.12540193" />
+      <window_info anchor="right" id="Ant Build" order="12" weight="0.24973205" />
+      <window_info anchor="right" id="Maven" order="13" weight="0.30760986" />
+      <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="14" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
+      <window_info anchor="right" id="Database" order="15" weight="0.18703108" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.44956142" visible="true" weight="0.19024652" />
+      <window_info id="Structure" order="1" sideWeight="0.5504386" side_tool="true" weight="0.19024652" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.39035088" side_tool="true" weight="0.22936763" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="DB Browser" order="7" weight="0.19893049" />
+      <window_info id="JRebel" order="8" sideWeight="0.84233737" side_tool="true" weight="0.18235295" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.2752193" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32745314" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.59967846" weight="0.4265351" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.36824697" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49946523" weight="0.3267544" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.39254385" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.3267544" />
       <window_info anchor="bottom" id="Spring" order="10" weight="0.32785088" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51016045" side_tool="true" weight="0.4758772" />
@@ -1195,7 +936,7 @@
       <window_info anchor="bottom" id="Database Changes" order="18" weight="0.3256579" />
       <window_info anchor="bottom" id="Docker" order="19" show_stripe_button="false" />
       <window_info anchor="bottom" id="JRebel Executor" order="20" weight="0.5071665" />
-      <window_info anchor="bottom" id="JRebel Console" order="21" sideWeight="0.39946523" side_tool="true" weight="0.5315315" />
+      <window_info anchor="bottom" id="JRebel Console" order="21" sideWeight="0.40032154" side_tool="true" weight="0.34167573" />
       <window_info anchor="bottom" id="Problems" order="22" weight="0.32894737" />
       <window_info anchor="bottom" id="Run with VisualVM" order="23" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="24" />
@@ -1213,59 +954,7 @@
       <window_info anchor="right" id="Mybatis datasource" order="11" side_tool="true" weight="0.329582" />
       <window_info anchor="right" id="Ant Build" order="12" weight="0.24973205" />
       <window_info anchor="right" id="Maven" order="13" weight="0.30760986" />
-      <window_info anchor="right" id="Database" order="14" weight="0.227224" />
-      <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="15" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60745615" visible="true" weight="0.16345124" />
-      <window_info id="Structure" order="1" sideWeight="0.39254385" side_tool="true" weight="0.16345124" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.39035088" side_tool="true" weight="0.22936763" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="DB Browser" order="7" weight="0.19893049" />
-      <window_info id="JRebel" order="8" sideWeight="0.84233737" side_tool="true" weight="0.18235295" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.46820176" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32745314" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.60053474" visible="true" weight="0.23464912" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49893048" weight="0.36824697" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49946523" weight="0.3267544" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.41118422" />
-      <window_info anchor="bottom" id="TODO" order="9" weight="0.3267544" />
-      <window_info anchor="bottom" id="Spring" order="10" weight="0.32785088" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51016045" side_tool="true" weight="0.4758772" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.4834931" />
-      <window_info anchor="bottom" id="DB Execution Console" order="14" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32852387" />
-      <window_info anchor="bottom" id="Database Console" order="16" weight="0.47368422" />
-      <window_info anchor="bottom" id="Database Changes" order="17" weight="0.3256579" />
-      <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
-      <window_info anchor="bottom" id="JRebel Executor" order="19" weight="0.5071665" />
-      <window_info anchor="bottom" id="JRebel Console" order="20" sideWeight="0.39946523" side_tool="true" weight="0.5315315" />
-      <window_info anchor="bottom" id="Problems" order="21" weight="0.32894737" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="22" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run with VisualVM" order="23" />
-      <window_info anchor="bottom" id="Debug with VisualVM" order="24" />
-      <window_info active="true" anchor="right" id="JRebel Setup Guide" order="0" weight="0.32994652" />
-      <window_info anchor="right" id="Coverage" order="1" side_tool="true" />
-      <window_info anchor="right" id="RestServices" order="2" weight="0.32994652" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" sideWeight="0.4994641" weight="0.2016129" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.22085561" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Web" order="10" sideWeight="0.5005359" side_tool="true" weight="0.25026795" />
-      <window_info anchor="right" id="Mybatis datasource" order="11" side_tool="true" weight="0.329582" />
-      <window_info anchor="right" id="Ant Build" order="12" weight="0.24973205" />
-      <window_info anchor="right" id="Maven" order="13" weight="0.30760986" />
-      <window_info active="true" anchor="right" id="Database" order="14" visible="true" weight="0.227224" />
+      <window_info active="true" anchor="right" id="Database" order="14" visible="true" weight="0.2545552" />
       <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="15" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
     </layout-to-restore>
   </component>
@@ -1288,38 +977,6 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java</url>
-          <line>88</line>
-          <properties class="com.gyl.controller.UserController" method="addUserByAdmin">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java</url>
-          <line>102</line>
-          <properties class="com.gyl.controller.UserController" method="updateUserStatus">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java</url>
-          <line>35</line>
-          <properties class="com.gyl.controller.admin.AdminPostController" method="addPostOrders">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java</url>
-          <line>53</line>
-          <properties class="com.gyl.controller.admin.AdminPostController" method="deletePostType">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/CollectionController.java</url>
@@ -1370,52 +1027,12 @@
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java</url>
-          <line>34</line>
-          <properties class="com.gyl.controller.admin.AdminAreaController" method="list">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java</url>
-          <line>33</line>
-          <properties class="com.gyl.controller.person.MyPostController" method="list">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java</url>
-          <line>72</line>
-          <properties class="com.gyl.controller.PostController" method="add">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="226" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java</url>
-          <line>88</line>
-          <properties class="com.gyl.controller.PostController" method="update">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="230" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java</url>
-          <line>195</line>
+          <line>207</line>
           <properties class="com.gyl.controller.PostController" method="changeOtherPosts">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="231" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java</url>
-          <line>40</line>
-          <properties class="com.gyl.controller.IndexController" method="index">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java</url>
@@ -1425,11 +1042,169 @@
           </properties>
           <option name="timeStamp" value="241" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java</url>
+          <line>32</line>
+          <properties class="com.gyl.service.OptionService" method="insert">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java</url>
+          <line>92</line>
+          <properties class="com.gyl.service.OptionService" method="selectByApplyUserId">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/EmailService.java</url>
+          <line>20</line>
+          <properties class="com.gyl.service.EmailService" method="sendHtml">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="253" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java</url>
-          <line>118</line>
+          <line>35</line>
+          <properties class="com.gyl.controller.UserController" method="add">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java</url>
+          <line>86</line>
+          <properties class="com.gyl.controller.admin.AdminAreaController" method="input">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java</url>
+          <line>116</line>
+          <properties class="com.gyl.service.AreaService" method="listAreasByAllBoardId">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java</url>
+          <line>150</line>
+          <properties class="com.gyl.service.OptionService" method="updateOptionById">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyApplyController.java</url>
+          <line>130</line>
+          <properties class="com.gyl.controller.person.MyApplyController" method="showApplyReason">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java</url>
+          <line>64</line>
+          <properties class="com.gyl.controller.admin.AdminPostController" method="updatePostStatus">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="286" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java</url>
+          <line>33</line>
+          <properties class="com.gyl.controller.person.MyPostController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java</url>
+          <line>37</line>
+          <properties class="com.gyl.controller.admin.AdminPostController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java</url>
+          <line>161</line>
+          <properties class="com.gyl.service.PostService" method="sortPageByAdmin">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java</url>
+          <line>36</line>
+          <properties class="com.gyl.controller.admin.AdminAreaController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminBoardController.java</url>
+          <line>40</line>
+          <properties class="com.gyl.controller.admin.AdminBoardController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java</url>
+          <line>49</line>
+          <properties class="com.gyl.controller.admin.AdminPanelController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/CommentService.java</url>
+          <line>39</line>
+          <properties class="com.gyl.service.CommentService" method="pageCommentsByPostId">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java</url>
+          <line>41</line>
+          <properties class="com.gyl.controller.PostController" method="list">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="308" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/CommentController.java</url>
+          <line>63</line>
+          <properties class="com.gyl.controller.CommentController" method="addReply">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java</url>
+          <line>132</line>
+          <properties class="com.gyl.service.MessageService" method="sendReplyToUser">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java</url>
+          <line>43</line>
           <properties />
-          <option name="timeStamp" value="116" />
+          <option name="timeStamp" value="280" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="281" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1441,6 +1216,11 @@
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
       <expression>
+        <expression-string>&quot;c7eb6a41c8b542009ccbe7b4d4c0e893&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>&quot;2f608a3346db4880abb09d3f219b665b&quot;</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1448,355 +1228,430 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Area.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+        <state relative-caret-position="96">
+          <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+          <folding>
+            <element signature="e#2215#2216#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/localhost:8080/upload/post/jsp.jpeg" />
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_area">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_areas.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="267" column="26" lean-forward="true" selection-start-line="261" selection-start-column="19" selection-end-line="267" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="211" column="30" lean-forward="true" selection-start-line="211" selection-start-column="30" selection-end-line="211" selection-end-column="30" />
+          <folding>
+            <element signature="n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PostServiceTest.java" />
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_broken_rules">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp">
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2184">
-          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+        <state relative-caret-position="264">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/ueditor/jsp/config.json">
+    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+        <state relative-caret-position="105">
+          <caret line="497" selection-start-line="497" selection-end-line="497" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyMessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190406/1554541333268016959.svg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190406/1554541429357011717.svg" />
-    <entry file="jar://$USER_HOME$/usr/local/jdk/jdk1.8.0_181/src.zip!/java/util/regex/Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="809" column="28" selection-start-line="809" selection-start-column="28" selection-end-line="809" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190406/1554541651551072187.svg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="128" column="43" lean-forward="true" selection-start-line="128" selection-start-column="43" selection-end-line="128" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Praise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/person-left.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190407/1554566690983001151.svg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190407/1554566672420095303.jpg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190407/1554566975693003155.svg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190407/1554567020269044008.svg" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190406/1554486920375052295.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/upload/post/jsp/images/20190406/1554485594516009692.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ueditor/jsp/upload/image/20190405/1554473626884001261.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="284" column="32" lean-forward="true" selection-start-line="284" selection-start-column="32" selection-end-line="284" selection-end-column="32" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/person/person_manager-left.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/bootstrap/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="4" column="16220" selection-start-line="4" selection-start-column="16220" selection-end-line="4" selection-end-column="16220" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="156" column="43" lean-forward="true" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
-          <folding>
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="676" selection-start-line="676" selection-end-line="676" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#c:forEach#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#c:otherwise#0;n#c:choose#1;n#jsp:root#0;n#!!top" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#22149#22155#1#HTML" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/board/board_post_list.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
-          <folding>
-            <element signature="method#list#0;class#PostController#0" />
-            <element signature="method#add#0;class#PostController#0" />
-            <element signature="method#update#0;class#PostController#0" />
-            <element signature="method#delete#0;class#PostController#0" />
-            <element signature="method#input#0;class#PostController#0" />
-            <element signature="method#quickInput#0;class#PostController#0" />
-            <element signature="method#update#1;class#PostController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="300" column="79" lean-forward="true" selection-start-line="300" selection-start-column="79" selection-end-line="300" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#4;n#div#0;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#11432#11438#0#HTML" expanded="true" />
-            <element signature="e#11438#11444#0#HTML" expanded="true" />
-            <element signature="e#11566#12548#0#JSP" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#h3#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#28219#28321#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/commons/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="146" column="1" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/sidebar-left-control.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/admin/admin_pages.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="11" selection-start-line="11" selection-end-line="30" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/BoardMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_post">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="110" column="7" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
-          <folding>
-            <element signature="e#1917#1918#0" expanded="true" />
-            <element signature="e#1968#1969#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_board">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1-sources.jar!/org/apache/ibatis/binding/MapperMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1-sources.jar!/org/apache/ibatis/binding/MapperProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-          <folding>
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="160" column="56" selection-start-line="160" selection-start-column="56" selection-end-line="160" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3528">
-          <caret line="147" column="63" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3816">
-          <caret line="159" column="37" selection-start-line="159" selection-start-column="37" selection-end-line="159" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3600">
-          <caret line="232" column="35" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
+        <state relative-caret-position="216">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
-            <element signature="e#4293#4294#0" expanded="true" />
+            <element signature="e#3617#3618#0" expanded="true" />
+            <element signature="e#3661#3662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="17">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="40" />
+          <folding>
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/admin-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1457">
+          <caret line="263" column="35" selection-start-line="263" selection-start-column="35" selection-end-line="263" selection-end-column="35" />
+          <folding>
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#5;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#7;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/BoardService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+          <folding>
+            <element signature="e#397#421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="157" column="25" lean-forward="true" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminBoardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        <state relative-caret-position="391">
+          <caret line="127" column="7" lean-forward="true" selection-start-line="127" selection-start-column="7" selection-end-line="137" selection-end-column="26" />
+          <folding>
+            <element signature="e#554#578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        <state relative-caret-position="343">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="49" column="99" selection-start-line="49" selection-start-column="99" selection-end-line="49" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="128" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="227" column="4" lean-forward="true" selection-start-line="227" selection-start-column="4" selection-end-line="227" selection-end-column="4" />
+          <folding>
+            <element signature="n#script#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#11263#11406#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="57" column="53" selection-start-line="55" selection-start-column="7" selection-end-line="57" selection-end-column="53" />
+          <folding>
+            <element signature="method#updatePostStatus#0;class#AdminPostController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="119" column="56" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
+          <folding>
+            <element signature="e#399#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="167" column="14" selection-start-line="122" selection-start-column="8" selection-end-line="167" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCollectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c9e8cdef-c172-46ed-ae97-62d638adc765/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15312">
-          <caret line="638" column="68" selection-start-line="638" selection-start-column="45" selection-end-line="638" selection-end-column="68" />
+        <state>
+          <caret line="977" selection-start-line="977" selection-end-line="996" selection-end-column="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="138" column="46" selection-start-line="138" selection-start-column="46" selection-end-line="138" selection-end-column="46" />
+          <folding>
+            <element signature="e#5545#5549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4392">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        <state relative-caret-position="119">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminAreaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="199">
+          <caret line="89" column="42" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/AreaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="39" selection-start-line="39" selection-end-line="39" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#468#492#0" expanded="true" />
+            <element signature="e#2961#2962#0" expanded="true" />
+            <element signature="e#3021#3022#0" expanded="true" />
+            <element signature="e#3162#3163#0" expanded="true" />
+            <element signature="e#3221#3222#0" expanded="true" />
+            <element signature="e#3278#3279#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#350#374#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#add#0;class#PostController#0" />
+            <element signature="method#input#0;class#PostController#0" />
+            <element signature="method#update#1;class#PostController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="94" column="62" lean-forward="true" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/page/PageResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1701">
+          <caret line="167" column="46" lean-forward="true" selection-start-line="167" selection-start-column="46" selection-end-line="167" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="202" column="119" selection-start-line="202" selection-start-column="119" selection-end-line="202" selection-end-column="119" />
+          <folding>
+            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="202" column="61" lean-forward="true" selection-start-line="202" selection-start-column="61" selection-end-line="202" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Reply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/ReplyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/commons/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/MessageMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MessageMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="41" column="97" lean-forward="true" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/CommentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="method#sendApplyMessage#0;class#MessageService#0" />
+          </folding>
         </state>
       </provider>
     </entry>

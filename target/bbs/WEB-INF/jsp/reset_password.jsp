@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
     <script src="../../lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/random-code.js"></script>
     <!--重置密码的样式-->
     <style>
         body {
@@ -100,7 +101,7 @@
         <h4><small>我们将根据您的账号和预留的邮箱，为您重置密码，并将正确的密码发到您的邮箱，真注意查看！</small></h4>
     </div>
 </div>
-<script>
+<%--<script>
     var code; //在全局定义验证码
     function createCode() {
         code = "";
@@ -114,7 +115,6 @@
         }
         checkCode.value = code;//把code值赋给验证码
     }
-
     //校验验证码
     function validate() {
         var inputCode = document.getElementById("inputCode").value.toUpperCase(); //取得输入的验证码并转化为大写
@@ -139,155 +139,6 @@
             validate();
         });
     });
-</script>
-
-
-<!--<script>
-
-    var checkOperator;  //式子
-    var checkCode;
-    var result;
-
-    /*
-    * 生成随机数
-    * */
-    function createRandomNumber() {
-        var num = Math.round(Math.random() * 10);
-        return num;
-    }
-
-
-    /**
-     * 生成运算符
-     * @returns {number}
-     */
-    function createRandomOperation() {
-        var num = Math.round(Math.random() * 3);
-        switch (num) {
-            case num = 0:
-                return "+";
-            case num = 1:
-                return "-";
-            default:
-                return "*";
-        }
-    }
-
-    /**
-     * 生成验证码，的计算式子
-     */
-    function createCheckCode() {
-
-        var operator = new Array(2);
-        var numbers = new Array(3);
-
-        for (var i = 0; i < numbers.length; i++) {
-            numbers[i] = createRandomNumber();
-        }
-
-        for (var i = 0; i < operator.length; i++) {
-            operator[i] = createRandomOperation();
-        }
-        var result = calculate(numbers, operator);
-        return result;
-    }
-
-
-    /**
-     * 计算
-     */
-    function calculate(numbers, operator) {
-        /*  var result;*/
-        /*判断*/
-        if (operator[0] === "+") {
-            switch (operator[1]) {
-                case "+":
-                    checkOperator = numbers[0] + "+" + numbers[1] + "+" + numbers[2]
-                    return numbers[0] + numbers[1] + numbers[2];
-                case "-":
-                    checkOperator = numbers[0] + "+" + numbers[1] + "-" + numbers[2]
-                    return numbers[0] + numbers[1] - numbers[2];
-                case "*":
-                    checkOperator = numbers[0] + "+" + numbers[1] + "*" + numbers[2]
-                    return numbers[0] + numbers[1] * numbers[2];
-            }
-        }
-        if (operator[0] === "-") {
-            switch (operator[1]) {
-                case "+":
-                    checkOperator = numbers[0] + "-" + numbers[1] + "+" + numbers[2]
-                    return numbers[0] - numbers[1] + numbers[2];
-                case "-":
-                    checkOperator = numbers[0] + "-" + numbers[1] + "-" + numbers[2]
-                    return numbers[0] - numbers[1] - numbers[2];
-                case "*":
-                    checkOperator = numbers[0] + "-" + numbers[1] + "*" + numbers[2]
-                    return numbers[0] - numbers[1] * numbers[2];
-            }
-        }
-        if (operator[0] === "*") {
-            switch (operator[1]) {
-                case "+":
-                    checkOperator = numbers[0] + "*" + numbers[1] + "+" + numbers[2]
-                    return numbers[0] * numbers[1] + numbers[2];
-                case "-":
-                    checkOperator = numbers[0] + "*" + numbers[1] + "-" + numbers[2]
-                    return numbers[0] * numbers[1] - numbers[2];
-                case "*":
-                    checkOperator = numbers[0] + "*" + numbers[1] + "*" + numbers[2]
-                    return numbers[0] * numbers[1] * numbers[2];
-            }
-        }
-
-    }
-
-    function f1() {
-        var result = createCheckCode();
-        $("#checkCode").val('');
-        $("#checkOperator").jsp(checkOperator + '=');
-        //alert(checkOperator + '=' + result)
-        return result;
-    }
-
-
-    /*
-    * 判断
-    *
-    * */
-    function f2(checkCode, result) {
-        $("button[type='submit']").click(function () {
-            if (checkCode != null && checkCode != '' && checkCode !== 'undefined') {
-                if (result != checkCode) {
-                    alert("验证码输入错误，重新输入");
-                    result = f1();
-                    return false;
-                }
-                alert("重置密码中。。。。")
-            } else {
-                alert("请输入验证码")
-                return false;
-            }
-        })
-    }
-
-    //调用
-    function f3() {
-        result = f1();
-        f2(checkCode, result);
-    }
-
-    $(function () {
-        $("#checkCode").on("change", function () {
-            checkCode = $("#checkCode").val()
-            alert(checkCode)
-        })
-        /*alert("式子：" + checkOperator + "=" + re)*/
-        f3();
-
-    })
-
-</script>-->
-
-
+</script>--%>
 </body>
 </html>

@@ -7,37 +7,30 @@
     <meta charset="UTF-8">
     <title>贴子增加</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../../css/admin/admin_pages.css">
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
     <style>
-        .input-group {
-            bottom: 40px;
+        body{
+            height: 500px;
         }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <h2 class="text-center">贴子增加</h2>
-    <br>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-10">
             <div>
-                <h3>添加分类</h3>
+                <h3>
+                    <span>
+                        现有分类
+                    </span>
+                    <a id="addPostType" href="#" class="btn  btn-default" data-target="#myInput" data-toggle="modal">
+                        <span class="glyphicon glyphicon-plus"></span>新增
+                    </a>
+                </h3>
             </div>
-            <form action="/admin/postType" method="post">
-                <input type="hidden" name="id">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name">
-                    <button type="submit" class="btn btn-info">提交</button>
-                    <button type="reset" class="btn btn-default">重置</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-offset-2 col-md-4">
-            <div>
-                <h3>现有分类</h3>
-            </div>
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                 <th>序号</th>
                 <th>名字</th>
@@ -54,13 +47,11 @@
                                 <td>
                                         ${t.name}
                                 </td>
-                                <td>
+                                <td width="50">
                                     <a class="edit" href="/admin/postType/${t.id}">编辑</a>
                                 </td>
-                                <td>
-                                <td>
+                                <td width="50">
                                     <a class="delete" href="/admin/postType/${t.id}">删除</a>
-                                </td>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -78,6 +69,35 @@
         </div>
     </div>
     <hr>
+</div>
+<%--模态框添加类型--%>
+<div id="myInput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/admin/postType" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <%--<input type="hidden" name="id">--%>
+                       <div class="col-md-10">
+                           <div class="form-group">
+                               <input type="text" class="form-control" name="name">
+                           </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <script>
     $(function () {

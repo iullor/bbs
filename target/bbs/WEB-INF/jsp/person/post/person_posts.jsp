@@ -358,25 +358,30 @@
                     $(this).children("span").html("&nbsp;私密")
                 }
             } else {
-                //私密
-                var isOpen = window.confirm("设置为公开?");
-                if (isOpen) {
-                    $.ajax({
-                        url: '/person/mypost/update/' + 0,
-                        type: 'post',
-                        data: JSON.stringify(id),
-                        contentType: 'application/json',
-                        success: function (data) {
+                let currentStatus = $(this).children("span").html();
+                //alert(currentStatus)
+                //被管理员禁止显示
+                if (currentStatus !== '&nbsp;被私密') {
+                    var isOpen = window.confirm("设置为公开?");
+                    if (isOpen) {
+                        $.ajax({
+                            url: '/person/mypost/update/' + 0,
+                            type: 'post',
+                            data: JSON.stringify(id),
+                            contentType: 'application/json',
+                            success: function (data) {
 
-                        }
-                    });
-                    //更改状态，显示私密
-                    $(this).children("span").addClass("glyphicon-eye-open").addClass("btn-default");
-                    $(this).children("span").removeClass("glyphicon-eye-close").removeClass("btn-warning");
-                    $(this).children("span").html("&nbsp;公开")
+                            }
+                        });
+                        //更改状态，显示私密
+                        $(this).children("span").addClass("glyphicon-eye-open").addClass("btn-default");
+                        $(this).children("span").removeClass("glyphicon-eye-close").removeClass("btn-warning");
+                        $(this).children("span").html("&nbsp;公开")
+                    }
+                } else {
+                    alert('请联系管理员解除限制')
                 }
             }
-
             return false;
         })
 
@@ -407,20 +412,25 @@
                 }
             } else {
                 //私密
-                var isBan = window.confirm("打开评论?");
-                if (isBan) {
-                    $.ajax({
-                        url: '/person/mypost/update/' + 2,
-                        type: 'post',
-                        data: JSON.stringify(id),
-                        contentType: 'application/json',
-                        success: function (data) {
-                        }
-                    });
-                    //更改状态，显示私密
-                    $(this).addClass("btn-default");
-                    $(this).removeClass("btn-warning");
-                    $(this).html("&nbsp;允许评论")
+                let currentInfo = $(this).html();
+                if (currentInfo !== '&nbsp;被禁止评论') {
+                    var isBan = window.confirm("打开评论?");
+                    if (isBan) {
+                        $.ajax({
+                            url: '/person/mypost/update/' + 2,
+                            type: 'post',
+                            data: JSON.stringify(id),
+                            contentType: 'application/json',
+                            success: function (data) {
+                            }
+                        });
+                        //更改状态，显示私密
+                        $(this).addClass("btn-default");
+                        $(this).removeClass("btn-warning");
+                        $(this).html("&nbsp;允许评论")
+                    }
+                } else {
+                    alert('请联系管理员解除限制')
                 }
             }
             return false;
@@ -435,6 +445,12 @@
                 $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
                 $(this).children("span").html("&nbsp;私密")
             }
+            //被管理员禁止的显示
+            if ($(this).attr("status") === '2') {
+                $(this).children("span").removeClass("glyphicon-eye-open").removeClass("btn-default");
+                $(this).children("span").addClass("glyphicon-eye-close").addClass("btn-warning");
+                $(this).children("span").html("&nbsp;被私密")
+            }
         })
         $(".banComment").each(function () {
             if ($(this).attr("status") === '1') {
@@ -442,8 +458,13 @@
                 $(this).addClass("btn-warning");
                 $(this).html("&nbsp;禁止评论")
             }
+            //被管理员禁止评论
+            if ($(this).attr("status") === '2') {
+                $(this).removeClass("btn-default");
+                $(this).addClass("btn-warning");
+                $(this).html("&nbsp;被禁止评论")
+            }
         })
-
 
         //想后台发送一个查询，返回来一个map
         $("#myPostType").on("change", function () {

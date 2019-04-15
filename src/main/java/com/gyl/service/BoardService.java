@@ -1,6 +1,8 @@
 package com.gyl.service;
 
 import com.gyl.commons.UUIDString;
+import com.gyl.commons.page.PageResult;
+import com.gyl.entity.Area;
 import com.gyl.entity.Board;
 import com.gyl.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import java.util.UUID;
 /**
  * @author gyl
  */
+@SuppressWarnings("all")
 @Service
 public class BoardService {
     @Autowired
@@ -63,4 +66,31 @@ public class BoardService {
         return boardMapper.listBoardsAndAreas();
     }
 
+    /**
+     * 通过子查询
+     * 先找到当前用户管理的所有panel 的id 再用in 来关联每一个panel下的所有board
+     *
+     * @param id
+     * @return
+     */
+    public List<Board> listBoardByPanelId(String id) {
+        return boardMapper.listBoardByPanelId(id);
+    }
+
+    public List<Board> getBoardByManagerId(String id) {
+        return boardMapper.getBoardByManagerId(id);
+    }
+
+    public PageResult sortPageByAdmin(List<Board> boards, Integer currentPage, Integer pageSize) {
+        int count = boards.size();
+        //需要怎么分,当前页是几,每页分几条,客户端传递过来,传给pageReasult对象,它帮你计算,下一个集合是什么
+        PageResult pageResult = new PageResult(boards, count, currentPage, pageSize);
+        int beginIndex = (currentPage - 1) * pageSize;
+        //动态设置索引,因为可能越界,这里判断如果索引大于总长度的话,就让他等于list集合的总长度
+        int endIndex = ((currentPage - 1) * pageSize + pageSize) > (boards.size()) ? (boards.size()) : ((currentPage - 1) * pageSize + pageSize);
+        for (int i = beginIndex; i < endIndex; i++) {
+            pageResult.getNewPage().add(boards.get(i));
+        }
+        return pageResult;
+    }
 }

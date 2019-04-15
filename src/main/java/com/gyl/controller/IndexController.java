@@ -25,8 +25,6 @@ import java.util.Map;
 @Controller
 public class IndexController {
     @Autowired
-    private UserService userService;
-    @Autowired
     private PanelService panelService;
 
     @Autowired
@@ -48,59 +46,6 @@ public class IndexController {
         //model.addAttribute("hotPostsString", hotPostsString);
         return "index";
     }
-
-    /**
-     * 页面跳转到首页
-     *
-     * @return
-     */
-    @RequestMapping("/logon")
-    public String toLogon() {
-        System.out.println("IndexController.toIndex...run...");
-        return "logon";
-    }
-
-    /**
-     * 用户登录
-     *
-     * @return
-     */
-    @RequestMapping(value = "/checkLogon", method = RequestMethod.GET)
-    public String login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, HttpServletRequest request) {
-
-        Map<String, Object> userInfo = userService.checkUser(username, password);
-        request.getSession().setAttribute("USER_STATUS", userInfo.get("USER_STATUS"));
-        if (userInfo.get("user") != null) {
-            request.getSession().setAttribute("CURRENT_USER", userInfo.get("user"));
-            return "redirect:/index";
-        }
-        return "redirect:/logon";
-    }
-
-    /**
-     * 用户注销
-     *
-     * @return
-     */
-    @RequestMapping(value = "/logout")
-    public String logout(HttpServletRequest request) {
-        //清空session
-        request.getSession().invalidate();
-        return "logon";
-    }
-
-
-    /**
-     * 用户跳转到注册页面
-     *
-     * @return
-     */
-    @RequestMapping(value = "/register")
-    public String toRegister() {
-
-        return "register";
-    }
-
 
     /**
      * 用户全局搜索

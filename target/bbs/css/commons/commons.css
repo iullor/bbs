@@ -63,3 +63,18 @@
 .hotPost>p>a{
     color: black;
 }
+
+/*====================验证码的样式===================*/
+#codeImg {
+    width: auto;
+    margin-top: 25px;
+    margin-left: -20px;
+    font-family: Arial, 宋体;
+    font-style: italic;
+    font-size: 16px;
+    color: green;
+    border: 0;
+    padding: 2px 3px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+}

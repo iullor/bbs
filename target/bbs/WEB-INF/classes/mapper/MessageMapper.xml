@@ -26,7 +26,6 @@
         where m.to_user_id=#{userId} and m.read_status=#{readStatus} order by m.create_time desc;
     </select>
 
-
     <update id="updateStatusById" parameterType="com.gyl.entity.Message">
         update test_bbs.t_message
         <set>
@@ -34,4 +33,12 @@
         </set>
         where id =#{id}
     </update>
+    <insert id="sendCheckMessage">
+       insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+        values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
+    </insert>
+    <insert id="sendBrokenRulesMessage">
+       insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+        values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
+    </insert>
 </mapper>

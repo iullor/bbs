@@ -240,25 +240,6 @@
                         </div>
                     </div>
                 </c:forEach>
-                <%-- <script type="text/x-jsrender" id="showHotPosts">
-                   {{for hostPosts}}
-                         {{:hostPosts}}
-                     {{else}}
-                      <div class="col-md-3">
-                             <div class="piece">
-                                 <div class="text-center">
-                                     <a href="/post/{{:id}}">
-                                         <img src="" class="showPostFirstImage" value='{{:firstImage}}' alt="" height="220" width="220">
-                                     </a>
-                                 </div>
-                                 <p style="margin-top:3px;padding-left:10px">
-                                     <lead><a href="/account/{{:userId}}" class="text-primary">{{:user.nickName}}</a></lead>
-                                     <strong><a href="/post/{{:id}}">&nbsp;&nbsp;{{:postTitle}}</a></strong>
-                                 </p>
-                             </div>
-                       </div>
-                     {{/for}}
-                 </script>--%>
             </div>
         </div>
         <div id="main" class="row">
@@ -389,9 +370,6 @@
         $(".board-info").hide();
         $(".showUserHeadImg").mouseover(function () {
             $(this).parent("div").siblings("div.board-hot-posts").hide();
-            /* $(this).parents("div.board-item").css({
-                 "background-color":''
-             })*/
             $(this).parent("div").siblings("div.board-info").show();
         }).mouseleave(function () {
             $(this).parent("div").siblings("div.board-info").hide();

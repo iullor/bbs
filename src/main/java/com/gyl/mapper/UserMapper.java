@@ -21,4 +21,21 @@ public interface UserMapper {
     int delete(@Param(value = "id") String id);
 
     User selectUsername(@Param(value = "username") String uname);
+
+    /**
+     * 通过用户id ，激活用户
+     *
+     * @param id
+     * @return
+     */
+    int activeAccountById(@Param("id") String id);
+
+    /**
+     * admin用户登录
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    User adminLogon(@Param("username")String username, @Param("password")String password);
 }

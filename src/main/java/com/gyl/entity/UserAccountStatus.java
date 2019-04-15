@@ -13,6 +13,10 @@ public class UserAccountStatus {
     private String allowComment;
     private String warningInfo;
     private String status;
+    /**
+     * 用户的角色
+     */
+    private int role;
 
     public String getAllowPost() {
         return allowPost;
@@ -44,5 +48,13 @@ public class UserAccountStatus {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 }

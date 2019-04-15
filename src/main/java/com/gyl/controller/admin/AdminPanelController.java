@@ -1,6 +1,7 @@
 package com.gyl.controller.admin;
 
 import com.gyl.commons.StatusCode;
+import com.gyl.commons.page.PageResult;
 import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
 import com.gyl.entity.User;
@@ -46,8 +47,23 @@ public class AdminPanelController {
      * @return
      */
     @RequestMapping(value = "/admin/panel", method = RequestMethod.GET)
-    public String list(ModelMap map) {
+    public String list(ModelMap map, HttpServletRequest request, Integer currentPage, Integer pageSize) {
+        if (currentPage == null || pageSize == null) {
+            //默认值
+            currentPage = 1;
+            pageSize = 2;
+        }
+        //先去查所有的出来
         List<Panel> panels = panelService.list();
+        User panelManager = (User) request.getSession().getAttribute("ADMIN_USER");
+        if (panelManager.getUserAccountStatus().getRole() < 3 && panelManager.getUserAccountStatus().getRole() > 1) {
+            panels = panelService.listByPanelManagerId(panelManager.getId());
+        }
+
+        //分页的内容,把每个角色对应应该查出来的贴子分页处理后,再返回回来
+        PageResult pageResult = panelService.sortPageByAdmin(panels, currentPage, pageSize);
+        panels = pageResult.getNewPage();
+        map.addAttribute("pageResult", pageResult);
         map.addAttribute("panels", panels);
         map.addAttribute("operationStatus", operationStatus);
         /**

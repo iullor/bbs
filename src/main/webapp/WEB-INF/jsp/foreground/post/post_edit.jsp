@@ -145,9 +145,8 @@
                             <label for="view">私密
                                 <small>(开启后，您发的贴子，将不会显示在分区中)</small>
                             </label>
-                                <%--<input id="view" type="checkbox"/>--%>
                             <div class="switch switch-small">
-                                <input id="view" name="code" type="checkbox" checked>
+                                <input id="view" name="code" type="checkbox">
                             </div>
                         </div>
                     </div>
@@ -170,6 +169,8 @@
     </div>
 
 </div>
+
+
 <script>
     UE.getEditor('content', {
         initialFrameHeight: 600,
@@ -263,10 +264,23 @@
                 alert("请先选择板块")
             }
         })
-        $(".switch-small>input").bootstrapSwitch({
+        $("input[name='code']").bootstrapSwitch({
             onText: 'on',
-            offText: 'off'
+            offText: 'off',
+            onInit:function(event,state){
+                console.log(this)
+                console.log(event.checked)
+            }/*,
+            onSwitchChange: function (event, state) {
+                console.log(1)
+                console.log(this)
+                console.log(event.checked)
+                console.log(state);
+                console.log(this)
+            }*/
         })
+        $("input[name='code']").bootstrapSwitch("toggleState", true)
+
     })
 </script>
 </body>

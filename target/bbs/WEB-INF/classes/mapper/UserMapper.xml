@@ -21,6 +21,7 @@
             <result property="allowComment" column="allow_comment"/>
             <result property="warningInfo" column="waring_info"/>
             <result property="status" column="status"/>
+            <result property="role" column="role_id"/>
         </association>
         <association property="userBaseInfo" javaType="com.gyl.entity.UserBaseInfo">
             <result property="realName" column="real_name"/>
@@ -64,6 +65,7 @@
         ,allow_post
         ,allow_comment
         ,waring_info
+        ,role_id
         )
        values
       (
@@ -71,7 +73,7 @@
         ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phoneNumber},#{email},#{userBaseInfo.qqNumber}
         ,#{userBaseInfo.age},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details}
         ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum},#{userLoginInfo.realName}
-        ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo}
+        ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo},#{userAccountStatus.role}
       )
   </insert>
 
@@ -84,7 +86,7 @@
     </select>
 
     <select id="list" resultMap="userMap">
-      select * from test_bbs.t_user;
+      select * from test_bbs.t_user order by create_time ASC ;
     </select>
 
     <update id="update" parameterType="com.gyl.entity.User">
@@ -118,6 +120,7 @@
             <if test="userAccountStatus.allowComment!=null">allow_comment=#{userAccountStatus.allowComment},</if>
             <if test="userAccountStatus.warningInfo!=null">waring_info=#{userAccountStatus.warningInfo},</if>
             <if test="userAccountStatus.status!=null">status=#{userAccountStatus.status},</if>
+            <if test="userAccountStatus.role!=null">role_id=#{userAccountStatus.role},</if>
         </set>
         where id=#{id};
     </update>
@@ -132,5 +135,12 @@
     <select id="selectUsername" resultType="com.gyl.entity.User">
         select username from test_bbs.t_user where username=#{username};
     </select>
+    <update id="activeAccountById">
+        update test_bbs.t_user set status=1 where id=#{id}
+    </update>
 
+    <select id="adminLogon" resultMap="userMap">
+        select * from test_bbs.t_user,test_bbs.t_role
+         where username=#{username} and password=#{password} and role_id&lt;4 and role_id&gt;0;
+    </select>
 </mapper>

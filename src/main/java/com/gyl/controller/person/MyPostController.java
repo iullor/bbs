@@ -38,7 +38,6 @@ public class MyPostController {
         return "person/post/person_posts";
     }
 
-
     @RequestMapping(value = "/person/mypost/update/{options}", method = RequestMethod.POST)
     public String updatePostStatus(@PathVariable("options") Integer options, @RequestBody Post p) {
         Post post = postService.selectPostById(p.getId());

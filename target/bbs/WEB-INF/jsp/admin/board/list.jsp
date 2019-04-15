@@ -25,10 +25,12 @@
     <div class="row text-center">
 
         <div class="col-md-offset-5 col-md-1">
-            <a href="/admin/board/input/0">
-                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加板块
-                </button>
-            </a>
+            <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
+                <a href="/admin/board/input/0">
+                    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加板块
+                    </button>
+                </a>
+            </c:if>
         </div>
         <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
             时间&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -144,58 +146,112 @@
                     </tbody>
                 </table>
             </div>
-            <div class="panel-footer">
-                <nav class="Page navigation text-center">
-                    <ul class="pagination">
-                        <li class="disabled">
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        <li>
-                            <input type="text" class="form-text">&nbsp;/100
-                            <input type="button" class="btn btn-success" value="跳转"/>
-                        </li>
-                    </ul>
-                </nav>
+            <div id="foot" class="row panel-footer panel-default">
+                <div class="col-md-offset-4 col-md-4">
+                    <nav class="Page navigation">
+                        <ul class="pagination">
+                            <li id="firstPage" style="margin-right: 20px">
+                                <a href="javascript:goPage(1)" aria-label="Previous">
+                                    <span aria-hidden="true">首页</span>
+                                </a>
+                            </li>
+                            <%--class="${pageResult.currentPage==1?'disabled':''}"--%>
+                            <li id="prevPage">
+                                <a href="javascript:goPage(1)" aria-label="Previous">
+                                    上一页
+                                </a>
+                            </li>
+                            <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}" var="pageNumber">
+                                <li class="${pageNumber==pageResult.currentPage?'active':''}">
+                                    <a href="javascript:goPage(${pageNumber})">${pageNumber}</a>
+                                </li>
+                            </c:forEach>
+                            <%--class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}"--%>
+                            <li id="nextPage">
+                                <a href="javascript:goPage(${pageResult.nextPage})" aria-label="Previous">
+                                    下一页
+                                </a>
+                            </li>
+                            <li id="lastPage" class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
+                                <a href="javascript:goPage(${pageResult.totalPage})">
+                                    末页
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
+                    <%--跳转的框--%>
+                    <form id="goPage" action="/admin/board" method="get">
+                        <input type="hidden" name="currentPage">
+                        <input type="hidden" name="pageSize">
+                    </form>
+                    <div id="toPage">
+                        <input type="text" name="toPage" class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
+                        <button type="button" class="btn btn-success">跳转</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-    //删除确认
-    $(".delete").on("click", function () {
-        var i = confirm("你确定要删除当前用户吗？");
-        if (i) {
-            var href = $(this).attr("href");
-            $("form").attr("action", href).submit();
+    function goPage(pageNumber) {
+        $(":hidden[name='currentPage']").val(pageNumber);
+        $(":hidden[name='pageSize']").val(3);
+        $("#goPage").submit();
+    }
+    $(function () {
+        //分页一些东西的隐藏与显示
+        let search = ${pageResult.totalPage};
+        //如果只有一页,隐藏所有
+        if (search < 2) {
+            $("#foot").hide();
         }
-        return false;
-    })
-    $(".showShortInfo").hide();
-    $(".showMoreInfo>a").on("click", function () {
-        $(this).parent().siblings("div.showShortInfo").show();
-        $(this).parent("div").hide();
-        return false;
-    })
-    $(".showShortInfo>a").on("click", function () {
-        $(this).parent().siblings("div.showMoreInfo").show();
-        $(this).parent("div").hide();
-        return false;
+        //如果当前页等于第一页,那么隐藏上一页的按钮
+        let currentPage =${pageResult.currentPage};
+        if (currentPage === 1) {
+            $("#prevPage").hide();
+        }
+        //如果当前页,等于最后一页,那么隐藏下一页
+        let endPages = ${pageResult.endIndex};
+        if (endPages === currentPage) {
+            $("#nextPage").hide();
+        }
+        $("#toPage>button").on("click", function () {
+            let toPage = $("input[name='toPage']").val();
+            if (toPage !== null && toPage !== '' && toPage !== 'undefined') {
+                let endPage = ${pageResult.totalPage};
+                if (endPage + 1 > toPage) {
+                    goPage(toPage);
+                } else {
+                    alert("请输入正确的页码");
+                }
+            } else {
+                alert("请输入页码");
+            }
+        });
+
+        //删除确认
+        $(".delete").on("click", function () {
+            var i = confirm("你确定要删除当前用户吗？");
+            if (i) {
+                var href = $(this).attr("href");
+                $("form").attr("action", href).submit();
+            }
+            return false;
+        })
+        $(".showShortInfo").hide();
+        $(".showMoreInfo>a").on("click", function () {
+            $(this).parent().siblings("div.showShortInfo").show();
+            $(this).parent("div").hide();
+            return false;
+        })
+        $(".showShortInfo>a").on("click", function () {
+            $(this).parent().siblings("div.showMoreInfo").show();
+            $(this).parent("div").hide();
+            return false;
+        })
     })
 </script>
 </body>

@@ -1,5 +1,6 @@
 package com.gyl.controller.admin;
 
+import com.gyl.commons.page.PageResult;
 import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
 import com.gyl.entity.User;
@@ -37,8 +38,27 @@ public class AdminBoardController {
     private static String uploadPath = "/home/gyl/Pictures/bbs-files/";
 
     @RequestMapping(value = "/admin/board", method = RequestMethod.GET)
-    public String list(ModelMap map) {
+    public String list(ModelMap map, HttpServletRequest request, Integer currentPage, Integer pageSize) {
+        if (currentPage == null || pageSize == null) {
+            //默认值
+            currentPage = 1;
+            pageSize = 3;
+        }
+        //超级用户，就直接查所有的列表
         List<Board> boards = boardService.list();
+        User manager = (User) request.getSession().getAttribute("ADMIN_USER");
+        //模块管理者
+        if (manager.getUserAccountStatus().getRole() == 2) {
+            boards = boardService.listBoardByPanelId(manager.getId());
+        }
+        //板块管理者
+        if (manager.getUserAccountStatus().getRole() == 3) {
+            boards = boardService.getBoardByManagerId(manager.getId());
+        }
+        //分页的内容,把每个角色对应应该查出来的贴子分页处理后,再返回回来
+        PageResult pageResult = boardService.sortPageByAdmin(boards, currentPage, pageSize);
+        boards = pageResult.getNewPage();
+        map.addAttribute("pageResult", pageResult);
         map.addAttribute("boards", boards);
         return "admin/board/list";
     }

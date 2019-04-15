@@ -168,10 +168,8 @@
                     <div id="person_apply" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/apply" class="">申请版主</a></li>
-                                <li><a href="#" class="">申请区主</a></li>
-                                <li><a href="#" class="">申请贴子置顶</a></li>
-                                <li><a href="#" class="">申请公版展示</a></li>
+                                <li><a href="/person/apply" class="">申请</a></li>
+                                <li><a href="/person/apply/progress" class="">进度</a></li>
                             </ul>
                         </div>
                     </div>

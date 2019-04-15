@@ -236,7 +236,6 @@
                 <span class="text-danger">收藏贴子</span>
                 <span class="text-info pull-right">条数:${posts.size()}</span>
             </p>
-
             <c:choose>
                 <c:when test="${not empty posts}">
                     <c:forEach items="${posts}" var="p" varStatus="i">
@@ -261,7 +260,13 @@
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
-
+                    <div class="row" style="margin-top: 100px">
+                        <div class="col-md-offset-4 col-md-4">
+                            <h4>
+                                暂无收藏的贴子，前去 <a href="/index">浏览</a>
+                            </h4>
+                        </div>
+                    </div>
                 </c:otherwise>
             </c:choose>
         </div>

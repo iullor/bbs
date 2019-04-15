@@ -8,7 +8,95 @@
         <option name="genServiceInterfacePath" value="$PROJECT_DIR$/src/main/java/com/gyl/test" />
         <option name="genServicePath" value="$PROJECT_DIR$/src/main/java/com/gyl/test" />
         <option name="genSqlFilePath" value="$PROJECT_DIR$/src/main/java/com/gyl/test" />
+        <option name="generateService" value="true" />
+        <option name="insertSelectiveMethodEnabled" value="false" />
+        <option name="javaMapperPackage" value="com.gyl.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/src/main/java" />
+        <option name="javaModelPackage" value="com.gyl.entity" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/src/main/java" />
         <option name="javaToCrudShouldGenerateServiceInterface" value="false" />
+        <option name="lastDatabaseCrudChooseModuleName" value="bbs" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="bbs">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.gyl.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="javaModelPacakge" value="com.gyl.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="javaServicePackage" value="com.gyl.service" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="xmlPackage" value="com.gyl.mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/src/main/resources/mapper" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="test_bbs:t1">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="T1" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="test_bbs:t_apply">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="Apply" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="test_bbs:t_broken_rules">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="BrokenRules" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="test_bbs:t_check">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="Check" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="test_bbs:t_options">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="Option" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+        <option name="xmlMapperPackage" value="com.gyl.mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/src/main/resources/mapper" />
       </ProjectProfile>
     </option>
   </component>

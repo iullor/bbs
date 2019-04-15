@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gyl.mapper.AreaMapper">
+
     <resultMap id="areaResultMap" type="com.gyl.entity.Area">
         <id property="id" column="id"/>
         <result property="areaTitle" column="area_title"/>
@@ -24,6 +25,21 @@
             <result property="createTime" column="create_time"/>
         </collection>
     </resultMap>
+
+    <!--把字段抽取出来-->
+    <sql id="base_column">
+                area.id,
+                area.area_title,
+                area.create_time,
+                area.info,
+                area.user_id,
+                area.details,
+                area.board_id,
+                board.id,
+                board.board_title,
+                user.id,
+                user.username
+    </sql>
 
     <select id="list" resultMap="areaResultMap">
            select
@@ -90,6 +106,8 @@
             <result property="createTime" column="post_create_time"/>
             <result property="userId" column="post_user_id"/>
             <result property="comm" column="post_comments"/>
+            <result property="up" column="up"/>
+            <result property="secret" column="secret"/>
         </collection>
     </resultMap>
 
@@ -110,19 +128,59 @@
            post.post_title as post_title,
            post.create_time as post_create_time,
            post.user_id as post_user_id,
-           post.comments as post_comments
+           post.comments as post_comments,
+           post.up as up,
+           post.secret
         from
            test_bbs.t_area a
                   left outer join  test_bbs.t_board b    on  a.board_id = b.id
                   left outer join  test_bbs.t_user u     on a.user_id = u.id
                   left outer join  test_bbs.t_post post  on a.id=post.area_id
-        where a.id=#{id} and post.secret=0;
+        where a.id=#{id} and post.secret&lt;1 order by post.up desc , post.create_time desc ;
     </select>
 
     <!--
-        通过boardId来查询areas
+        先查出所有的boardId，之后再子查询出所有的来查询areas
     -->
     <select id="getAreasByBoardId" resultType="com.gyl.entity.Area">
         select * from test_bbs.t_area where board_id=#{boardId};
+    </select>
+    <select id="listAreasByAllBoardId" resultMap="areaResultMap">
+            select area.id,
+                area.area_title,
+                area.create_time,
+                area.info,
+                area.user_id,
+                area.details,
+                area.board_id,
+                board.id,
+                board.board_title,
+                user.id,
+                user.username
+            from test_bbs.t_area area,
+                 test_bbs.t_user user,
+                 test_bbs.t_board board
+            where board_id in (
+                select b.id from test_bbs.t_board b
+                        where panel_id in (
+                            select id from test_bbs.t_panel where user_manager_id = #{id}))
+            and area.user_id = user.id
+            and area.board_id = board.id;
+    </select>
+
+    <!--根据版主的id查询，他管理的board下的分区-->
+    <select id="listAreasByManagerId" resultMap="areaResultMap">
+        select
+        <include refid="base_column"/>
+        from test_bbs.t_area area,
+        test_bbs.t_board board,
+        test_bbs.t_user user
+        where board.user_id = #{id}
+        and area.board_id = board.id
+        and user.id = area.user_id;
+    </select>
+
+    <select id="selectAreasPage">
+
     </select>
 </mapper>

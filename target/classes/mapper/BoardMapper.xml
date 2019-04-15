@@ -79,4 +79,57 @@
         from test_bbs.t_board b,test_bbs.t_area a
         where b.id =a.board_id;
     </select>
+
+    <resultMap id="listBoards1" type="com.gyl.entity.Board">
+        <id column="id" property="id"/>
+        <result column="board_title" property="boardTitle"/>
+        <result column="create_time" property="createTime"/>
+        <result column="board_type" property="boardType"/>
+        <result column="user_id" property="boardManagerId"/>
+        <result column="panel_id" property="panelId"/>
+        <result column="logo_path" property="logoPath"/>
+        <result column="info" property="info"/>
+        <result column="details" property="details"/>
+        <result column="username" property="user.username"/>
+        <result column="panel_title" property="panel.title"/>
+    </resultMap>
+    <select id="listBoardByPanelId" resultMap="listBoards1">
+       select
+               board.id          as id,
+               board.board_title as boardTitle,
+               board.create_time as createTime,
+               board.board_type  as boardType,
+               board.user_id     as boardManagerId,
+               board.panel_id    as panelId,
+               board.logo_path   as logoPath,
+               board.info        as info,
+               board.details     as details,
+               user.username as username,
+               panel.title as panel_title
+        from test_bbs.t_board board,
+             test_bbs.t_user user,
+             test_bbs.t_panel panel
+        where board.panel_id in (
+               select id as panel_id
+               from test_bbs.t_panel p
+               where p.user_manager_id =#{id} )
+         and user.id = board.user_id and panel.id=board.panel_id;
+    </select>
+    <select id="getBoardByManagerId" resultMap="listBoards1">
+         select board.id          as id,
+                board.board_title as boardTitle,
+                board.create_time as createTime,
+                board.board_type  as boardType,
+                board.user_id     as boardManagerId,
+                board.panel_id    as panelId,
+                board.logo_path   as logoPath,
+                board.info        as info,
+                board.details     as details,
+                user.username     as username,
+                panel.title as panel_title
+        from test_bbs.t_board board,
+             test_bbs.t_user user,
+             test_bbs.t_panel panel
+        where board.user_id = #{id} and user.id =board.user_id and board.panel_id=panel.id
+    </select>
 </mapper>

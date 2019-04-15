@@ -1,6 +1,7 @@
 package com.gyl.service;
 
 import com.gyl.commons.UUIDString;
+import com.gyl.commons.page.PageResult;
 import com.gyl.entity.Board;
 import com.gyl.entity.Panel;
 import com.gyl.entity.Post;
@@ -18,6 +19,7 @@ import java.util.List;
 
 
 @Service
+@SuppressWarnings("all")
 public class PanelService {
     @Autowired
     private PanelMapper panelMapper;
@@ -96,7 +98,6 @@ public class PanelService {
                 board.setPosts(posts);
             }
         }
-
         return panels;
     }
 
@@ -111,5 +112,29 @@ public class PanelService {
         List<Post> posts = postMapper.selecthotPostsByPanelId(pid);
         panel.setHotPosts(posts);
         return panel;
+    }
+
+    /**
+     * 根据管理员的id来查他管理的panel
+     *
+     * @param id
+     * @return
+     */
+    public List<Panel> listByPanelManagerId(String id) {
+        return panelMapper.listByPanelManagerId(id);
+    }
+
+    public PageResult sortPageByAdmin(List<Panel> panels, Integer currentPage, Integer pageSize) {
+        int count = panels.size();
+        //需要怎么分,当前页是几,每页分几条,客户端传递过来,传给pageReasult对象,它帮你计算,下一个集合是什么
+        PageResult pageResult = new PageResult(panels, count, currentPage, pageSize);
+        int beginIndex = (currentPage - 1) * pageSize;
+        //动态设置索引,因为可能越界,这里判断如果索引大于总长度的话,就让他等于list集合的总长度
+        int endIndex = ((currentPage - 1) * pageSize + pageSize) > (panels.size()) ? (panels.size()) : ((currentPage - 1) * pageSize + pageSize);
+        //设置为空
+        for (int i = beginIndex; i < endIndex; i++) {
+            pageResult.getNewPage().add(panels.get(i));
+        }
+        return pageResult;
     }
 }

@@ -160,6 +160,8 @@
         from test_bbs.t_panel p,test_bbs.t_board b
         where p.id=b.panel_id order by p.create_time asc;
     </select>
-
+    <select id="listByPanelManagerId" resultMap="listPanel1">
+        select * from test_bbs.t_panel p where p.user_manager_id=#{id} order by p.create_time desc;
+    </select>
 
 </mapper>

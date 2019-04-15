@@ -1,108 +1,84 @@
 package com.gyl.controller.admin;
 
+import com.gyl.entity.Panel;
+import com.gyl.entity.User;
+import com.gyl.service.BoardService;
+import com.gyl.service.PanelService;
+import com.gyl.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
+ * admin 的控制
+ *
  * @author gyl
  */
 
 @Controller
-@RequestMapping(value = "/admin")
 public class AdminController {
+
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private PanelService panelService;
+    @Autowired
+    private BoardService boardService;
+
     /**
-     * 控制页面主页
+     * 登录验证登录页面
      *
      * @return
      */
-    @RequestMapping("/main")
-    public String toAdminMain() {
-        System.out.println("AdminController.toAdmin");
-        return "admin/main";
-    }
-
-    @RequestMapping("/public")
-    public String toAdminPublic() {
-        return "admin/public";
-    }
-
-    @RequestMapping("/info")
-    public String toAdminInfo() {
-        return "admin/info";
-    }
-
-
-    @RequestMapping("/area/edit")
-    public String toAreaEdit() {
-        return "admin/area/edit";
-    }
-
-    @RequestMapping("/area/list")
-    public String toAreaList() {
-        return "admin/area/list";
-    }
-
-    @RequestMapping("/board/edit")
-    public String toBoardEdit() {
-        return "admin/board/edit";
-    }
-
-    @RequestMapping("/board/list")
-    public String toBoardList() {
-        return "admin/board/list";
-    }
-
-    @RequestMapping("/examination/list")
-    public String toExaminationEdit() {
-
-        return "admin/examination/list";
-    }
-
-    @RequestMapping("/feedback/edit")
-    public String toFeedbackEdit() {
-        return "admin/feedback/edit";
-    }
-
-    @RequestMapping("/feedback/list")
-    public String toFeedbackList() {
-        return "admin/feedback/list";
+    @RequestMapping(value = "/admin/chcekLogon", method = RequestMethod.POST)
+    public String checkLogon(String username, String password, HttpServletRequest request) {
+        if (username != null && password != null) {
+            User user = userService.adminLogon(username, password);
+            if (user != null) {
+                request.getSession().setAttribute("ADMIN_USER", user);
+                int role = user.getUserAccountStatus().getRole();
+                return "redirect:/admin/main";
+            } else {
+                return "redirect:/admin/logon";
+            }
+        }
+        return "redirect:/admin/logon";
     }
 
 
-    @RequestMapping("/permission/edit")
-    public String toPermissionEdit() {
-        return "admin/permission/edit";
-    }
-
-    @RequestMapping("/permission/list")
-    public String toPermissionList() {
-        return "admin/permission/list";
-    }
-
-    @RequestMapping("/post/edit")
-    public String toPostEdit() {
-        return "admin/post/edit";
-    }
-
-    @RequestMapping("/post/list")
-    public String toPostList() {
-        return "admin/post/list";
-    }
-
-    @RequestMapping("/shield/edit")
-    public String toShieldEdit() {
-        return "admin/shield/edit";
-    }
-
-    @RequestMapping("/shield/list")
-    public String toShieldList() {
-        return "admin/shield/list";
+    /**
+     * 注销登录
+     *
+     * @return
+     */
+    @RequestMapping(value = "/admin/logout")
+    public String logoutAdmin(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "redirect:/admin/logon";
     }
 
 
-    @RequestMapping("/user/toAdd")
-    public String toUserAddUser() {
-        return "admin/user/addUser";
+    /**
+     *
+     */
+    @RequestMapping(value = "/admin/main")
+    public String main() {
+        return "/admin/main";
     }
 
+    /**
+     * 前往admin 登录页面
+     *
+     * @return
+     */
+    @RequestMapping("/admin/logon")
+    public String resetPassowrd() {
+        return "/admin_logon";
+    }
 }

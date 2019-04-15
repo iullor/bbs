@@ -9,12 +9,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
- * 用户控制的controller
+ * 用户注册登录
+ * controller
  *
  * @author gyl
  */
@@ -24,108 +27,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     /**
-     * admin的操作
-     */
-    @RequestMapping(value = "/admin/user", method = RequestMethod.GET)
-    public String list(ModelMap map) {
-        List<User> users = userService.list();
-        map.addAttribute("users", users);
-        return "admin/user/list";
-
-    }
-
-    @RequestMapping(value = "/admin/user", method = RequestMethod.PUT)
-    public String update(User user) {
-        userService.selectUserById(user.getId());
-        int status = userService.update(user);
-        return "redirect:/admin/user";
-    }
-
-    @RequestMapping(value = "/admin/user/{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable("id") String id) {
-        int stauts = userService.delete(id);
-        return "redirect:/admin/user";
-    }
-
-
-    /**
-     * 以下三个都是查询，最好把当前的user，传递过来
-     * <p>
-     * 后期再做优化，同过id去查user
-     *
-     * @return
-     */
-    @RequestMapping(value = "/admin/user/loginStatus/{id}", method = RequestMethod.GET)
-    public String loginStatus(@PathVariable("id") String id, ModelMap map) {
-        User user = userService.selectUserById(id);
-        map.addAttribute("user", user);
-        return "admin/user/loginStatus";
-    }
-
-
-    /**
-     * 查看用户基本信息
-     *
-     * @param id
-     * @param map
-     * @return
-     */
-    @RequestMapping(value = "/admin/user/userBaseInfo/{id}", method = RequestMethod.GET)
-    public String userBaseInfo(@PathVariable("id") String id, ModelMap map) {
-        User user = userService.selectUserById(id);
-        map.addAttribute("user", user);
-        return "admin/user/userBaseInfo";
-    }
-
-    /**
-     * 后台添加的
-     *
-     * @param user
-     * @return
-     */
-    @RequestMapping(value = "/admin/user/add", method = RequestMethod.POST)
-    public String addUserByAdmin(User user) {
-        System.out.println("admin 添加的user");
-        int add = userService.add(user);
-        return "redirect:/admin/user";
-    }
-
-
-    /**
-     * 更新账户状态
-     *
-     * @param id
-     * @return
-     */
-    @RequestMapping(value = "/admin/user/updateUserAccountStatus")
-    public String updateUserStatus(String id, UserAccountStatus userAccountStatus) {
-        User user = userService.selectUserById(id);
-
-        /**
-         * 如果前台为选中on
-         */
-        if (userAccountStatus.getAllowComment() != null && userAccountStatus.getAllowComment().equals("on")) {
-            userAccountStatus.setAllowComment("1");
-        } else {
-            userAccountStatus.setAllowComment("0");
-        }
-        if (userAccountStatus.getAllowPost() != null && userAccountStatus.getAllowPost().equals("on")) {
-            userAccountStatus.setAllowPost("1");
-        } else {
-            userAccountStatus.setAllowPost("0");
-        }
-        user.setUserAccountStatus(userAccountStatus);
-        user.getUserBaseInfo();
-        user.getUserLoginInfo();
-        userService.update(user);
-        return "redirect:/admin/user";
-    }
-
-
-    /**
-     * 用户注册
+     * 用户注册,发送一条激活邮件
      *
      * @return
      */
@@ -133,8 +36,9 @@ public class UserController {
     public String add(User user) {
         System.out.println("普通注册的用户");
         int add = userService.add(user);
-        return "redirect:/logon";
+        return "redirect:/account/activeInfo";
     }
+
 
     @RequestMapping(value = "/user/updateAccount", method = RequestMethod.PUT)
     public String updateAccount(User user, HttpServletRequest request) {
@@ -148,7 +52,70 @@ public class UserController {
         user1.getUserBaseInfo().setHeadImage(user.getUserBaseInfo().getHeadImage());
         int status = userService.update(user1);
         request.getSession().invalidate();
+        return "redirect:/account/activeInfo";
+    }
+
+    /**
+     * 页面跳转到首页
+     *
+     * @return
+     */
+    @RequestMapping("/logon")
+    public String toLogon() {
+
+        return "logon";
+    }
+
+    /**
+     * 用户登录
+     *
+     * @return
+     */
+    @RequestMapping(value = "/checkLogon", method = RequestMethod.GET)
+    public String login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, HttpServletRequest request) {
+
+        Map<String, Object> userInfo = userService.checkUser(username, password);
+        request.getSession().setAttribute("USER_STATUS", userInfo.get("USER_STATUS"));
+        if (userInfo.get("user") != null) {
+            request.getSession().setAttribute("CURRENT_USER", userInfo.get("user"));
+            return "redirect:/index";
+        }
         return "redirect:/logon";
+    }
+
+    /**
+     * 用户注销
+     *
+     * @return
+     */
+    @RequestMapping(value = "/logout")
+    public String logout(HttpServletRequest request) {
+        //清空session
+        request.getSession().invalidate();
+        return "logon";
+    }
+
+
+    /**
+     * 用户跳转到注册页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/register")
+    public String toRegister() {
+
+        return "register";
+    }
+
+
+    /**
+     * 重置密码
+     *
+     * @return
+     */
+    @RequestMapping("/resetPassword")
+    public String resetPassowrd() {
+        return "/reset_password";
     }
 
 }

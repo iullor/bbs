@@ -147,7 +147,7 @@
                         <div class="col-md-7" style="margin-top: 20px;">
                             <p>版主：${area.user.nickName}</p>
                             <p>板块信息：${area.details}</p>
-                            <p>创建时间：<f:formatDate value="${area.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                            <p>创建时间：<f:formatDate value="${area.createTime}" pattern="yyyy-MM-dd"/></p>
                             <p>
                                 <span>在线:2 人</span>&nbsp;&nbsp;&nbsp;
                                 <span>贴子数:${area.posts.size()}</span>
@@ -185,12 +185,17 @@
                                 <c:forEach items="${area.posts}" var="p" varStatus="i">
                                     <tr class="row">
                                         <td class="col-md-1 text-left">
-                                            <button class="label-top">置顶${i.index+1}</button>
+                                            <c:if test="${p.up==1}">
+                                                <button class="label-top">置顶</button>
+                                            </c:if>
+                                            <c:if test="${p.up!=1}">
+                                                ${i.index+1}层
+                                            </c:if>
                                         </td>
-                                        <td class="col-md-6"><a href="/post/${p.id}">${p.postTitle}</a>
+                                        <td class="col-md-5"><a href="/post/${p.id}">${p.postTitle}</a>
                                         </td>
-                                        <td class="col-md-1">
-                                            <img src="/images/路飞.jpg" class="post_user"
+                                        <td class="col-md-2">
+                                            <img src="" class="showUserHeadImg"
                                                  value="${p.user.userBaseInfo.headImage}" width="25"
                                                  height="25" style="margin-left: -10px">
                                                 ${p.user.nickName}
@@ -361,19 +366,6 @@
                 }
             });
         }
-
-        /*
-        * 显示发帖人照片
-        *
-        * */
-        $(".post_user").each(function () {
-            var headImg = $(this).attr("value");
-            let beginIndex = headImg.indexOf("/webapp/") + 7;
-            let endIndex = headImg.length;
-            let src = headImg.substring(beginIndex, endIndex);
-            $(this).attr("src", src);
-        })
-
 
     })
     $("tbody>tr").click(function () {

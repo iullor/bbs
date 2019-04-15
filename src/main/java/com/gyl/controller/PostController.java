@@ -2,6 +2,7 @@ package com.gyl.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.gyl.commons.page.PageResult;
 import com.gyl.entity.*;
 import com.gyl.service.BoardService;
 import com.gyl.service.CommentService;
@@ -38,29 +39,40 @@ public class PostController {
      * @return
      */
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
-    public String list(@PathVariable("id") String id, Model model, HttpServletRequest request) {
+    public String list(@PathVariable("id") String id, Model model, HttpServletRequest request, Integer currentPage, Integer pageSize) {
+        if (currentPage == null || pageSize == null) {
+            //默认值
+            currentPage = 1;
+            pageSize = 5;
+        }
         Post post = postService.listById(id);
         //设置观看度，没点击一次就加1
         post.setParticipants(post.getParticipants() + 1);
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
+        if (user != null) {
+            int status = postService.listPraiseById(user.getId(), id);
+            //登录后看看是否点过赞
+            if (status > 0) {
+                model.addAttribute("hasPraised", "hasPraised");
+            }
+        }
         int a = postService.update(post);
         //显示所有的评论,以及下面所有的回复
-        int status = postService.listPraiseById(user.getId(), id);
         post = postService.listById(id);
-        if (status > 0) {
-            model.addAttribute("hasPraised", "hasPraised");
-        }
-        List<Comment> comments = commentService.listCommentsByPostId(id);
+        //分页的信息
+        PageResult pageResult = commentService.pageCommentsByPostId(id, currentPage, pageSize);
+        //找到被分过页的评论
+        List<Comment> comments = pageResult.getNewPage();
         for (Comment comment : comments) {
             List<Reply> replies = replyService.listReplyByCommentId(comment.getId());
             comment.setReplyNumber(comment.getReplies().size());
             comment.setReplies(replies);
         }
         post.setComments(comments);
+        model.addAttribute("pageResult", pageResult);
         model.addAttribute("post", post);
         return "/foreground/post/post_list";
     }
-
 
     /**
      * 添加完一个贴子，跳进一个区，贴子的列表

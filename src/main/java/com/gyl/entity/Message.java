@@ -90,4 +90,5 @@ public class Message {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

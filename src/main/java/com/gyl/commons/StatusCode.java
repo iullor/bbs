@@ -11,6 +11,31 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class StatusCode {
+
+
+
+    /*
+     *
+     * 用户申请的
+     * 未读              0
+     * 撤销             1
+     * 待审核            2
+     * 审核通过         3
+     * 审核拒绝         4
+     * 忽略(时间大于7天，状态变成超时)   5
+     * 超时                  6
+     *  状态，待审核，审核通过，审核拒绝，超时，忽略(时间大于7天，状态变成超时)
+     * */
+
+    public static final Integer UNREAD_CHECK = 0;
+    public static final Integer CANCEL_CHECK = 1;
+    public static final Integer WAIT_CHECK = 2;
+    public static final Integer PASS_CHECK = 3;
+    public static final Integer REFUSE_CHECK = 4;
+    public static final Integer IGNORE_CHECK = 5;
+    public static final Integer OVERTIEM_CHECK = 6;
+
+
     /**
      * 用户相关
      * USER_EXIT 用户存在
@@ -38,6 +63,7 @@ public class StatusCode {
     public static final String SYSTEM_RUN = "200";
     public static final String SYSTEM_ERROR = "201";
     public static final String NOT_ASSCESS = "202";
+
 
 
     /**

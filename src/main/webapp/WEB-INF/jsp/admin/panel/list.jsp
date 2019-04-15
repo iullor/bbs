@@ -22,33 +22,21 @@
     <hr style=" margin-top: 70px;margin-bottom: 15px;">
     <%--操作栏--%>
     <div class="row">
-        <%--  <div class="col-md-1" style="margin-top: 10px">
-              <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">后退</span></a>
-          </div>
-          <div class="col-md-1" style="margin-top: 10px">
-              <a href=""><span class="glyphicon glyphicon-arrow-right" id="go">前进</span></a>
-          </div>--%>
-
-        <div class="col-md-offset-5 col-md-1">
-            <a href="/admin/panel/input/0">
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
-                </button>
-            </a>
-        </div>
-        <%--排序--%>
-        <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
-            时间&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
-        </div>
-        <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
-            热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+        <div class="col-md-1">
+            <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role==1}">
+                <a href="/admin/panel/input/0">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
+                    </button>
+                </a>
+            </c:if>
         </div>
         <form action="/admin/panel/searchByPanelTitle" method="get">
-            <div class="col-md-2">
+            <div class="col-md-offset-7 col-md-2">
+
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
                 </div>
+
             </div>
             <div class="col-md-1">
                 <button id="search" type="submit" class="btn btn-default">查找<span
@@ -119,40 +107,62 @@
                     </tbody>
                 </table>
             </div>
-            <div class="panel-footer">
-                <nav class="Page navigation text-center">
-                    <ul class="pagination">
-                        <li class="disabled">
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        <li>
-                            <input type="text" class="form-text">&nbsp;/100
-                            <input type="button" class="btn btn-success" value="跳转"/>
-                        </li>
-                    </ul>
-                </nav>
+            <div id="foot" class="row panel-footer panel-default">
+                <div class="col-md-offset-4 col-md-4">
+                    <nav class="Page navigation">
+                        <ul class="pagination">
+                            <li id="firstPage" style="margin-right: 20px">
+                                <a href="javascript:goPage(1)" aria-label="Previous">
+                                    <span aria-hidden="true">首页</span>
+                                </a>
+                            </li>
+                            <%--class="${pageResult.currentPage==1?'disabled':''}"--%>
+                            <li id="prevPage">
+                                <a href="javascript:goPage(1)" aria-label="Previous">
+                                    上一页
+                                </a>
+                            </li>
+                            <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}" var="pageNumber">
+                                <li class="${pageNumber==pageResult.currentPage?'active':''}">
+                                    <a href="javascript:goPage(${pageNumber})">${pageNumber}</a>
+                                </li>
+                            </c:forEach>
+                            <%--class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}"--%>
+                            <li id="nextPage">
+                                <a href="javascript:goPage(${pageResult.nextPage})" aria-label="Previous">
+                                    下一页
+                                </a>
+                            </li>
+                            <li id="lastPage" class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
+                                <a href="javascript:goPage(${pageResult.totalPage})">
+                                    末页
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
+                    <%--跳转的框--%>
+                    <form id="goPage" action="/admin/panel" method="get">
+                        <input type="hidden" name="currentPage">
+                        <input type="hidden" name="pageSize">
+                    </form>
+                    <div id="toPage">
+                        <input type="text" name="toPage" class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
+                        <button type="button" class="btn btn-success">跳转</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <script>
+    function goPage(pageNumber) {
+        $(":hidden[name='currentPage']").val(pageNumber);
+        $(":hidden[name='pageSize']").val(2);
+        $("#goPage").submit();
+    }
+
     $(function () {
         $("#searchAll").on("click", function () {
             window.location.href = "/admin/panel"
@@ -189,9 +199,36 @@
             alert("更新成功")
         }
 
-
+        //分页一些东西的隐藏与显示
+        let search = ${pageResult.totalPage};
+        //如果只有一页,隐藏所有
+        if (search < 2) {
+            $("#foot").hide();
+        }
+        //如果当前页等于第一页,那么隐藏上一页的按钮
+        let currentPage =${pageResult.currentPage};
+        if (currentPage === 1) {
+            $("#prevPage").hide();
+        }
+        //如果当前页,等于最后一页,那么隐藏下一页
+        let endPages = ${pageResult.endIndex};
+        if (endPages === currentPage) {
+            $("#nextPage").hide();
+        }
+        $("#toPage>button").on("click", function () {
+            let toPage = $("input[name='toPage']").val();
+            if (toPage !== null && toPage !== '' && toPage !== 'undefined') {
+                let endPage = ${pageResult.totalPage};
+                if (endPage + 1 > toPage) {
+                    goPage(toPage);
+                } else {
+                    alert("请输入正确的页码");
+                }
+            } else {
+                alert("请输入页码");
+            }
+        });
     })
-
 </script>
 </body>
 </html>

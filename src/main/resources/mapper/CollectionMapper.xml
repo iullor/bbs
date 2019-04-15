@@ -105,7 +105,6 @@
            and tmp.id = c.area_id;
     </select>
 
-
     <!--根据当前用户的id查看关注了多少用户-->
     <resultMap id="myCollectionUsers" type="com.gyl.entity.Collection">
         <result property="user.id" column="user_id"/>

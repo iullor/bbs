@@ -147,7 +147,7 @@
                         <div class="col-md-7" style="margin-top: 20px;">
                             <p>版主：${area.user.nickName}</p>
                             <p>板块信息：${area.details}</p>
-                            <p>创建时间：<f:formatDate value="${area.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                            <p>创建时间：<f:formatDate value="${area.createTime}" pattern="yyyy-MM-dd"/></p>
                             <p>
                                 <span>在线:2 人</span>&nbsp;&nbsp;&nbsp;
                                 <span>贴子数:${area.posts.size()}</span>
@@ -185,12 +185,17 @@
                                 <c:forEach items="${area.posts}" var="p" varStatus="i">
                                     <tr class="row">
                                         <td class="col-md-1 text-left">
-                                            <button class="label-top">置顶${i.index+1}</button>
+                                            <c:if test="${p.up==1}">
+                                                <button class="label-top">置顶</button>
+                                            </c:if>
+                                            <c:if test="${p.up!=1}">
+                                                ${(pageResult.currentPage-1)*pageResult.pageSize+i.index+1}层
+                                            </c:if>
                                         </td>
-                                        <td class="col-md-6"><a href="/post/${p.id}">${p.postTitle}</a>
+                                        <td class="col-md-5"><a href="/post/${p.id}">${p.postTitle}</a>
                                         </td>
-                                        <td class="col-md-1">
-                                            <img src="/images/路飞.jpg" class="post_user"
+                                        <td class="col-md-2">
+                                            <img src="" class="showUserHeadImg"
                                                  value="${p.user.userBaseInfo.headImage}" width="25"
                                                  height="25" style="margin-left: -10px">
                                                 ${p.user.nickName}
@@ -205,34 +210,54 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="panel-footer panel-default">
-                            <nav class="Page navigation text-center">
-                                <ul class="pagination">
-                                    <li class="disabled">
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">6</a></li>
-                                    <li><a href="#">7</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li><a href="#">9</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <input type="text" class="form-text">&nbsp;/100
-                                        <input type="button" class="btn btn-success" value="跳转"/>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <div id="footPage" class="row panel-footer panel-default">
+                            <div class="col-md-offset-4 col-md-4">
+                                <nav class="Page navigation">
+                                    <ul class="pagination">
+                                        <li id="firstPage" style="margin-right: 20px">
+                                            <a href="javascript:goPage(1)" aria-label="Previous">
+                                                <span aria-hidden="true">首页</span>
+                                            </a>
+                                        </li>
+                                            <%--class="${pageResult.currentPage==1?'disabled':''}"--%>
+                                        <li id="prevPage">
+                                            <a href="javascript:goPage(1)" aria-label="Previous">
+                                                上一页
+                                            </a>
+                                        </li>
+                                        <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}"
+                                                   var="pageNumber">
+                                            <li class="${pageNumber==pageResult.currentPage?'active':''}">
+                                                <a href="javascript:goPage(${pageNumber})">${pageNumber}</a>
+                                            </li>
+                                        </c:forEach>
+                                            <%--class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}"--%>
+                                        <li id="nextPage">
+                                            <a href="javascript:goPage(${pageResult.nextPage})" aria-label="Previous">
+                                                下一页
+                                            </a>
+                                        </li>
+                                        <li id="lastPage"
+                                            class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
+                                            <a href="javascript:goPage(${pageResult.totalPage})">
+                                                末页
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
+                                    <%--跳转的框--%>
+                                <form id="goPage" action="/area/${area.id}" method="get">
+                                    <input type="hidden" name="currentPage">
+                                    <input type="hidden" name="pageSize">
+                                </form>
+                                <div id="toPage">
+                                    <input type="text" name="toPage"
+                                           class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
+                                    <button type="button" class="btn btn-success">跳转</button>
+                                </div>
+                            </div>
                         </div>
                     </c:when>
                     <c:otherwise>
@@ -362,24 +387,52 @@
             });
         }
 
-        /*
-        * 显示发帖人照片
-        *
-        * */
-        $(".post_user").each(function () {
-            var headImg = $(this).attr("value");
-            let beginIndex = headImg.indexOf("/webapp/") + 7;
-            let endIndex = headImg.length;
-            let src = headImg.substring(beginIndex, endIndex);
-            $(this).attr("src", src);
-        })
-
-
     })
     $("tbody>tr").click(function () {
         let href = $(this).children("td:nth-child(2)").children("a").attr("href");
         window.location.href = href;
     })
+
+
+    //分页的
+    function goPage(pageNumber) {
+        $(":hidden[name='currentPage']").val(pageNumber);
+        $(":hidden[name='pageSize']").val(5);
+        $("#goPage").submit();
+    }
+
+    $(function () {
+        //分页一些东西的隐藏与显示
+        let search = ${pageResult.totalPage};
+        //如果只有一页,隐藏所有
+        if (search < 2) {
+            $("#footPage").hide();
+        }
+        //如果当前页等于第一页,那么隐藏上一页的按钮
+        let currentPage =${pageResult.currentPage};
+        if (currentPage === 1) {
+            $("#prevPage").hide();
+        }
+        //如果当前页,等于最后一页,那么隐藏下一页
+        let endPages = ${pageResult.endIndex};
+        if (endPages === currentPage) {
+            $("#nextPage").hide();
+        }
+        $("#toPage>button").on("click", function () {
+            let toPage = $("input[name='toPage']").val();
+            if (toPage !== null && toPage !== '' && toPage !== 'undefined') {
+                let endPage = ${pageResult.totalPage};
+                if (endPage + 1 > toPage) {
+                    goPage(toPage);
+                } else {
+                    alert("请输入正确的页码");
+                }
+            } else {
+                alert("请输入页码");
+            }
+        });
+    })
+
 </script>
 </body>
 </html>

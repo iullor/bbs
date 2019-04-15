@@ -36,4 +36,15 @@ public interface BoardMapper {
      * @return
      */
     List<Board> selectBoardsByPanelId(@Param(value = "pid") String id);
+
+
+    List<Board> listBoardByPanelId(@Param("id") String id);
+
+    /**
+     * 根据版主的id，来查找他管理的所有的板块的信息
+     *
+     * @param id
+     * @return
+     */
+    List<Board> getBoardByManagerId(@Param("id") String id);
 }

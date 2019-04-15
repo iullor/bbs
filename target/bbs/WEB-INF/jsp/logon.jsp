@@ -14,7 +14,7 @@
 <body>
 <h3>BBS-Student</h3>
 <p class="pull-right" style="margin-top: -40px;margin-right: 30px">
-    <a href="/admin"><span>管理员访问</span></a>
+    <a href="/admin/logon"><span>管理员访问</span></a>
 </p>
 
 <div class="container">
@@ -24,15 +24,12 @@
             <lable><strong>Username</strong></lable>
             <input type="text" class="form-control" name="username">
             <label>Password</label>
-            <span class="text-right"><a href="reset_password.jsp"><small
+            <span class="text-right"><a href="/resetPassword"><small
                     class="pull-right">forget password?</small></a></span>
             <input type="password" class="form-control" name="password">
-            <div class="checkbox text-left">
+            <div class="checkbox text-right">
                 <label>
                     <input type="checkbox" value="remember-me">Remember Me
-                </label>
-                <label>
-                    <input type="checkbox" value="Admin">Admin Login
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Logon</button>
