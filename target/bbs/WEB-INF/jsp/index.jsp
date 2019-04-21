@@ -7,22 +7,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>主页</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--sidebar-left样式-->
-    <link rel="stylesheet" href="../../css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <!--login的模态框-->
-    <link rel="stylesheet" href="../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">--%>
+    <link rel="stylesheet" href="/lib/bxslider/jquery.bxslider.css">
     <!--主样式，覆盖前面的样式-->
-    <link rel="stylesheet" href="../../css/commons/index.css">
+    <link rel="stylesheet" href="/css/commons/index.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <!--=====================js=============================-->
-    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--%>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+   <%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--%>
+    <%--<script src="/lib/jQuery/jquery-2.1.4.min.js"></script>--%>
+    <script src="/lib/jQuery/jquery.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <!--控制侧栏-->
+    <script src="/js/sidebar-left-control.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<%--    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>--%>
+    <script src="/lib/bxslider/jquery.bxslider.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
     <style>
         .glyphicon-fire {
@@ -31,8 +36,7 @@
     </style>
 </head>
 <body>
-<link rel="stylesheet" href="../../css/commons/sidebar_left.css">
-<script src="../../js/sidebar-left-control.js"></script>
+
 <header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
@@ -63,8 +67,8 @@
                     </div>
                 </div>
                 <div class="col-md-2 nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myCircle"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <a href="/person/myCircle"><span class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
@@ -134,37 +138,30 @@
         <div class="row">
             <div class="messageImg">
                 <div class="slider">
-                    <div>
-                        <img src="/images/index/1.jpg" alt="" width="800" height="450">
-                    </div>
-                    <div>
-                        <img src="/images/index/2.jpg" alt="" alt="" width="800" height="450">
-                    </div>
-                    <div>
-                        <img src="/images/index/3.jpg" alt="" alt="" width="800" height="450">
-                    </div>
+                    <c:forEach items="${hotTopics}" var="hotTopic">
+
+                        <div style="position: relative;">
+                            <a href="/public/${hotTopic.id}" target="_blank">
+                                <img src="/images/index/1.jpg" class="showUserHeadImg topicUrlPicture"
+                                     value="${hotTopic.topicPicture}"
+                                     width="800"
+                                     height="450">
+                            </a>
+                        </div>
+
+                    </c:forEach>
                 </div>
             </div>
             <div class="messageTopic">
-                <h3>本站热点</h3>
-                <div class="nowdays-activity">
-                    <h4>二手交易</h4>
-                    <p>
-                        <a href="#"><span class="glyphicon glyphicon-option-vertical"></span>雪山美景</a>
-                    </p>
-                </div>
-                <div class="nowdays-activity">
-                    <h4>西操场面基</h4>
-                    <p>
-                        <a href="#"><span class="glyphicon glyphicon-option-vertical">加入我们吧</span></a>
-                    </p>
-                </div>
-                <div class="nowdays-activity">
-                    <h4>毕业季分手季</h4>
-                    <p>
-                        <a href="#"><span class="glyphicon glyphicon-option-vertical">别说了，上车</span></a>
-                    </p>
-                </div>
+                <h3>热门话题</h3>
+                <c:forEach items="${hotTopics}" var="hotTopic">
+                    <div class="nowdays-activity">
+                        <h4><a href="/public/${hotTopic.id}">${hotTopic.topicTitle}</a></h4>
+                        <p>
+                            <a href="#"><span class="glyphicon glyphicon-option-vertical"></span>雪山美景</a>
+                        </p>
+                    </div>
+                </c:forEach>
             </div>
         </div>
         <div class="row head">
@@ -172,7 +169,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">公共圈子</a></li>
+                            <li><a href="#">话题广场</a></li>
                             <li><a href="#">我的圈子</a></li>
                             <li><a href="#"><span class="sr-only">|</span></a></li>
                             <li class="dropdown">
@@ -428,9 +425,12 @@
             return false;
         })
 
-
         //动态改变宽度.items-content
         /*$(".items-content").css("w")*/
+        $(".topicUrlPicture").on("click", function () {
+            /*$(this).parent("a").click();*/
+            alert()
+        })
     })
 </script>
 </body>

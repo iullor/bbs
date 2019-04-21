@@ -1,10 +1,7 @@
 package com.gyl.service;
 
 import com.gyl.commons.MessageType;
-import com.gyl.entity.Comment;
-import com.gyl.entity.Message;
-import com.gyl.entity.Option;
-import com.gyl.entity.Reply;
+import com.gyl.entity.*;
 import com.gyl.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +34,7 @@ public class MessageService {
         message.setMessage(comment.getCommentContent());
         message.setCreateTime(new Date(System.currentTimeMillis()));
         message.setReadStatus(0);
-        return messageMapper.sendCommentToUser(message);
+        return messageMapper.sendMessages(message);
     }
 
     /**
@@ -111,7 +108,7 @@ public class MessageService {
         message.setReadStatus(0);
         message.setMessage(checkMessages);
         //6，发送
-        return messageMapper.sendCheckMessage(message);
+        return messageMapper.sendMessages(message);
     }
 
     /**
@@ -121,7 +118,7 @@ public class MessageService {
      * @return
      */
     public int sendBrokenRulesMessage(Message message) {
-        return messageMapper.sendBrokenRulesMessage(message);
+        return messageMapper.sendMessages(message);
     }
 
     /**
@@ -138,6 +135,25 @@ public class MessageService {
         message.setCreateTime(new Date(System.currentTimeMillis()));
         message.setMessageType(MessageType.COMMENT_REPLY);
         message.setMessage(reply.getReplyContent());
-        return messageMapper.sendReplyToUser(message);
+        return messageMapper.sendMessages(message);
+    }
+
+    /**
+     * 讨论信息
+     *
+     * @param discuss
+     * @param toUserId
+     * @return
+     */
+    public int sendDiscussToTopicOwner(Discuss discuss, String toUserId) {
+        Message message = new Message();
+        message.setFromUserId(discuss.getUserId());
+        message.setReadStatus(0);
+        message.setToUserId(toUserId);
+        message.setCreateTime(new Date(System.currentTimeMillis()));
+        message.setMessageType(MessageType.MESSAGE_DISCUSS);
+        message.setMessage(discuss.getDiscussContent());
+        return messageMapper.sendMessages(message);
+
     }
 }

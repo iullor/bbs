@@ -46,7 +46,7 @@ public class PostController {
             pageSize = 5;
         }
         Post post = postService.listById(id);
-        //设置观看度，没点击一次就加1
+        //设置观看度，每点击一次就加1
         post.setParticipants(post.getParticipants() + 1);
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
         if (user != null) {

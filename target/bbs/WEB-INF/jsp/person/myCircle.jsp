@@ -6,22 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>公共圈子</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--sidebar-left样式-->
-    <link rel="stylesheet" href="../../css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <!--login的模态框-->
-    <link rel="stylesheet" href="../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
     <!--主样式，覆盖前面的样式-->
-    <link rel="stylesheet" href="../../css/commons/index.css">
+    <link rel="stylesheet" href="/css/commons/index.css">
     <!--=====================js=============================-->
-    <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
     <!--控制侧栏-->
-    <script src="../../js/sidebar-left-control.js"></script>
+    <script src="/js/sidebar-left-control.js"></script>
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <script src="/js/sidebar-left-control.js"></script>
 </head>
 <body>
-<link rel="stylesheet" href="../../css/commons/sidebar_left.css">
-<script src="../../js/sidebar-left-control.js"></script>
 <header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
@@ -95,7 +95,6 @@
 </header>
 <div class="container">
     <div class="row">
-
     </div>
 </div>
 <script>

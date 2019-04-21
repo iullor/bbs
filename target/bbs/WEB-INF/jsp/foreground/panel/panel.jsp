@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>一个panel</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--引入一些样式-->
     <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <link rel="stylesheet" href="/css/commons/top.css">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/panel/panel.css">
     <!--js-->
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
 
 </head>
@@ -114,7 +114,8 @@
                                     <h5 class="panel-title"><span><span class="text-center"><img
                                             src="../../../../images/board/school.svg"
                                             width="25"
-                                            height="25"></span>&nbsp;&nbsp;&nbsp;<a href="../board/board.jsp">学校院系</a></span>
+                                            height="25"></span>&nbsp;&nbsp;&nbsp;<a
+                                            href="../board/board.jsp">学校院系</a></span>
                                         <a href="../board/board.jsp"><span
                                                 class="pull-right glyphicon glyphicon-chevron-right"></span></a>
                                     </h5>
@@ -254,7 +255,8 @@
                                         <label for="username" class="control-label">
                                             <small>用户名</small>
                                         </label>
-                                        <input type="text" class="form-control has-feedback" name="username" id="username">
+                                        <input type="text" class="form-control has-feedback" name="username"
+                                               id="username">
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">

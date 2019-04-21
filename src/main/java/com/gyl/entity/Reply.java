@@ -15,7 +15,14 @@ import java.util.Date;
 public class Reply {
 
     private String id;
+    /**
+     * 对评论的回复
+     */
     private String toCommentId;
+    /**
+     * 对讨论的回复
+     */
+    private String toDiscussId;
     private String replyId;
     private String replyType;
     private String replyContent;
@@ -105,4 +112,11 @@ public class Reply {
         this.user = user;
     }
 
+    public String getToDiscussId() {
+        return toDiscussId;
+    }
+
+    public void setToDiscussId(String toDiscussId) {
+        this.toDiscussId = toDiscussId;
+    }
 }

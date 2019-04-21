@@ -1,125 +1,43 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>公共圈子</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--sidebar-left样式-->
-    <link rel="stylesheet" href="../../css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <!--login的模态框-->
-    <link rel="stylesheet" href="../../css/modal/modal_login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="/css/modal/modal_login.css">
     <!--主样式，覆盖前面的样式-->
-    <link rel="stylesheet" href="../../css/commons/index.css">
-    <link href="/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="/css/commons/index.css">
+    <link rel="stylesheet" href="/css/public.css">
     <!--=====================js=============================-->
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
-    <script src="/lib/jQuery/jquery-ui-1.12.1.custom/jquery-ui.js"/>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <!--控制侧栏-->
-    <script src="../../js/sidebar-left-control.js"></script>
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <script src="/js/sidebar-left-control.js"></script>
+    <script src="/js/sidebar-left-control.js"></script>
     <style>
-        .public-body {
-            margin-top: 80px;
-            width: auto;
-            height: 1000px;
-        }
-
-        .public-body-left {
+        .topic-transfer {
+            height: 250px;
+            border: 1px solid #00a2d4;
+            margin-bottom: 5px;
+            border-radius: 10px;
             background-color: white;
-            height: 1000px;
-            width: auto;
-
         }
 
-        .public-body-left > div:first-child {
-            margin-top: 100px;
-            border-bottom: 1px gray solid;
-        }
-
-        .area {
-            border-radius: 5px;
-            z-index: 5;
-            background-color: #f5f5f5;
-            width: 90%;
-            height: 250px;
-            margin-left: 30px;
-            margin-top: 20px;
-            border-bottom: 1px solid blue;
-        }
-
-        .public-body-right {
-            background-color: white;
-            height: 1000px;
-            width: auto;
-            margin-top: 200px;
-            border-radius: 5px;
-        }
-
-        .hotArea {
-            width: 90%;
-            height: 250px;
-            margin-left: 20px;
-        }
-
-        .hotArea > div:first-child {
-            height: 50px;
-            padding-top: 5px;
-            border-top: 1px solid #2D64B3;
-            background-color: #f5f5f5;
-        }
-
-        .hot1 {
-            text-align: center;
-            height: 40px;
-            border: 1px #f5f5f5 solid;
-            font-size: 18px;
-            padding-top: 8px;
-        }
-
-        .hotUser {
-            width: 90%;
-            height: 250px;
-            margin-left: 20px;
-            margin-top: 50px;
-        }
-
-        .hotUserTitle {
-            height: 50px;
-            padding-top: 5px;
-            border-top: 1px solid #2D64B3;
-            background-color: #f5f5f5;
-        }
-
-        .hot2 {
-            text-align: center;
-            height: 40px;
-            border: 1px #f5f5f5 solid;
-            font-size: 18px;
-            padding-top: 8px;
-        }
-
-        /*==========================*/
-        .trash {
-            position: fixed;
-            width: 50px;
-            height: 800px;
-            bottom: 50px;
-            right: 20px;
-            border: 1px gray solid;
-        }
-
-        .trash img {
-            margin-top: 730px;
+        .topic-transfer:hover {
+            margin-left: 5px !important;
+            transition-duration: 0.3s;
         }
     </style>
 </head>
 <body>
-<link rel="stylesheet" href="../../css/commons/sidebar_left.css">
-<script src="../../js/sidebar-left-control.js"></script>
 <header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
@@ -191,84 +109,229 @@
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="container-fluid">
+    <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+        <div class="col-md-offset-2 col-md-6">
+            <h3 style="color: green">话题广场</h3>
+        </div>
+    </div>
     <div class="row">
-        <div class="public-body">
-            <div class="col-md-8">
-                <div class="public-body-left">
+        <div class="col-md-offset-2 col-md-6">
+            <c:choose>
+                <c:when test="${not empty topics}">
+                    <c:forEach items="${topics}" var="topic">
+                        <div class="row topic-transfer">
+                            <div class="col-md-4" style="margin-top:30px;">
+                                <p style="margin-left: -10px;">
+                                    <a href="/public/${topic.id}">
+                                        <img class="showUserHeadImg tmp1" value="${topic.topicPicture}"
+                                             src="/images/topic/default.png" width="320"
+                                             height="180" alt="点击查看话题">
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="padding-top: 0px;padding-left: 30px">
+                                <div style="height:50px;padding-top: 10px;font-size: 20px;border-bottom: 1px black solid;">
+                                    <p>
+                                        <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                    </p>
+                                </div>
+                                <div style="height: 150px;font-size: 18px;padding-top: 30px">
+                                    <span>
+                                        &nbsp;&nbsp;
+                                        <c:set var="longDescribe" value="${topic.topicDescribe}"/>
+                                        <c:set var="shortDescribe" value="${fn:substring(longDescribe, 0, 130)}"/>
+                                        <c:if test="${topic.topicDescribe.length()>130}">
+                                            ${shortDescribe}...
+                                        </c:if>
+                                        <c:if test="${topic.topicDescribe.length()<130}">
+                                            ${longDescribe}
+                                        </c:if>
+                                    </span>
+                                </div>
+                                <div>
+                                    <p class="text-right" style="padding-top: 4px;">
+                                            <span style="margin-right: 20px;">
+                                                关心 <span class="glyphicon glyphicon-heart-empty"></span>
+                                            </span>
+                                        <span style="margin-right: 50px;">
+                                                创建时间
+                                                <f:formatDate value="${topic.createTime}"
+                                                              pattern="yyyy-MM-dd HH:mm:ss"/>
+                                            </span>
+                                        <span>参与人数&nbsp;</span>
+                                        <span class="glyphicon glyphicon-eye-open"
+                                              style="margin-right: 20px;font-size: 18px;">&nbsp;${topic.topicParticipations}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
+            </c:choose>
+        </div>
+        <div class="col-md-3">
+            <div class="row"
+                 style="border: 1px solid #00a2d4; height: 530px;width: 380px;margin-left: 20px;background-color: white;z-index: -10;border-radius: 1%;">
+                <div style="width: 350px;margin-top: 10px;margin-left: 15px;">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr style="background-color: #f5f5f5;">
+                            <td width="50%" class="text-center">
+                                <a href="/index">主页</a>
+                            </td>
+                            <td width="50%" style="background-color: #4fbaf2;text-align: center">
+                                <a href="/person/myfocus" style="font-size: 18px;color: white;">我关心的&nbsp;<span
+                                        class="glyphicon glyphicon-heart"></span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="border: 1px solid #f5f5f5;border-top: 1px solid rgba(0,0,0,0.19);width: 350px;margin-top: 20px;margin-left: 15px;">
+                    <h4 class="text-center">热门话题</h4>
                     <div>
-                        <h4>广场</h4>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="area ui-widget-content">
-
-                        </div>
-                        <div class="area ui-widget-content">
-                            哈哈哈哈哈
-                        </div>
-                        <div class="area ui-widget-content">
-                            哈哈哈哈哈
-                        </div>
+                        <table width="100%" class="table table-striped table-bordered ">
+                            <tbody>
+                            <tr class="text-center">
+                                <td class="td-transfer"><a href="https://www.baidu.com">NBA季后赛</a></td>
+                                <td class="td-transfer"><a href="#">毕业季</a></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td class="td-transfer"><a href="#">二手交易</a></td>
+                                <td class="td-transfer"><a href="#">摄影大赛</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="public-body-right">
-                    <%--热点小分区--%>
-                    <div class="row">
-                        <div class="hotArea">
-                            <div class="com-md-12 text-center">
-                                <h4>热门板块</h4>
-                            </div>
-                            <div class="col-md-6 hot1">
-                                <a href="#">量子计算机</a>
-                            </div>
-                            <div class="col-md-6 hot1">
-                                <a href="#">光伏电池</a>
-                            </div>
-                            <div class="col-md-6 hot1">
-                                <a href="#">幽默喜剧</a>
-                            </div>
-                        </div>
-                    </div>
-                    <%--热门用户--%>
-                    <div class="row">
-                        <div class="hotUser">
-                            <div class="col-md-12 hotUserTitle text-center">
-                                <h4>热门的用户</h4>
-                            </div>
-                            <div class="hot2 col-md-6">
-                                小狼
-                            </div>
-                            <div class="hot2 col-md-6">
-                                白雪
-                            </div>
-                            <div class="hot2 col-md-6">
-                                泪滴
-                            </div>
-                        </div>
+                <div style="border: 1px solid #f5f5f5;border-top: 2px solid #00c3f5;height: 250px;width: 350px;margin-top: 35px;margin-left: 15px">
+                    <h4 class="text-center">热门板块</h4>
+                    <div>
+                        <table width="100%" class="table table-striped table-bordered">
+                            <tbody>
+                            <tr class="text-center">
+                                <td width="50%">运动会</td>
+                                <td width="50%">夜跑</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td width="50%">运动会</td>
+                                <td width="50%">夜跑</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>运动会</td>
+                                <td>夜跑</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="trash ui-widget-header">
-    <img src="/images/public/trash.png" alt="" height="50" width="50">
+    <div id="topic-foot" class="row panel-footer panel-default">
+        <div class="col-md-offset-3 col-md-4">
+            <nav class="Page navigation">
+                <ul class="pagination">
+                    <li id="firstPage" style="margin-right: 20px">
+                        <a href="javascript:goPage(1)" aria-label="Previous">
+                            <span aria-hidden="true">首页</span>
+                        </a>
+                    </li>
+                    <%--class="${pageResult.currentPage==1?'disabled':''}"--%>
+                    <li id="prevPage">
+                        <a href="javascript:goPage(1)" aria-label="Previous">
+                            上一页
+                        </a>
+                    </li>
+                    <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}" var="pageNumber">
+                        <li class="${pageNumber==pageResult.currentPage?'active':''}">
+                            <a href="javascript:goPage(${pageNumber})">${pageNumber}</a>
+                        </li>
+                    </c:forEach>
+                    <%--class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}"--%>
+                    <li id="nextPage">
+                        <a href="javascript:goPage(${pageResult.nextPage})" aria-label="Previous">
+                            下一页
+                        </a>
+                    </li>
+                    <li id="lastPage" class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
+                        <a href="javascript:goPage(${pageResult.totalPage})">
+                            末页
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-2" style="margin-left:-260px;height: 78px;padding-top: 10px;">
+            <%--跳转的框--%>
+            <form id="goPage" action="/public" method="get">
+                <input type="hidden" name="currentPage">
+                <input type="hidden" name="pageSize">
+            </form>
+            <div id="toPage">
+                <input type="text" name="toPage" class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
+                <button type="button" class="btn btn-success">跳转</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-    $(function () {
-        //animation: myfirst 5s;
-        $(".area").draggable(function () {
+    function goPage(pageNumber) {
+        $(":hidden[name='currentPage']").val(pageNumber);
+        $(":hidden[name='pageSize']").val(3);
+        $("#goPage").submit();
+    }
 
-        });
-        /*$(".trash").droppable({
-            drop: function (event, ui) {
-                $(this).addClass("ui-state-highlight")
+    $(function () {
+        //分页一些东西的隐藏与显示
+        let search = ${pageResult.totalPage};
+        //如果只有一页,隐藏所有
+        if (search < 2) {
+            $("#foot").hide();
+        }
+        //如果当前页等于第一页,那么隐藏上一页的按钮
+        let currentPage =${pageResult.currentPage};
+        if (currentPage === 1) {
+            $("#prevPage").hide();
+        }
+        //如果当前页,等于最后一页,那么隐藏下一页
+        let endPages = ${pageResult.endIndex};
+        if (endPages === currentPage) {
+            $("#nextPage").hide();
+        }
+        $("#toPage>button").on("click", function () {
+            let toPage = $("input[name='toPage']").val();
+            if (toPage !== null && toPage !== '' && toPage !== 'undefined') {
+                let endPage = ${pageResult.totalPage};
+                if (endPage + 1 > toPage) {
+                    goPage(toPage);
+                } else {
+                    alert("请输入正确的页码");
+                }
+            } else {
+                alert("请输入页码");
             }
-        });*/
-    });
+        });
+
+        $(".tmp1").mouseover(function () {
+            $(this).css({
+                "width": "336px",
+                "height": "189px",
+                "z-index": "10"
+            })
+        }).mouseleave(function () {
+            $(this).css({
+                width: "320px",
+                height: "180px",
+                "z-index": "1"
+            })
+        })
+
+        $("tr td").on("click", function () {
+            $(this).children("a").click();
+        })
+    })
 </script>
 </body>
 </html>

@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>编辑贴子</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--top栏样式-->
     <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/commons/commons.css">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="/lib/ueditor/ueditor.config.js"></script>
@@ -267,7 +268,7 @@
         $("input[name='code']").bootstrapSwitch({
             onText: 'on',
             offText: 'off',
-            onInit:function(event,state){
+            onInit: function (event, state) {
                 console.log(this)
                 console.log(event.checked)
             }/*,

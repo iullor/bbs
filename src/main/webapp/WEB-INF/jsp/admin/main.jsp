@@ -6,12 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理页面首页</title>
-    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/admin/admin.css">
     <!--js-->
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
     <style>
         #pageContainer {
@@ -63,14 +62,25 @@
                     </span>
                 </li>
                 <li id="system">
-                    <a href="/admin/info">
+                    <a href="/admin/system/info">
                         <span class="glyphicon glyphicon-cog"></span>系统<span></span>
                     </a>
                 </li>
                 <li id="public">
                     <a href="/admin/public">
-                        <span class="glyphicon glyphicon-list-alt"></span>广场<span></span>
+                        <span class="glyphicon glyphicon-cloud"></span>广场<span></span>
                     </a>
+                </li>
+                <li id="public">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-list-alt"></span>公告版<span class="caret"></span>
+                    </a>
+                    <div>
+                        <ul>
+                            <li><a href="/admin/topic/input/0">新建</a></li>
+                            <li><a href="/admin/topic">列表</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <%--模块管理--%>
                 <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
@@ -240,6 +250,7 @@
         })
 
     })
+
     //切换页面动态跳针iframe 的高
     function setIframeHeight(iframe) {
         if (iframe) {

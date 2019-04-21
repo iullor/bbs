@@ -40,7 +40,7 @@
       r.id as reply_id
       from test_bbs.t_comment c
       left outer join test_bbs.t_user u on u.id=c.user_id
-      left outer join test_bbs.t_comment_reply r on c.id=r.to_comment_id
+      left outer join test_bbs.t_reply r on c.id=r.to_comment_id
       where c.post_id=#{postId}
       order by c.create_time ASC
   </select>

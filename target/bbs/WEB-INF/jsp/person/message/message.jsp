@@ -6,14 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>消息管理</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <!--top栏样式-->
-    <link rel="stylesheet" href="/css/commons/top.css">
-    <link rel="stylesheet" href="/css/person/message/message.css">
+    <%--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
 
+    <link rel="stylesheet" href="/css/person/message/message.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
     <style>
 
@@ -301,6 +300,7 @@
                                     </div>
                                  <hr>
                              {{/for}}
+
                         </script>
                         <div class="row" style="margin-top: 150px;text-align: center;">
                             <h4>暂无新消息</h4>
@@ -358,9 +358,9 @@
         $(".checkAll").on("change", function () {
             //如果全选选中，它下面所有的checkbox 都选中
             if ($(this).is(":checked")) {
-                $("#unRead input[type='checkbox']").attr("checked",true);
-            }else {
-                $("#unRead input[type='checkbox']").attr("checked",false);
+                $("#unRead input[type='checkbox']").attr("checked", true);
+            } else {
+                $("#unRead input[type='checkbox']").attr("checked", false);
             }
 
         })

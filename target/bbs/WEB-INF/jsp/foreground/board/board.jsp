@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>一个panel</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/panel/panel.css">
 
     <!--引入一些样式-->
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="/css/board/board.css">
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
 </head>
 <body>

@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>模块增加</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="/css/admin/admin_pages.css">
     <style>
         #upload_placeholder .glyphicon-plus {
             font-size: 100px;
@@ -174,7 +174,6 @@
                 contentType: false,
                 success: function (data) {
                     if (data.status == 200) {
-
                     }
                 },
                 error: function (e) {

@@ -41,4 +41,16 @@
        insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
         values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
+
+    <insert id="sendReplyToUser">
+         insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+        values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
+    </insert>
+    <insert id="sendMessages">
+         insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+        values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
+    </insert>
+
+
+
 </mapper>

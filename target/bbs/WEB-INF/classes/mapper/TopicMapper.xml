@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyl.mapper.TopicMapper">
+    <resultMap id="BaseResultMap" type="com.gyl.entity.Topic">
+        <id column="id" property="id"/>
+        <result column="topic_title" property="topicTitle"/>
+        <result column="user_id" property="userId"/>
+        <result column="topic_picture" property="topicPicture"/>
+        <result column="topic_describe" property="topicDescribe"/>
+        <result column="create_time" property="createTime"/>
+        <result column="level" property="level"/>
+        <result column="topic_participations" property="topicParticipations"/>
+        <result column="user_id" property="user.id"/>
+        <result column="nick_name" property="user.nickName"/>
+        <result column="head_image" property="user.userBaseInfo.headImage"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, topic_title, user_id, topic_picture, topic_describe, create_time, `level`, topic_participations
+  </sql>
+    <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
+                   select
+                   t.id,
+                   t.topic_title,
+                   t.topic_picture,
+                   t.topic_describe,
+                   t.topic_participations,
+                   t.create_time,
+                   t.level,
+                   u.id as user_id,
+                   u.nick_name,
+                   u.head_image
+            from test_bbs.t_topic t,
+                 test_bbs.t_user u
+            where t.user_id = u.id and  t.id = #{id};
+    </select>
+    <delete id="deleteById" parameterType="java.lang.String">
+    delete from t_topic
+    where id = #{id}
+  </delete>
+    <insert id="add" parameterType="com.gyl.entity.Topic">
+    insert into t_topic (id, topic_title, user_id,
+      topic_picture, topic_describe, create_time, 
+      `level`, topic_participations)
+    values (#{id}, #{topicTitle}, #{userId}, 
+      #{topicPicture}, #{topicDescribe}, #{createTime},
+      #{level}, #{topicParticipations})
+  </insert>
+    <update id="update" parameterType="com.gyl.entity.Topic">
+    update t_topic
+    set topic_title = #{topicTitle},
+      user_id = #{userId},
+      topic_picture = #{topicPicture},
+      topic_describe = #{topicDescribe},
+      create_time = #{createTime},
+      `level` = #{level},
+      topic_participations = #{topicParticipations}
+    where id = #{id}
+  </update>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select * from test_bbs.t_topic where user_id=#{userId} ;
+    </select>
+    <!--查出所有的热门话题-->
+    <select id="list" resultMap="BaseResultMap">
+            select t.id,
+                   t.topic_title,
+                   t.topic_picture,
+                   t.topic_describe,
+                   t.topic_participations,
+                   t.create_time,
+                   t.level,
+                   u.id as user_id,
+                   u.nick_name
+            from test_bbs.t_topic t,
+                 test_bbs.t_user u
+            where t.user_id = u.id and t.level=0;
+    </select>
+    <select id="listHotTopic" resultMap="BaseResultMap">
+            select t.id,
+                   t.topic_title,
+                   t.topic_picture,
+                   t.topic_describe,
+                   t.topic_participations,
+                   t.create_time,
+                   t.level,
+                   u.id as user_id,
+                   u.nick_name
+            from test_bbs.t_topic t,
+                 test_bbs.t_user u
+            where t.user_id = u.id and t.level=1;
+    </select>
+
+    <!--公共话题板块展现的-->
+    <select id="listTopics" resultMap="BaseResultMap">
+            select t.id,
+                   t.topic_title,
+                   t.topic_picture,
+                   t.topic_describe,
+                   t.topic_participations,
+                   t.create_time,
+                   t.level,
+                   u.id as user_id,
+                   u.nick_name
+            from test_bbs.t_topic t,
+                 test_bbs.t_user u
+            where t.user_id = u.id;
+    </select>
+
+
+</mapper>

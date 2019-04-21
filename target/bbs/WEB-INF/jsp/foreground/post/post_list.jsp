@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>post</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/panel/panel.css">
 
     <!--引入一些样式-->
@@ -17,7 +18,7 @@
 
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
 
     <!--动态添加留言的对话框-->
@@ -27,7 +28,6 @@
         .container .glyphicon-comment {
             color: rgba(0, 183, 238, 0.59);
         }
-
         .glyphicon-thumbs-up-done {
             color: rgba(255, 0, 0, 0.97);
         }
@@ -122,8 +122,8 @@
                 <div class="col-md-3">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <a href="#"><img src="/images/路飞.jpg" class="showUserHeadImg"
-                                             value="${post.user.userBaseInfo.headImage}"/></a>
+                            <a href="#">
+                                <img src="/images/路飞.jpg" class="showUserHeadImg" value="${post.user.userBaseInfo.headImage}"/></a>
                             <p><a href="#">${post.user.nickName}</a></p>
                         </div>
                         <div class="panel-border panel-default">
@@ -131,7 +131,7 @@
                             <p class="text-center">
                                             <span id="collectUser" class="glyphicon glyphicon-heart-empty btn btn-info"
                                                   tempClass="glyphicon glyphicon-heart btn btn-success">&nbsp;关注</span>
-                                <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
+                                            <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
                             </p>
                             <p class="text-center">
                                 <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
@@ -199,7 +199,9 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="media-left">
-                                                    <span>${i.index+1}楼</span>
+                                                    <span>
+                                                            ${(pageResult.currentPage-1)*pageResult.pageSize+i.index+1}楼
+                                                    </span>
                                                     <a href="#">
                                                         <img src="/images/哈士奇.jpg" class="showUserHeadImg"
                                                              value="${comment.user.userBaseInfo.headImage}"
@@ -229,7 +231,6 @@
                                                                                     ${comment.replyNumber}</span></a>
                                                                          </span>
                                                             </c:if>
-                                                                <%--<span class="glyphicon glyphicon-thumbs-up good"></span>&nbsp;&nbsp;--%>
                                                             <span class="glyphicon glyphicon-comment reply-comment"
                                                                   CID="${comment.id}"
                                                                   CNickName="${comment.user.nickName}"
@@ -295,7 +296,7 @@
                             </div>
                         </c:forEach>
                         <%--分页--%>
-                        <div id="foot" class="row panel-footer panel-default">
+                        <div id="footPage" class="row panel-footer panel-default">
                             <div class="col-md-offset-4 col-md-4">
                                 <nav class="Page navigation">
                                     <ul class="pagination">
@@ -310,7 +311,8 @@
                                                 上一页
                                             </a>
                                         </li>
-                                        <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}" var="pageNumber">
+                                        <c:forEach begin="${pageResult.beginIndex}" end="${pageResult.endIndex}"
+                                                   var="pageNumber">
                                             <li class="${pageNumber==pageResult.currentPage?'active':''}">
                                                 <a href="javascript:goPage(${pageNumber})">${pageNumber}</a>
                                             </li>
@@ -321,7 +323,8 @@
                                                 下一页
                                             </a>
                                         </li>
-                                        <li id="lastPage" class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
+                                        <li id="lastPage"
+                                            class="${pageResult.endIndex==pageResult.totalPage?'disabled':''}">
                                             <a href="javascript:goPage(${pageResult.totalPage})">
                                                 末页
                                             </a>
@@ -331,12 +334,13 @@
                             </div>
                             <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                                     <%--跳转的框--%>
-                                <form id="goPage" action="/admin/post" method="get">
+                                <form id="goPage" action="/post/${post.id}" method="get">
                                     <input type="hidden" name="currentPage">
                                     <input type="hidden" name="pageSize">
                                 </form>
                                 <div id="toPage">
-                                    <input type="text" name="toPage" class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
+                                    <input type="text" name="toPage"
+                                           class="form-text">&nbsp;/&nbsp;${pageResult.totalPage}
                                     <button type="button" class="btn btn-success">跳转</button>
                                 </div>
                             </div>
@@ -426,6 +430,13 @@
             ]
         }
     );
+    //分页的
+    function goPage(pageNumber) {
+        $(":hidden[name='currentPage']").val(pageNumber);
+        $(":hidden[name='pageSize']").val(5);
+        $("#goPage").submit();
+    }
+
     $(function () {
         $(".comment-textarea").hide();
         $(".glyphicon-comment").on("click", function () {
@@ -441,6 +452,7 @@
             var id = {
                 id: curPostId
             }
+            var tmpSpan=$(this)
             var parten = $(this).attr("class");
             let num = 0;
             if (parten.match("glyphicon-thumbs-up-done") == null) {
@@ -451,11 +463,12 @@
                     data: JSON.stringify(id),
                     success: function (data) {
                         //赋值,修改样式
-                        $(".good-post").next("span").html(data)
+                        $(tmpSpan).next("span").html(data)
+                        $(tmpSpan).addClass("glyphicon-thumbs-up-done");
                     }
                 });
-                console.log(this)
-                $(this).addClass("glyphicon-thumbs-up-done");
+                /*console.log(this)*/
+               /* $(this).addClass("glyphicon-thumbs-up-done");*/
             } else {
                 //取消点赞
                 $.ajax({
@@ -465,11 +478,12 @@
                     data: JSON.stringify(id),
                     success: function (data) {
                         //赋值,修改样式
-                        $(".good-post").next("span").html(data)
+                        $(tmpSpan).next("span").html(data)
+                        $(tmpSpan).removeClass("glyphicon-thumbs-up-done");
                     }
                     //添加样式
                 });
-                $(this).removeClass("glyphicon-thumbs-up-done");
+                /*$(this).removeClass("glyphicon-thumbs-up-done");*/
             }
             //评论
             return false;
@@ -583,11 +597,11 @@
         //显示关注
         //当准备刷新页面的时候,获取当前的用户id,贴子id
         let curUserId = '${sessionScope.CURRENT_USER.id}'
-        console.log(curUserId);
+        //console.log(curUserId);
         let curPostUserId = '${post.userId}'
-        console.log(curPostUserId)
+        //console.log(curPostUserId)
         let curPostId = '${post.id}';
-        console.log(curPostId);
+        //console.log(curPostId);
         //根据用户名和贴子的作者去找
         if (curUserId != null && curPostUserId != null) {
             var obj1 = {
@@ -687,21 +701,12 @@
                 return false;
             })
         }
-    });
 
-    //分页的
-    function goPage(pageNumber) {
-        $(":hidden[name='currentPage']").val(pageNumber);
-        $(":hidden[name='pageSize']").val(10);
-        $("#goPage").submit();
-    }
-
-    $(function () {
         //分页一些东西的隐藏与显示
         let search = ${pageResult.totalPage};
         //如果只有一页,隐藏所有
         if (search < 2) {
-            $("#foot").hide();
+            $("#footPage").hide();
         }
         //如果当前页等于第一页,那么隐藏上一页的按钮
         let currentPage =${pageResult.currentPage};
@@ -726,8 +731,7 @@
                 alert("请输入页码");
             }
         });
-    })
-
+    });
 
 </script>
 </body>

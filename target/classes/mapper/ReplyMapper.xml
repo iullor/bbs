@@ -3,10 +3,10 @@
 <mapper namespace="com.gyl.mapper.ReplyMapper">
 
     <insert id="addReplyToComment">
-        insert into test_bbs.t_comment_reply
-        (id,to_comment_id,reply_id,reply_type,reply_content,from_user_id,to_user_id,create_time)
+        insert into test_bbs.t_reply
+        (id,to_comment_id,reply_id,reply_type,reply_content,from_user_id,to_user_id,create_time,to_discuss_id)
         values
-        (#{id},#{toCommentId},#{replyId},#{replyType},#{replyContent},#{fromUserId},#{toUserId},#{createTime})
+        (#{id},#{toCommentId},#{replyId},#{replyType},#{replyContent},#{fromUserId},#{toUserId},#{createTime},#{toDiscussId} )
     </insert>
     <!--
         通过评论的id 去回复表里查，找到的查回复的用户，和回复信息
@@ -15,6 +15,8 @@
         <id property="id" column="id"/>
         <result property="replyContent" column="reply_content"/>
         <result property="fromUserId" column="from_user_id"/>
+        <result property="toCommentId" column="to_comment_id"/>
+        <result property="toDiscussId" column="to_discuss_id"/>
         <result property="user.id" column="reply_user_id"/>
         <result property="user.nickName" column="nick_name"/>
         <result property="user.userBaseInfo.headImage" column="head_image"/>
@@ -23,13 +25,29 @@
         select
          reply.id as id,
          reply.reply_content,
+         reply.to_comment_id,
+         reply.to_discuss_id,
          reply.from_user_id as from_user_id,
          u.id as reply_user_id,
          u.nick_name as nick_name,
          u.head_image as head_image
-         from test_bbs.t_comment_reply reply
+         from test_bbs.t_reply reply
          left outer join test_bbs.t_user u on u.id =reply.from_user_id
         where reply.to_comment_id =#{id} order by reply.create_time asc;
     </select>
 
+    <select id="listReplyByDiscussId" resultMap="listRepliesUser">
+        select
+            reply.id as id,
+            reply.reply_content,
+            reply.to_comment_id,
+            reply.to_discuss_id,
+            reply.from_user_id as from_user_id,
+            u.id as reply_user_id,
+            u.nick_name as nick_name,
+            u.head_image as head_image
+         from test_bbs.t_reply reply
+             left outer join test_bbs.t_user u on u.id =reply.from_user_id
+        where reply.to_discuss_id =#{discussId}  order by reply.create_time asc;
+    </select>
 </mapper>

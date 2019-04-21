@@ -6,14 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>收藏贴子</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--top栏样式-->
     <link rel="stylesheet" href="/css/commons/top.css">
     <link rel="stylesheet" href="/css/person/person_manager-left.css">
     <link rel="stylesheet" href="/css/person/collection/collection_posts.css">
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <style>
         .collectedPost {
             height: 50px;

@@ -6,13 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <title>个人管理</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--top栏样式-->
-    <link rel="stylesheet" href="../../../../css/commons/top.css">
-    <link rel="stylesheet" href="../../../../css/person/person_manager-left.css">
-    <link rel="stylesheet" href="../../../../css/person/basic_info/person_account.css">
-    <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/commons/top.css">
+    <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    <link rel="stylesheet" href="/css/person/basic_info/person_account.css">
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
 </head>
 <body>
@@ -30,9 +31,6 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/index.jsp">BBS-Student</a>
-                    <!--
-                        搜索框放在导航栏的头，可以在响应式的时候在上面
-                    -->
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="row" style="margin-top: 6px">
@@ -196,14 +194,14 @@
                         <div class="panel-title">
                             <a href="#createMyBoard" data-toggle="collapse"
                                data-parent="#panel-parent"><span
-                                    class="glyphicon glyphicon-cloud"></span><span>我的公版</span></a>
+                                    class="glyphicon glyphicon-cloud"></span><span>话题</span></a>
                         </div>
                     </div>
                     <div id="createMyBoard" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="">创造</a></li>
-                                <li><a href="#" class="">维修</a></li>
+                                <li><a href="/person/topic/input/0" class="">创建</a></li>
+                                <li><a href="/person/topic" class="">查看</a></li>
                             </ul>
                         </div>
                     </div>

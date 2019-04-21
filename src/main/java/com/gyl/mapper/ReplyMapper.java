@@ -21,4 +21,12 @@ public interface ReplyMapper {
     int addReplyToComment(Reply reply);
 
     List<Reply> listReplyByCommentId(@Param("id") String id);
+
+    /**
+     * 根据讨论的id来查询所有的回复
+     *
+     * @param discussId
+     * @return
+     */
+    List<Reply> listReplyByDiscussId(String discussId);
 }

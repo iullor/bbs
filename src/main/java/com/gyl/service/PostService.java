@@ -99,15 +99,19 @@ public class PostService {
     点赞
     * */
     public int add(String userId, String postId) {
-        return praiseMapper.add(userId, postId);
+        Praise praise = new Praise();
+        praise.setUserId(userId);
+        praise.setPostId(postId);
+        return praiseMapper.add(praise);
     }
 
     public int deletePaise(String userId, String postId) {
-        return praiseMapper.deletePaise(userId, postId);
+
+        return praiseMapper.deletePostPaise(userId, postId);
     }
 
     public int listPraiseById(String userId, String postId) {
-        return praiseMapper.listPraiseById(userId, postId);
+        return praiseMapper.listPraisePostById(userId, postId);
     }
 
 

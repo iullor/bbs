@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>post</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/panel/panel.css">
 
     <!--引入一些样式-->
@@ -17,7 +18,7 @@
 
 
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
 
     <!--动态添加留言的对话框-->
@@ -27,7 +28,6 @@
         .container .glyphicon-comment {
             color: rgba(0, 183, 238, 0.59);
         }
-
         .glyphicon-thumbs-up-done {
             color: rgba(255, 0, 0, 0.97);
         }
@@ -122,8 +122,8 @@
                 <div class="col-md-3">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <a href="#"><img src="/images/路飞.jpg" class="showUserHeadImg"
-                                             value="${post.user.userBaseInfo.headImage}"/></a>
+                            <a href="#">
+                                <img src="/images/路飞.jpg" class="showUserHeadImg" value="${post.user.userBaseInfo.headImage}"/></a>
                             <p><a href="#">${post.user.nickName}</a></p>
                         </div>
                         <div class="panel-border panel-default">
@@ -131,7 +131,7 @@
                             <p class="text-center">
                                             <span id="collectUser" class="glyphicon glyphicon-heart-empty btn btn-info"
                                                   tempClass="glyphicon glyphicon-heart btn btn-success">&nbsp;关注</span>
-                                <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
+                                            <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
                             </p>
                             <p class="text-center">
                                 <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
@@ -430,7 +430,6 @@
             ]
         }
     );
-
     //分页的
     function goPage(pageNumber) {
         $(":hidden[name='currentPage']").val(pageNumber);
@@ -453,6 +452,7 @@
             var id = {
                 id: curPostId
             }
+            var tmpSpan=$(this)
             var parten = $(this).attr("class");
             let num = 0;
             if (parten.match("glyphicon-thumbs-up-done") == null) {
@@ -463,11 +463,12 @@
                     data: JSON.stringify(id),
                     success: function (data) {
                         //赋值,修改样式
-                        $(".good-post").next("span").html(data)
+                        $(tmpSpan).next("span").html(data)
+                        $(tmpSpan).addClass("glyphicon-thumbs-up-done");
                     }
                 });
-                console.log(this)
-                $(this).addClass("glyphicon-thumbs-up-done");
+                /*console.log(this)*/
+               /* $(this).addClass("glyphicon-thumbs-up-done");*/
             } else {
                 //取消点赞
                 $.ajax({
@@ -477,11 +478,12 @@
                     data: JSON.stringify(id),
                     success: function (data) {
                         //赋值,修改样式
-                        $(".good-post").next("span").html(data)
+                        $(tmpSpan).next("span").html(data)
+                        $(tmpSpan).removeClass("glyphicon-thumbs-up-done");
                     }
                     //添加样式
                 });
-                $(this).removeClass("glyphicon-thumbs-up-done");
+                /*$(this).removeClass("glyphicon-thumbs-up-done");*/
             }
             //评论
             return false;
@@ -595,11 +597,11 @@
         //显示关注
         //当准备刷新页面的时候,获取当前的用户id,贴子id
         let curUserId = '${sessionScope.CURRENT_USER.id}'
-        console.log(curUserId);
+        //console.log(curUserId);
         let curPostUserId = '${post.userId}'
-        console.log(curPostUserId)
+        //console.log(curPostUserId)
         let curPostId = '${post.id}';
-        console.log(curPostId);
+        //console.log(curPostId);
         //根据用户名和贴子的作者去找
         if (curUserId != null && curPostUserId != null) {
             var obj1 = {

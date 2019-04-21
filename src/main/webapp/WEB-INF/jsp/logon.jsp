@@ -6,10 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
-    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/commons/logon.css">
-    <script src="../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/commons/logon.css">
+    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h3>BBS-Student</h3>

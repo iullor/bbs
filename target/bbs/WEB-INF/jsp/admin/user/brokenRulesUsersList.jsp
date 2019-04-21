@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>用户信息查询</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link href="https://cdn.bootcss.com/bootstrap-switch/3.3.4/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="../../../../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="../../../../lib/bootstrap/b/bootstrap.min.js"></script>
     <%--<script src="https://cdn.bootcss.com/bootstrap-switch/3.3.4/js/bootstrap-switch.js"></script>--%>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <style>

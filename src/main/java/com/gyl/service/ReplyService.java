@@ -33,4 +33,28 @@ public class ReplyService {
         reply.setCreateTime(new Date(System.currentTimeMillis()));
         return replyMapper.addReplyToComment(reply);
     }
+
+    /**
+     * 根据discussId来查一个集合
+     *
+     * @param discussId
+     * @return
+     */
+    public List<Reply> listReplyByDiscussId(String discussId) {
+        return replyMapper.listReplyByDiscussId(discussId);
+    }
+
+    /**
+     * 为话题添加回复
+     *
+     * @param reply
+     * @return
+     */
+    public int addReplyToDiscuss(Reply reply) {
+        reply.setId(UUIDString.createId());
+        reply.setCreateTime(new Date(System.currentTimeMillis()));
+        return replyMapper.addReplyToComment(reply);
+    }
+
+
 }

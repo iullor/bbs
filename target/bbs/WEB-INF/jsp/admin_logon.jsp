@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员登录</title>
-    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/commons/logon.css">
     <link rel="stylesheet" href="/css/commons/commons.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/random-code.js"></script>
     <style>
         body {

@@ -10,13 +10,8 @@ $(function () {
         let src = headImg.substring(beginIndex, endIndex);
         $(this).attr("src", src);
     })
-
-
     $(".right-nav>div:last-child").hide();
 
-    /*$("body").scroll(function (event) {
-        $(".right-nav>div:last-child").show();
-    })*/
     //第一个点击的时候
     $(".right-nav>div:first-child").on("click", function () {
         window.location.href = "/person/basic/account"

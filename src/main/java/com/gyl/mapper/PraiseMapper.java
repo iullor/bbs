@@ -1,5 +1,6 @@
 package com.gyl.mapper;
 
+import com.gyl.entity.Praise;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +11,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PraiseMapper {
 
-    int add(@Param("userId") String userId, @Param("postId") String postId);
+    int deletePostPaise(@Param("userId") String userId, @Param("postId") String postId);
 
-    int deletePaise(@Param("userId") String userId, @Param("postId") String postId);
+    int deleteDiscussPaise(@Param("userId") String userId, @Param("discussId") String discussId);
 
-    int listPraiseById(@Param("userId") String userId, @Param("postId") String postId);
+    int listPraisePostById(@Param("userId") String userId, @Param("postId") String postId);
+
+    int listPraiseDiscussById(@Param("userId") String userId, @Param("discussId") String discussId);
+
+    int add(Praise praise);
 }

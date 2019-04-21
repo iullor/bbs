@@ -19,7 +19,7 @@ public class MessageType {
      * 关注用户失效             03
      * post  贴子           2
      * <p>                    01 被评论
-     *
+     *                        02话题被评论
      * board  板块                                             3
      *
      * panel  模块                                             4
@@ -28,6 +28,7 @@ public class MessageType {
      *
      * comment 评论          6
      *                          01 被回复
+     *
      *
      * 系统，更新功能 提醒                                        7
      * <p>
@@ -47,6 +48,7 @@ public class MessageType {
      * 被评论
      */
     public static final String MESSAGE_COMMENT = "201";
+    public static final String MESSAGE_DISCUSS = "202";
 
     /**
      * 系统

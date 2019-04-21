@@ -43,4 +43,6 @@ public interface MessageMapper {
      * @return
      */
     int sendReplyToUser(Message message);
+
+    int sendMessages(Message message);
 }
