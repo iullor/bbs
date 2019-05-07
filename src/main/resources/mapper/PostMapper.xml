@@ -163,8 +163,8 @@
                 select id
                 from test_bbs.t_board board
                 where board.panel_id =#{panelId})
-        and DATEDIFF(post.create_time, NOW())&lt;1
-        and DATEDIFF(post.create_time, NOW())&gt; -5
+/*        and DATEDIFF(post.create_time, NOW())&lt;1
+        and DATEDIFF(post.create_time, NOW())&gt; -5*/
         and post.board_id=b1.id
         order by post.participants desc limit 5
     </select>
@@ -263,6 +263,14 @@
       where board.id = post.board_id
         and user.id = board.user_id
         limit #{currentPage} ,#{pageSize};
+    </select>
+
+    <select id="countPostsByUserId" resultType="integer">
+        select count(id) from test_bbs.t_post p where p.user_id=#{id}
+    </select>
+
+    <select id="getTopFivePostsByAreaId" resultMap="postMap1">
+        select post.id ,post.post_title ,post.comments from t_post post where post.area_id =#{areaId}  order by post.praises limit 5
     </select>
 
 </mapper>

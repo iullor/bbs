@@ -15,7 +15,7 @@ public interface TopicMapper {
 
     int add(Topic topic);
 
-    Topic   selectById(String id);
+    Topic selectById(String id);
 
     int update(Topic topic);
 
@@ -36,4 +36,18 @@ public interface TopicMapper {
      * @return
      */
     List<Topic> listTopics();
+
+    /**
+     * 找出所有的热门话题 6个
+     *
+     * @return
+     */
+    List<Topic> listHotTopicsPublic();
+
+    /**
+     * 根据话题名称模糊搜索
+     * @param topicTitle
+     * @return
+     */
+    List<Topic> listByTopicTitle(String topicTitle);
 }

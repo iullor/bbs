@@ -55,7 +55,10 @@ public interface PostMapper {
      */
     List<Post> selectPostsByBoardIdAndBoardIdManagerId(String id);
 
-    List<Post> selectPostsPage(@Param("currentPage")int currentPage, @Param("pageSize")int pageSize);
+    List<Post> selectPostsPage(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize);
 
 
+    int countPostsByUserId(@Param("id") String id);
+
+    List<Post> getTopFivePostsByAreaId(@Param("areaId") String areaId);
 }

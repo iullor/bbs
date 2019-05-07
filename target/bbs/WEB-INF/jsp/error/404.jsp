@@ -1,17 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>404页面</title>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <title>Title</title>
 </head>
 <body>
-    请求的资源不存在
+    404
 </body>
 </html>

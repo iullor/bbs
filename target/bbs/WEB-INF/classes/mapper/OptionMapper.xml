@@ -11,7 +11,7 @@
         <result column="handle_time" property="handleTime"/>
         <result column="brief" property="brief"/>
         <result column="post_id" jdbcType="VARCHAR" property="postId"/>
-        <result column="area_id" jdbcType="VARCHAR" property="areaId"/>
+        <result column="topic_id" jdbcType="VARCHAR" property="topicId"/>
         <result column="board_id" jdbcType="VARCHAR" property="boardId"/>
         <result column="remakes" jdbcType="VARCHAR" property="remakes"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
@@ -28,7 +28,7 @@
     </resultMap>
     <sql id="Base_Column_List">
             id, apply_user_id, handle_user_id, apply_reason, apply_type, apply_time, handle_time,
-            post_id, area_id, board_id, remakes, `status`,brief
+            post_id, topic_id, board_id, remakes, `status`,brief
     </sql>
 
     <select id="selectById" parameterType="java.lang.String" resultMap="map1">
@@ -38,6 +38,7 @@
             op.apply_type,
             op.apply_reason,
             op.apply_time,
+            op.status,
             user.id        as apply_user_id,
             user.nick_name as nick_name,
             post.id        as post_id,
@@ -56,12 +57,12 @@
     <insert id="insert" parameterType="com.gyl.entity.Option">
     insert into test_bbs.t_options (id, apply_user_id, handle_user_id, 
       apply_reason, apply_type, apply_time, 
-      handle_time, post_id, area_id, 
+      handle_time, post_id, topic_id, 
       board_id, remakes, `status`,brief
       )
     values (#{id}, #{applyUserId}, #{handleUserId}, 
       #{applyReason}, #{applyType}, #{applyTime},
-      #{handleTime}, #{postId}, #{areaId}, 
+      #{handleTime}, #{postId}, #{topicId}, 
       #{boardId}, #{remakes}, #{status},#{brief}
       )
   </insert>

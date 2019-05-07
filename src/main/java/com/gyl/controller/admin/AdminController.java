@@ -36,7 +36,7 @@ public class AdminController {
      *
      * @return
      */
-    @RequestMapping(value = "/admin/chcekLogon", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/checkLogon", method = RequestMethod.POST)
     public String checkLogon(String username, String password, HttpServletRequest request) {
         if (username != null && password != null) {
             User user = userService.adminLogon(username, password);
@@ -78,7 +78,7 @@ public class AdminController {
      * @return
      */
     @RequestMapping("/admin/logon")
-    public String resetPassowrd() {
+    public String goAdminLogon() {
         return "/admin_logon";
     }
 }

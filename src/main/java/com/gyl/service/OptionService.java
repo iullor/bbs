@@ -40,10 +40,7 @@ public class OptionService {
                 option.setApplyType("版主");
             }
             if (op.equals("3")) {
-                option.setApplyType("区主");
-            }
-            if (op.equals("4")) {
-                option.setApplyType("展示分区");
+                option.setApplyType("申请话题首页置顶");
             }
         }
         option.setId(UUIDString.createId());

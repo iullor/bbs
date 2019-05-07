@@ -54,9 +54,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
+                <div class="col-md-2  nav-addon">
                     <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <a href="/person/myCircle"><span class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
@@ -98,7 +101,6 @@
         </div>
     </nav>
 </header>
-
 <div class="container">
     <div style="position: fixed;bottom: 200px;right: 50px;background-color: white;height: 80px;width: 80px;text-align: center;padding-top: 15px;">
         <div>
@@ -108,7 +110,10 @@
     </div>
     <div class="row" style="padding-left: 10px;padding-bottom: 10px;background-color: #f5f5f5;border-radius: 5px;">
         <h3>
-            <a href="#" style="color: #343434;">#####${topic.topicTitle}#####</a>
+            <a href="#" style="color: red;">#####${topic.topicTitle}#####</a>
+            <span class="pull-right">
+                <img src="/images/public/hot1.png" width="50" height="50" alt="">
+            </span>
         </h3>
     </div>
     <div class="row text-left topic-show">
@@ -118,10 +123,8 @@
                      width="480" height="270">
             </p>
         </div>
-        <div class="col-md-4"
-             style="height: 300px;background-color: white;border-bottom: 2px solid #f5f5f5;padding-top: -10px;">
-            <div class="text-center"
-                 style=" width:105%;background-color: #f5f5f5;margin-left: -5px;margin-top: -5px;border-radius: 10px">
+        <div class="col-md-4" style="height: 300px;margin-top:-8px;background-color: white;border-bottom: 2px solid #f5f5f5;padding-top: -10px;">
+            <div class="text-center" style=" width:105%;margin-left: 0px;margin-top: -5px;border-radius: 10px">
                 <a href="#">
                     <img src="/images/路飞.jpg" class="showUserHeadImg" width="150" height="150"
                          value="${topic.user.userBaseInfo.headImage}" style="margin-top: 20px;margin-left: -30px;"/></a>
@@ -142,9 +145,9 @@
     </div>
     <div class="row topic-option">
         <p class="text-right">
-            <span>参与人数&nbsp;</span>
+            <span>浏览数&nbsp;</span>
             <span class="glyphicon glyphicon-eye-open"
-                  style="margin-right: 20px;font-size: 18px;">&nbsp;${topic.topicParticipations}</span>
+                  style="margin-right: 20px;font-size: 18px;">&nbsp;${topic.topicSeen}</span>
             <span style="margin-right: 50px;">
              创建时间
               <f:formatDate value="${topic.createTime}"

@@ -6,12 +6,10 @@ import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -73,15 +71,25 @@ public class UserController {
      */
     @RequestMapping(value = "/checkLogon", method = RequestMethod.GET)
     public String login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, HttpServletRequest request) {
-
         Map<String, Object> userInfo = userService.checkUser(username, password);
         request.getSession().setAttribute("USER_STATUS", userInfo.get("USER_STATUS"));
-        if (userInfo.get("user") != null) {
+        User user = (User) userInfo.get("user");
+        if (user != null) {
             request.getSession().setAttribute("CURRENT_USER", userInfo.get("user"));
+            //更新用户的访问时间
+            user.getUserLoginInfo().setAccessTime(new Date(System.currentTimeMillis()));
+            //访问次数加1
+            user.getUserLoginInfo().setAccessNum(user.getUserLoginInfo().getAccessNum() + 1);
+            //获取用户的访问ip地址
+            String ipAddress = UserController.getIPAddress(request);
+            user.getUserLoginInfo().setIpAdreess(ipAddress);
+            int state = userService.update(user);
+
             return "redirect:/index";
         }
         return "redirect:/logon";
     }
+
 
     /**
      * 用户注销
@@ -90,9 +98,18 @@ public class UserController {
      */
     @RequestMapping(value = "/logout")
     public String logout(HttpServletRequest request) {
-        //清空session
-        request.getSession().invalidate();
-        return "logon";
+        try {
+            //清空session
+            User user = (User) request.getSession().getAttribute("CURRENT_USER");
+            //记录离开时间
+            user.getUserLoginInfo().setLeftTime(new Date(System.currentTimeMillis()));
+            int status = userService.update(user);
+            request.getSession().invalidate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return "redirect:/logon";
+        }
     }
 
 
@@ -103,10 +120,8 @@ public class UserController {
      */
     @RequestMapping(value = "/register")
     public String toRegister() {
-
         return "register";
     }
-
 
     /**
      * 重置密码
@@ -118,4 +133,57 @@ public class UserController {
         return "/reset_password";
     }
 
+    //获取用户的真实ip地址
+    public static String getIPAddress(HttpServletRequest request) {
+        String ip = null;
+
+        //X-Forwarded-For：Squid 服务代理
+        String ipAddresses = request.getHeader("X-Forwarded-For");
+
+        if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            //Proxy-Client-IP：apache 服务代理
+            ipAddresses = request.getHeader("Proxy-Client-IP");
+        }
+
+        if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            //WL-Proxy-Client-IP：weblogic 服务代理
+            ipAddresses = request.getHeader("WL-Proxy-Client-IP");
+        }
+
+        if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            //HTTP_CLIENT_IP：有些代理服务器
+            ipAddresses = request.getHeader("HTTP_CLIENT_IP");
+        }
+
+        if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            //X-Real-IP：nginx服务代理
+            ipAddresses = request.getHeader("X-Real-IP");
+        }
+
+        //有些网络通过多层代理，那么获取到的ip就会有多个，一般都是通过逗号（,）分割开来，并且第一个ip为客户端的真实IP
+        if (ipAddresses != null && ipAddresses.length() != 0) {
+            ip = ipAddresses.split(",")[0];
+        }
+
+        //还是不能获取到，最后再通过request.getRemoteAddr();获取
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+    }
+
+    /**
+     * 在发帖前检查是否登录
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/postCheckLogin", method = RequestMethod.GET)
+    public Integer postCheckLogin(HttpServletRequest request) {
+        Object current_user = request.getSession().getAttribute("CURRENT_USER");
+        if (current_user != null) {
+            return 1;
+        }
+        return 0;
+    }
 }

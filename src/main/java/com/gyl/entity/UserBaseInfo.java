@@ -16,6 +16,7 @@ import java.util.Date;
 public class UserBaseInfo {
     private String realName;
     private Integer age;
+    private String gender;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
@@ -27,6 +28,7 @@ public class UserBaseInfo {
     private String city;
     private String street;
     private String details;
+    private String introduce;
 
     public String getRealName() {
         return realName;
@@ -117,4 +119,19 @@ public class UserBaseInfo {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }

@@ -9,7 +9,6 @@
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/panel/panel.css">
-
     <!--引入一些样式-->
     <link rel="stylesheet" href="/css/commons/top.css">
     <link rel="stylesheet" href="/css/modal/modal_login.css">
@@ -29,9 +28,12 @@
                     <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
                             data-toggle="collapse"
                             data-target="#sidebar-wrapper" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BBS-Student</a>
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
@@ -47,13 +49,16 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
-                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                <div class="col-md-2  nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style=" margin-top:15px;font-size: 17px">
+                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
                             <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
                                 请登录
                                 <span class="glyphicon glyphicon-log-in"></span>
@@ -97,9 +102,8 @@
             <!--路径导航栏-->
             <div class="row border-nav">
                 <ol class="breadcrumb">
-                    <li><a href="/public">Home</a></li>
-                    <li><a href="../panel/panel.jsp">Panel</a></li>
-                    <li class="active">School</li>
+                    <li><a href="/index">首页</a></li>
+                    <li class="active">${panel.title}</li>
                 </ol>
             </div>
             <div id="main">
@@ -160,7 +164,7 @@
                             <c:forEach items="${panel.boards}" var="b" varStatus="i">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <span class="lead">${b.boardTitle}</span>
+                                        <span class="lead"><a href="/board/${b.id}">${b.boardTitle}</a></span>
                                         <div class="pull-right">
                                             <a role="button" data-toggle="collapse" href="#collapse${i.index}"
                                                aria-expanded="true"
@@ -218,7 +222,8 @@
             <div class="text-center">
                 <p>© 学生论坛版权所有</p>
             </div>
-        </div><!--游客用户登录的模态框-->
+        </div>
+        <!--游客用户登录的模态框-->
         <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content modal-sm">
@@ -254,7 +259,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 </div>

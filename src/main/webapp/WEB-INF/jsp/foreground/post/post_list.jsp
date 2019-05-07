@@ -34,7 +34,8 @@
     </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
+<%--<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -45,7 +46,9 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BBS-Student</a>
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
@@ -61,9 +64,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
-                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                <div class="col-md-2  nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
@@ -104,17 +110,17 @@
             </div>
         </div>
     </nav>
-</header>
+</header>--%>
 <div class="container">
     <div class="row">
         <!--路径导航栏-->
         <div class="row post-nav">
             <ol class="breadcrumb">
-                <li><a href="../../public/index.jsp">Home</a></li>
-                <li><a href="../panel/panel.jsp">Panel</a></li>
-                <li><a href="../board/board.jsp">School</a></li>
-                <li><a href="../area/area.jsp">Computer Science</a></li>
-                <li class="active">计算机发展</li>
+                <li><a href="/index">首页</a></li>
+                <li><a href="/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
+                <li><a href="/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
+                <li><a href="/area/${topNavbarInfo.areaId}">${topNavbarInfo.areaTitle}</a></li>
+                <li class="active">${topNavbarInfo.postTitle}</li>
             </ol>
         </div>
         <div id="main">
@@ -242,8 +248,7 @@
                                                         </p>
                                                     </div>
                                                     <!--二级评论-->
-                                                    <div id="comment-level2-${i.index+1}"
-                                                         class="panel-collapse collapse comment-level2">
+                                                    <div id="comment-level2-${i.index+1}" class="panel-collapse collapse comment-level2">
                                                         <c:choose>
                                                             <c:when test="${not empty comment.replies}">
                                                                 <c:forEach items="${comment.replies}"
@@ -296,7 +301,7 @@
                             </div>
                         </c:forEach>
                         <%--分页--%>
-                        <div id="footPage" class="row panel-footer panel-default">
+                        <div id="footPage" class="row panel-footer panel-default" style="width: 100%;margin-left: 5px">
                             <div class="col-md-offset-4 col-md-4">
                                 <nav class="Page navigation">
                                     <ul class="pagination">
@@ -393,7 +398,7 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <form action="/login" method="post">
+                        <form action="/checkLogon" method="get">
                             <div class="form-group">
                                 <label for="username" class="control-label">
                                     <small>用户名</small>
@@ -404,7 +409,7 @@
                                 <label for="password" class="control-label">
                                     <small>密码</small>
                                 </label>
-                                <input type="text" class="form-control" id="password">
+                                <input type="password" class="form-control" name="password" id="password">
                             </div>
                             <div class="form-group">
                                 <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit

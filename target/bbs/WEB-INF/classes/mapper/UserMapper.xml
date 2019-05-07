@@ -35,6 +35,8 @@
             <result property="city" column="city"/>
             <result property="street" column="street"/>
             <result property="details" column="details"/>
+            <result property="introduce" column="introduce"/>
+            <result property="gender" column="gender"/>
         </association>
     </resultMap>
 
@@ -53,10 +55,12 @@
         ,email
         ,qq_number
         ,age
+        ,gender
         ,province
         ,city
         ,street
         ,details
+        ,introduce
         ,ip_adreess
         ,access_time
         ,left_time
@@ -71,7 +75,7 @@
       (
         #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime},#{userAccountStatus.status}
         ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phoneNumber},#{email},#{userBaseInfo.qqNumber}
-        ,#{userBaseInfo.age},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details}
+        ,#{userBaseInfo.age},#{userBaseInfo.gender},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details},#{userBaseInfo.introduce}
         ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum},#{userLoginInfo.realName}
         ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo},#{userAccountStatus.role}
       )
@@ -109,6 +113,8 @@
                 <if test="userBaseInfo.city!=null">city=#{userBaseInfo.city},</if>
                 <if test="userBaseInfo.street!=null">street=#{userBaseInfo.street},</if>
                 <if test="userBaseInfo.details!=null">details=#{userBaseInfo.details},</if>
+                <if test="userBaseInfo.introduce!=null">introduce=#{userBaseInfo.introduce},</if>
+                <if test="userBaseInfo.gender!=null">gender=#{userBaseInfo.gender},</if>
             </if>
             <if test="userLoginInfo!=null">
                 <if test="userLoginInfo.ipAdreess!=null">ip_adreess=#{userLoginInfo.ipAdreess},</if>
@@ -138,9 +144,14 @@
     <update id="activeAccountById">
         update test_bbs.t_user set status=1 where id=#{id}
     </update>
+    <update id="updateIntroduce">
+        update test_bbs.t_user set introduce=#{introduce} where id=#{id}
+    </update>
 
     <select id="adminLogon" resultMap="userMap">
         select * from test_bbs.t_user,test_bbs.t_role
          where username=#{username} and password=#{password} and role_id&lt;4 and role_id&gt;0;
     </select>
+
+
 </mapper>

@@ -6,6 +6,7 @@ import com.gyl.commons.page.PageResult;
 import com.gyl.entity.User;
 import com.gyl.entity.UserAccountStatus;
 import com.gyl.entity.UserBaseInfo;
+import com.gyl.entity.UserLoginInfo;
 import com.gyl.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,17 +30,25 @@ public class UserService {
     public int add(User user) {
         user.setId(UUIDString.createId());
         user.setCreateTime(new Date(System.currentTimeMillis()));
+        //设置用户的账户信息
         UserAccountStatus userAccountStatus = new UserAccountStatus();
+        //设置用户的登录信息
+        UserLoginInfo userLoginInfo = new UserLoginInfo();
+        //设置用户的基本信息
+        UserBaseInfo userBaseInfo = new UserBaseInfo();
         //设置为普通用户
         userAccountStatus.setRole(4);
-        UserBaseInfo userBaseInfo = new UserBaseInfo();
         //设置默认头像
         userBaseInfo.setHeadImage("/home/gyl/git_repository/bbs/src/main/webapp/upload/headImage/default-headImg.svg");
+        //设置账户状态是未激活
         userAccountStatus.setStatus(StatusCode.USER_NOT_ACTIVE);
+        //设置访问次数是0
+        userLoginInfo.setAccessNum(0);
         //发送一条邮件信息
         emailService.sendHtml(user.getId(), user.getEmail());
         user.setUserAccountStatus(userAccountStatus);
         user.setUserBaseInfo(userBaseInfo);
+        user.setUserLoginInfo(userLoginInfo);
         return userMapper.add(user);
     }
 
@@ -127,5 +136,12 @@ public class UserService {
             pageResult.getNewPage().add(users.get(i));
         }
         return pageResult;
+    }
+
+
+    //更新个人说明
+    public int updateIntroduce(String id, String introduce) {
+
+        return userMapper.updateIntroduce(id, introduce);
     }
 }

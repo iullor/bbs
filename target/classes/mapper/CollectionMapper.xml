@@ -124,5 +124,9 @@
         )
     </select>
 
+    <!--根据用户id去查关注他的所有粉丝-->
+    <select id="countFansByUserId" resultType="integer">
+        select count(id) from test_bbs.t_collections c where c.user_id=#{id}
+    </select>
 
 </mapper>

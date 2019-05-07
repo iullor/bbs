@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>模块增加</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -13,9 +13,13 @@
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
+        body {
+            background-color: white;
+        }
+
         #fileClick > span {
             margin-left: 50px;
-            font-size: 100px;
+            font-size: 80px;
         }
 
         #fileClick > input {
@@ -27,122 +31,123 @@
             height: 100px;
         }
 
-        #showImg:hover {
-            transition-delay: 200ms;
-            width: 120px;
-            height: 120px;
+        .content {
+            margin-top: -50px;
+            border-left: 1px solid #f5f5f5;
+            border-right: 1px solid #f5f5f5;
+            height: 1000px;
+            width: 1200px;
+            padding-top: 50px;
+            padding-left: 80px;
+            margin-left: 80px
         }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <h2 class="text-center"></h2>
-    <br>
+    <div style="margin-top: 10px">
+        <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
+    </div>
     <div class="row">
-        <div class="col-md-1" style="margin-top: 10px">
-            <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
-        </div>
-        <div id="addModel" class="col-md-4">
+        <div class="col-md-offset-1 col-md-10">
             <%--文件上传的form表单--%>
-            <form action="" id="uploadForm">
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label for="logo" class="text-left">Logo</label>
+            <div style="border: 1px solid white;width: 350px;position: absolute;top:110px;left:820px">
+                    <span class="pull-left"
+                          style=" writing-mode:vertical-lr; font-size: 30px;margin-top: 30px;margin-left: 20px;">图标</span>
+                <form action="" id="uploadForm">
+
+                    <div class="row form-group text-center">
+                        <div class="" id="fileClick" style="padding-left: 100px">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <input type="file" class="form-control" id="logo" name="img">
+                            <button type="button" class="btn btn-default" id="upload">上传</button>
+                        </div>
+                        <p style="padding: 5px;">
+                            <small>大小不过1M,200*200</small>
+                        </p>
                     </div>
-                    <div class="col-md-4" id="fileClick">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <input type="file" class="form-control" id="logo" name="img">
+                    <div class="row text-center">
+                        <img src="" value="${board.logoPath}" id="showImg">
                     </div>
-                    <div class="col-md-offset-2 col-md-5">
-                        <img src="/images/superman.png" id="showImg">
+                </form>
+            </div>
+            <div class="content">
+                <h2 class="text-center"></h2>
+                <hr>
+                <form:form action="/admin/board" method="post" modelAttribute="board">
+                    <c:if test="${not empty board.id}">
+                        <input type="hidden" name="_method" value="put">
+                        <form:hidden path="id"/>
+                    </c:if>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="boardTitle">标题</label>
+                        </div>
+                        <div class="col-md-4">
+                            <form:input path="boardTitle" class="form-control" id="boardTitle"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group text-center">
-                    <button type="button" class="btn btn-default" id="upload">上传</button>
-                </div>
-            </form>
-            <br>
-            <form:form action="/admin/board" method="post" modelAttribute="board">
-                <c:if test="${not empty board.id}">
-                    <input type="hidden" name="_method" value="put">
-                    <form:hidden path="id"/>
-                </c:if>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label for="boardTitle">标题</label>
+                    <input type="hidden" name="logoPath"/>
+                    <input type="hidden" name="createTime"/>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label class="text-left">板块管理者</label>
+                        </div>
+                        <div class="col-md-4">
+                            <form:select cssClass="form-control" path="boardManagerId" items="${users}"
+                                         itemLabel="username"
+                                         itemValue="id"/>
+                        </div>
                     </div>
-                    <div class="col-md-11">
-                        <form:input path="boardTitle" class="form-control" id="boardTitle"/>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label class="text-left">添加到模块</label>
+                        </div>
+                        <div class="col-md-4">
+                            <form:select cssClass="form-control" path="panelId" items="${panels}" itemLabel="title"
+                                         itemValue="id"/>
+                        </div>
                     </div>
-                </div>
-                <input type="hidden" name="logoPath"/>
-                <input type="hidden" name="createTime"/>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label class="text-left">板块管理者</label>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label class="text-left">板块类型</label>
+                        </div>
+                        <div class="col-md-4">
+                            <form:input path="boardType" cssClass="form-control"/>
+                        </div>
                     </div>
-                    <div class="col-md-11">
-                        <form:select cssClass="form-control" path="boardManagerId" items="${users}" itemLabel="username"
-                                     itemValue="id"/>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="info">简介</label>
+                        </div>
+                        <div class="col-md-8">
+                            <form:textarea id="info" path="info" cols="40" rows="5" class="form-control"/>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label class="text-left">添加到模块</label>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="details">功能详情</label>
+                        </div>
+                        <div class="col-md-8">
+                            <form:textarea id="details" path="details" cols="40" rows="10" class="form-control"/>
+                        </div>
                     </div>
-                    <div class="col-md-11">
-                        <form:select cssClass="form-control" path="panelId" items="${panels}" itemLabel="title"
-                                     itemValue="id"/>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-offset-4  col-md-2">
+                            <button type="submit" class="btn btn-info">添加</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="reset" class="btn btn-info">重置</button>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label class="text-left">板块类型</label>
-                    </div>
-                    <div class="col-md-11">
-                        <form:input path="boardType" cssClass="form-control"/>
-                            <%--<form:select cssClass="form-control" path="boardType" items="${board}" itemLabel="title"
-                                         itemValue="id"/>--%>
-                    </div>
-                </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label for="info">简介</label>
-                    </div>
-                    <div class="col-md-11">
-                        <form:textarea id="info" path="info" cols="40" rows="10"/>
-                    </div>
-                </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-1">
-                        <label for="details">功能详情</label>
-                    </div>
-                    <div class="col-md-11">
-                        <form:textarea id="details" path="details" cols="40" rows="10"/>
-                    </div>
-                </div>
-                <br>
-                <div class="row form-group">
-                    <div class="col-md-offset-4  col-md-2">
-                        <button type="submit" class="btn btn-info">添加</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="reset" class="btn btn-info">重置</button>
-                    </div>
-                </div>
-            </form:form>
-        </div>
-        <div id="listBoard" class="col-md-offset-2 col-md-5">
-            编辑的时候查询所有该区的信息
-            <div class="row">A</div>
-            <div class="row">B</div>
-            <div class="row">C</div>
-            <div class="row">D</div>
+                </form:form>
+            </div>
         </div>
     </div>
 
@@ -155,7 +160,7 @@
         })
         $(function () {
             var innerValue = ${empty board.id} ? '新增板块' : '修改${board.boardTitle}';
-            $(".container-fluid>h2").html(innerValue);
+            $("h2").html(innerValue);
         })
         $("#fileClick>span").click(function () {
             $(":file").click();
@@ -168,20 +173,13 @@
                 data: form,
                 processData: false,
                 contentType: false,
-                success: function (data) {
-                    if (data.status == 200) {
-                    }
-                },
                 error: function (e) {
                     if (e.status == 200) {
                         alert("上传成功")
-                        /**
-                         * 找到相对位置
-                         * @type {number}
-                         */
                         var lastIndex = (e.responseText).search("/webapp/") + 7;
                         var str = (e.responseText).substring(lastIndex, (e.responseText).length)
                         $("#showImg").attr("src", str)
+                        $("#showImg").show();
                         $("input[name='logoPath']").val(e.responseText)
                     }
                 }
@@ -189,7 +187,17 @@
             get();//此处为上传文件的进度条
 
         })
-
+        if ($("#showImg").attr("src") === '' || $("#showImg").attr("src") == null) {
+            $("#showImg").hide();
+        }
+        //图片回显
+        if (${not empty board.id}) {
+            var pictruePath = $("#showImg").attr("value");
+            var lastIndex = pictruePath.indexOf("/webapp/") + 7;
+            var str = (pictruePath).substring(lastIndex, pictruePath.length)
+            $("#showImg").attr("src", str)
+            $("#showImg").show();
+        }
     })
 
 

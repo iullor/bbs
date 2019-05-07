@@ -58,6 +58,15 @@ public class Board {
      */
     private List<Post> hotPosts = new ArrayList<>();
 
+    /**
+     * 贴子数
+     */
+    private Integer postNumbers;
+    /**
+     * 分区数
+     */
+    private Integer areaNumbers;
+
     public String getId() {
         return id;
     }
@@ -176,5 +185,21 @@ public class Board {
 
     public void setHotPosts(List<Post> hotPosts) {
         this.hotPosts = hotPosts;
+    }
+
+    public Integer getPostNumbers() {
+        return postNumbers;
+    }
+
+    public void setPostNumbers(Integer postNumbers) {
+        this.postNumbers = postNumbers;
+    }
+
+    public Integer getAreaNumbers() {
+        return areaNumbers;
+    }
+
+    public void setAreaNumbers(Integer areaNumbers) {
+        this.areaNumbers = areaNumbers;
     }
 }

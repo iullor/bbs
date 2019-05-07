@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -69,26 +69,20 @@
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-12">
             <h3>所有的话题</h3>
+            <div class="col-md-offset-7 col-md-4" style="margin-bottom: 10px;">
+                <form action="/admin/topic/search/" method="get">
+                    <input type="text" name="topicTitle" width="200" style="line-height:30px;font-size: 16px;"
+                           placeholder="话题标题">
+                    <button class="btn btn-info" type="submit">
+                        搜索
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <a href="/admin/topic" class="btn btn-success">显示全部</a>
+            </div>
             <c:choose>
                 <c:when test="${not empty topics}">
-                    <div class="col-md-offset-7 col-md-2" style="margin-top: 10px">
-                        <label for="sortUp">升序</label>
-                        <a href="#" id="sortUp">
-                            <span class="glyphicon glyphicon-sort-by-order"></span>
-                        </a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <label for="sortDown">降序</label>
-                        <a href="#" id="sortDown">
-                            <span class="glyphicon glyphicon-sort-by-order-alt"></span>
-                        </a>
-                    </div>
-                    <div class="col-md-3" style="margin-bottom: 10px;">
-                        <input type="text" width="200" style="line-height:30px;font-size: 16px;" placeholder="话题标题">
-                        <button class="btn btn-info" type="submit">
-                            搜索
-                        </button>
-                    </div>
-
                     <table id="showAllTopics" class="table table-hover">
                         <thead>
                         <th>序号</th>
@@ -236,6 +230,7 @@
             $("#tmp").children("input:last-child").val(0);
             $("#tmp").submit();
         })
+
 
     })
 </script>

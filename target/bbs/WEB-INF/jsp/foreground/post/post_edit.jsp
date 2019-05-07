@@ -31,9 +31,12 @@
                     <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
                             data-toggle="collapse"
                             data-target="#sidebar-wrapper" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BBS-Student</a>
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
@@ -49,13 +52,16 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
-                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                <div class="col-md-2  nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style=" margin-top:15px;font-size: 17px">
+                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
                             <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
                                 请登录
                                 <span class="glyphicon glyphicon-log-in"></span>
@@ -168,7 +174,42 @@
             </div>
         </div>
     </div>
+    <!--游客用户登录的模态框-->
+    <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="loginModalLabel">
+                        <small>请您先登录，再操作</small>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/checkLogon" method="get">
+                        <div class="form-group">
+                            <label for="username" class="control-label">
+                                <small>用户名</small>
+                            </label>
+                            <input type="text" class="form-control has-feedback" name="username" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">
+                                <small>密码</small>
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
+                            </button>
+                            <button type="submit" class="btn btn-md btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
 
+            </div>
+        </div>
+    </div>
 </div>
 
 

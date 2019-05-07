@@ -7,9 +7,11 @@
         <result column="user_id" property="userId"/>
         <result column="topic_picture" property="topicPicture"/>
         <result column="topic_describe" property="topicDescribe"/>
+        <result column="topic_keyword" property="topicKeyword"/>
         <result column="create_time" property="createTime"/>
         <result column="level" property="level"/>
         <result column="topic_participations" property="topicParticipations"/>
+        <result column="topic_seen" property="topicSeen"/>
         <result column="user_id" property="user.id"/>
         <result column="nick_name" property="user.nickName"/>
         <result column="head_image" property="user.userBaseInfo.headImage"/>
@@ -23,7 +25,9 @@
                    t.topic_title,
                    t.topic_picture,
                    t.topic_describe,
+                   t.topic_keyword,
                    t.topic_participations,
+                   t.topic_seen,
                    t.create_time,
                    t.level,
                    u.id as user_id,
@@ -40,10 +44,10 @@
     <insert id="add" parameterType="com.gyl.entity.Topic">
     insert into t_topic (id, topic_title, user_id,
       topic_picture, topic_describe, create_time, 
-      `level`, topic_participations)
+      `level`, topic_participations,topic_keyword,topic_seen)
     values (#{id}, #{topicTitle}, #{userId}, 
       #{topicPicture}, #{topicDescribe}, #{createTime},
-      #{level}, #{topicParticipations})
+      #{level}, #{topicParticipations},#{topicKeyword},#{topicSeen} )
   </insert>
     <update id="update" parameterType="com.gyl.entity.Topic">
     update t_topic
@@ -51,9 +55,11 @@
       user_id = #{userId},
       topic_picture = #{topicPicture},
       topic_describe = #{topicDescribe},
+      topic_keyword = #{topicKeyword} ,
       create_time = #{createTime},
       `level` = #{level},
-      topic_participations = #{topicParticipations}
+      topic_participations = #{topicParticipations},
+      topic_seen = #{topicSeen}
     where id = #{id}
   </update>
     <select id="selectByUserId" resultMap="BaseResultMap">
@@ -65,7 +71,9 @@
                    t.topic_title,
                    t.topic_picture,
                    t.topic_describe,
+                   t.topic_keyword,
                    t.topic_participations,
+                   t.topic_seen,
                    t.create_time,
                    t.level,
                    u.id as user_id,
@@ -74,12 +82,17 @@
                  test_bbs.t_user u
             where t.user_id = u.id and t.level=0;
     </select>
+    <!--
+        在主页显示3个热门的话题
+    -->
     <select id="listHotTopic" resultMap="BaseResultMap">
             select t.id,
                    t.topic_title,
                    t.topic_picture,
                    t.topic_describe,
+                   t.topic_keyword,
                    t.topic_participations,
+                   t.topic_seen,
                    t.create_time,
                    t.level,
                    u.id as user_id,
@@ -95,7 +108,9 @@
                    t.topic_title,
                    t.topic_picture,
                    t.topic_describe,
+                   t.topic_keyword,
                    t.topic_participations,
+                   t.topic_seen,
                    t.create_time,
                    t.level,
                    u.id as user_id,
@@ -104,6 +119,28 @@
                  test_bbs.t_user u
             where t.user_id = u.id;
     </select>
+    <!--公共话题板块展现的-->
+    <select id="listHotTopicsPublic" resultMap="BaseResultMap">
+            select t.id,
+                   t.topic_keyword
+            from test_bbs.t_topic t order by t.topic_participations  desc limit 6;
+    </select>
 
-
+    <!--管理员模块搜索所得-->
+    <select id="listByTopicTitle" resultMap="BaseResultMap">
+            select t.id,
+                   t.topic_title,
+                   t.topic_picture,
+                   t.topic_describe,
+                   t.topic_keyword,
+                   t.topic_participations,
+                   t.topic_seen,
+                   t.create_time,
+                   t.level,
+                   u.id as user_id,
+                   u.nick_name
+            from test_bbs.t_topic t,
+                 test_bbs.t_user u
+            where t.user_id = u.id and t.level=0 and t.topic_title like "%"#{topicTitle}"%" ;
+    </select>
 </mapper>

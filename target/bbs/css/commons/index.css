@@ -1,6 +1,7 @@
 body {
     overflow-x: hidden;
-    background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
+    background-color: white;
 }
 
 body div {
@@ -21,25 +22,42 @@ body a {
     margin-left: -10px;
 }
 
-.messageTopic > h3 {
-    text-align: right;
-    color: #3714B0;
-}
 
 .messageTopic {
-    margin-top: 80px;
+    border: 1px solid black;
+    border-top-left-radius:20px ;
+    border-bottom-right-radius:20px ;
+    box-shadow: 5px 3px #0b0aff;
+    margin-top: 100px;
     width: 350px;
-    height: 460px;
-    float: right;
+    height: 200px;
 
+    float: right;
 }
 
 .messageTopic > div {
+    margin-top: 30px;
     width: auto;
     height: 140px;
-    border: 1px solid #0000ff;
 }
-
+/*公告栏*/
+.publicMessage {
+    margin-top: 30px;
+    border: 1px solid black;
+    border-top-left-radius:20px ;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius:20px ;
+    box-shadow: 5px 3px blue ;
+    width: 350px;
+    height: 230px;
+    float: right;
+}
+.publicMessage div{
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 15px;
+    border-bottom: 1px dashed silver;
+}
 /*====================head导航===================*/
 .head {
     margin-top: 50px;
@@ -77,20 +95,19 @@ body a {
 }
 
 /*====================近期事项====================*/
-.nowdays-activity h4 {
-    padding-left: 5px;
 
+.nowadays-activity p {
+    border-bottom: 1px #0000ff dotted;
 }
-
-.nowdays-activity p {
-    border-bottom: 1px gray dashed;
-}
-
-.nowdays-activity > p > a {
+.nowadays-activity>p>span{
     padding-left: 10px;
-    padding-top: 5px;
+}
+.nowadays-activity > p > a {
+    padding-left: 10px;
+    padding-top: 3px;
     padding-bottom: 2px;
     font-size: 16px;
+    color: #4d2fff;
 }
 
 
@@ -103,19 +120,20 @@ body a {
 }
 
 
-.compent {
-    margin-bottom: 100px;
+.component {
+    margin-bottom: 60px;
 }
 
 
-.compent > h4 {
+.component > h4 {
     margin-top: -10px;
     margin-left: 10px;
     color: #3714B0;
 }
 
-.compent > p {
+.component > p {
     margin-left: 30px;
+    font-size: 16px;
 }
 
 .board-items {
@@ -155,12 +173,12 @@ body a {
     width: 400px;
     height: 180px;
     border-radius: 5px;
-    background-color: #004b8d;
+    background-color: #f5f5f5;
     z-index: 2;
     border: 1px solid black;
     margin-left: -16px;
     margin-top: -10px;
-    color: white;
+    color: black;
     font-size: 16px;
     padding-top: 20px;
     padding-left: 20px;

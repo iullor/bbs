@@ -15,18 +15,14 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
-    <!--MVC驱动-->
-    <!--
-        1，处理静态资源的
-    -->
+    <!--1，处理静态资源的-->
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
     <mvc:resources mapping="/lib/**" location="/lib/"/>
-
+    <!-- <mvc:resources mapping="/error/**" location="/WEB-INF/jsp/error/"/>-->
     <!--重新注入bean 需要的bean
         功能更强大，支持前台数据的校验，自定义视图，自定义类型转换器 DataBinder
     -->
@@ -41,7 +37,6 @@
                 </property>
             </bean>
         </mvc:message-converters>
-
     </mvc:annotation-driven>
 
     <!--文件上传解析-->
@@ -55,15 +50,22 @@
         <!--单个上传文件的大小-->
         <property name="maxUploadSizePerFile" value="100000000"/>
     </bean>
-
     <!--配置一个登录拦截器-->
-
-    <!--  <mvc:interceptors>
-          <mvc:interceptor>
-              <mvc:mapping path="/**/*"/>
-              <mvc:exclude-mapping path="/user/login"/>
-              <bean class="com.omg.interceptors.LoginIntercepor">
-              </bean>
-          </mvc:interceptor>
-      </mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/post/input/*"/>
+            <mvc:mapping path="/person/**"/>
+            <!--<mvc:exclude-mapping path="/user/login"/>-->
+            <bean class="com.gyl.interceptors.LogonInterceptor">
+            </bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <!--排除一些验证-->
+            <mvc:exclude-mapping path="/admin/logon"/>
+            <mvc:exclude-mapping path="/admin/checkLogon"/>
+            <mvc:exclude-mapping path="/admin/logout"/>
+            <bean class="com.gyl.interceptors.AdminLogonInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

@@ -4,7 +4,8 @@
 .container-inner {
     margin-top: 10px;
     background-color: white;
-    height: 800px;
+    height: auto;
+    min-height: 900px;
 }
 
 .container-inner h3 {

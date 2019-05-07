@@ -74,4 +74,14 @@ body {
     color: #fff;
     background-color: rgba(138, 108, 182, 0.63);
 }
-
+/**
+==========容器样式===================
+ */
+.container-inner {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    height: auto;
+    min-height: 900px;
+    _height: 900px;
+    background-color: white;
+}

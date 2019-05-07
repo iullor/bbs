@@ -30,7 +30,7 @@
                             data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <a class="navbar-brand" href="/admin/main">AdminPage</a>
+                    <a class="navbar-brand" href="/admin/main">管理员界面</a>
                 </div>
                 <div class="navbar-right">
                     <div class="dropdown" style=";margin-top: 10px;margin-right: 20px">
@@ -67,13 +67,13 @@
                     </a>
                 </li>
                 <li id="public">
-                    <a href="/admin/public">
-                        <span class="glyphicon glyphicon-cloud"></span>广场<span></span>
+                    <a href="/admin/notice">
+                        <span class="glyphicon glyphicon-volume-up"></span>公告板<span></span>
                     </a>
                 </li>
                 <li id="public">
                     <a href="#">
-                        <span class="glyphicon glyphicon-list-alt"></span>公告版<span class="caret"></span>
+                        <span class="glyphicon glyphicon-list-alt"></span>热门话题<span class="caret"></span>
                     </a>
                     <div>
                         <ul>
@@ -176,7 +176,7 @@
                         </div>
                     </li>
                 </c:if>
-                <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
+                <%--<c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
                     <li>
                         <a href="#">
                             <span class="glyphicon glyphicon-eye-close"></span>屏蔽设置<span class="caret"></span>
@@ -188,7 +188,7 @@
                             </ul>
                         </div>
                     </li>
-                </c:if>
+                </c:if>--%>
                 <li>
                     <a href="#">
                         <span class="glyphicon glyphicon-share"></span>系统反馈<span class="caret"></span>

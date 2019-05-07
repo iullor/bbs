@@ -35,6 +35,9 @@
             margin-left: 5px !important;
             transition-duration: 0.3s;
         }
+        .hotTopicsTitle:hover{
+            background-color: rgba(57, 139, 255, 0.53);
+        }
     </style>
 </head>
 <body>
@@ -49,7 +52,9 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BBS-Student</a>
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
@@ -65,9 +70,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
-                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                <div class="col-md-2  nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
@@ -119,7 +127,7 @@
         <div class="col-md-offset-2 col-md-6">
             <c:choose>
                 <c:when test="${not empty topics}">
-                    <c:forEach items="${topics}" var="topic">
+                    <c:forEach items="${topics}" var="topic" varStatus="i">
                         <div class="row topic-transfer">
                             <div class="col-md-4" style="margin-top:30px;">
                                 <p style="margin-left: -10px;">
@@ -134,11 +142,17 @@
                                 <div style="height:50px;padding-top: 10px;font-size: 20px;border-bottom: 1px black solid;">
                                     <p>
                                         <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                        <c:if test="${i.index+1<6}">
+                                            <span class="pull-right">
+                                                <img src="/images/public/hot1.png" width="50" height="50" alt="">
+                                            </span>
+                                        </c:if>
                                     </p>
                                 </div>
                                 <div style="height: 150px;font-size: 18px;padding-top: 30px">
                                     <span>
                                         &nbsp;&nbsp;
+                                        <c:set var="longDescribe" value="${topic.topicDescribe}"/>
                                         <c:set var="longDescribe" value="${topic.topicDescribe}"/>
                                         <c:set var="shortDescribe" value="${fn:substring(longDescribe, 0, 130)}"/>
                                         <c:if test="${topic.topicDescribe.length()>130}">
@@ -151,17 +165,18 @@
                                 </div>
                                 <div>
                                     <p class="text-right" style="padding-top: 4px;">
-                                            <span style="margin-right: 20px;">
-                                                关心 <span class="glyphicon glyphicon-heart-empty"></span>
-                                            </span>
+                                        <span style="margin-right: 20px;">
+                                            关心 <span class="glyphicon glyphicon-heart-empty"></span>
+                                        </span>
                                         <span style="margin-right: 50px;">
                                                 创建时间
                                                 <f:formatDate value="${topic.createTime}"
                                                               pattern="yyyy-MM-dd HH:mm:ss"/>
-                                            </span>
-                                        <span>参与人数&nbsp;</span>
+                                        </span>
+                                        <span style="margin-right: 20px;font-size: 17px">热度${topic.topicParticipations}</span>
+                                        <span>浏览数&nbsp;</span>
                                         <span class="glyphicon glyphicon-eye-open"
-                                              style="margin-right: 20px;font-size: 18px;">&nbsp;${topic.topicParticipations}</span>
+                                              style="margin-right: 20px;font-size: 18px;">&nbsp;${topic.topicSeen}</span>
                                     </p>
                                 </div>
                             </div>
@@ -177,29 +192,35 @@
                     <table class="table table-bordered">
                         <tbody>
                         <tr style="background-color: #f5f5f5;">
-                            <td width="50%" class="text-center">
+                            <td width="50%" class="text-center" style="background-color: #4fbaf2;">
                                 <a href="/index">主页</a>
                             </td>
-                            <td width="50%" style="background-color: #4fbaf2;text-align: center">
-                                <a href="/person/myfocus" style="font-size: 18px;color: white;">我关心的&nbsp;<span
-                                        class="glyphicon glyphicon-heart"></span></a>
+                            <td width="50%" class="text-center">
+                                <a href="/person/myfocus" style="font-size: 18px;color: black;">我的关注</a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div style="border: 1px solid #f5f5f5;border-top: 1px solid rgba(0,0,0,0.19);width: 350px;margin-top: 20px;margin-left: 15px;">
+                <div style="border: 1px solid #f5f5f5;border-top: 1px solid rgba(0,0,0,0.19);width: 350px;margin-top: 50px;margin-left: 15px;">
                     <h4 class="text-center">热门话题</h4>
                     <div>
-                        <table width="100%" class="table table-striped table-bordered ">
+                        <table width="100%" class="table">
                             <tbody>
-                            <tr class="text-center">
-                                <td class="td-transfer"><a href="https://www.baidu.com">NBA季后赛</a></td>
-                                <td class="td-transfer"><a href="#">毕业季</a></td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="td-transfer"><a href="#">二手交易</a></td>
-                                <td class="td-transfer"><a href="#">摄影大赛</a></td>
+                            <tr>
+                                <td>
+                                    <div class="row text-center"
+                                         style="width: 105%;margin-left: -6px;margin-top: -8px;">
+                                        <c:forEach items="${hotTopicsKeywords}" var="topic">
+                                            <div class="col-sm-6 hotTopicsTitle"
+                                                 style="height: 40px;font-size: 17px;border: 1px solid silver;padding-top: 8px;">
+                                                <a href="/public/${topic.id}">
+                                                        ${topic.topicKeyword}
+                                                </a>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -208,19 +229,22 @@
                 <div style="border: 1px solid #f5f5f5;border-top: 2px solid #00c3f5;height: 250px;width: 350px;margin-top: 35px;margin-left: 15px">
                     <h4 class="text-center">热门板块</h4>
                     <div>
-                        <table width="100%" class="table table-striped table-bordered">
+                        <table width="100%" class="table">
                             <tbody>
-                            <tr class="text-center">
-                                <td width="50%">运动会</td>
-                                <td width="50%">夜跑</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td width="50%">运动会</td>
-                                <td width="50%">夜跑</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>运动会</td>
-                                <td>夜跑</td>
+                            <tr>
+                                <td>
+                                    <div class="row text-center"
+                                         style="width: 105%;margin-left: -6px;margin-top: -8px;">
+                                        <c:forEach items="${hotBoards}" var="board">
+                                            <div class="col-sm-6 hotTopicsTitle"
+                                                 style="height: 40px;font-size: 17px;border: 1px solid silver;padding-top: 8px;">
+                                                <a href="/board/${board.id}">
+                                                        ${board.boardTitle}
+                                                </a>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -275,11 +299,47 @@
             </div>
         </div>
     </div>
+    <!--游客用户登录的模态框-->
+    <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="loginModalLabel">
+                        <small>请您先登录，再操作</small>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/checkLogon" method="get">
+                        <div class="form-group">
+                            <label for="username" class="control-label">
+                                <small>用户名</small>
+                            </label>
+                            <input type="text" class="form-control has-feedback" name="username" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">
+                                <small>密码</small>
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
+                            </button>
+                            <button type="submit" class="btn btn-md btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     function goPage(pageNumber) {
         $(":hidden[name='currentPage']").val(pageNumber);
-        $(":hidden[name='pageSize']").val(3);
+        $(":hidden[name='pageSize']").val(10);
         $("#goPage").submit();
     }
 
@@ -331,6 +391,8 @@
         $("tr td").on("click", function () {
             $(this).children("a").click();
         })
+
+
     })
 </script>
 </body>

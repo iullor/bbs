@@ -4,11 +4,8 @@ package com.gyl.controller;
 import com.alibaba.fastjson.JSON;
 import com.gyl.commons.page.PageResult;
 import com.gyl.entity.*;
-import com.gyl.service.BoardService;
-import com.gyl.service.CommentService;
-import com.gyl.service.PostService;
+import com.gyl.service.*;
 
-import com.gyl.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +29,8 @@ public class PostController {
 
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private TopNavbarInfoService topNavbarInfoService;
 
     /**
      * 显示一个贴子
@@ -68,9 +67,12 @@ public class PostController {
             comment.setReplyNumber(comment.getReplies().size());
             comment.setReplies(replies);
         }
+        //查询顶栏路径
+        TopNavbarInfo topNavbarInfo = topNavbarInfoService.listByPostId(id);
         post.setComments(comments);
         model.addAttribute("pageResult", pageResult);
         model.addAttribute("post", post);
+        model.addAttribute("topNavbarInfo", topNavbarInfo);
         return "/foreground/post/post_list";
     }
 

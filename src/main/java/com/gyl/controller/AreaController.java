@@ -1,11 +1,9 @@
 package com.gyl.controller;
 
 import com.gyl.commons.page.PageResult;
-import com.gyl.entity.Area;
-import com.gyl.entity.Board;
-import com.gyl.entity.Post;
-import com.gyl.entity.User;
+import com.gyl.entity.*;
 import com.gyl.service.AreaService;
+import com.gyl.service.TopNavbarInfoService;
 import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +24,8 @@ public class AreaController {
     private AreaService areaService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private TopNavbarInfoService topNavbarInfoService;
 
     @RequestMapping(value = "/area/{id}", method = RequestMethod.GET)
     public String list(@PathVariable("id") String id, Model model, Integer currentPage, Integer pageSize) {
@@ -37,8 +37,11 @@ public class AreaController {
         //分区的分页
         Area area = areaService.getAreaPostsById(id, currentPage, pageSize);
         PageResult pageResult = areaService.listPosts(id, currentPage, pageSize);
+        TopNavbarInfo topNavbarInfo = topNavbarInfoService.listByAreaId(id);
+
         model.addAttribute("pageResult", pageResult);
         model.addAttribute("area", area);
+        model.addAttribute("topNavbarInfo", topNavbarInfo);
         return "/foreground/area/area";
     }
 

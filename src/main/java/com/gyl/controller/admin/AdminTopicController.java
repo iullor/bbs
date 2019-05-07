@@ -7,6 +7,7 @@ import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -57,5 +58,23 @@ public class AdminTopicController {
         return "redirect:/admin/topic";
     }
 
+    @RequestMapping(value = "/admin/topic/search", method = RequestMethod.GET)
+    public String searchByTopicTitle(String topicTitle, Model model, Integer currentPage, Integer pageSize) {
+        if (currentPage == null || pageSize == null) {
+            //默认值
+            currentPage = 1;
+            pageSize = 5;
+        }
+        List<Topic> topics = topicService.listByTopicTitle(topicTitle);
+        //首页显示的
+        List<Topic> hotTopics = topicService.listHotTopic();
+        PageResult pageResult = topicService.sortPageByAdmin(topics, currentPage, pageSize);
+        topics = pageResult.getNewPage();
+
+        model.addAttribute("pageResult", pageResult);
+        model.addAttribute("topics", topics);
+        model.addAttribute("hotTopics", hotTopics);
+        return "admin/topic/list";
+    }
 
 }

@@ -55,9 +55,9 @@ public class Option {
     private String postId;
 
     /**
-     * 分区id
+     * 话题的id
      */
-    private String areaId;
+    private String topicId;
 
     /**
      * 板块表
@@ -153,12 +153,12 @@ public class Option {
         this.postId = postId;
     }
 
-    public String getAreaId() {
-        return areaId;
+    public String getTopicId() {
+        return topicId;
     }
 
-    public void setAreaId(String areaId) {
-        this.areaId = areaId;
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
     }
 
     public String getBoardId() {

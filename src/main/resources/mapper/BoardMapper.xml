@@ -12,6 +12,10 @@
         <result column="logo_path" property="logoPath"/>
         <result column="info" property="info"/>
         <result column="details" property="details"/>
+
+        <!--两个的个数-->
+        <result column="posts" property="postNumbers"/>
+        <result column="areas" property="areaNumbers"/>
         <association property="user" javaType="com.gyl.entity.User">
             <id property="id" column="id"/>
             <result property="username" column="username"/>
@@ -131,5 +135,14 @@
              test_bbs.t_user user,
              test_bbs.t_panel panel
         where board.user_id = #{id} and user.id =board.user_id and board.panel_id=panel.id
+    </select>
+
+    <select id="selectHotBoardsByPosts" resultMap="listBoards">
+            select count(board_id) posts,
+            board.id ,
+            board.board_title
+            from test_bbs.t_post post,test_bbs.t_board board
+            where post.board_id =board.id
+            group by board_id  order by posts desc limit 6;
     </select>
 </mapper>

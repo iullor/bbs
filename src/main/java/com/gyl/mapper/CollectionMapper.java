@@ -43,4 +43,12 @@ public interface CollectionMapper {
     List<Area> listMyCollectionAreas(@Param("id") String id);
 
     List<Collection> listMyCollectionUser(@Param("id") String id);
+
+    /**
+     * 根据用户id去查关注他的所有粉丝
+     *
+     * @param id
+     * @return
+     */
+    int countFansByUserId(@Param("id") String id);
 }

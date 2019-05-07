@@ -109,4 +109,11 @@ public class CollectionService {
     public List<Collection> listMyCollectionUser(String id) {
         return collectionMapper.listMyCollectionUser(id);
     }
+
+
+    public int countFansByUserId(String id){
+        return collectionMapper.countFansByUserId(id);
+    }
+
+
 }

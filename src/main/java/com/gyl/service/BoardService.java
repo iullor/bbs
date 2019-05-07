@@ -93,4 +93,18 @@ public class BoardService {
         }
         return pageResult;
     }
+
+    /**
+     * 获取所有的板块通过 每个板块中所有的贴子 数量来排序，查到最多的取前6个显示
+     *
+     * @return
+     */
+    public List<Board> selectHotBoardsByPosts() {
+        return boardMapper.selectHotBoardsByPosts();
+    }
+
+
+
+
+
 }

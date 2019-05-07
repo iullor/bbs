@@ -5,13 +5,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
     <style>
-        body{
+        body {
             margin-top: 50px;
         }
         .col-md-8 label {
@@ -22,7 +22,7 @@
 <body>
 <div class="container-fluid">
     <div class="row main">
-        <div class="col-md-offset-1 col-md-8 container-inner">
+        <div class="col-md-offset-1 col-md-9 container-inner" style="border: 1px solid #f5f5f5">
             <h3><b>创建话题</b></h3>
             <hr>
             <div class="row">
@@ -39,6 +39,11 @@
                         <div class="form-group">
                             <label>添加配图(图片比例16:9,格式(png/jpg))</label>
                             <input type="file" name="topicPicture1">
+                        </div>
+                        <div class="form-group">
+                            <label>关键词</label>
+                            <input type="text" name="topicKeyword">
+                            <small>(必须2-6词)</small>
                         </div>
                         <div class="form-group">
                             <label for="topic-title">话题详细描述

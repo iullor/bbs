@@ -37,5 +37,16 @@ public interface UserMapper {
      * @param password
      * @return
      */
-    User adminLogon(@Param("username")String username, @Param("password")String password);
+    User adminLogon(@Param("username") String username, @Param("password") String password);
+
+
+    /**
+     * 跟新个人说明
+     *
+     * @param id
+     * @param introduce
+     * @return
+     */
+    int updateIntroduce(@Param("id") String id, @Param("introduce") String introduce);
+
 }

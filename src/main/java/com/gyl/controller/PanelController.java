@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * @author gyl
  * <p>
@@ -20,13 +22,17 @@ public class PanelController {
     private PanelService panelService;
 
     /**
+     * 显示单个panel
+     *
      * @return
      */
     @RequestMapping(value = "/panel/{id}", method = RequestMethod.GET)
     public String list(@PathVariable("id") String id, Model model) {
         Panel panel = panelService.selectPanelById(id);
         model.addAttribute("panel", panel);
+        model.addAttribute("panel", panel);
         return "/foreground/board/board";
     }
+
 
 }

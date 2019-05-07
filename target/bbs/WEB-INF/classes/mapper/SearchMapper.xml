@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyl.mapper.SearchMapper">
+    <resultMap id="userMap" type="com.gyl.entity.User">
+        <result property="userBaseInfo.headImage" column="head_image"/>
+    </resultMap>
+    <!--根据用户名查用户-->
+    <select id="searchUserByNickName" resultMap="userMap">
+        select id,nick_name,head_image from test_bbs.t_user where nick_name like "%"#{nickName}"%"
+    </select>
+    <select id="searchPostByPostTitle" resultType="com.gyl.entity.Post">
+        select id ,left(post_title,15) post_title from t_post where post_title like "%"#{postTitle}"%"
+    </select>
+    <select id="searchAreaByAreaTitle" resultType="com.gyl.entity.Area">
+        select id ,area_title from t_area where area_title like "%"#{areaTitle}"%"
+    </select>
+    <select id="searchTopicByTopicTitle" resultType="com.gyl.entity.Topic">
+        select id ,left(topic_title,15) topic_title from  t_topic where topic_title like "%"#{topicTitle}"%"
+    </select>
+</mapper>

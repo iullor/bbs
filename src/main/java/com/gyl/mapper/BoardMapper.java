@@ -47,4 +47,10 @@ public interface BoardMapper {
      * @return
      */
     List<Board> getBoardByManagerId(@Param("id") String id);
+
+    /**
+     * 找到贴子最多的板块取前6
+     * @return
+     */
+    List<Board> selectHotBoardsByPosts();
 }

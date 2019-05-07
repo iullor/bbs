@@ -54,6 +54,12 @@ public class Topic {
      *
      */
     private User user;
+    /**
+     * 话题的关键词
+     */
+    private String topicKeyword;
+    private Integer topicSeen;
+
     public String getId() {
         return id;
     }
@@ -124,5 +130,21 @@ public class Topic {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getTopicKeyword() {
+        return topicKeyword;
+    }
+
+    public void setTopicKeyword(String topicKeyword) {
+        this.topicKeyword = topicKeyword;
+    }
+
+    public Integer getTopicSeen() {
+        return topicSeen;
+    }
+
+    public void setTopicSeen(Integer topicSeen) {
+        this.topicSeen = topicSeen;
     }
 }

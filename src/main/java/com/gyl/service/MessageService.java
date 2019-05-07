@@ -63,7 +63,7 @@ public class MessageService {
         //1，先判断是什么东西
         String postId = option.getPostId();
         String boardId = option.getBoardId();
-        String areaId = option.getAreaId();
+        String areaId = option.getTopicId();
         String things = "";
         if (postId != null) {
             //贴子

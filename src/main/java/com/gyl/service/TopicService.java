@@ -35,6 +35,7 @@ public class TopicService {
         topic.setCreateTime(new Date(System.currentTimeMillis()));
         topic.setLevel(0);
         topic.setTopicParticipations(0);
+        topic.setTopicSeen(0);
         return topicMapper.add(topic);
     }
 
@@ -82,6 +83,7 @@ public class TopicService {
         return topicMapper.listHotTopic();
     }
 
+
     /**
      * 公共板块展示的
      *
@@ -89,5 +91,18 @@ public class TopicService {
      */
     public List<Topic> listTopics() {
         return topicMapper.listTopics();
+    }
+
+    /**
+     * 展示热门的话题6 个
+     *
+     * @return
+     */
+    public List<Topic> listHotTopicsPublic() {
+        return topicMapper.listHotTopicsPublic();
+    }
+
+    public List<Topic> listByTopicTitle(String topicTitle) {
+        return topicMapper.listByTopicTitle(topicTitle);
     }
 }

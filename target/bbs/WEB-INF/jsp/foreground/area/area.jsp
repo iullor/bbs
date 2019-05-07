@@ -6,13 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <title>分区</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/panel/panel.css">
-
     <!--引入一些样式-->
     <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/commons/top.css">
     <link rel="stylesheet" href="/css/modal/modal_login.css">
     <link rel="stylesheet" href="/css/commons/commons.css">
     <link rel="stylesheet" href="/css/board/board.css">
@@ -51,7 +48,8 @@
     </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
+<%--<header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -62,7 +60,9 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BBS-Student</a>
+                    <a class="navbar-brand" href="/index.jsp"
+                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
+                    </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
@@ -78,9 +78,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2 nav-addon">
-                    <a href="/person/myCreat"><span class="glyphicon glyphicon-cloud">&nbsp;公共</span></a>
-                    <a href="/person/myFriends"><span class="glyphicon glyphicon-globe">&nbsp;圈子</span></a>
+                <div class="col-md-2  nav-addon">
+                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <c:if test="${not empty sessionScope.CURRENT_USER}">
+                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
+                    </c:if>
                 </div>
                 <c:choose>
                     <c:when test="${empty sessionScope.CURRENT_USER}">
@@ -121,31 +124,31 @@
             </div>
         </div>
     </nav>
-</header>
+</header>--%>
 <div class="container">
     <div class="row">
         <div id="main">
             <!--路径导航栏-->
             <div class="row area-nav">
                 <ol class="breadcrumb">
-                    <li><a href="../../public/index.jsp">Home</a></li>
-                    <li><a href="../panel/panel.jsp">Panel</a></li>
-                    <li><a href="ml">School</a></li>
-                    <li class="active">Computer Science</li>
+                    <li><a href="/index">首页</a></li>
+                    <li><a href="/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
+                    <li><a href="/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
+                    <li class="active">${topNavbarInfo.areaTitle}</li>
                 </ol>
             </div>
             <div class="panel area-list">
                 <div class="panel-heading">
                     <div class="panel-title row"
                          style="height: 250px;border-top: 1px blue solid;border-bottom:1px grey solid;margin-top: -10px;padding-top: 20px">
-                        <div class="col-md-3 text-vertical-center">
+                        <div class="col-md-4 text-vertical-center">
                             <p>
-                                <img src="" alt="" value="" width="150" height="150"
+                                <img src="/images/topic/default.png" width="150" height="150"
                                      style="margin-left: 25px;margin-bottom: 30px;">
                             </p>
-                            <p class="text-md text-grey" style="padding-left: 50px">${area.areaTitle}</p>
+                            <p class="text-md text-grey text-left">${area.areaTitle}</p>
                         </div>
-                        <div class="col-md-7" style="margin-top: 20px;">
+                        <div class="col-md-5" style="margin-top: 20px;">
                             <p>版主：${area.user.nickName}</p>
                             <p>板块信息：${area.details}</p>
                             <p>创建时间：<f:formatDate value="${area.createTime}" pattern="yyyy-MM-dd"/></p>
@@ -155,7 +158,7 @@
                             </p>
                             <p><a href="#">Rank&nbsp;100</a></p>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <span id="collectArea"
                                   class="glyphicon glyphicon-star-empty btn btn-info pull-right"
                                   style="margin-top: 5px;"

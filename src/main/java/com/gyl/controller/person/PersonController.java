@@ -1,8 +1,13 @@
 package com.gyl.controller.person;
 
+import com.gyl.entity.User;
+import com.gyl.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 个人管理
@@ -11,17 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PersonController {
+    @Autowired
+    private UserService userService;
 
-    /**
-     * 个人管理主页面
-     *
-     * @return
-     */
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
-    public String main() {
 
-        return "/person/main";
-    }
 
 
 

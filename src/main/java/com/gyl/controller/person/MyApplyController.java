@@ -2,10 +2,7 @@ package com.gyl.controller.person;
 
 import com.gyl.entity.*;
 
-import com.gyl.service.AreaService;
-import com.gyl.service.BoardService;
-import com.gyl.service.OptionService;
-import com.gyl.service.PostService;
+import com.gyl.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +35,9 @@ public class MyApplyController {
 
     @Autowired
     private AreaService areaService;
+
+    @Autowired
+    private TopicService topicService;
 
     /**
      * 申请进度
@@ -88,8 +88,8 @@ public class MyApplyController {
     public List apply(@PathVariable("op") String op, HttpServletRequest request) {
         List<Object> obj = new ArrayList<>();
         if (op != null) {
+            User user = (User) request.getSession().getAttribute("CURRENT_USER");
             if (op.equals("1")) {
-                User user = (User) request.getSession().getAttribute("CURRENT_USER");
                 List<Post> posts = postService.getMyPostById(user.getId());
                 return posts;
             }
@@ -97,9 +97,10 @@ public class MyApplyController {
                 List<Board> boards = boardService.list();
                 return boards;
             }
+            //去查找当前用户的所有话题
             if (op.equals("3")) {
-                List<Area> areas = areaService.list();
-                return areas;
+                List<Topic> topics = topicService.selectByUserId(user.getId());
+                return topics;
             }
         }
         return obj;
@@ -128,7 +129,7 @@ public class MyApplyController {
      * @return
      */
     @RequestMapping("/person/apply/showApplyReason/{optionId}")
-    public String showApplyReason(@PathVariable("optionId") String optionId,Model model) {
+    public String showApplyReason(@PathVariable("optionId") String optionId, Model model) {
         Option option = optionService.selectById(optionId);
         model.addAttribute("option", option);
         return "/person/apply/show";

@@ -22,7 +22,7 @@
 <h3>Admin-Logon</h3>
 <div class="container">
     <div class="form-logon">
-        <form action="/admin/chcekLogon" method="post">
+        <form action="/admin/checkLogon" method="post">
             <p class="text-red" id="logon-info"></p>
             <lable><strong>用户名</strong></lable>
             <input type="text" class="form-control" name="username">

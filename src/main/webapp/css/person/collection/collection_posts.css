@@ -1,11 +1,6 @@
 /*
 =========关注的贴子，样式==========
 */
-#list {
-    margin-top: 10px;
-    background-color: white;
-    height: 800px;
-}
 
 #list p {
     margin-top: 20px;

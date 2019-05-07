@@ -44,4 +44,5 @@ public interface PanelMapper {
      * 根据模块管理者的id查
      */
     List<Panel> listByPanelManagerId(@Param("id") String id);
+
 }

@@ -1,12 +1,10 @@
 package com.gyl.controller;
 
-import com.gyl.entity.Discuss;
-import com.gyl.entity.Post;
-import com.gyl.entity.Reply;
-import com.gyl.entity.User;
+import com.gyl.entity.*;
 import com.gyl.service.DiscussService;
 import com.gyl.service.MessageService;
 import com.gyl.service.ReplyService;
+import com.gyl.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +23,9 @@ import java.util.List;
 @Controller
 public class DiscussController {
     private static String uploadPath = "/home/gyl/Pictures/bbs-files/";
+
+    @Autowired
+    private TopicService topicService;
     @Autowired
     private DiscussService discussService;
     @Autowired
@@ -32,12 +33,17 @@ public class DiscussController {
     @Autowired
     private ReplyService replyService;
 
+
     @RequestMapping(value = "/discuss", method = RequestMethod.POST)
     public String insert(Discuss discuss, HttpServletRequest request, String toUserId) {
         String topicId = discuss.getTopicId();
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
         String userId = user.getId();
         discuss.setUserId(userId);
+        //话题的参与数加1
+        Topic topic = topicService.selectById(topicId);
+        topic.setTopicParticipations(topic.getTopicParticipations() + 1);
+        topicService.update(topic);
         int status = discussService.insert(discuss);
         if (status > 0) {
             //这里发送一条信息给话题的发起者，的拥有者
@@ -148,6 +154,7 @@ public class DiscussController {
         String toDiscussId = reply.getToDiscussId();
         //添加一条新的回复
         reply.setFromUserId(user.getId());
+
         int i = replyService.addReplyToDiscuss(reply);
         return "redirect:/public/" + topicId;
     }

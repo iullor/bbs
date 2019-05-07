@@ -112,6 +112,18 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="test_bbs:t_notice">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="Notice" />
+                  <option name="moduleName" value="bbs" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="test_bbs:t_options">
               <value>
                 <TableGenerateConfig>

@@ -4,7 +4,7 @@
 .navbar {
     height: 55px;
     background-color: #1F0772;
-    }
+}
 
 .navbar a {
     color: white;
@@ -13,12 +13,24 @@
 .navbar a:hover {
     color: red;
 }
-.nav-addon{
+
+.nav-addon {
     margin-top: 15px;
     font-size: 15px;
 }
-.nav-addon a{
+
+.nav-addon a {
     margin-left: 40px;
+}
+
+.logo {
+    position: absolute;
+    top:-2px;
+    left: 50px;
+    background-image: url('/images/nav/logo.png');
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 500px;
 }
 
 /**
@@ -29,11 +41,11 @@
     width: 75px;
     height: 375px;
     top: 350px;
-    right: 0px;
+    right: 5px;
 }
 
 .right-nav > div {
-    border-bottom: 1px gray solid;
+    border-bottom: 1px gray dashed;
     width: 75px;
     height: 75px;
     background-color: white;
@@ -43,10 +55,10 @@
 
 
 .right-nav > div:last-child {
-    border-bottom: 1px gray dashed;
+    display: none;
     width: 75px;
     height: 75px;
-    background-color: #ff003e;
+    background-color: red;
 }
 
 .right-nav > div:hover {
@@ -69,8 +81,42 @@
     border: 1px white groove;
 }
 
-
 .myAccount:hover {
     background-color: rgba(192, 192, 192, 0.11);
 }
 
+/*搜索框*/
+.search-result-show {
+    display: none;
+    position: absolute;
+    top: 54px;
+    width: 46%;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    z-index: 2;
+}
+
+.search-result-show a {
+    text-decoration: none;
+    color: black;
+}
+.search-result-show hr{
+    margin: 5px auto;
+}
+
+.search-result-show > div {
+    height: auto;
+}
+
+.search-result-user p:hover {
+    background: #8c8c8c;
+}
+
+.search-result-area p:hover {
+    background: #aaaaaa;
+}
+
+.search-result-post p:hover {
+    background: #bebebe;
+}

@@ -109,6 +109,7 @@ public class PanelService {
      */
     public Panel selectPanelById(String pid) {
         Panel panel = panelMapper.selectPanelById(pid);
+        //找到panel中最热的几个
         List<Post> posts = postMapper.selecthotPostsByPanelId(pid);
         panel.setHotPosts(posts);
         return panel;
@@ -137,4 +138,10 @@ public class PanelService {
         }
         return pageResult;
     }
+    //根据boardId查找出来panel的部分属性
+   /* public Panel getPanelByBoardId(String boardId) {
+        return panelMapper.getPanelByBoardId(boardId);
+    }*/
+
+
 }

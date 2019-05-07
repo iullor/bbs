@@ -70,11 +70,13 @@ body {
 }
 
 #container-message {
-    background-color: white;
-    height: 900px;
     margin-top: 10px;
+    margin-bottom: 50px;
+    height: auto;
+    min-height: 800px;
+    _height: 800px;
+    background-color: white;
 }
-
 
 #container-message > .row {
     margin-top: 5px;

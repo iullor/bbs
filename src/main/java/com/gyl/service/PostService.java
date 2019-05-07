@@ -177,4 +177,18 @@ public class PostService {
         return pageResult;
     }
 
+    public int countPostsByUserId(String id) {
+        return postMapper.countPostsByUserId(id);
+    }
+
+    /**
+     * 得到每个分区前5条热门的贴子
+     *
+     * @param areaId
+     * @return
+     */
+    public List<Post> getTopFivePostsByAreaId(String areaId) {
+
+        return postMapper.getTopFivePostsByAreaId(areaId);
+    }
 }
