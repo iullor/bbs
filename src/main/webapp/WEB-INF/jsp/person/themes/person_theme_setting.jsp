@@ -6,100 +6,85 @@
 <head>
     <meta charset="UTF-8">
     <title>个人管理</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/person/person_manager-left.css">
-    <link rel="stylesheet" href="/css/person/message/message.css">
-
+    <%--左侧栏的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
+    <style>
+        .default-preview {
+            border: 1px solid #f5f5f5;
+            pointer-events: none;
+        }
+
+        .default-preview nav {
+            background-color: rgba(31, 7, 114, 0.54);
+        }
+
+        .default-preview nav a {
+            color: white;
+        }
+
+        .default-preview-show {
+            width: 250px;
+            height: 120px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border: 1px solid blue;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: blue 1px 1px;
+        }
+
+        .pink-preview {
+            border: 1px solid #f5f5f5;
+            pointer-events: none;
+        }
+
+        .pink-preview nav {
+            background-color: rgba(255, 204, 204, 0.61);
+        }
+
+        .pink-preview nav a {
+            color: #993333;
+        }
+
+        .pink-preview-show {
+            width: 250px;
+            height: 120px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #FFFFCC;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: #FFFFCC 1px 1px;
+        }
+
+        .container-inner {
+            margin-top: 10px;
+            margin-bottom: 150px;
+            height: auto !important;
+            min-height: 900px;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
-
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<%--引入顶栏--%>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container-fluid">
     <div class="row main">
-        <div class=" col-md-offset-1 col-md-2">
+        <div class="col-md-offset-1 col-md-2">
             <!--侧边栏信息-->
-            <div id="panel-parent" class="panel-group">
+            <div id="panel-parent" class="panel-group" style="width: 14.3%;">
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
@@ -180,8 +165,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li class="active"><a href="/person/themes/basic" class="">基本样式</a></li>
-                                <li><a href="#" class="">颜色搭配</a></li>
+                                <li class="active"><a href="/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>
@@ -231,12 +215,245 @@
             </div>
         </div>
         <div class="col-md-8 container-inner">
-            样式设置
+            <h3 class="text-info">样式设置
+                <small>(暂时仅提供两种主题)</small>
+            </h3>
+            <div class="row" style="margin-top: 50px;">
+                <input type="hidden" name="userId" value="${sessionScope.CURRENT_USER.id}">
+                <input type="hidden" name="currentTheme" value="${sessionScope.CURRENT_USER.userLoginInfo.theme}">
+                <h4 class="text-primary" style="margin-left: 20px">
+                    默认(深蓝)
+                    <span class="pull-right" style="margin-right: 20px">
+                        <small>应用</small>&nbsp;<input type="radio" name="theme" info="深蓝" value="0">
+                    </span>
+                </h4>
+                <hr>
+                <div class="col-md-offset-2 col-md-8 default-preview" disabled="true">
+                    <div class="row">
+                        <nav class="navbar">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                    </button>
+                                    <a class="navbar-brand" href="#">BBSTU</a>
+                                </div>
+                                <div class="collapse navbar-collapse" id="b1">
+                                    <form class="navbar-form navbar-left" style="margin-left: 250px">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">搜索</button>
+                                    </form>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">登录<span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div style="width: 100%;height: 300px">
+                                <img src="/images/topic/default-image.png" width="500" height="270" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row default-preview-show">
+                                <h3>热门话题</h3>
+                            </div>
+                            <div class="row default-preview-show">
+                                <h3>通知</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <nav class="navbar">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse" id="b2">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#">默认<span
+                                                class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">默认</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">Dropdown <span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">Dropdown <span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="margin-top: 50px;">
+                <h4 class="text-warning" style="margin-left: 20px">
+                    可选(少女粉)
+                    <span class="pull-right" style="margin-right: 20px">
+                        <small>应用</small>&nbsp;<input type="radio" name="theme" info="少女粉" value="1">
+                    </span>
+                </h4>
+                <hr>
+                <div class="col-md-offset-2 col-md-8 pink-preview " disabled="true">
+                    <div class="row">
+                        <nav class="navbar">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                    </button>
+                                    <a class="navbar-brand" href="#">BBSTU</a>
+                                </div>
+                                <div class="collapse navbar-collapse" id="b3">
+                                    <form class="navbar-form navbar-left" style="margin-left: 250px">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">搜索</button>
+                                    </form>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">登录<span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div style="width: 100%;height: 300px">
+                                <img src="/images/topic/default-image.png" width="500" height="270" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row pink-preview-show">
+                                <h3>热门话题</h3>
+                            </div>
+                            <div class="row pink-preview-show">
+                                <h3>通知</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <nav class="navbar">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse" id="b4">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#">默认<span
+                                                class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">默认</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">Dropdown <span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">Dropdown <span
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script>
+    $(function () {
+        let currentTheme = $(":input[name='currentTheme']").attr("value");
+        $(":input[name='theme']").each(function () {
+            if ($(this).attr("value") === currentTheme) {
+                $(this).attr("checked", true);
+            }
+        })
 
+
+        $(":input[name='theme']").on("click", function () {
+            let info = $(this).attr("info");
+            let chooseThemeOrNot = window.confirm("确定选择 " + info + " 主题 ？");
+            if (chooseThemeOrNot) {
+                //发送一条ajax 请求，给用户保存主题样式在数据
+                //当前用户
+                let id = $(":input[name='userId']").attr("value");
+                //主题样式的值
+                let value = $(this).attr("value");
+                $.ajax({
+                    //用户的id，主题样式的编号
+                    url: '/person/themes/changeTheme?id=' + id + '&&value=' + value,
+                    type: 'get',
+                    success: function (data) {
+                        //成功的话，先更换当前页的样式,刷新页面
+                        window.location.href = "/person/themes/basic";
+                    }
+                })
+                return true;
+            }
+            return false;
+        })
+
+    })
 </script>
 </body>
 </html>

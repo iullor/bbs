@@ -2,14 +2,8 @@ package com.gyl.service;
 
 import com.gyl.commons.UUIDString;
 import com.gyl.commons.page.PageResult;
-import com.gyl.entity.Board;
-import com.gyl.entity.Panel;
-import com.gyl.entity.Post;
-import com.gyl.entity.User;
-import com.gyl.mapper.BoardMapper;
-import com.gyl.mapper.PanelMapper;
-import com.gyl.mapper.PostMapper;
-import com.gyl.mapper.UserMapper;
+import com.gyl.entity.*;
+import com.gyl.mapper.*;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +24,9 @@ public class PanelService {
 
     @Autowired
     private PostMapper postMapper;
+
+    @Autowired
+    private AreaMapper areaMapper;
 
     /**
      * 新增
@@ -72,7 +69,15 @@ public class PanelService {
     }
 
     public List<Panel> searchByPanelTitle(String inputPanelTitle) {
-        return panelMapper.searchByPanelTitle(inputPanelTitle);
+        List<Panel> panels = panelMapper.searchByPanelTitle(inputPanelTitle);
+        for (Panel p : panels) {
+            String panelManagerId = p.getPanelManagerId();
+            List<User> userList = p.getUserList();
+            //userMapper根据id再去找
+            User user = userMapper.selectUserById(panelManagerId);
+            userList.add(user);
+        }
+        return panels;
     }
 
     /**
@@ -108,10 +113,28 @@ public class PanelService {
      * @return
      */
     public Panel selectPanelById(String pid) {
-        Panel panel = panelMapper.selectPanelById(pid);
-        //找到panel中最热的几个
-        List<Post> posts = postMapper.selecthotPostsByPanelId(pid);
-        panel.setHotPosts(posts);
+        Panel panel = null;
+        try {
+            panel = panelMapper.selectPanelById(pid);
+            if (panel != null) {
+                //找到每个area中的贴子数
+                List<Board> boards = panel.getBoards();
+                for (Board board : boards) {
+                    for (Area area : board.getAreas()) {
+                        //根据每个area的id去查有多少post
+                        Integer countPostNumberByAreaId = areaMapper.countPostNumberByAreaId(area.getId());
+                        area.setPostNumbers(countPostNumberByAreaId);
+                    }
+
+                }
+                List<Post> posts = postMapper.selecthotPostsByPanelId(pid);
+                //找到panel中最热的几个的几个贴子
+                panel.setHotPosts(posts);
+            }
+
+        } catch (Exception e) {
+
+        }
         return panel;
     }
 

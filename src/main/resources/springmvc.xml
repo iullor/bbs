@@ -22,7 +22,6 @@
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
     <mvc:resources mapping="/lib/**" location="/lib/"/>
-    <!-- <mvc:resources mapping="/error/**" location="/WEB-INF/jsp/error/"/>-->
     <!--重新注入bean 需要的bean
         功能更强大，支持前台数据的校验，自定义视图，自定义类型转换器 DataBinder
     -->
@@ -57,6 +56,8 @@
             <mvc:mapping path="/person/**"/>
             <!--<mvc:exclude-mapping path="/user/login"/>-->
             <bean class="com.gyl.interceptors.LogonInterceptor">
+
+
             </bean>
         </mvc:interceptor>
         <mvc:interceptor>
@@ -65,6 +66,7 @@
             <mvc:exclude-mapping path="/admin/logon"/>
             <mvc:exclude-mapping path="/admin/checkLogon"/>
             <mvc:exclude-mapping path="/admin/logout"/>
+            <mvc:exclude-mapping path="/admin/notice/*"/>
             <bean class="com.gyl.interceptors.AdminLogonInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

@@ -30,8 +30,7 @@ public class PanelController {
     public String list(@PathVariable("id") String id, Model model) {
         Panel panel = panelService.selectPanelById(id);
         model.addAttribute("panel", panel);
-        model.addAttribute("panel", panel);
-        return "/foreground/board/board";
+        return "/foreground/panel/panel";
     }
 
 

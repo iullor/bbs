@@ -105,4 +105,9 @@ public class TopicService {
     public List<Topic> listByTopicTitle(String topicTitle) {
         return topicMapper.listByTopicTitle(topicTitle);
     }
+
+    public List<Topic> getFocusUserTopic(String id) {
+
+        return topicMapper.getFocusUserTopic(id);
+    }
 }

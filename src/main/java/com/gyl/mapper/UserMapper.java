@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserMapper {
     int add(User user);
 
-    User checkUser(String username);
+    User checkUser(@Param("username") String username);
 
     User selectUserById(@Param(value = "uid") String uid);
 
@@ -49,4 +49,11 @@ public interface UserMapper {
      */
     int updateIntroduce(@Param("id") String id, @Param("introduce") String introduce);
 
+    int changeTheme(@Param("id") String id, @Param("value") String value);
+
+    User selectUserByUNameAndEmail(@Param("username") String username, @Param("email") String email);
+
+    int updateTmpPassword(@Param("id") String id, @Param("tmpPassword") String tmpPassword);
+
+    List<User> selectUsersByNickName(@Param("nickName") String nickName);
 }

@@ -6,6 +6,7 @@ import com.gyl.commons.page.PageResult;
 import com.gyl.entity.Post;
 import com.gyl.entity.PostType;
 import com.gyl.entity.Praise;
+import com.gyl.entity.Topic;
 import com.gyl.mapper.CollectionMapper;
 import com.gyl.mapper.PostMapper;
 import com.gyl.mapper.PostTypeMapper;
@@ -188,7 +189,30 @@ public class PostService {
      * @return
      */
     public List<Post> getTopFivePostsByAreaId(String areaId) {
-
         return postMapper.getTopFivePostsByAreaId(areaId);
+    }
+
+    public List<Post> selectPostTitleAndPostType() {
+        return postMapper.selectPostTitleAndPostType();
+    }
+
+    public List<Post> getMyFocusPosts(String id) {
+        //根据他们的id来
+        return postMapper.getMyFocusPosts(id);
+    }
+
+    public List<Post> selectByPostTitle(String postTitle) {
+        return postMapper.selectByPostTitle(postTitle);
+    }
+
+    /**
+     * 个人管理页面搜索自己的帖子
+     *
+     * @param id
+     * @param myPostTitle
+     * @return
+     */
+    public List<Post> getMyPostByIdAndPostTitle(String id, String myPostTitle) {
+        return postMapper.getMyPostByIdAndPostTitle(id, myPostTitle);
     }
 }

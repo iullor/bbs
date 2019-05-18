@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -28,7 +29,8 @@
                         <th>创建者</th>
                         <th class="text-center">缩略图</th>
                         <th>时间</th>
-                        <th>参与者</th>
+                        <th>浏览量</th>
+                        <th>参与度</th>
                         <th class="text-center">移除</th>
                         </thead>
                         <tbody>
@@ -46,6 +48,7 @@
                                 <td>
                                     <f:formatDate value="${hotTopic.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                 </td>
+                                <td>${hotTopic.topicSeen}</td>
                                 <td>${hotTopic.topicParticipations}</td>
                                 <td width="8%" class="text-center">
                                     <a href="#" class="minus" tid="${hotTopic.id}">
@@ -69,18 +72,17 @@
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-12">
             <h3>所有的话题</h3>
-            <div class="col-md-offset-7 col-md-4" style="margin-bottom: 10px;">
-                <form action="/admin/topic/search/" method="get">
-                    <input type="text" name="topicTitle" width="200" style="line-height:30px;font-size: 16px;"
+            <form action="/admin/topic/search/" method="get">
+                <div class="col-md-offset-6 col-md-4" style="margin-bottom: 10px;">
+
+                    <input type="text" name="topicTitle" class="form-control" style="line-height:30px;font-size: 16px;"
                            placeholder="话题标题">
-                    <button class="btn btn-info" type="submit">
-                        搜索
-                    </button>
-                </form>
-            </div>
-            <div class="col-md-1">
-                <a href="/admin/topic" class="btn btn-success">显示全部</a>
-            </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info" type="submit"> 搜索 </button>
+                    <a href="/admin/topic" class="btn btn-success pull-right">显示全部</a>
+                </div>
+            </form>
             <c:choose>
                 <c:when test="${not empty topics}">
                     <table id="showAllTopics" class="table table-hover">
@@ -90,7 +92,8 @@
                         <th>创建者</th>
                         <th class="text-center">缩略图</th>
                         <th>时间</th>
-                        <th>参与者</th>
+                        <th>浏览量</th>
+                        <th>参与度</th>
                         <th class="text-center">首页显示</th>
                         </thead>
                         <tbody>
@@ -108,6 +111,7 @@
                                 <td>
                                     <f:formatDate value="${topic.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                 </td>
+                                <td>${topic.topicSeen}</td>
                                 <td>${topic.topicParticipations}</td>
                                 <td width="8%" class="text-center">
                                     <a href="#" class="plus" tid="${topic.id}">

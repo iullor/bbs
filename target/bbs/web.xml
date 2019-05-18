@@ -5,7 +5,15 @@
          version="4.0">
   <display-name>Archetype Created Web Application</display-name>
 
-
+  <!--错误页面-->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/jsp/error/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/jsp/error/500.jsp</location>
+  </error-page>
   <!--指定整个程序的上下文-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -83,14 +91,5 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <!--错误页面-->
-  <error-page>
-    <error-code>404</error-code>
-    <location>/WEB-INF/jsp/error/404.jsp</location>
-  </error-page>
-   <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/jsp/error/500.jsp</location>
-  </error-page>
 
 </web-app>

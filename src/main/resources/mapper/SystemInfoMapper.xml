@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyl.mapper.SystemInfoMapper">
+    <select id="countUser" resultType="integer">
+                select count(id) from test_bbs.t_user;
+    </select>
+    <select id="countPanel" resultType="integer">
+                select count(id) from test_bbs.t_panel;
+    </select>
+    <select id="countBoard" resultType="integer">
+                select count(id) from test_bbs.t_board;
+    </select>
+    <select id="countArea" resultType="integer">
+                select count(id) from test_bbs.t_area;
+    </select>
+    <select id="countPost" resultType="integer">
+                select count(id) from test_bbs.t_post;
+    </select>
+    <select id="countTopic" resultType="integer">
+                select count(id) from test_bbs.t_topic;
+    </select>
+    <select id="countNotice" resultType="integer">
+                select count(id) from test_bbs.t_notice;
+    </select>
+    <select id="countUpPost" resultType="integer">
+                select count(id) from test_bbs.t_post where up=1;
+    </select>
+    <select id="countHotTopic" resultType="integer"         >
+                select count(id) from test_bbs.t_topic where topic_seen &lt; 20;
+    </select>
+
+</mapper>

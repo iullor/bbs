@@ -4,18 +4,24 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <!--login的模态框-->
     <link rel="stylesheet" href="/css/modal/modal_login.css">
     <link rel="stylesheet" href="/lib/bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
+        <link id="navbar-top" rel="stylesheet" href="/css/commons/sidebar_left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link id="navbar-top" rel="stylesheet" href="/css/commons/sidebar_left-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
+<header class="navbar navbar-fixed-top">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
@@ -52,7 +58,7 @@
                 <div class="col-md-2  nav-addon">
                     <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
                     <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                        <a href="/person/myCircle"><span
                                 class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
                     </c:if>
                 </div>
@@ -114,6 +120,7 @@
     {{/for}}
 
 
+
 </script>
 <script type="text/x-jsrender" id="renderArea">
     {{for areas}}
@@ -130,6 +137,7 @@
              </a>
           </p>
     {{/for}}
+
 
 
 </script>
@@ -150,6 +158,7 @@
     {{/for}}
 
 
+
 </script>
 <script type="text/x-jsrender" id="renderTopic">
      {{for topics}}
@@ -168,11 +177,12 @@
     {{/for}}
 
 
+
 </script>
 <%--搜索渲染的样式--%>
 <script>
     $(function () {
-        $(".dropdown-toggle").on("click",function () {
+        $(".dropdown-toggle").on("click", function () {
             $(".dropdown-menu").hide()
             $(this).siblings("ul").show()
         })

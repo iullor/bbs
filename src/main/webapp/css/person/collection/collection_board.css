@@ -4,15 +4,13 @@
 .container-inner {
     margin-top: 10px;
     background-color: white;
-    height: auto;
-    min-height: 900px;
+    height: auto !important;
+    min-height: 900px !important;
 }
 
 .container-inner h3 {
     margin-top: 30px;
 }
-
-
 .active {
     color: #fff;
     background-color: rgba(138, 108, 182, 0.63);

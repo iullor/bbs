@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>新用户账号激活</title>
+    <title>激活</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <style>
         body {
             position: absolute;

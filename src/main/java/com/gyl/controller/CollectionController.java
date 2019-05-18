@@ -80,12 +80,15 @@ public class CollectionController {
     @ResponseBody
     @RequestMapping(value = "/collection/post", method = RequestMethod.POST)
     public Map<String, Object> getCollectedPostFromCollections(@RequestBody Collection collection, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        collection.setCurrentUserId(user.getId());
         Map<String, Object> map = new HashMap<>();
-        Collection collection1 = collectionService.getCollectByPostId(collection);
-        if (collection1 != null) {
-            map.put("collectedPost", "1");
+        User user = (User) request.getSession().getAttribute("CURRENT_USER");
+        try {
+            collection.setCurrentUserId(user.getId());
+            Collection collection1 = collectionService.getCollectByPostId(collection);
+            if (collection1 != null) {
+                map.put("collectedPost", "1");
+            }
+        } catch (Exception e) {
         }
         return map;
     }
@@ -101,19 +104,22 @@ public class CollectionController {
     public Map<String, Object> addPostToCollections(@RequestBody Collection collection, @PathVariable("options") String options, HttpServletRequest request) {
         Map<String, Object> map = new HashMap();
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        collection.setCurrentUserId(user.getId());
-        if (options != null && options.equals("0")) {
-            //取消
-            int status = collectionService.cancelPostFromCollections(collection);
-            if (status == 1) {
-                map.put("status", StatusCode.CANCEL_POST_SUCCESS);
+        try {
+            collection.setCurrentUserId(user.getId());
+            if (options != null && options.equals("0")) {
+                //取消
+                int status = collectionService.cancelPostFromCollections(collection);
+                if (status == 1) {
+                    map.put("status", StatusCode.CANCEL_POST_SUCCESS);
+                }
+            } else if (options != null && options.equals("1")) {
+                //关注
+                int status = collectionService.addPostToCollections(collection);
+                if (status == 1) {
+                    map.put("status", StatusCode.COLLECT_POST_SUCCESS);
+                }
             }
-        } else if (options != null && options.equals("1")) {
-            //关注
-            int status = collectionService.addPostToCollections(collection);
-            if (status == 1) {
-                map.put("status", StatusCode.COLLECT_POST_SUCCESS);
-            }
+        } catch (Exception e) {
         }
         return map;
     }
@@ -130,11 +136,14 @@ public class CollectionController {
     @RequestMapping(value = "/collection/user", method = RequestMethod.POST)
     public Map<String, Object> getCollectedUserFromCollections(@RequestBody Collection collection, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        collection.setCurrentUserId(user.getId());
         Map<String, Object> map = new HashMap<>();
-        Collection collection1 = collectionService.getCollectByUserId(collection);
-        if (collection1 != null) {
-            map.put("collectedUser", "1");
+        try {
+            collection.setCurrentUserId(user.getId());
+            Collection collection1 = collectionService.getCollectByUserId(collection);
+            if (collection1 != null) {
+                map.put("collectedUser", "1");
+            }
+        } catch (Exception e) {
         }
         return map;
     }
@@ -150,22 +159,24 @@ public class CollectionController {
     @RequestMapping(value = "/collection/user/{options}", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> addUserToCollections(@PathVariable("options") String options, @RequestBody Collection collection, HttpServletRequest request) {
-
         Map<String, Object> map = new HashMap();
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        collection.setCurrentUserId(user.getId());
-        if (options != null && options.equals("0")) {
-            //取消
-            int status = collectionService.cancelUserFromCollections(collection);
-            if (status == 1) {
-                map.put("status", StatusCode.CANCEL_USER_SUCCESS);
+        try {
+            collection.setCurrentUserId(user.getId());
+            if (options != null && options.equals("0")) {
+                //取消
+                int status = collectionService.cancelUserFromCollections(collection);
+                if (status == 1) {
+                    map.put("status", StatusCode.CANCEL_USER_SUCCESS);
+                }
+            } else if (options != null && options.equals("1")) {
+                //关注
+                int status = collectionService.addUserToCollections(collection);
+                if (status == 1) {
+                    map.put("status", StatusCode.COLLECT_USER_SUCCESS);
+                }
             }
-        } else if (options != null && options.equals("1")) {
-            //关注
-            int status = collectionService.addUserToCollections(collection);
-            if (status == 1) {
-                map.put("status", StatusCode.COLLECT_USER_SUCCESS);
-            }
+        } catch (Exception e) {
         }
         return map;
     }

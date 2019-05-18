@@ -43,24 +43,27 @@
     border-radius: 3px;
     width: 50px;
 }
+
 /**
 ====导航栏选中====
  */
 
 /*====================热点贴子===================*/
 
-.hotPost{
+.hotPost {
     padding-top: 30px;
     width: auto;
     height: 300px;
     padding-left: 10px;
     font-size: 18px;
 }
-.hotPost>p{
+
+.hotPost > p {
     padding-top: 10px;
     border-bottom: 1px gray dashed;
 }
-.hotPost>p>a{
+
+.hotPost > p > a {
     color: black;
 }
 
@@ -80,6 +83,8 @@
 }
 
 /*次级导航栏*/
-.breadcrumb{
+.breadcrumb {
     width: 63%;
+    background-color: #f5f5f5;
+    /*background-color: #FFFFCC !important;*/
 }

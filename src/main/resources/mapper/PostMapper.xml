@@ -122,7 +122,8 @@
         user.nick_name as nick_name,
         user.head_image as head_image
         from test_bbs.t_post post ,test_bbs.post_type type,test_bbs.t_user user
-        where /*DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND*/ post.user_id=user.id AND post.post_type =type.id order by RAND()  limit 4;
+        where /*DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND*/
+        post.user_id=user.id AND post.post_type =type.id AND post.first_image is not null order by RAND()  limit 4;
     </select>
 
 
@@ -197,8 +198,6 @@
       where board.id = post.board_id
         and user.id = board.user_id;
     </select>
-
-
     <select id="selectPostsByBoardIdAndPanelManagerId" parameterType="string" resultMap="postMap2">
        select
                 post.id,
@@ -272,5 +271,81 @@
     <select id="getTopFivePostsByAreaId" resultMap="postMap1">
         select post.id ,post.post_title ,post.comments from t_post post where post.area_id =#{areaId}  order by post.praises limit 5
     </select>
+    <resultMap id="systemInfoMap" type="com.gyl.entity.Post">
+        <result property="postTitle" column="post_title"/>
+        <result property="createTime" column="create_time"/>
+        <result property="postType" column="post_type"/>
+    </resultMap>
+    <select id="selectPostTitleAndPostType" resultMap="systemInfoMap">
+        select post.post_title,post.create_time, type.name post_type
+            from test_bbs.t_post post,
+                 test_bbs.post_type type
+        where post.post_type = type.id;
+    </select>
 
+    <!--getMyPostById-->
+    <resultMap id="postMap3" type="com.gyl.entity.Post">
+        <id property="id" column="id"/>
+        <result property="comm" column="comments"/>
+        <result property="postType" column="post_type"/>
+        <result property="user.nickName" column="nick_name"/>
+        <result property="user.userBaseInfo.headImage" column="head_image"/>
+    </resultMap>
+    <select id="getMyFocusPosts" resultMap="postMap3">
+        select post.id,
+               post.post_title,
+               type.name as post_type,
+               post.comments,
+               post.create_time,
+               post.user_id,
+               user.nick_name,
+               user.head_image
+        from t_post post,
+             t_user user,
+             post_type type
+        where post.user_id in
+              (select user_id
+               from t_collections
+               where current_user_id =#{id} )
+          AND user.id = post.user_id and type.id = post.post_type order by post.create_time desc
+    </select>
+
+    <select id="selectByPostTitle" resultMap="postMap2">
+          select
+            post.id,
+            post.post_title,
+            post.user_id,
+            user.nick_name,
+            post.create_time,
+            board.board_title,
+            board.user_id as board_manager_id,
+            post.up,
+            post.ban_comment,
+            post.secret
+      from test_bbs.t_post post,
+            t_board board,
+            t_user user
+      where board.id = post.board_id
+        and user.id = board.user_id and post.post_title like "%"#{postTitle}"%";
+    </select>
+    <select id="getMyPostByIdAndPostTitle" resultMap="postMap1">
+          select
+          post.id as id ,
+          post.user_id as user_id,
+          post.post_title as post_title,
+          post.post_content as post_content,
+          post.create_time as create_time,
+          post.area_id as area_id,
+          post.board_id as board_id,
+          post.participants as participants,
+          post.praises as praises,
+          post.comments as comments,
+          post.ban_comment as ban_comment,
+          post.up as up,
+          post.secret as secret,
+          post.first_image as first_image,
+          type.name as post_type
+        from test_bbs.t_post post ,test_bbs.post_type type
+        where post.user_id=#{id} and post.post_type =type.id and post.post_title like "%"#{myPostTitle}"%" ;
+    </select>
 </mapper>

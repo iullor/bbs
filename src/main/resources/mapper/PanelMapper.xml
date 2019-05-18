@@ -3,8 +3,8 @@
 <mapper namespace="com.gyl.mapper.PanelMapper">
 
     <insert id="add" parameterType="com.gyl.entity.Panel">
-        insert into t_panel (id,title,create_time,logo_path,user_manager_id,info,detail,is_disabeld)
-        values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},1);
+        insert into t_panel (id,title,create_time,logo_path,user_manager_id,info,detail,panel_disabled)
+        values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},#{panelDisabled});
     </insert>
     <select id="list" resultMap="listPanel1">
         select * from test_bbs.t_panel  order by create_time desc ;
@@ -68,6 +68,7 @@
             <if test="logoPath != null">logo_path=#{logoPath},</if>
             <if test="info != null">info=#{info},</if>
             <if test="detail != null">detail=#{detail},</if>
+            <if test="panelDisabled != null">panel_disabled=#{panelDisabled},</if>
         </set>
         where id=#{id};
     </update>
@@ -88,6 +89,7 @@
           p.title as panel_title,
           p.detail as panel_detail,
           p.user_manager_id as panel_manager_id,
+          p.panel_disabled as panel_disabled,
           b.id as board_id,
           b.info as board_info,
           b.board_title as board_title,
@@ -151,6 +153,7 @@
            p.title as panel_title,
            p.logo_path as panel_logo_path,
            p.info as panel_info,
+           p.panel_disabled as panel_disabled,
            b.id as board_id,
            b.info as board_info,
            b.details as board_details,
@@ -158,10 +161,26 @@
            b.logo_path as board_logo_path,
            b.create_time as board_crate_time
         from test_bbs.t_panel p,test_bbs.t_board b
-        where p.id=b.panel_id order by p.create_time asc;
+        where p.id=b.panel_id and p.panel_disabled>0 order by p.create_time desc;
     </select>
     <select id="listByPanelManagerId" resultMap="listPanel1">
-        select * from test_bbs.t_panel p where p.user_manager_id=#{id} order by p.create_time desc;
+        select * from test_bbs.t_panel p where p.user_manager_id=#{id} order by p.create_time asc;
     </select>
 
+    <select id="countPostNumberByPanelId" resultType="integer">
+        select count(post.id) from t_post post where post.board_id in
+        (
+             select id from t_board board where board.panel_id=#{panelId}
+        )
+    </select>
+    <select id="countAreaNumberByPanelId" resultType="integer">
+     select count(area.id)
+        from t_area area
+        where area.board_id in
+        (
+            select id
+            from t_board board
+            where board.panel_id =#{panelId}
+        )
+    </select>
 </mapper>

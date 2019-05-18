@@ -1,0 +1,33 @@
+body {
+    margin-top: 50px;
+    background-color: #FFFFCC !important;
+}
+
+h3 {
+    color: red !important;
+}
+
+h4 {
+    color: red !important;
+}
+
+.bg-toIndex {
+    background-color: #FF9966;
+}
+
+.topic-transfer {
+    height: 250px;
+    border: 1px solid #00a2d4;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.topic-transfer:hover {
+    margin-left: 5px !important;
+    transition-duration: 0.3s;
+}
+
+.hotTopicsTitle:hover {
+    background-color: rgba(57, 139, 255, 0.53);
+}

@@ -23,8 +23,11 @@ public class Panel implements Serializable {
     private String panelManagerId;
     private String info;
     private String detail;
-    private boolean panelDisabled;
-
+    /**
+     * 0 不可见
+     * 1 可见
+     */
+    private Integer panelDisabled;
     /**
      * 该板块panel下面所有的热门的贴子
      */
@@ -40,6 +43,14 @@ public class Panel implements Serializable {
      */
     private List<Board> boards = new ArrayList<>();
     private List<Area> areas = new ArrayList<>();
+    /**
+     * 每个模块的帖子数
+     */
+    private Integer postNumbers;
+    /**
+     * 每个模块的分区数量
+     */
+    private Integer areaNumbers;
 
     public String getId() {
         return id;
@@ -97,21 +108,28 @@ public class Panel implements Serializable {
         this.detail = detail;
     }
 
+    public Integer getPanelDisabled() {
+        return panelDisabled;
+    }
+
+    public void setPanelDisabled(Integer panelDisabled) {
+        this.panelDisabled = panelDisabled;
+    }
+
+    public List<Post> getHotPosts() {
+        return hotPosts;
+    }
+
+    public void setHotPosts(List<Post> hotPosts) {
+        this.hotPosts = hotPosts;
+    }
+
     public List<User> getUserList() {
         return userList;
     }
 
     public void setUserList(List<User> userList) {
-
         this.userList = userList;
-    }
-
-    public boolean isPanelDisabled() {
-        return panelDisabled;
-    }
-
-    public void setPanelDisabled(boolean panelDisabled) {
-        this.panelDisabled = panelDisabled;
     }
 
     public List<Board> getBoards() {
@@ -130,11 +148,19 @@ public class Panel implements Serializable {
         this.areas = areas;
     }
 
-    public List<Post> getHotPosts() {
-        return hotPosts;
+    public Integer getPostNumbers() {
+        return postNumbers;
     }
 
-    public void setHotPosts(List<Post> hotPosts) {
-        this.hotPosts = hotPosts;
+    public void setPostNumbers(Integer postNumbers) {
+        this.postNumbers = postNumbers;
+    }
+
+    public Integer getAreaNumbers() {
+        return areaNumbers;
+    }
+
+    public void setAreaNumbers(Integer areaNumbers) {
+        this.areaNumbers = areaNumbers;
     }
 }

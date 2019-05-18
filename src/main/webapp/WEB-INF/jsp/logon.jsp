@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/commons/logon.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -21,18 +22,13 @@
     <div class="form-logon">
         <form action="/checkLogon" method="get">
             <p class="text-red" id="logon-info"></p>
-            <lable><strong>Username</strong></lable>
+            <lable><strong>用户名</strong></lable>
             <input type="text" class="form-control" name="username">
-            <label>Password</label>
+            <label>密码</label>
             <span class="text-right"><a href="/resetPassword"><small
-                    class="pull-right">forget password?</small></a></span>
+                    class="pull-right">忘记密码？</small></a></span>
             <input type="password" class="form-control" name="password">
-            <div class="checkbox text-right">
-                <label>
-                    <input type="checkbox" value="remember-me">Remember Me
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Logon</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
             <span><a href="/index">游客访问</a></span>
             <span><a href="/register">新用户注册</a></span>
 
@@ -90,16 +86,16 @@
             $("#logon-info").html("用户不存在");
         } else if (logon_infos === "102") {
             $("#logon-info").html("密码错误");
-
         } else if (logon_infos === "103") {
             $("#logon-info").html("用户未激活");
-
         } else if (logon_infos === "105") {
             $("#logon-info").html("用户不存在");
-
-        } else if (logon_infos === "110") {
-            alert("登录成功...")
-            /* $("button[type='submit']").html("Loading...")*/
+        } else if (logon_infos === "1") {
+            window.setInterval(function () {
+               alert(1)
+            }, 2000)
+        } else if (logon_infos === "-1") {
+            $("#logon-info").html("当前用户暂被冻结，请联系管理员！");
         } else {
             $("#logon-info").html("");
         }

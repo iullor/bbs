@@ -89,6 +89,9 @@ public class Option {
 
     private Post post;
 
+    private Topic topic;
+
+    private Board board;
     public String getId() {
         return id;
     }
@@ -217,4 +220,19 @@ public class Option {
         this.post = post;
     }
 
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
 }

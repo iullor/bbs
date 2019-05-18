@@ -50,7 +50,10 @@ public interface BoardMapper {
 
     /**
      * 找到贴子最多的板块取前6
+     *
      * @return
      */
     List<Board> selectHotBoardsByPosts();
+
+    Integer countAreaNumberByBoardId(@Param("id") String id);
 }

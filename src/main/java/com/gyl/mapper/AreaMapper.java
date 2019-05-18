@@ -20,13 +20,29 @@ public interface AreaMapper {
 
     int delete(String id);
 
+    /**
+     * 查area时，查出来不私密的贴子
+     *
+     * @param id
+     * @return
+     */
+    Area getAreaByIdExceptSecretPost(@Param(value = "id") String id);
+
+    /**
+     * 只查area的信息
+     *
+     * @param id
+     * @return
+     */
     Area getAreaById(@Param(value = "id") String id);
 
     List<Area> getAreasByBoardId(@Param("boardId") String boardId);
 
-    List<Area> listAreasByAllBoardId(@Param("id")String id);
+    List<Area> listAreasByAllBoardId(@Param("id") String id);
 
-    List<Area> listAreasByManagerId(@Param("id")String id);
+    List<Area> listAreasByManagerId(@Param("id") String id);
 
-    List<Post> selectAreasPage(@Param("currentPage")int currentPage, @Param("pageSize")Integer pageSize);
+    //List<Post> selectAreasPage(@Param("currentPage") int currentPage, @Param("pageSize") Integer pageSize);
+
+    Integer countPostNumberByAreaId(@Param("areaId") String areaId);
 }

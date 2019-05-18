@@ -6,11 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>个人管理</title>
-    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/person/person_manager-left.css">
-    <link rel="stylesheet" href="/css/person/post/person_posts.css">
+    <%--左侧栏的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+    </c:if>
     <link rel="stylesheet" href="/css/person/basic_info/person_account.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -18,82 +22,8 @@
     <script src="/js/sidebar-left-control.js"></script>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<%--引入顶栏--%>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container-fluid">
     <div class="row main">
         <div class=" col-md-offset-1 col-md-2">
@@ -179,8 +109,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/themes/basic" class="">基本样式</a></li>
-                                <li><a href="#" class="">颜色搭配</a></li>
+                                <li><a href="/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>
@@ -234,7 +163,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-9">
-                    <form:form action="/user/updateAccount" method="post" modelAttribute="user">
+                    <form:form action="/user/updateAccount" id="changeAccount" method="post" modelAttribute="user">
                         <input type="hidden" name="_method" value="put"/>
                         <form:hidden path="userBaseInfo.headImage"/>
                         <form:hidden path="id"/>
@@ -319,7 +248,7 @@
                                 </button>&nbsp;&nbsp;&nbsp;
                             </div>
                             <div class="col-md-offset-2 col-md-2">
-                                <button type="submit" class="btn btn-md btn-success">
+                                <button type="reset" class="btn btn-md btn-success">
                                     取消
                                 </button>
                             </div>
@@ -352,14 +281,12 @@
         var relativePath = realPath.substring(beginIndex, endIndex);
         $("img").attr("src", relativePath);
 
-
         $("a[href='#update']").on("click", function () {
             $(this).parents("small").prev("input").attr("readonly", false);
         })
         $("#uploadImage").click(function () {
             $(":input[type='file']").click();
         })
-
         //通过ajax 来上传文件
         $("#headImageUpload").on("click", function () {
             var form1 = document.getElementById("imgForm");
@@ -387,15 +314,58 @@
 
         })
 
-
         /**
          * 表单的判断,看用户名是否注册
          */
         $("#Username").on("change", function () {
-            let uname = $(this).val();
+            checkNewUser();
+
+        })
+        //验证密码是否正确
+        $("#Password").blur(function () {
+            checkOldPassword();
+        })
+
+        //新密码是否合规
+        $("#Check_Password").on("change", function () {
+            checkNewPassword();
+        })
+
+        $("#Repeat_Password").on("change", function () {
+            checkRepeatPassword();
+        })
+        //邮箱是否注册
+        $("#Email").on("change", function () {
+            checkEmail();
+        })
+        //在表单提交前判断
+        $("#changeAccount").on('submit', function () {
+            var checkNewUser1 = checkNewUser();
+            var oldPassword = checkOldPassword();
+            var newPassword = checkNewPassword();
+            var checkRepeatPwd = checkRepeatPassword();
+            var checkEmail = checkEmail();
+            alert(checkNewUser1)
+            alert(oldPassword)
+            alert(newPassword)
+            alert(checkNewUser1)
+            alert(checkRepeatPwd)
+            alert(checkEmail)
+            /*if (!checkNewUser1 || !oldPassword || !newPassword || !checkRepeatPwd || !checkEmail) {
+                return false;
+            }*/
+            //return checkEmail && oldPassword && newPassword && checkRepeatPwd && checkEmail;
+            return false;
+        });
+    })
+
+    //新用户是否注册
+    function checkNewUser() {
+        $("#Username").on("change", function () {
+            let uname = $("#Username").val();
             var obj = {
                 username: uname
-            }
+            };
             $.ajax({
                 type: "post",
                 data: JSON.stringify(obj),
@@ -407,21 +377,28 @@
                         $("#Username").removeClass("input-board-danger");
                         $("#Username").attr("title", data.info);
                         $("#Username").addClass("input-board-info");
+                        return true;
                     } else {
                         $("#Username").removeClass("input-board-info");
                         $("#Username").removeClass("input-board-danger");
                         $("#Username").attr("title", data.info);
                         $("#Username").addClass("input-board-danger");
+                        alert(data.info)
+                        return false;
                     }
                 }
             })
         })
-        //验证密码是否正确
-        $("#Password").on("change", function () {
-            let pwd = $(this).val();
+
+    }
+
+    //检查新密码的正确性
+    function checkOldPassword() {
+        let pwd = $("#Password").val();
+        if (pwd != null && pwd !== '' && pwd !== 'undefined') {
             var obj = {
                 password: pwd
-            }
+            };
             $.ajax({
                 type: 'post',
                 data: JSON.stringify(obj),
@@ -433,84 +410,87 @@
                         $("#Password").removeClass("input-board-danger");
                         $("#Password").attr("title", data.info);
                         $("#Password").addClass("input-board-danger");
+                        alert("密码错误")
+                        return false;
                     } else {
                         $("#Password").removeClass("input-board-info");
                         $("#Password").removeClass("input-board-danger");
                         $("#Password").attr("title", "正确");
                         $("#Password").addClass("input-board-info");
+                        return true;
                     }
                 }
             })
+        }
+        return false;
+    }
 
-        })
+    //检查新密码
+    function checkNewPassword() {
+        var password = $("#Check_Password").val();
+        //验证规则，密码，第一个为字母开头，长度为6-16位
+        var regu = "^[a-zA-Z]\\w{5,14}$";
+        var re = new RegExp(regu);
+        if (!re.test(password)) {
+            $("#Check_Password").removeClass("input-board-info");
+            $("#Check_Password").removeClass("input-board-danger");
+            $("#Check_Password").attr("title", "密码，第一个为字母开头，长度为6-15位");
+            alert("密码，第一个为字母开头，长度为6-15位")
+            $("#Check_Password").addClass("input-board-danger");
+            return false;
+        } else {
+            $("#Check_Password").removeClass("input-board-info");
+            $("#Check_Password").removeClass("input-board-danger");
+            $("#Check_Password").attr("title", "密码可用");
+            $("#Check_Password").addClass("input-board-info");
+            return true;
+        }
+    }
 
-        //新密码是否合规
-        $("#Check_Password").on("change", function () {
-            var password = $(this).val();
-            //验证规则，密码，第一个为字母开头，长度为6-16位
-            var regu = "^[a-zA-Z]\\w{5,14}$";
-            var re = new RegExp(regu);
-            if (!re.test(password)) {
-                $("#Check_Password").removeClass("input-board-info");
-                $("#Check_Password").removeClass("input-board-danger");
-                $("#Check_Password").attr("title", "密码，第一个为字母开头，长度为6-15位");
-                $("#Check_Password").addClass("input-board-danger");
-            } else {
-                $("#Check_Password").removeClass("input-board-info");
-                $("#Check_Password").removeClass("input-board-danger");
-                $("#Check_Password").attr("title", "密码可用");
-                $("#Check_Password").addClass("input-board-info");
-            }
-        })
+    //重复检查密码
+    function checkRepeatPassword() {
+        var new_password = $("#Check_Password").val();
+        var repeat_password = $("#Repeat_Password").val();
+        if (new_password !== repeat_password) {
+            $("#Repeat_Password").removeClass("input-board-info");
+            $("#Repeat_Password").removeClass("input-board-danger");
+            $("#Repeat_Password").attr("title", "两次密码不一致");
+            $("#Repeat_Password").addClass("input-board-danger");
+            alert("两次密码不一致")
+            return false;
+        } else {
+            $("#Repeat_Password").removeClass("input-board-info");
+            $("#Repeat_Password").removeClass("input-board-danger");
+            $("#Repeat_Password").attr("title", "正确");
+            $("#Repeat_Password").addClass("input-board-info");
+            return true;
+        }
+    }
 
-        $("#Repeat_Password").on("change", function () {
-            var new_password = $("#Check_Password").val();
-            var repeat_password = $(this).val();
-            if (new_password !== repeat_password) {
-                $(this).removeClass("input-board-info");
-                $(this).removeClass("input-board-danger");
-                $(this).attr("title", "两次密码不一致");
-                $(this).addClass("input-board-danger");
-            } else {
-                $(this).removeClass("input-board-info");
-                $(this).removeClass("input-board-danger");
-                $(this).attr("title", "正确");
-                $(this).addClass("input-board-info");
-            }
-
-        })
-
-        //邮箱是否注册
-        $("#Email").on("change", function () {
-            var email = $(this).val();
-            //验证规则,邮箱
-            var regu = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-            var re = new RegExp(regu);
-            if (!re.test(email)) {
-                $("#Email").removeClass("input-board-info");
-                $("#Email").removeClass("input-board-danger");
-                $("#Email").attr("title", "邮箱地址不合法");
-                $("#Email").addClass("input-board-danger");
-            } else {
-                $("#Email").removeClass("input-board-info");
-                $("#Email").removeClass("input-board-danger");
-                $("#Email").attr("title", "可用");
-                $("#Email").addClass("input-board-info");
-            }
-        })
-        //在表单提交前判断
-        $("form[action='/user/updateAccount']").submit(function () {
-            if ($(".input-board-danger").size() > 0) {
-                alert("请按规定填写信息")
-                return false;
-            }
-            if ($("#Check_Password").val().length > 0) {
-                alert("请输入新密码");
-                return false;
-            }
-        });
-    })
+    //检查邮箱
+    function checkEmail() {
+        var email = $("#Email").val();
+        //验证规则,邮箱
+        var regu = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+        var re = new RegExp(regu);
+        if (!re.test(email)) {
+            $("#Email").removeClass("input-board-info");
+            $("#Email").removeClass("input-board-danger");
+            $("#Email").attr("title", "邮箱地址不合法");
+            $("#Email").addClass("input-board-danger");
+            alert("邮箱地址不合法")
+            return false;
+        } else {
+            $("#Email").removeClass("input-board-info");
+            $("#Email").removeClass("input-board-danger");
+            $("#Email").attr("title", "可用");
+            $("#Email").addClass("input-board-info");
+            return true;
+        }
+    }
 </script>
+<script>
 
+</script>
 </body>
 </html>

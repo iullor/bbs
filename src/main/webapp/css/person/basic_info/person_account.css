@@ -8,23 +8,14 @@
 #headImage {
     display: none;
 }
-.container-inner {
-    margin-top: 10px;
-    margin-bottom: 50px;
-    height: auto;
-    min-height: 900px;
-    _height: 900px;
-    background-color: white;
-}
-
 .container-inner h3 {
     margin-top: 30px;
 }
 
 .input-board-info {
-    border: 1px solid green;
+    border: 1px solid green !important;
 }
 
 .input-board-danger {
-    border: 1px solid red;
+    border: 1px solid red  !important;
 }

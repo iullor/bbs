@@ -4,6 +4,7 @@
 .navbar {
     height: 55px;
     background-color: #1F0772;
+
 }
 
 .navbar a {
@@ -18,7 +19,6 @@
     margin-top: 15px;
     font-size: 15px;
 }
-
 .nav-addon a {
     margin-left: 40px;
 }
@@ -27,7 +27,7 @@
     position: absolute;
     top:-2px;
     left: 50px;
-    background-image: url('/images/nav/logo.png');
+    background-image: url('/images/nav/logo-default.png');
     background-repeat: no-repeat;
     height: 55px;
     width: 500px;
@@ -58,7 +58,7 @@
     display: none;
     width: 75px;
     height: 75px;
-    background-color: red;
+    background-color: #5e5f7561;
 }
 
 .right-nav > div:hover {

@@ -1881,9 +1881,9 @@
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="244" name="is_disabeld">
+    <column id="407" parent="244" name="panel_disabled">
       <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -2570,25 +2570,32 @@
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="524" parent="251" name="t_user_id_uindex">
+    <column id="524" parent="251" name="theme">
+      <Position>29</Position>
+      <Comment>主题，默认是0</Comment>
+      <DataType>int(11)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="525" parent="251" name="t_user_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="525" parent="251" name="t_user_t_role_id_fk">
+    <index id="526" parent="251" name="t_user_t_role_id_fk">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="526" parent="251" name="PRIMARY">
+    <key id="527" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="527" parent="251" name="t_user_id_uindex">
+    <key id="528" parent="251" name="t_user_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_user_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="528" parent="251" name="t_user_t_role_id_fk">
+    <foreign-key id="529" parent="251" name="t_user_t_role_id_fk">
       <ColNames>role_id</ColNames>
       <RefSchemaName>test_bbs</RefSchemaName>
       <RefTableName>t_role</RefTableName>

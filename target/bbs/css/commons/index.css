@@ -1,7 +1,6 @@
 body {
     overflow-x: hidden;
-    /*background-color: #f5f5f5;*/
-    background-color: white;
+    background-color: #f5f5f5;
 }
 
 body div {
@@ -16,22 +15,19 @@ body a {
 .messageImg {
     float: left;
     margin-top: 100px;
-    background-color: #0000ff;
     width: 800px;
     height: 460px;
     margin-left: -10px;
 }
 
-
 .messageTopic {
     border: 1px solid black;
-    border-top-left-radius:20px ;
-    border-bottom-right-radius:20px ;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     box-shadow: 5px 3px #0b0aff;
     margin-top: 100px;
     width: 350px;
     height: 200px;
-
     float: right;
 }
 
@@ -40,24 +36,27 @@ body a {
     width: auto;
     height: 140px;
 }
+
 /*公告栏*/
 .publicMessage {
     margin-top: 30px;
-    border: 1px solid black;
-    border-top-left-radius:20px ;
-    border-top-right-radius:20px ;
-    border-bottom-right-radius:20px ;
+    border: 1px solid blue;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     box-shadow: 5px 3px blue ;
     width: 350px;
     height: 230px;
     float: right;
 }
-.publicMessage div{
+
+.publicMessage div {
     height: 35px;
     padding-top: 5px;
     padding-left: 15px;
     border-bottom: 1px dashed silver;
 }
+
 /*====================head导航===================*/
 .head {
     margin-top: 50px;
@@ -75,6 +74,7 @@ body a {
     margin-top: 50px;
     border: 1px solid gray;
 }
+
 .hot > p {
     padding-top: 5px;
     background-color: #1F0772;
@@ -95,13 +95,14 @@ body a {
 }
 
 /*====================近期事项====================*/
-
 .nowadays-activity p {
     border-bottom: 1px #0000ff dotted;
 }
-.nowadays-activity>p>span{
+
+.nowadays-activity > p > span {
     padding-left: 10px;
 }
+
 .nowadays-activity > p > a {
     padding-left: 10px;
     padding-top: 3px;
@@ -114,7 +115,6 @@ body a {
 /*====================板块====================*/
 
 #main {
-    /*border: 1px solid gray;*/
     margin-top: 50px;
     padding-top: 20px;
 }
@@ -124,6 +124,10 @@ body a {
     margin-bottom: 60px;
 }
 
+/*模块的名字*/
+.component > h3 > a {
+    color: #993333;
+}
 
 .component > h4 {
     margin-top: -10px;
@@ -136,10 +140,14 @@ body a {
     font-size: 16px;
 }
 
+.board-title {
+    color: black;
+}
+
 .board-items {
     margin-top: 20px;
     border-radius: 5px;
-    border: 1px solid #0000cc;
+    border: 1px solid #1F0772;
     margin-left: 0;
     margin-right: 0;
     height: 400px;
@@ -162,11 +170,12 @@ body a {
     float: left;
     border: 1px #0000ff solid;
 }
-.board-hot-posts{
+
+.board-hot-posts {
     margin-top: 20px;
     width: auto;
     height: 150px;
-/*    border: 1px crimson solid;*/
+    /*    border: 1px crimson solid;*/
 }
 
 .board-info {
@@ -184,9 +193,10 @@ body a {
     padding-left: 20px;
 }
 
-.board-info>div{
+.board-info > div {
     padding-top: 5px;
 }
+
 /*====================尾部====================*/
 
 #foot {
@@ -201,3 +211,18 @@ body a {
     text-decoration: none;
 }
 
+/*换一批*/
+.hot span:first-child {
+    color: white;
+    margin-right: 5px
+}
+
+.hot span:last-child {
+    color: #00d3db;
+    margin-right: 2px
+}
+
+.glyphicon-fire {
+    color: red;
+
+}

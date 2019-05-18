@@ -111,7 +111,8 @@
         </collection>
     </resultMap>
 
-    <select id="getAreaById" resultMap="areaPostsMap">
+    <!--排除私密的贴子-->
+    <select id="getAreaByIdExceptSecretPost" resultMap="areaPostsMap">
          select
            a.id,
            a.area_title,
@@ -137,6 +138,26 @@
                   left outer join  test_bbs.t_user u     on a.user_id = u.id
                   left outer join  test_bbs.t_post post  on a.id=post.area_id
         where a.id=#{id} and post.secret&lt;1 order by post.up desc , post.create_time desc ;
+    </select>
+    <!--只查分区必要的信息-->
+    <select id="getAreaById" resultMap="areaPostsMap">
+         select
+           a.id,
+           a.area_title,
+           a.create_time,
+           a.info,
+           a.user_id,
+           a.details,
+           a.board_id,
+           b.id,
+           b.board_title,
+           u.id as area_manager_id,
+           u.nick_name as area_manager_nick_name
+        from
+           test_bbs.t_area a
+                  left outer join  test_bbs.t_board b    on  a.board_id = b.id
+                  left outer join  test_bbs.t_user u     on a.user_id = u.id
+        where a.id=#{id} ;
     </select>
 
     <!--
@@ -180,7 +201,7 @@
         and user.id = area.user_id;
     </select>
 
-    <select id="selectAreasPage">
-
+    <select id="countPostNumberByAreaId" resultType="integer">
+        select count(id) from test_bbs.t_post post where post.area_id=#{areaId}
     </select>
 </mapper>

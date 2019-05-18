@@ -50,4 +50,6 @@ public interface TopicMapper {
      * @return
      */
     List<Topic> listByTopicTitle(String topicTitle);
+
+    List<Topic> getFocusUserTopic(String id);
 }

@@ -41,6 +41,7 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(Model model) {
         List<Panel> panels = panelService.listBoardsAreaPosts();
+        //首页猜你喜欢
         List<Post> hotPosts = postService.listHotPosts(0);
         //给它传递第一次去查，显示前4条
         List<Notice> notices = noticeService.listRecentUpNotices(0);

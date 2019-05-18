@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>权限所限</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 </head>
 <body>
 Insufficient access rights

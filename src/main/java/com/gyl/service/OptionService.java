@@ -56,8 +56,8 @@ public class OptionService {
     }
 
 
-    public Option selectById(String id) {
-        return optionMapper.selectById(id);
+    public Option selectOptionAboutPostById(String id) {
+        return optionMapper.selectOptionAboutPostById(id);
     }
 
 
@@ -167,5 +167,35 @@ public class OptionService {
             pageResult.getNewPage().add(options.get(i));
         }
         return pageResult;
+    }
+
+    /**
+     * 差出来所有的未读的话题申请
+     *
+     * @param waitCheck
+     * @return
+     */
+    public List<Option> selectAllTopicsOptionsByStatus(Integer status) {
+        return optionMapper.selectAllTopicsOptionsByStatus(status);
+    }
+
+
+    /**
+     * 所有版主的申请
+     *
+     * @param waitCheck
+     * @return
+     */
+    public List<Option> selectAllBoardManagerOptionsByStatus(Integer status) {
+        return optionMapper.selectAllBoardManagerOptionsByStatus(status);
+    }
+
+    public Option selectOptionAboutBoardById(String id) {
+
+        return optionMapper.selectOptionAboutBoardById(id);
+    }
+
+    public Option selectOptionAboutTopicById(String id) {
+        return optionMapper.selectOptionAboutTopicById(id);
     }
 }

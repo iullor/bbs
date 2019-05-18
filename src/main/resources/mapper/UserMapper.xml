@@ -15,6 +15,7 @@
             <result property="accessTime" column="access_time"/>
             <result property="leftTime" column="left_time"/>
             <result property="accessNum" column="access_num"/>
+            <result property="theme" column="theme"/>
         </association>
         <association property="userAccountStatus" javaType="com.gyl.entity.UserAccountStatus">
             <result property="allowPost" column="allow_post"/>
@@ -61,11 +62,11 @@
         ,street
         ,details
         ,introduce
+        ,real_name
         ,ip_adreess
         ,access_time
         ,left_time
         ,access_num
-        ,real_name
         ,allow_post
         ,allow_comment
         ,waring_info
@@ -75,14 +76,14 @@
       (
         #{id},#{username},#{password},#{userBaseInfo.birthday},#{nickName},#{createTime},#{userAccountStatus.status}
         ,#{userBaseInfo.headImage},#{userBaseInfo.hobbies},#{userBaseInfo.phoneNumber},#{email},#{userBaseInfo.qqNumber}
-        ,#{userBaseInfo.age},#{userBaseInfo.gender},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details},#{userBaseInfo.introduce}
-        ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum},#{userLoginInfo.realName}
+        ,#{userBaseInfo.age},#{userBaseInfo.gender},#{userBaseInfo.province},#{userBaseInfo.city},#{userBaseInfo.street},#{userBaseInfo.details},#{userBaseInfo.introduce},#{userBaseInfo.realName}
+        ,#{userLoginInfo.ipAdreess},#{userLoginInfo.accessTime},#{userLoginInfo.leftTime},#{userLoginInfo.accessNum}
         ,#{userAccountStatus.allowPost} ,#{userAccountStatus.allowComment} ,#{userAccountStatus.warningInfo},#{userAccountStatus.role}
       )
   </insert>
 
     <select id="checkUser" resultMap="userMap">
-      select * from t_user where username=#{1};
+      select * from t_user where username=#{username} ;
    </select>
 
     <select id="selectUserById" resultMap="userMap">
@@ -153,5 +154,19 @@
          where username=#{username} and password=#{password} and role_id&lt;4 and role_id&gt;0;
     </select>
 
+    <update id="changeTheme">
+        update test_bbs.t_user user set user.theme =#{value} where user.id=#{id}
+    </update>
+
+    <select id="selectUserByUNameAndEmail" resultMap="userMap">
+        select id from test_bbs.t_user where username=#{username} and email=#{email}
+    </select>
+    <update id="updateTmpPassword">
+        update test_bbs.t_user set password=#{tmpPassword} where id=#{id}
+    </update>
+
+    <select id="selectUsersByNickName" resultMap="userMap">
+         select * from test_bbs.t_user user where user.nick_name like "%"#{nickName}"%" order by create_time ASC ;
+    </select>
 
 </mapper>

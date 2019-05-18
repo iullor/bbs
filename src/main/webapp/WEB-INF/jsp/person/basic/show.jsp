@@ -5,119 +5,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>个人管理</title>
-    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <title>${user.nickName}</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/person/person_manager-left.css">
-    <link rel="stylesheet" href="/css/person/basic_info/person_account.css">
+    <%--左侧栏的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+    </c:if>
+    <%--自己的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/basic_info/person_show.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/basic_info/person_show-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
-    <style>
-        .container-inner {
-            margin-top: -20px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-            height: auto;
-            min-height: 1000px;
-            _height: 1000px;
-            background-color: white;
-        }
-
-        .nav-tabs li {
-            margin: 20px 0px 0px 10px;
-            padding-left: 0px;
-            font-size: 18px;
-            padding-top: 0px;
-            text-align: center;
-        }
-
-        .tab-content {
-            width: 97.5%;
-            margin-left: 15px;
-        }
-
-    </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<%--引入顶栏--%>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container-fluid">
     <div class="row  col-md-offset-2 col-md-8">
         <div class="container-inner">
@@ -159,15 +71,13 @@
                     <div class="" style="height: 100%">
                         <div style="height: 230px;padding-top: 20px">
                             <label>个人介绍</label>
-                            <c:if test="${sessionScope.CURRENT_USER.id==user.id}">
-                            </c:if>
+<%--                            <c:if test="${sessionScope.CURRENT_USER.id==user.id}">
+                            </c:if>--%>
                             <!--
                                 三种情况，是他自己，就不显示关注，他关注过显示已关注，没关注的显示 关注
                             -->
-                            <button class="btn btn-primary pull-right"
-                                    style="margin-top: -10px;margin-left:20px;margin-right: 15px">关注&nbsp;<span
-                                    class="glyphicon glyphicon-plus" style="font-size: 15px;"></span></button>
-
+                            <input type="hidden" class="hideUserId" value="${user.id}">
+                            <span class="btn btn-primary pull-right focus-user glyphicon glyphicon-heart-empty" tyle="margin-top: -10px;margin-left:20px;margin-right: 15px;font-size: 15px;">关注</span>
                             <p class="introduce"
                                style="text-indent: 2em;font-size: 16px;padding-top: 10px;border: 1px solid #f5f5f5;width: 85%;margin-left: 10px;height: 140px;">
                                 <c:if test="${user.userBaseInfo.introduce==null}">
@@ -204,28 +114,29 @@
             <div class="row">
                 <div style="height: 80px;">
                     <ul class="nav nav-tabs" style="margin-left: 15px">
+                        <%-- <li class="active">
+                             <a href="#recent" data-toggle="tab" class="text-danger">动态&nbsp;<span class=" badge"
+                                                                                                   style="background-color: red;">100</span></a>
+                         </li>--%>
                         <li class="active">
-                            <a href="#recent" data-toggle="tab" class="text-danger">动态&nbsp;<span class=" badge"
-                                                                                                  style="background-color: red;">100</span></a>
-                        </li>
-                        <li>
                             <a href="#collect" data-toggle="tab" class="text-primary">收藏&nbsp;<span class=" badge"
                                                                                                     style="background-color: blue;">${posts.size()}</span></a>
                         </li>
                         <li>
-                            <a href="#focus" data-toggle="tab" class="text-warning">关注&nbsp;<span class=" badge"
-                                                                                                  style="background-color: gold;">${focusUsers.size()}</span></a>
+                            <a href="#focus" data-toggle="tab" class="text-warning">关注&nbsp;<span
+                                    class=" badge"
+                                    style="background-color: gold;">${focusUsers.size()}</span></a>
                         </li>
                         <li>
                             <a href="#topic" data-toggle="tab" class="text-success">话题&nbsp;<span class="badge"
-                                                                                                  style="background-color: green;">100</span></a>
+                                                                                                  style="background-color: green;">${topics.size()}</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="tab-content">
-                    <div id="recent" class="tab-pane fade in active"
+                    <%--<div id="recent" class="tab-pane fade in active"
                          style="background-color: white;color: rebeccapurple">
                         <div class="row">
                             <div class="col-md-2">
@@ -256,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
                     <div id="collect" class="tab-pane fade" style="background-color: white;color: rebeccapurple;">
                         <c:choose>
                             <c:when test="${not empty posts}">
@@ -288,28 +199,28 @@
                         <c:choose>
                             <c:when test="${not empty focusUsers}">
                                 <c:forEach items="${focusUsers}" var="focusUser" varStatus="j">
-                            <div class="row" style="font-size: 17px;margin-top: 10px;">
-                                <div class="col-md-1" style="padding-left: 20px">
-                                        ${j.index+1}
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="/account/${focusUser.user.id}">
-                                        <img src="" style="height: 30px;width: 30px;" class="showUserHeadImg"
-                                             value="${focusUser.user.userBaseInfo.headImage}" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="/account/${focusUser.user.id}">${focusUser.user.nickName}</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <button class="btn btn-primary pull-right"
-                                            style="margin-top: -10px;margin-left:20px;margin-right: 15px">关注&nbsp;<span
-                                            class="glyphicon glyphicon-plus" style="font-size: 15px;"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <hr>
-                        </c:forEach>
+                                    <div class="row" style="font-size: 17px;margin-top: 10px;">
+                                        <div class="col-md-1" style="padding-left: 20px">
+                                                ${j.index+1}
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="/account/${focusUser.user.id}">
+                                                <img src="" style="height: 30px;width: 30px;" class="showUserHeadImg"
+                                                     value="${focusUser.user.userBaseInfo.headImage}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="/account/${focusUser.user.id}">${focusUser.user.nickName}</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="hidden" class="hideUserId" value="${focusUser.user.id}">
+                                            <span class="btn btn-primary pull-right focus-user glyphicon glyphicon-heart-empty"
+                                                  style="margin-top: -10px;margin-left:20px;margin-right: 15px;font-size: 15px;">关注&nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </c:forEach>
                             </c:when>
                             <c:otherwise>
                                 <div class="text-center" style="margin-top: 150px;margin-bottom: 150px">
@@ -335,7 +246,8 @@
                                             <f:formatDate value="${topic.createTime}" pattern="yyyy/MM/dd HH:mm:ss"/>
                                         </div>
                                         <div class="col-md-3">
-                                            <span>浏览人数&nbsp;<span class="glyphicon glyphicon-eye-open">&nbsp;${topic.topicSeen}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span>浏览人数&nbsp;<span
+                                                    class="glyphicon glyphicon-eye-open">&nbsp;${topic.topicSeen}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <span>评论人数:&nbsp;${topic.topicParticipations}</span>
                                         </div>
                                     </div>
@@ -360,7 +272,6 @@
         $(".introduce textarea").hide();
         $("#exitUpdate").hide();
         $("#submitIntroduce").hide();
-
         $("#updateIntroduce").on("click", function () {
             $(".introduce span").hide();
             $(".introduce>textarea").show();
@@ -401,6 +312,81 @@
             })
         });
 
+        //添加关注
+        $(".focus-user").on("click", function () {
+            let userId = $(this).prev("input").val()
+            let obj = {
+                userId: userId
+            };
+            let currentClass = $(this).attr("class");
+            //判断当前的状态,未关注是蓝色，已经关注是绿色
+            //如果当前的样式没有绿色，就发送关注
+            if (currentClass.match("btn-success") == null) {
+                $.ajax({
+                    url: "/collection/user/" + 1,
+                    type: "post",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data)
+                        if (data.status === '3000') {
+                            alert("关注成功")
+                        } else {
+                            alert("网络问题")
+                        }
+                    }
+                })
+                $(this).removeClass("glyphicon-heart-empty").removeClass("btn-info");
+                $(this).addClass("glyphicon-heart").addClass("btn-success");
+                $(this).html("已关注")
+            } else {
+                //取消关注
+                $.ajax({
+                    url: "/collection/user/" + 0,
+                    type: "post",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data)
+                        if (data.status === '3001') {
+                            alert("已取消")
+                        } else {
+                            alert("网络问题")
+                        }
+                    }
+                })
+                $(this).removeClass("glyphicon-heart").removeClass("btn-success");
+                $(this).addClass("glyphicon-heart-empty").addClass("btn-info");
+                $(this).html(" 关注")
+            }
+        })
+        //显示关注,当准备刷新页面的时候,获取当前的用户id,贴子id
+        let curUserId = '${sessionScope.CURRENT_USER.id}'
+        //去遍历所有的人，并对他进行回显
+        $(".focus-user").each(function () {
+            let tmpUserId = $(this).prev("input").val();
+            if (curUserId != null && curUserId !== '') {
+                var obj1 = {
+                    currentUserId: curUserId,
+                    userId: tmpUserId
+                }
+                var tmpObj = $(this);
+                $.ajax({
+                    url: '/collection/user',
+                    type: 'post',
+                    data: JSON.stringify(obj1),
+                    contentType: "application/json",
+                    success: function (data) {
+                        //表明数据库中有值
+                        if (data.collectedUser === '1') {
+                            $(tmpObj).removeClass("glyphicon glyphicon-heart-empty btn btn-info");
+                            $(tmpObj).addClass("glyphicon glyphicon-heart btn btn-success");
+                            $(tmpObj).html("已关注")
+                        }
+                    }
+                })
+            }
+        })
 
     })
 </script>

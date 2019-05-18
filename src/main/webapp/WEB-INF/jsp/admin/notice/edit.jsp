@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>模块</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -17,7 +18,7 @@
             height: auto;
             min-height: 1000px;
             border: 1px solid silver;
-            margin-top: 0px;
+            margin-top: -20px;
             padding-top: 30px;
         }
     </style>
@@ -32,7 +33,6 @@
             </a>
         </div>
         <h2 class="text-center">公告</h2>
-
         <form role="form" action="/admin/notice" method="post" style="margin-top: 50px;">
             <div class="row form-group">
                 <div class="col-md-offset-2 col-md-8">

@@ -31,7 +31,7 @@
             post_id, topic_id, board_id, remakes, `status`,brief
     </sql>
 
-    <select id="selectById" parameterType="java.lang.String" resultMap="map1">
+    <select id="selectOptionAboutPostById" parameterType="java.lang.String" resultMap="map1">
          select
             op.id,
             op.brief,
@@ -137,8 +137,7 @@
         <if test="option.remakes!=null">remakes=#{option.remakes}</if>
         where id=#{option.id}
     </update>
-
-    <select id="selectAllPostsOptionsHasChecked" resultMap="map1" parameterType="integer">
+    <select id="selectAllPostsOptionsHasChecked" resultMap="map2" parameterType="integer">
          select
             op.id,
             op.brief,
@@ -158,4 +157,122 @@
         and op.apply_user_id = user.id
         and op.post_id = post.id order by op.apply_time desc;
     </select>
+
+    <!--申请话题置顶-->
+    <resultMap id="map2" type="com.gyl.entity.Option">
+        <id column="id" property="id"/>
+        <result column="apply_reason" property="applyReason"/>
+        <result column="apply_type" property="applyType"/>
+        <result column="apply_time" property="applyTime"/>
+        <result column="brief" property="brief"/>
+        <result column="remakes" property="remakes"/>
+        <result column="status" property="status"/>
+        <!--user的级联-->
+        <!--申请人的id-->
+        <association property="user" javaType="com.gyl.entity.User">
+            <result column="apply_user_id" property="id"/>
+            <result column="nick_name" property="nickName"/>
+        </association>
+        <!--话题的级联-->
+        <association property="topic" javaType="com.gyl.entity.Topic">
+            <result column="topic_id" property="id"/>
+            <result column="topic_title" property="topicTitle"/>
+        </association>
+    </resultMap>
+    <select id="selectOptionAboutTopicById" parameterType="java.lang.String" resultMap="map2">
+         select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            topic.id        as topic_id,
+            topic.topic_title as topic_title
+        from test_bbs.t_options op,
+             test_bbs.t_topic topic,
+             test_bbs.t_user user
+         where op.id = #{id}
+         and op.apply_user_id = user.id
+          and op.topic_id= topic.id;
+    </select>
+    <select id="selectAllTopicsOptionsByStatus" resultMap="map2">
+          select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            topic.id        as topic_id,
+            topic.topic_title as topic_title
+        from test_bbs.t_options op,
+             test_bbs.t_topic topic,
+             test_bbs.t_user user
+        where op.status = #{status}
+        and op.apply_user_id = user.id
+        and op.topic_id= topic.id order by op.apply_time desc;
+    </select>
+
+
+    <!--申请版主-->
+    <resultMap id="map3" type="com.gyl.entity.Option">
+        <id column="id" property="id"/>
+        <result column="apply_reason" property="applyReason"/>
+        <result column="apply_type" property="applyType"/>
+        <result column="apply_time" property="applyTime"/>
+        <result column="brief" property="brief"/>
+        <result column="remakes" property="remakes"/>
+        <result column="status" property="status"/>
+        <!--user的级联-->
+        <!--申请人的id-->
+        <association property="user" javaType="com.gyl.entity.User">
+            <result column="apply_user_id" property="id"/>
+            <result column="nick_name" property="nickName"/>
+        </association>
+        <!--板块的信息-->
+        <association property="board" javaType="com.gyl.entity.Board">
+            <result column="board_id" property="id"/>
+            <result column="board_title" property="boardTitle"/>
+        </association>
+    </resultMap>
+    <select id="selectOptionAboutBoardById" parameterType="java.lang.String" resultMap="map3">
+          select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            board.id        as board_id,
+            board.board_title as board_title
+        from test_bbs.t_options op,
+             test_bbs.t_board board,
+             test_bbs.t_user user
+         where op.id = #{id}
+         and op.apply_user_id = user.id
+         and op.board_id= board.id;
+    </select>
+    <select id="selectAllBoardManagerOptionsByStatus" resultMap="map3">
+          select
+            op.id,
+            op.brief,
+            op.apply_type,
+            op.apply_reason,
+            op.apply_time,
+            user.id        as apply_user_id,
+            user.nick_name as nick_name,
+            board.id        as board_id,
+            board.board_title as board_title
+        from test_bbs.t_options op,
+             test_bbs.t_board board,
+             test_bbs.t_user user
+        where op.status = #{status}
+        and op.apply_user_id = user.id
+        and op.board_id= board.id order by op.apply_time desc;
+    </select>
+
 </mapper>

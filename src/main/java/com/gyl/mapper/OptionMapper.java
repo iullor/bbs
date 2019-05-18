@@ -13,7 +13,7 @@ public interface OptionMapper {
 
     int insert(Option option);
 
-    Option selectById(@Param("id") String id);
+    Option selectOptionAboutPostById(@Param("id") String id);
 
     int updateById(Option option);
 
@@ -29,7 +29,27 @@ public interface OptionMapper {
      */
     List<Option> selectAllPostsOptionsByStatus(@Param("status") Integer status);
 
-    int updateOptionById(@Param("option")Option option);
+    int updateOptionById(@Param("option") Option option);
 
     List<Option> selectAllPostsOptionsHasChecked();
+
+    /**
+     * 根据审核的状态查询所有的申请的话题
+     *
+     * @param status
+     * @return
+     */
+    List<Option> selectAllTopicsOptionsByStatus(@Param("status") Integer status);
+
+    /**
+     * 根据审核的状态查询所有的申请的话题
+     *
+     * @param status
+     * @return
+     */
+    List<Option> selectAllBoardManagerOptionsByStatus(@Param("status") Integer status);
+
+    Option selectOptionAboutBoardById(@Param("id") String id);
+
+    Option selectOptionAboutTopicById(@Param("id") String id);
 }

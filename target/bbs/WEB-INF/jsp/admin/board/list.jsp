@@ -8,14 +8,14 @@
     <title>板块</title>
 
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/admin/admin_pages.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
-    <style>
-    </style>
+    <script src="/js/commons.js"></script>
 
 </head>
 <body>
@@ -34,27 +34,27 @@
             </c:if>
         </div>
         <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
-            时间&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+            <%--时间&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>--%>
         </div>
         <div class="col-md-1" style="margin-top: 7px;line-height: 20px;font-size: 15px;">
-            热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+            <%--热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>--%>
         </div>
         <form action="/board/searchByBoardTitle" method="get">
             <div class="col-md-2">
-                <div class="form-group">
+               <%-- <div class="form-group">
                     <input type="text" class="form-control" name="inputBoardTitle" placeholder="模块名">
-                </div>
+                </div>--%>
             </div>
             <div class="col-md-1">
-                <button id="search" type="submit" class="btn btn-default">查找<span
-                        class="glyphicon glyphicon-search"></span></button>
+                <%--<button id="search" type="submit" class="btn btn-default">查找<span
+                        class="glyphicon glyphicon-search"></span></button>--%>
             </div>
         </form>
         <div class="col-md-1" style="margin-top: -13px">
-            <button type="button" class="btn btn-default" id="searchAll">显示全部 <span
-                    class="glyphicon glyphicon-menu-hamburger"></span></button>
+           <%-- <button type="button" class="btn btn-default" id="searchAll">显示全部 <span
+                    class="glyphicon glyphicon-menu-hamburger"></span></button>--%>
         </div>
     </div>
     <hr style="margin-top: 5px;">
@@ -242,17 +242,7 @@
             }
             return false;
         })
-        $(".showShortInfo").hide();
-        $(".showMoreInfo>a").on("click", function () {
-            $(this).parent().siblings("div.showShortInfo").show();
-            $(this).parent("div").hide();
-            return false;
-        })
-        $(".showShortInfo>a").on("click", function () {
-            $(this).parent().siblings("div.showMoreInfo").show();
-            $(this).parent("div").hide();
-            return false;
-        })
+
     })
 </script>
 </body>

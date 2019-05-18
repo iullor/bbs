@@ -6,111 +6,24 @@
 <head>
     <meta charset="UTF-8">
     <title>post</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/panel/panel.css">
-
-    <!--引入一些样式-->
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <link rel="stylesheet" href="/css/commons/commons.css">
-    <link rel="stylesheet" href="/css/post/post_list.css">
-
-
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
+        <link rel="stylesheet" href="/css/post/post_list.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/post/post_list-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/sidebar-left-control.js"></script>
-
     <!--动态添加留言的对话框-->
     <script src="/lib/ueditor/ueditor.config.js"></script>
     <script src="/lib/ueditor/ueditor.all.js"></script>
-    <style>
-        .container .glyphicon-comment {
-            color: rgba(0, 183, 238, 0.59);
-        }
-        .glyphicon-thumbs-up-done {
-            color: rgba(255, 0, 0, 0.97);
-        }
-    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
-<%--<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>--%>
 <div class="container">
     <div class="row">
         <!--路径导航栏-->
@@ -129,7 +42,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
                             <a href="#">
-                                <img src="/images/路飞.jpg" class="showUserHeadImg" value="${post.user.userBaseInfo.headImage}"/></a>
+                                <img src="/images/路飞.jpg" class="showUserHeadImg"
+                                     value="${post.user.userBaseInfo.headImage}"/></a>
                             <p><a href="#">${post.user.nickName}</a></p>
                         </div>
                         <div class="panel-border panel-default">
@@ -137,7 +51,7 @@
                             <p class="text-center">
                                             <span id="collectUser" class="glyphicon glyphicon-heart-empty btn btn-info"
                                                   tempClass="glyphicon glyphicon-heart btn btn-success">&nbsp;关注</span>
-                                            <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
+                                <span><input type="hidden" id="postUserId" value="${post.user.id}"/></span>
                             </p>
                             <p class="text-center">
                                 <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
@@ -248,7 +162,8 @@
                                                         </p>
                                                     </div>
                                                     <!--二级评论-->
-                                                    <div id="comment-level2-${i.index+1}" class="panel-collapse collapse comment-level2">
+                                                    <div id="comment-level2-${i.index+1}"
+                                                         class="panel-collapse collapse comment-level2">
                                                         <c:choose>
                                                             <c:when test="${not empty comment.replies}">
                                                                 <c:forEach items="${comment.replies}"
@@ -435,6 +350,7 @@
             ]
         }
     );
+
     //分页的
     function goPage(pageNumber) {
         $(":hidden[name='currentPage']").val(pageNumber);
@@ -457,7 +373,7 @@
             var id = {
                 id: curPostId
             }
-            var tmpSpan=$(this)
+            var tmpSpan = $(this)
             var parten = $(this).attr("class");
             let num = 0;
             if (parten.match("glyphicon-thumbs-up-done") == null) {
@@ -473,7 +389,7 @@
                     }
                 });
                 /*console.log(this)*/
-               /* $(this).addClass("glyphicon-thumbs-up-done");*/
+                /* $(this).addClass("glyphicon-thumbs-up-done");*/
             } else {
                 //取消点赞
                 $.ajax({
@@ -488,7 +404,6 @@
                     }
                     //添加样式
                 });
-                /*$(this).removeClass("glyphicon-thumbs-up-done");*/
             }
             //评论
             return false;

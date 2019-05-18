@@ -38,7 +38,6 @@ public class Board {
     private String info;
     private String details;
 
-
     /**
      * panel 的管理者
      */

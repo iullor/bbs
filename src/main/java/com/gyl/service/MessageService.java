@@ -63,7 +63,7 @@ public class MessageService {
         //1，先判断是什么东西
         String postId = option.getPostId();
         String boardId = option.getBoardId();
-        String areaId = option.getTopicId();
+        String topicId = option.getTopicId();
         String things = "";
         if (postId != null) {
             //贴子
@@ -73,9 +73,9 @@ public class MessageService {
             //板块
             things = "申请的板主";
         }
-        if (areaId != null) {
+        if (topicId != null) {
             //分区
-            things = "申请的区主";
+            things = "申请话题置顶";
         }
 
         String handledMessges = "";

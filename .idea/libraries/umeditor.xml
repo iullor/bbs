@@ -1,9 +1,6 @@
 <component name="libraryTable">
   <library name="umeditor">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/commons-fileupload-1.2.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/lib/umeditor/jsp/ueditor-mini.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

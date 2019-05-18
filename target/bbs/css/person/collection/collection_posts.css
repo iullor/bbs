@@ -1,6 +1,21 @@
 /*
 =========关注的贴子，样式==========
 */
+.collectedPost {
+    height: 50px;
+    border-bottom: 1px slategrey dashed;
+    color: black;
+    font-size: 17px;
+    padding-top: 18px;
+}
+
+.collectedPost:hover {
+    background-color: #f1f4f5;
+}
+
+.collectedPost > div:last-child {
+    margin-top: -8px;
+}
 
 #list p {
     margin-top: 20px;
@@ -70,3 +85,11 @@
 }
 
 
+.container-inner {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    height: auto !important;
+    min-height: 900px !important;
+    _height: 900px;
+    background-color: white;
+}

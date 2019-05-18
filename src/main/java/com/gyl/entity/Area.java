@@ -35,6 +35,8 @@ public class Area {
      */
     private List<Post> posts = new ArrayList<>();
 
+    private Integer postNumbers;
+
     public String getId() {
         return id;
     }
@@ -122,5 +124,13 @@ public class Area {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getPostNumbers() {
+        return postNumbers;
+    }
+
+    public void setPostNumbers(Integer postNumbers) {
+        this.postNumbers = postNumbers;
     }
 }

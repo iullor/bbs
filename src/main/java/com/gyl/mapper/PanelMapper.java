@@ -45,4 +45,7 @@ public interface PanelMapper {
      */
     List<Panel> listByPanelManagerId(@Param("id") String id);
 
+    Integer countPostNumberByPanelId(@Param("panelId") String panelId);
+
+    Integer countAreaNumberByPanelId(String panelId);
 }

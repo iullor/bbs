@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员登录</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/commons/logon.css">
     <link rel="stylesheet" href="/css/commons/commons.css">

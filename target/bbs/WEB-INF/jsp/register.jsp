@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>新用户注册</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/commons/register.css">
     <link rel="stylesheet" href="/css/commons/index.css">
