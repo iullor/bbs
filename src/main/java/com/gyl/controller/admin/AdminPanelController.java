@@ -36,9 +36,10 @@ public class AdminPanelController {
     private UserService userService;
     @Autowired
     private BoardService boardService;
-
-
     private String operationStatus = "";
+
+    private Integer currentPage = 1;
+    private Integer pageSize = 2;
 
     /**
      * panel 列表
@@ -50,8 +51,8 @@ public class AdminPanelController {
     public String list(ModelMap map, HttpServletRequest request, Integer currentPage, Integer pageSize) {
         if (currentPage == null || pageSize == null) {
             //默认值
-            currentPage = 1;
-            pageSize = 2;
+            currentPage = this.currentPage;
+            pageSize = this.pageSize;
         }
         //先去查所有的出来
         List<Panel> panels = panelService.list();
@@ -80,7 +81,14 @@ public class AdminPanelController {
      * @return
      */
     @RequestMapping(value = "/admin/panel", method = RequestMethod.POST)
-    public String add(Panel panel) {
+    public String add(Panel panel, String panelDisabled) {
+        if (panelDisabled != null) {
+            if ("on".equals(panelDisabled)) {
+                panel.setPanelDisabled(1);
+            } else {
+                panel.setPanelDisabled(0);
+            }
+        }
         int status = panelService.add(panel);
         return "redirect:/admin/panel";
     }
@@ -93,6 +101,9 @@ public class AdminPanelController {
      */
     @RequestMapping(value = "/admin/panel", method = RequestMethod.PUT)
     public String update(Panel panel) {
+        if (panel.getPanelDisabled() == null) {
+            panel.setPanelDisabled(0);
+        }
         int status = panelService.update(panel);
         operationStatus = StatusCode.UPDATE_PANEL_SUCCESS;
         return "redirect:/admin/panel";
@@ -143,7 +154,10 @@ public class AdminPanelController {
     @RequestMapping(value = "/admin/panel/searchByPanelTitle", method = RequestMethod.GET)
     public String searchByPanelTitle(String inputPanelTitle, ModelMap map) {
         List<Panel> panels = panelService.searchByPanelTitle(inputPanelTitle);
+        PageResult pageResult = panelService.sortPageByAdmin(panels, this.currentPage, this.pageSize);
+        panels = pageResult.getNewPage();
         map.addAttribute("panels", panels);
+        map.addAttribute("keyword", inputPanelTitle);
         return "admin/panel/list";
     }
 

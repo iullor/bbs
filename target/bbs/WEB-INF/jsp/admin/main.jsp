@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理页面首页</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/admin/admin.css">
     <!--js-->
@@ -140,7 +141,7 @@
                         <div id="userManager">
                             <ul>
                                 <li><a href="/admin/user">用户列表</a></li>
-                                <li><a href="/admin/user">违规用户</a></li>
+                                <%--<li><a href="/admin/user/brokeRolesUser">违规用户</a></li>--%>
                             </ul>
                         </div>
                     </li>
@@ -152,18 +153,16 @@
                     </a>
                     <div>
                         <ul>
-                            <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role==1}">
-                                <li><a href="/admin/check/panelManager">模块管理员申请</a></li>
-                            </c:if>
                             <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
                                 <li><a href="/admin/check/boardManager">版主申请</a></li>
                             </c:if>
+                            <li><a href="/admin/check/myTopicUp">话题申请</a></li>
                             <li><a href="/admin/check/post">贴子的申请</a></li>
                         </ul>
                     </div>
                 </li>
 
-                <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<2}">
+              <%--  <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<2}">
                     <li>
                         <a href="#">
                             <span class="glyphicon glyphicon-lock"></span>权限管理<span class="caret"></span>
@@ -175,21 +174,8 @@
                             </ul>
                         </div>
                     </li>
-                </c:if>
-                <%--<c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
-                    <li>
-                        <a href="#">
-                            <span class="glyphicon glyphicon-eye-close"></span>屏蔽设置<span class="caret"></span>
-                        </a>
-                        <div>
-                            <ul>
-                                <li><a href="/admin/shield">现有</a></li>
-                                <li><a href="/admin/shield/input/0">新增</a></li>
-                            </ul>
-                        </div>
-                    </li>
                 </c:if>--%>
-                <li>
+               <%-- <li>
                     <a href="#">
                         <span class="glyphicon glyphicon-share"></span>系统反馈<span class="caret"></span>
                     </a>
@@ -199,7 +185,7 @@
                             <li><a href="/admin/feedback/input/0">回复</a></li>
                         </ul>
                     </div>
-                </li>
+                </li>--%>
                 <li class="mt-5 mb-3">
                     <p class="text-center">管理页面</p>
                 </li>
@@ -208,7 +194,7 @@
     </div>
     <!--内容-->
     <div id="pageContainer" class="col-md-10  pull-right">
-        <iframe src="/admin/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
+        <iframe src="/admin/system/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
                 onload="setIframeHeight(this)" style="margin-left: -30px;"></iframe>
     </div>
 </div>
@@ -218,7 +204,6 @@
         var $childen = $("#navbar-left>ul>li>div");
         var $links = $("#navbar-left>ul>li>div>ul>li");
         $childen.hide();//隐藏所有的子
-        $childen.first().show();//显示第一个
         $perents.on("click", function () {
             if ($(this).next("div").is(":hidden")) {
                 $childen.hide(200);
@@ -241,11 +226,14 @@
         $("#system").on("click", function () {
             var tmp = $(this).children("a").attr("href")
             $("iframe").attr("src", tmp);
+            //隐藏所有的子
+            $childen.hide();//隐藏所有的子
             return false;
         })
         $("#public").on("click", function () {
             var tmp = $(this).children("a").attr("href")
             $("iframe").attr("src", tmp);
+            $childen.hide();//隐藏所有的子
             return false;
         })
 

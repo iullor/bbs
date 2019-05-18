@@ -6,11 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>申请公版显示</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/person/person_manager-left.css">
-    <link rel="stylesheet" href="/css/person/post/person_posts.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <%--左侧栏的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
@@ -105,8 +109,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/themes/basic" class="">基本样式</a></li>
-                                <li><a href="#" class="">颜色搭配</a></li>
+                                <li><a href="/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>

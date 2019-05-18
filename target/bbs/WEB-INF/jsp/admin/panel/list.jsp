@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>模块</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -32,7 +32,6 @@
         </div>
         <form action="/admin/panel/searchByPanelTitle" method="get">
             <div class="col-md-offset-7 col-md-2">
-
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
                 </div>
@@ -64,10 +63,11 @@
                     <th>logo</th>
                     <th>标题</th>
                     <th>管理者</th>
-                    <th>板块简介</th>
+                    <th>模块简介</th>
                     <th>创建时间</th>
                     <th>修改</th>
                     <th>删除</th>
+                    <th>预览</th>
                     <th>增加板块</th>
                     </thead>
                     <tbody>
@@ -83,21 +83,26 @@
                             <c:forEach items="${panels}" var="p" varStatus="i">
                                 <tr>
                                     <td>
-                                        <a href="#">${i.index+1}</a>
+                                            ${i.index+1}
                                     </td>
                                     <td>
-                                        <a href="#"><img src="${p.logoPath}" alt="logo" width="30px" height="30px"></a>
+                                        <img src="" class="showUserHeadImg" value='${p.logoPath}' alt="logo"
+                                             width="30px"
+                                             height="30px">
                                     </td>
                                     <td><a href="#">${p.title}</a></td>
                                     <td>${p.userList[0].username}</td>
-                                    <td><a href="#">${p.info}</a></td>
-                                    <td><a href="#">
+                                    <td>${p.info}</td>
+                                    <td>
                                         <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
-                                    </a></td>
+                                    </td>
                                     <td><a href="/admin/panel/input/${p.id}">编辑</a></td>
                                     <td><a class="delete" href="/admin/panel/${p.id}">删除</a></td>
+                                    <td>
+                                        <a href="/panel/${p.id}">查看</a>
+                                    </td>
                                     <td><a class="addBoard" href="/admin/board/addBoardToPanel/${p.id}">添加</a></td>
-                                    <form action="" method="POST">
+                                    <form id="deleteForm" action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
                                     </form>
                                 </tr>
@@ -157,6 +162,15 @@
     </div>
 </div>
 <script>
+    //显示图片
+    $(".showUserHeadImg").each(function () {
+        var headImg = $(this).attr("value");
+        let beginIndex = headImg.indexOf("/webapp/") + 7;
+        let endIndex = headImg.length;
+        let src = headImg.substring(beginIndex, endIndex);
+        $(this).attr("src", src);
+    })
+
     function goPage(pageNumber) {
         $(":hidden[name='currentPage']").val(pageNumber);
         $(":hidden[name='pageSize']").val(2);
@@ -172,25 +186,14 @@
             var i = confirm("危险！！！\n您真想清空，该模块下的所有内容吗？");
             if (i) {
                 var href = $(this).attr("href");
-                $("form").attr("action", href).submit();
+                $("#deleteForm").attr("action", href).submit();
             }
             return false;
-        });
-
-        //显示图片
-        $("td>a>img").each(function (key, value) {
-            var pictruePath = $(this).attr("src");
-            var lastIndex = pictruePath.search("/webapp/") + 7;
-            var str = (pictruePath).substring(lastIndex, pictruePath.length)
-            $(this).attr("src", str)
         });
 
         var operationStatus = '${operationStatus}';
         if (operationStatus === "2002") {
             alert("操作失败，您不能删除该模块,该模块包含有内容，请联系管理员")
-            /*var dangerConfirm = confirm("您真想清空，该模块下的所有内容吗？");
-            if (dangerConfirm) {
-            }*/
         }
         if (operationStatus === "2003") {
             alert("删除成功")
@@ -200,25 +203,26 @@
         }
 
         //分页一些东西的隐藏与显示
-        let search = ${pageResult.totalPage};
+        let search = '${pageResult.totalPage}';
         //如果只有一页,隐藏所有
         if (search < 2) {
             $("#foot").hide();
         }
         //如果当前页等于第一页,那么隐藏上一页的按钮
-        let currentPage =${pageResult.currentPage};
+        let currentPage = '${pageResult.currentPage}';
         if (currentPage === 1) {
             $("#prevPage").hide();
         }
         //如果当前页,等于最后一页,那么隐藏下一页
-        let endPages = ${pageResult.endIndex};
+        let endPages = '${pageResult.endIndex}';
         if (endPages === currentPage) {
             $("#nextPage").hide();
         }
         $("#toPage>button").on("click", function () {
             let toPage = $("input[name='toPage']").val();
             if (toPage !== null && toPage !== '' && toPage !== 'undefined') {
-                let endPage = ${pageResult.totalPage};
+                let endPage = '${pageResult.totalPage}';
+                //alert(endPage)
                 if (endPage + 1 > toPage) {
                     goPage(toPage);
                 } else {
@@ -228,6 +232,12 @@
                 alert("请输入页码");
             }
         });
+
+        /*搜索词回显*/
+        let keyword = '${keyword}';
+        if (keyword != null && keyword !== '' && keyword !== 'undefind') {
+            $(":text[name='inputPanelTitle']").val(keyword);
+        }
     })
 </script>
 </body>

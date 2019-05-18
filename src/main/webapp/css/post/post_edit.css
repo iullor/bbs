@@ -1,13 +1,6 @@
 body {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5 !important;
 }
-
 .main {
     margin-top: 50px;
-}
-/**
-=======main=======
- */
-.main{
-    margin-top: 80px;
 }

@@ -6,11 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <title>添加话题</title>
-    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    <%--左侧栏的样式--%>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
+        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+    </c:if>
     <link rel="stylesheet" href="/css/person/basic_info/person_account.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/person-left.js"></script>
@@ -22,82 +27,8 @@
     </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<%--引入顶栏--%>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container-fluid">
     <div class="row main">
         <div class=" col-md-offset-1 col-md-2">
@@ -183,8 +114,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/themes/basic" class="">基本样式</a></li>
-                                <li><a href="#" class="">颜色搭配</a></li>
+                                <li><a href="/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>
@@ -238,14 +168,17 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="/person/topic" method="post" id="topic">
+                    <form:form action="/person/topic" method="post" id="topic" modelAttribute="topic">
                         <%--用来隐藏话题配图的路径--%>
-                        <input type="hidden" name="topicPicture"/>
+                        <form:hidden path="topicPicture"/>
+                        <c:if test="${not empty topic.id}">
+                            <form:hidden path="id"/>
+                        </c:if>
                         <div class="form-group">
                             <label for="topic-title">话题标题
                                 <small>(不超过15字)</small>
                             </label>
-                            <input id="topic-title" type="text" name="topicTitle" class="form-control">
+                            <form:input id="topic-title" path="topicTitle" class="form-control"></form:input>
                         </div>
                         <div class="form-group">
                             <label>添加配图(图片比例16:9,格式(png/jpg))</label>
@@ -253,28 +186,29 @@
                         </div>
                         <div class="form-group">
                             <label>关键词</label>
-                            <input type="text" name="topicKeyword">
+                            <form:input path="topicKeyword"></form:input>
                             <small>(必须2-6词)</small>
                         </div>
                         <div class="form-group">
                             <label for="topic-title">话题详细描述
                             </label>
-                            <textarea name="topicDescribe" cols="50" rows="15" class="form-control"
-                                      style="font-size: 16px;" placeholder="描述"></textarea>
+                            <form:textarea path="topicDescribe" cols="50" rows="15" class="form-control"
+                                           style="font-size: 16px;" placeholder="描述"></form:textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-lg btn-primary"
                                     style="margin-top: 20px">创建
                             </button>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
                 <div class="col-md-6">
                     <label for="showPicture" style="margin-top: 20px">
                         配图
                     </label>
                     <p style="z-index: -10;margin-left: 50px;margin-top: 30px">
-                        <img id="showPicture" src="/images/topic/default.png" value="" width="480" height="270"
+                        <img id="showPicture" class="showUserHeadImg" value="${topic.topicPicture}"
+                             src="/images/topic/default-image.png" value="" width="480" height="270"
                              srcset="">
                     </p>
                 </div>
@@ -320,6 +254,14 @@
             return false;
         })
 
+        let topicId = '${topic.id}';
+        if (topicId != null && topicId !== '' && topicId !== 'undefined') {
+            //修改新增form表单的action
+            $("#topic").attr("action", "/person/topic/edit");
+        }
+        if (${empty topic.topicPicture}) {
+            $("#showPicture").attr("src","/images/topic/default-image.png")
+        }
     })
 </script>
 </body>

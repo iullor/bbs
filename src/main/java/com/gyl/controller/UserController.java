@@ -49,9 +49,10 @@ public class UserController {
         user1.setEmail(user.getEmail());
         user1.getUserBaseInfo().setHeadImage(user.getUserBaseInfo().getHeadImage());
         int status = userService.update(user1);
-        request.getSession().invalidate();
-        return "redirect:/account/activeInfo";
+        request.getSession().removeAttribute("CURRENT_USER");
+        return "redirect:/logon";
     }
+
 
     /**
      * 页面跳转到首页
@@ -59,8 +60,19 @@ public class UserController {
      * @return
      */
     @RequestMapping("/logon")
-    public String toLogon() {
+    public String logon(HttpServletRequest request) {
+        //首先移除掉,清除之前的提示信息
+        request.getSession().removeAttribute("USER_STATUS");
+        return "logon";
+    }
 
+    /**
+     * 页面跳转到首页
+     *
+     * @return
+     */
+    @RequestMapping("/toLogon")
+    public String toLogon(HttpServletRequest request) {
         return "logon";
     }
 
@@ -72,6 +84,7 @@ public class UserController {
     @RequestMapping(value = "/checkLogon", method = RequestMethod.GET)
     public String login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, HttpServletRequest request) {
         Map<String, Object> userInfo = userService.checkUser(username, password);
+        //重新设置
         request.getSession().setAttribute("USER_STATUS", userInfo.get("USER_STATUS"));
         User user = (User) userInfo.get("user");
         if (user != null) {
@@ -84,10 +97,9 @@ public class UserController {
             String ipAddress = UserController.getIPAddress(request);
             user.getUserLoginInfo().setIpAdreess(ipAddress);
             int state = userService.update(user);
-
             return "redirect:/index";
         }
-        return "redirect:/logon";
+        return "redirect:/toLogon";
     }
 
 
@@ -130,6 +142,7 @@ public class UserController {
      */
     @RequestMapping("/resetPassword")
     public String resetPassowrd() {
+
         return "/reset_password";
     }
 
@@ -186,4 +199,13 @@ public class UserController {
         }
         return 0;
     }
+
+    @RequestMapping(value = "/user/resetPassword", method = RequestMethod.POST)
+    public String resetPassword(String username, String email) {
+        //根据用户名和邮箱对密码进行重置
+        int status = userService.resetPassword(username, email);
+        return "redirect:/logon";
+    }
+
+
 }

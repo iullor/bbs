@@ -1,5 +1,11 @@
-html,body {
+html, body {
     height: 90%;
+}
+
+/*错误信息样式*/
+#logon-info {
+    color: red;
+    font-size: 18px;
 }
 
 body {
@@ -68,7 +74,8 @@ body > h3 {
 .form-logon span {
     margin-left: 30px;
 }
-.container >p{
+
+.container > p {
     margin-top: 300px;
     text-align: center;
     font-size: 17px;

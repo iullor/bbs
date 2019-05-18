@@ -129,4 +129,24 @@ public class AdminPostController {
         return "redirect:/admin/post/input/0";
     }
 
+
+    /**
+     * 后台管理人员,根据不同的身份对不同板块，模块的贴子的查看权限不一样
+     */
+    @RequestMapping(value = "/admin/post/searchByPostTitle", method = RequestMethod.GET)
+    public String searchPost(String postTitle, HttpServletRequest request, Model model) {
+        int currentPage = 1;
+        int pageSize = 10;
+        //可以查看所有的posts
+        List<Post> posts = postService.selectByPostTitle(postTitle);
+        User manager = (User) request.getSession().getAttribute("ADMIN_USER");
+        //模块管理者,仅对本模块的贴子操作
+        //分页的内容,把每个角色对应应该查出来的贴子分页处理后,再返回回来
+        PageResult pageResult = postService.sortPageByAdmin(posts, currentPage, pageSize);
+        posts = pageResult.getNewPage();
+        model.addAttribute("pageResult", pageResult);
+        model.addAttribute("posts", posts);
+        return "admin/post/list";
+    }
+
 }

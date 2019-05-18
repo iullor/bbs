@@ -3,10 +3,7 @@ package com.gyl.service;
 import com.gyl.commons.StatusCode;
 import com.gyl.commons.UUIDString;
 import com.gyl.commons.page.PageResult;
-import com.gyl.entity.User;
-import com.gyl.entity.UserAccountStatus;
-import com.gyl.entity.UserBaseInfo;
-import com.gyl.entity.UserLoginInfo;
+import com.gyl.entity.*;
 import com.gyl.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +23,8 @@ public class UserService {
     private Map<String, Object> userLogonInfo = null;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private PostService postService;
 
     public int add(User user) {
         user.setId(UUIDString.createId());
@@ -64,22 +63,43 @@ public class UserService {
         userLogonInfo = new HashMap<>();
         User user = userMapper.checkUser(username);
         if (user != null) {
+            UserBaseInfo userBaseInfo = user.getUserBaseInfo();
+            if (userBaseInfo != null) {
+                String gender = userBaseInfo.getGender();
+                //设置性别
+                if ("男".equals(gender)) {
+                    userBaseInfo.setGender("男");
+                } else if ("女".equals(gender)) {
+                    userBaseInfo.setGender("女");
+                } else {
+                    userBaseInfo.setGender("保密");
+                }
+            }
+            //若密码正确，判断用户的状态
             if (user.getPassword().equals(password)) {
+                //用户状态为1,正常
                 if (user.getUserAccountStatus().getStatus().equals(StatusCode.USER_NORMAL)) {
                     userLogonInfo.put("USER_STATUS", StatusCode.USER_NORMAL);
                     userLogonInfo.put("SUCCESS_LOGON", StatusCode.SUCCESS_LOGON);
                     userLogonInfo.put("user", user);
                     return userLogonInfo;
                 }
+                //用户状态为0，用户未激活
                 if (user.getUserAccountStatus().getStatus().equals(StatusCode.USER_NOT_ACTIVE)) {
                     userLogonInfo.put("USER_STATUS", StatusCode.USER_NOT_ACTIVE);
                     return userLogonInfo;
                 }
-                userLogonInfo.put("USER_STATUS", StatusCode.USER_FREESON);
+                //用户状态为-1,冻结
+                if (user.getUserAccountStatus().getStatus().equals(StatusCode.USER_FREESON)) {
+                    userLogonInfo.put("USER_STATUS", StatusCode.USER_FREESON);
+                    return userLogonInfo;
+                }
+            } else {
+                //用户密码不正确
+                userLogonInfo.put("USER_STATUS", StatusCode.USER_PASSWORD_ERROR);
                 return userLogonInfo;
             }
-            userLogonInfo.put("USER_STATUS", StatusCode.USER_PASSWORD_ERROR);
-            return userLogonInfo;
+
         }
         userLogonInfo.put("USER_STATUS", StatusCode.USER_NOT_EXIT);
         return userLogonInfo;
@@ -95,7 +115,15 @@ public class UserService {
     }
 
     public List<User> list() {
-        return userMapper.list();
+        //根据每个人的id去查出来他发了多少帖子
+        List<User> users = userMapper.list();
+        if (users != null) {
+            for (User user : users) {
+                List<Post> posts = postService.getMyPostById(user.getId());
+                user.setPosts(posts);
+            }
+        }
+        return users;
     }
 
     public int update(User user) {
@@ -141,7 +169,49 @@ public class UserService {
 
     //更新个人说明
     public int updateIntroduce(String id, String introduce) {
-
         return userMapper.updateIntroduce(id, introduce);
+    }
+
+    /**
+     * 根据用户的id,和主题的编号来更换样式
+     *
+     * @param id
+     * @param value
+     * @return
+     */
+    public int changeTheme(String id, String value) {
+        return userMapper.changeTheme(id, value);
+    }
+
+    public int resetPassword(String username, String email) {
+        //根据用户名和邮箱比对，吻合的话，就重新生成一个密码，通过邮箱发过去
+        User user = userMapper.selectUserByUNameAndEmail(username, email);
+        if (user != null) {
+            //生成新密码
+            String tmpPassword = UUIDString.createId().substring(0, 10);
+            //发送一条邮件
+            try {
+                emailService.resetPasswordByEmail(tmpPassword, email);
+                //讲这个密码保存到数据库中
+                int status = userMapper.updateTmpPassword(user.getId(), tmpPassword);
+                //重置成功
+                return 0;
+            } catch (Exception e) {
+
+            }
+        }
+        return -1;
+    }
+
+    public List<User> selectUsersByNickName(String nickName) {
+        //根据每个人的id去查出来他发了多少帖子
+        List<User> users = userMapper.selectUsersByNickName(nickName);
+        if (users != null) {
+            for (User user : users) {
+                List<Post> posts = postService.getMyPostById(user.getId());
+                user.setPosts(posts);
+            }
+        }
+        return users;
     }
 }

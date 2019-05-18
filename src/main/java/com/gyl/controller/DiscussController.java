@@ -138,8 +138,13 @@ public class DiscussController {
     @RequestMapping(value = "/discuss/praise/{discussId}", method = RequestMethod.GET)
     public int hasPraises(@PathVariable("discussId") String discussId, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        int i = discussService.listPraiseById(user.getId(), discussId);
-        return i;
+        if (user != null) {
+            int i = discussService.listPraiseById(user.getId(), discussId);
+            return i;
+        } else {
+            return 0;
+        }
+
     }
 
     /**

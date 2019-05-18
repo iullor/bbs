@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>重置密码</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -15,9 +16,11 @@
         body {
             background-color: #f5f5f5;
         }
-        .row:first-child{
+
+        .row:first-child {
             margin-top: 8%;
         }
+
         .row .col-md-3 {
             margin-top: 10%;
         }
@@ -40,11 +43,15 @@
             margin-left: 20px;
 
         }
-        .info{
-            margin-top: 8%;
-            color: #ddd;
-            padding: 1px;
+
+        .info {
+            position: absolute;
+            left: 35%;
+            bottom: 50px;
+            color: black;
+            padding: 10px;
         }
+
         #codeImg {
             width: auto;
             margin-top: 25px;
@@ -67,10 +74,10 @@
             <h3 class="text-warning">重置密码</h3>
         </div>
         <div class="col-md-3">
-            <form action="" method="post">
+            <form action="/user/resetPassword" method="post">
                 <div class="form-group">
                     <label for="myUsername">用户名</label>
-                    <input type="text" class="form-control" id="myUsername">
+                    <input type="text" class="form-control" name="username" id="myUsername">
                 </div>
                 <div class="form-group">
                     <label for="myEmail">预留邮箱</label>
@@ -96,49 +103,9 @@
             </form>
         </div>
     </div>
-
     <div class="info text-center">
-        <h4><small>我们将根据您的账号和预留的邮箱，为您重置密码，并将正确的密码发到您的邮箱，真注意查看！</small></h4>
+        <h4>我们将根据您的账号和预留的邮箱，为您重置密码。 <br> 稍后请登录您的邮箱，请注意查看！</h4>
     </div>
 </div>
-<%--<script>
-    var code; //在全局定义验证码
-    function createCode() {
-        code = "";
-        var codeLength = 4;//验证码的长度
-        var checkCode = document.getElementById("codeImg");
-        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');//随机数
-        for (var i = 0; i < codeLength; i++) {//循环操作
-            var index = Math.floor(Math.random() * 36);//取得随机数的索引（0~35）
-            code += random[index];//根据索引取得随机数加到code上
-        }
-        checkCode.value = code;//把code值赋给验证码
-    }
-    //校验验证码
-    function validate() {
-        var inputCode = document.getElementById("inputCode").value.toUpperCase(); //取得输入的验证码并转化为大写
-
-        if (inputCode.length <= 0) {
-            alert("请输入验证码！");
-            return false;
-        } else if (inputCode != code) {
-            alert("验证码输入错误，重新输入");
-            createCode();//刷新验证码
-            document.getElementById("inputCode").value = "";//清空文本框
-            return false;
-        } else { //输入正确时
-            alert("正在重置。。。。");
-            return true;
-        }
-    }
-
-    $(function () {
-        createCode();
-        $("button[type='submit']").on("click", function () {
-            validate();
-        });
-    });
-</script>--%>
 </body>
 </html>

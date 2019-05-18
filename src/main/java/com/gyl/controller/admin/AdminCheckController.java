@@ -9,10 +9,7 @@ import com.gyl.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -69,12 +66,21 @@ public class AdminCheckController {
      *
      * @return
      */
-    @RequestMapping(value = "/admin/check/post", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/check", method = RequestMethod.POST)
     public String addRemakes(Option op, HttpServletRequest request) {
 
         User handelUser = (User) request.getSession().getAttribute("ADMIN_USER");
         //添加处理人的信息
-        Option option = optionService.selectById(op.getId());
+        Option option = null;
+        if (op.getPostId() != null) {
+            option = optionService.selectOptionAboutPostById(op.getId());
+        }
+        if (op.getBoardId() != null) {
+            option = optionService.selectOptionAboutBoardById(op.getId());
+        }
+        if (op.getTopicId() != null) {
+            option = optionService.selectOptionAboutTopicById(op.getId());
+        }
         option.setHandleUserId(handelUser.getId());
         if (op.getRemakes() != null) {
             //添加备注
@@ -92,6 +98,7 @@ public class AdminCheckController {
 
         return "redirect:/admin/check/post";
     }
+
     /**
      * 返回json
      *
@@ -112,20 +119,34 @@ public class AdminCheckController {
      */
     @RequestMapping(value = "/admin/check/boardManager", method = RequestMethod.GET)
     public String boardManagerApplyList(Model model) {
-        List<Option> options = optionService.selectOptionsByRole(2);
+        List<Option> options = optionService.selectAllBoardManagerOptionsByStatus(StatusCode.WAIT_CHECK);
         model.addAttribute("options", options);
         return "/admin/examination/board_manager_check";
     }
 
     /**
-     * 我的分区申请热点审核
+     * 我的话题申请首页置顶
      *
      * @return
      */
-    @RequestMapping(value = "/admin/check/myAreaUp", method = RequestMethod.GET)
-    public String myAreaUp(Model model) {
-        List<Option> options = optionService.selectOptionsByRole(2);
+    @RequestMapping(value = "/admin/check/myTopicUp", method = RequestMethod.GET)
+    public String myTopic(Model model) {
+        //List<Option> options = optionService.selectOptionsByRole(2);
+        List<Option> options = optionService.selectAllTopicsOptionsByStatus(StatusCode.WAIT_CHECK);
         model.addAttribute("options", options);
-        return "/admin/examination/posts_check";
+        return "/admin/examination/topic_check";
     }
+
+    /**
+     * 显示申请理由
+     *
+     * @return
+     */
+    @RequestMapping("/admin/apply/showApplyReason/{optionId}")
+    public String showApplyReason(@PathVariable("optionId") String optionId, Model model) {
+        Option option = optionService.selectOptionAboutPostById(optionId);
+        model.addAttribute("option", option);
+        return "/admin/examination/show_reason";
+    }
+
 }

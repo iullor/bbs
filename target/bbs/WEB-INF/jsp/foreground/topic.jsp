@@ -6,13 +6,15 @@
 <head>
     <title>话题</title>
     <!--sidebar-left样式-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
 
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <!--login的模态框-->
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/topic.css">
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
+        <link rel="stylesheet" href="/css/topic.css">
+    </c:if>
+    <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
+        <link rel="stylesheet" href="/css/topic-pink.css">
+    </c:if>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -25,82 +27,7 @@
     </style>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container">
     <div style="position: fixed;bottom: 200px;right: 50px;background-color: white;height: 80px;width: 80px;text-align: center;padding-top: 15px;">
         <div>
@@ -108,7 +35,7 @@
             <label>加入讨论</label>
         </div>
     </div>
-    <div class="row" style="padding-left: 10px;padding-bottom: 10px;background-color: #f5f5f5;border-radius: 5px;">
+    <div class="row topic-title">
         <h3>
             <a href="#" style="color: red;">#####${topic.topicTitle}#####</a>
             <span class="pull-right">
@@ -123,7 +50,8 @@
                      width="480" height="270">
             </p>
         </div>
-        <div class="col-md-4" style="height: 300px;margin-top:-8px;background-color: white;border-bottom: 2px solid #f5f5f5;padding-top: -10px;">
+        <div class="col-md-4"
+             style="height: 300px;margin-top:-8px;background-color: white;border-bottom: 2px solid #f5f5f5;padding-top: -10px;">
             <div class="text-center" style=" width:105%;margin-left: 0px;margin-top: -5px;border-radius: 10px">
                 <a href="#">
                     <img src="/images/路飞.jpg" class="showUserHeadImg" width="150" height="150"
@@ -299,42 +227,6 @@
         </form>
     </div>
 </div>
-<!--游客用户登录的模态框-->
-<div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content modal-sm">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-center" id="loginModalLabel">
-                    <small>请您先登录，再操作</small>
-                </h4>
-            </div>
-            <div class="modal-body">
-                <form action="/checkLogon" method="get">
-                    <div class="form-group">
-                        <label for="username" class="control-label">
-                            <small>用户名</small>
-                        </label>
-                        <input type="text" class="form-control has-feedback" name="username" id="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="control-label">
-                            <small>密码</small>
-                        </label>
-                        <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
-                        </button>
-                        <button type="submit" class="btn btn-md btn-primary">Login</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
 <%--显示和二级评论的模态框--%>
 <div class="modal fade" id="comment-input-list" tabindex="-1" role="dialog">
     <div class="modal-open modal-lg" role="document">
@@ -403,6 +295,7 @@
                             </div>
                         {{/for}}
 
+
 </script>
 <%--一级评论的--%>
 <div class="modal fade" id="comment-input" tabindex="-1" role="dialog">
@@ -450,9 +343,8 @@
         alert("toReplyId:" + toReplyId)
         $("#comment-input-list input:hidden[name='toUserId']").val(toUserId)
         $("#comment-input-list input:hidden[name='replyId']").val(toReplyId)
-        $("#replyToWho").html("回复&nbsp;@"+toUserNickName);
+        $("#replyToWho").html("回复&nbsp;@" + toUserNickName);
     }
-
 
     function goPage(pageNumber) {
         $(":hidden[name='currentPage']").val(pageNumber);
@@ -531,7 +423,7 @@
                         alert("上传成功")
                         let path = data.responseText;
                         //图片回显
-                        let beginIndex = path.indexOf("/webapp/") + 7;
+                        let beginIndex = path.indexOf("/upload/");
                         let endIndex = path.length;
                         let src = path.substring(beginIndex, endIndex);
                         $(".showUploadImages").append("<img src=" + src + " width='150' height='150'>")
@@ -658,7 +550,6 @@
     })
     //点赞
     $(function () {
-
         $(".good-discuss").on("click", function () {
             //两种状态
             var curDiscussId = $(this).attr("disId");

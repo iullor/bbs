@@ -7,113 +7,35 @@
     <meta charset="UTF-8">
     <title>编辑贴子</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <!--top栏样式-->
     <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/commons/commons.css">
-    <link rel="stylesheet" href="/css/post/post_edit.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="/css/post/post_edit.css">
+    <link rel=”shortcut icon” href=”/images/index/index-favicon.ico” type=”image/x-icon”>
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="/lib/ueditor/ueditor.config.js"></script>
     <script src="/lib/ueditor/ueditor.all.js"></script>
-
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-default">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-header">
-                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"
-                            data-toggle="collapse"
-                            data-target="#sidebar-wrapper" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.jsp"
-                       style="background-image: url('/images/bg/1554629378_742229.png');width: 500px">
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <div class="row" style="margin-top: 6px">
-                        <form>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="search" placeholder="Search">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <button type="submit" class="btn btn-default"><span
-                                        class="glyphicon glyphicon-search"></span>Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
-                    <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
-                                class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
-                    </c:if>
-                </div>
-                <c:choose>
-                    <c:when test="${empty sessionScope.CURRENT_USER}">
-                        <div class="col-md-1" style="margin-top: 13px;font-size: 18px">
-                            <a id="login" href="#" data-toggle="modal" data-target="#loginModal" data-keyboard="true">
-                                请登录
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <img src="" width="40" height="40"
-                                         value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
-                                         class="showUserHeadImg"/>
-                                    <span class="caret" style="margin-left: 13px;"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
-                                    <li><a href="#">我的创作</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">添加</a></li>
-                                    <li><a href="#">维修</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-    </nav>
-</header>
+<jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
 <div class="container">
     <div class="main">
         <div class="row">
-            <div>
+            <div style="margin-left: 50px;margin-bottom: -10px;font-size: 18px">
                 <ol class="breadcrumb">
-                    <li><a href="../../public/index.jsp">Home</a></li>
-                    <li><a href="../panel/panel.jsp">Panel</a></li>
-                    <li><a href="../board/board.jsp">School</a></li>
-                    <li><a href="../area/area.jsp">Computer Science</a></li>
-                    <li class="active">new</li>
+                    <li><a href="/index.jsp">首页</a></li>
+                    <li class="active">新建</li>
                 </ol>
             </div>
-            <div class="col-md-offset-1 col-md-6">
+            <div class="col-md-offset-1 col-md-6" id="content1">
                 <h4><span class="text-grey">编辑新帖子</span></h4>
-                <form:form action="/post" method="post" modelAttribute="post">
+                <input type="hidden" id="canPostOrNot" value="${canPostOrNot}">
+                <form:form action="/post" method="post" id="postForm" modelAttribute="post">
                     <c:choose>
                         <c:when test="${not empty post.id}">
                             <input type="hidden" name="_method" value="put">
@@ -174,45 +96,7 @@
             </div>
         </div>
     </div>
-    <!--游客用户登录的模态框-->
-    <div class="modal fade" id="loginModal" tabindex="0" role="dialog" aria-labelledby="loginModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-sm">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center" id="loginModalLabel">
-                        <small>请您先登录，再操作</small>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form action="/checkLogon" method="get">
-                        <div class="form-group">
-                            <label for="username" class="control-label">
-                                <small>用户名</small>
-                            </label>
-                            <input type="text" class="form-control has-feedback" name="username" id="username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="control-label">
-                                <small>密码</small>
-                            </label>
-                            <input type="password" class="form-control" name="password" id="password">
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Quit
-                            </button>
-                            <button type="submit" class="btn btn-md btn-primary">Login</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
-
-
 <script>
     UE.getEditor('content', {
         initialFrameHeight: 600,
@@ -306,23 +190,19 @@
                 alert("请先选择板块")
             }
         })
-        $("input[name='code']").bootstrapSwitch({
-            onText: 'on',
-            offText: 'off',
-            onInit: function (event, state) {
-                console.log(this)
-                console.log(event.checked)
-            }/*,
-            onSwitchChange: function (event, state) {
-                console.log(1)
-                console.log(this)
-                console.log(event.checked)
-                console.log(state);
-                console.log(this)
-            }*/
-        })
-        $("input[name='code']").bootstrapSwitch("toggleState", true)
-
+        //判断用户帐号是否被封
+        //来到此页面直接提示，您的显示暂时被禁止发帖
+        let postOrNotValue = $("#canPostOrNot").attr("value");
+        if (postOrNotValue !== null && postOrNotValue !== '' && postOrNotValue !== 'undefined') {
+            alert(postOrNotValue)
+            //禁用整个div，form表单return false
+            $("#postForm").submit(function () {
+                return false;
+            })
+            $("#content1").css({
+                'pointer-events': 'none'
+            })
+        }
     })
 </script>
 </body>

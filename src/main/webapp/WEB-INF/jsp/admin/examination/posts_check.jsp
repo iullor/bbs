@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>审核审查</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -28,21 +28,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <h2 class="text-center">审核审查</h2>
-    <br>
-    <div class="col-md-offset-9 col-md-2">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="id/昵称">
-            <span class="input-group-btn">
-                    <button class="btn btn-default">查找<span class="glyphicon glyphicon-search"></span></button>
-            </span>
-        </div>
-    </div>
-    <div class="col-md-1">
-        <div class="input-group">
-            <button class="btn btn-default">显示全部 <span class="glyphicon glyphicon-menu-hamburger"></span></button>
-        </div>
-    </div>
+    <h2 class="text-left">贴子申请</h2>
     <br>
     <div class="panel-group">
         <div class="panel panel-warning">
@@ -78,7 +64,7 @@
                                     <td><a href="/post/${op.post.id}">${op.post.postTitle}</a></td>
                                     <td>
                                         <a href="#">${op.brief}
-                                            <a href="/person/apply/showApplyReason/${op.id}" title="点击查看详情"
+                                            <a href="/admin/apply/showApplyReason/${op.id}" title="点击查看详情"
                                                class="pull-right" target="_blank">查看</a>
                                         </a>
                                     </td>
@@ -96,7 +82,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <form action="/admin/check/post" class="remakes" method="post">
+                                        <form action="/admin/check" class="remakes" method="post">
                                             <input type="text" width="50" name="remakes">
                                             <input type="hidden" name="id" value="${op.id}"/>
                                             <input type="hidden" name="status" value=""/>
@@ -119,7 +105,6 @@
                 </c:choose>
             </div>
             <div class="panel-body">
-
                 <table class="table table-hover table-striped text-left table-bordered">
                     <thead>
                     <th>id</th>
@@ -134,7 +119,6 @@
                     <tbody id="listHasChecked">
                     </tbody>
                 </table>
-
                 <script type="text/x-jsrender" id="hasChecked">
                   {{for data}}
                         {{else}}
@@ -168,9 +152,6 @@
                                     </td>
                                 </tr>
                     {{/for}}
-
-
-
                 </script>
                 <div id="haveNot" class="text-center" style="font-size: 30px;margin-top: 80px;margin-bottom: 50px;">
                     <h3>暂无未处理过的信息</h3>

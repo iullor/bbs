@@ -37,7 +37,12 @@ public class MyTopicController {
     }
 
     @RequestMapping(value = "/person/topic/input/{id}", method = RequestMethod.GET)
-    public String input(@PathVariable("id") String id) {
+    public String input(@PathVariable("id") String id, Model model) {
+        Topic topic = new Topic();
+        if (id != null && !"0".equals(id)) {
+            topic = topicService.selectById(id);
+        }
+        model.addAttribute("topic", topic);
         return "/person/topic/edit";
     }
 
@@ -53,7 +58,13 @@ public class MyTopicController {
     @RequestMapping(value = "/person/topic/delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") String id) {
         int i = topicService.deleteById(id);
-        return "redirect:/public";
+        return "redirect:/person/topic";
+    }
+
+    @RequestMapping(value = "/person/topic/edit", method = RequestMethod.POST)
+    public String edit(Topic topic) {
+        int status = topicService.update(topic);
+        return "redirect:/person/topic";
     }
 
     /**

@@ -1,11 +1,12 @@
 /**
 ================贴子显示的样式==================
  */
+body{
+    background-color: #f5f5f5 !important;
+}
 .container > .row {
     margin-top: 20px;
 }
-
-
 /*====================副导航栏===================*/
 
 .post-nav {
@@ -15,7 +16,6 @@
     width: 100%;
     float: left;
 }
-
 
 /*====================贴子的主容器===================*/
 #main {
@@ -103,7 +103,7 @@
 
 
 .panel-comment {
-    background-color: rgba(236, 255, 215, 0.32);
+   /* background-color: rgba(236, 255, 215, 0.32);*/
 }
 
 .panel-comment .media {
@@ -116,4 +116,11 @@
 
 .media-left {
     border-right: 2px solid grey;
+}
+
+.container .glyphicon-comment {
+    color: rgba(0, 183, 238, 0.59);
+}
+.glyphicon-thumbs-up-done {
+    color: rgba(255, 0, 0, 0.97);
 }

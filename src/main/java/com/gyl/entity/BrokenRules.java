@@ -10,24 +10,28 @@ public class BrokenRules {
     private Integer id;
 
     /**
-    * 违规次数
-    */
+     * 违规次数
+     */
     private Integer times;
 
     /**
-    * 违规信息
-    */
+     * 违规信息
+     */
     private String info;
 
     /**
-    * 违规的用户
-    */
+     * 违规的用户
+     */
     private String userId;
 
     /**
-    * 违规的贴子
-    */
+     * 违规的贴子
+     */
     private String postId;
+
+    private User user;
+
+    private Post post;
 
     public Integer getId() {
         return id;
@@ -67,5 +71,21 @@ public class BrokenRules {
 
     public void setPostId(String postId) {
         this.postId = postId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 }

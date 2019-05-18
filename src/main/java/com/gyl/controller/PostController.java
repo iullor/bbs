@@ -32,6 +32,9 @@ public class PostController {
     @Autowired
     private TopNavbarInfoService topNavbarInfoService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 显示一个贴子
      *
@@ -94,7 +97,8 @@ public class PostController {
         } else {
             post.setSecret(0);
         }
-
+        //若帖子中没有合适格式的图片则给firstImages设置为null
+        post.setFirstImage(null);
         int status = postService.addPost(post);
         return "redirect:/area/" + areaId;
     }
@@ -127,7 +131,7 @@ public class PostController {
      */
     @SuppressWarnings("all")
     @RequestMapping(value = "/post/input/{id}", method = RequestMethod.GET)
-    public String input(@PathVariable("id") String id, Model model) {
+    public String input(@PathVariable("id") String id, Model model, HttpServletRequest request) {
         Post post = new Post();
         List<PostType> types = postService.listPostType();
         //查找到所有的板块,机器下面的areas
@@ -136,6 +140,14 @@ public class PostController {
             //从数据库中查出来数据
             post = postService.selectPostById(id);
 
+        }
+        //去判断是不是能发帖
+        User currentUser = (User) request.getSession().getAttribute("CURRENT_USER");
+        String userId = currentUser.getId();
+        User user = userService.selectUserById(userId);
+        if ("1".equals(user.getUserAccountStatus().getAllowPost())) {
+            //禁止发帖
+            model.addAttribute("canPostOrNot", "你暂时被禁止发帖，请联系管理员");
         }
         model.addAttribute("post", post);
         model.addAttribute("types", types);
@@ -175,29 +187,33 @@ public class PostController {
     @RequestMapping(value = "/post/update/praise/{options}", method = RequestMethod.POST)
     public int update(@PathVariable("options") Integer options, @RequestBody Post p, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
-        Post post = postService.selectPostById(p.getId());
-        int num = 0;
-        if (options > 0) {
-            //去点赞表中插入一条数据，贴子的点赞数加1
-            int status = postService.add(user.getId(), p.getId());
-            if (status > 0) {
-                num = post.getPraises() + 1;
-                post.setPraises(num);
-            }
-        } else {
-            //取消点赞
-            int status = postService.deletePaise(user.getId(), post.getId());
-            if (status > 0) {
-                num = post.getPraises() - 1;
-                if (num > -1) {
+        try {
+            Post post = postService.selectPostById(p.getId());
+            int num = 0;
+            if (options > 0) {
+                //去点赞表中插入一条数据，贴子的点赞数加1
+                int status = postService.add(user.getId(), p.getId());
+                if (status > 0) {
+                    num = post.getPraises() + 1;
                     post.setPraises(num);
                 }
+            } else {
+                //取消点赞
+                int status = postService.deletePaise(user.getId(), post.getId());
+                if (status > 0) {
+                    num = post.getPraises() - 1;
+                    if (num > -1) {
+                        post.setPraises(num);
+                    }
+                }
             }
+            int status1 = postService.update(post);
+            if (status1 > 0) {
+                return num;
+            }
+        } catch (Exception e) {
         }
-        int status1 = postService.update(post);
-        if (status1 > 0) {
-            return num;
-        }
+
         return 0;
     }
 

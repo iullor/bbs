@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>公告</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -12,13 +13,13 @@
     <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <style>
         body {
-            background-color: darkblue;
+            background-color: #13422a;
         }
 
         .container {
             border: 1px solid gray;
             background-color: white;
-            color: #040dff;
+            color: black;
             width: 50%;
         }
 
@@ -53,7 +54,7 @@
         </div>
         <p class="text-right" style="margin-right: 50px">
             <small>
-                <label for="">发布时间</label>
+                <label>发布时间</label>
                 <f:formatDate value="${notice.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
             </small>
         </p>

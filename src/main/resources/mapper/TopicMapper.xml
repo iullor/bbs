@@ -50,18 +50,20 @@
       #{level}, #{topicParticipations},#{topicKeyword},#{topicSeen} )
   </insert>
     <update id="update" parameterType="com.gyl.entity.Topic">
-    update t_topic
-    set topic_title = #{topicTitle},
-      user_id = #{userId},
-      topic_picture = #{topicPicture},
-      topic_describe = #{topicDescribe},
-      topic_keyword = #{topicKeyword} ,
-      create_time = #{createTime},
-      `level` = #{level},
-      topic_participations = #{topicParticipations},
-      topic_seen = #{topicSeen}
-    where id = #{id}
-  </update>
+        update t_topic
+        <set>
+            <if test="topicTitle!=null">topic_title = #{topicTitle},</if>
+            <if test="userId!=null">user_id = #{userId},</if>
+            <if test="topicPicture!=null">topic_picture = #{topicPicture},</if>
+            <if test="topicDescribe!=null">topic_describe = #{topicDescribe},</if>
+            <if test="topicKeyword!=null">topic_keyword = #{topicKeyword} ,</if>
+            <if test="createTime!=null">create_time = #{createTime},</if>
+            <if test="level!=null">`level` = #{level},</if>
+            <if test="topicParticipations!=null">topic_participations = #{topicParticipations},</if>
+            <if test="topicSeen!=null">topic_seen = #{topicSeen}</if>
+        </set>
+        where id = #{id}
+    </update>
     <select id="selectByUserId" resultMap="BaseResultMap">
         select * from test_bbs.t_topic where user_id=#{userId} ;
     </select>
@@ -142,5 +144,24 @@
             from test_bbs.t_topic t,
                  test_bbs.t_user u
             where t.user_id = u.id and t.level=0 and t.topic_title like "%"#{topicTitle}"%" ;
+    </select>
+
+    <select id="getFocusUserTopic" resultMap="BaseResultMap">
+        select topic_title,
+                topic_picture,
+                topic_describe,
+                topic_seen,
+                topic_participations,
+                user.id,
+                user.nick_name,
+                user.head_image
+        from t_topic topic,
+             t_user user
+        where topic.user_id in
+              (select user_id
+               from t_collections
+               where current_user_id = 'c2b53583abc745c486860c9809fb0230')
+          AND user.id = topic.user_id
+        order by topic.create_time desc
     </select>
 </mapper>

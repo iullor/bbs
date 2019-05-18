@@ -59,4 +59,18 @@ public class MyPostController {
         int status = postService.update(post);
         return "person/post/person_posts";
     }
+
+    /**
+     * 个人贴子
+     *
+     * @return
+     */
+    @RequestMapping(value = "/person/mypost/searchByPostTitle", method = RequestMethod.GET)
+    public String searchByPostTitle(String myPostTitle, HttpServletRequest request, Model model) {
+        User user = (User) request.getSession().getAttribute("CURRENT_USER");
+        List<Post> posts = postService.getMyPostByIdAndPostTitle(user.getId(), myPostTitle);
+        model.addAttribute("posts", posts);
+        return "person/post/person_posts";
+    }
+
 }

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>用户信息查询</title>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -38,17 +38,16 @@
     <hr style="margin-top: 70px;margin-bottom:15px">
     <%--操作栏--%>
     <div class="row text-center">
-
         <div class="col-md-1">
-            <a href="/admin/user/toAdd">
-                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加管理员
-                </button>
-            </a>
+            <%-- <a href="/admin/user/toAdd">
+                 <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加管理员
+                 </button>
+             </a>--%>
         </div>
-        <form action="/board/searchByBoardTitle" method="get">
+        <form action="/admin/user/searchByNickName" method="get">
             <div class="col-md-offset-7 col-md-2">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="inputBoardTitle" placeholder="用户名">
+                    <input type="text" class="form-control" name="nickName" placeholder="用户名">
                 </div>
             </div>
             <div class="col-md-1">
@@ -77,7 +76,6 @@
                     <th>用户名</th>
                     <th>头像</th>
                     <th>贴子数</th>
-                    <th>评论数</th>
                     <th>基本信息</th>
                     <th>登录信息</th>
                     <th>操作</th>
@@ -104,8 +102,7 @@
                                                  height="50" alt="点击查看大图">
                                         </a>
                                     </td>
-                                    <td><a href="#">${u.userAccountStatus.status}</a></td>
-                                    <td><a href="#">${u.userAccountStatus.status}</a></td>
+                                    <td><a href="#">${u.posts.size()}</a></td>
                                     <td><a href="/admin/user/userBaseInfo/${u.id}">查看</a></td>
                                     <td><a href="/admin/user/loginStatus/${u.id}">查看</a></td>
                                     <td><a href="/admin/user/options/${u.id}">修改</a></td>
@@ -258,9 +255,10 @@
         $("#goPage").submit();
     }
 
+    //再渲染完页面之后，将一些模块隐藏
+    $(".options").hide();
     $(function () {
         //禁止info，logon，options显示
-
         //点击显示，显示指定的
         $(".parent-tbody>tr:even>td:last-child>a").on("click", function () {
             $(this).parent("td").parent("tr").next("tr").slideToggle(0, function () {
@@ -272,7 +270,6 @@
             });
             return false;
         })
-
         $("img").each(function () {
             let tmp = $(this).attr("value");
             let beginIndex = tmp.lastIndexOf("/webapp/") + 7;
@@ -281,9 +278,6 @@
             $(this).attr("src", realPath);
             $(this).parent("a").attr("href", realPath);
         });
-
-        //再渲染完页面之后，将一些模块隐藏
-        $(".options").hide();
 
         $("#back").click(function () {
             window.history.go(-1)
@@ -331,6 +325,16 @@
                 alert("请输入页码");
             }
         });
+        $("#search").on("click", function () {
+            let nickName = $(":input[name='nickName']").val();
+            if (nickName != null && nickName !== '' && nickName !== 'undefined') {
+                return true;
+            }
+            return false;
+        })
+        $("#searchAll").on("click", function () {
+            window.location.href = "/admin/user"
+        })
     })
 </script>
 </body>

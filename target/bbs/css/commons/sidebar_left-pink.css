@@ -1,0 +1,122 @@
+/**
+    上导航栏的样式
+ */
+.navbar {
+    height: 55px;
+    background-color: #FFCCCC;
+
+}
+
+.navbar a {
+    color: #993333;
+}
+
+.navbar a:hover {
+    color: red;
+}
+
+.nav-addon {
+    margin-top: 15px;
+    font-size: 15px;
+}
+.nav-addon a {
+    margin-left: 40px;
+}
+
+.logo {
+    position: absolute;
+    top:-2px;
+    left: 50px;
+    background-image: url('/images/nav/logo-pink.png');
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 500px;
+}
+
+/**
+===============侧栏的样式==================
+ */
+.right-nav {
+    position: fixed;
+    width: 75px;
+    height: 375px;
+    top: 350px;
+    right: 5px;
+}
+
+.right-nav > div {
+    border-bottom: 1px gray dashed;
+    width: 75px;
+    height: 75px;
+    background-color: rgba(255, 153, 153, 0.49);
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+.right-nav > div:last-child {
+    display: none;
+    width: 75px;
+    height: 75px;
+    background-color: rgba(255, 153, 153, 0.49);
+}
+
+.right-nav > div:hover {
+    background-color: #398bff;
+}
+
+/*
+重构的
+
+*/
+.myAccount {
+    background-color: white;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 15px;
+    padding-top: 4px;
+    padding-left: 0px;
+    height: 50px;
+    width: 50px;
+    border: 1px white groove;
+}
+
+.myAccount:hover {
+    background-color: rgba(192, 192, 192, 0.11);
+}
+
+/*搜索框*/
+.search-result-show {
+    display: none;
+    position: absolute;
+    top: 54px;
+    width: 46%;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    z-index: 2;
+}
+
+.search-result-show a {
+    text-decoration: none;
+    color: black;
+}
+.search-result-show hr{
+    margin: 5px auto;
+}
+
+.search-result-show > div {
+    height: auto;
+}
+
+.search-result-user p:hover {
+    background: #8c8c8c;
+}
+
+.search-result-area p:hover {
+    background: #aaaaaa;
+}
+
+.search-result-post p:hover {
+    background: #bebebe;
+}

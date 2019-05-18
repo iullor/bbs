@@ -108,6 +108,7 @@
     <!--根据当前用户的id查看关注了多少用户-->
     <resultMap id="myCollectionUsers" type="com.gyl.entity.Collection">
         <result property="user.id" column="user_id"/>
+        <result property="user.email" column="email"/>
         <result property="user.nickName" column="nick_name"/>
         <result property="user.userBaseInfo.headImage" column="head_image"/>
         <result property="user.userLoginInfo.accessTime" column="access_time"/>
@@ -115,6 +116,7 @@
     <select id="listMyCollectionUser" resultMap="myCollectionUsers">
         select
               u.id as user_id,
+              u.email ,
               u.nick_name   as nick_name,
               u.head_image  as head_image,
               u.access_time as access_time

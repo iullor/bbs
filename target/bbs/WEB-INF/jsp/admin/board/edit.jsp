@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>模块增加</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
@@ -49,13 +50,12 @@
         <a href=""><span class="glyphicon glyphicon-arrow-left" id="back">返回</span></a>
     </div>
     <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-10">
             <%--文件上传的form表单--%>
             <div style="border: 1px solid white;width: 350px;position: absolute;top:110px;left:820px">
                     <span class="pull-left"
                           style=" writing-mode:vertical-lr; font-size: 30px;margin-top: 30px;margin-left: 20px;">图标</span>
                 <form action="" id="uploadForm">
-
                     <div class="row form-group text-center">
                         <div class="" id="fileClick" style="padding-left: 100px">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -72,7 +72,7 @@
                 </form>
             </div>
             <div class="content">
-                <h2 class="text-center"></h2>
+                <h2 class="text-left"></h2>
                 <hr>
                 <form:form action="/admin/board" method="post" modelAttribute="board">
                     <c:if test="${not empty board.id}">
@@ -80,8 +80,11 @@
                         <form:hidden path="id"/>
                     </c:if>
                     <div class="row form-group">
-                        <div class="col-md-2">
-                            <label for="boardTitle">标题</label>
+                        <div class="col-md-2" style="font-size: 17px;">
+                            <label for="boardTitle">
+                                标题<br>
+                                <small>(不超过5个字)</small>
+                            </label>
                         </div>
                         <div class="col-md-4">
                             <form:input path="boardTitle" class="form-control" id="boardTitle"/>
@@ -91,7 +94,7 @@
                     <input type="hidden" name="createTime"/>
                     <br>
                     <div class="row form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-2"  style="font-size: 17px;">
                             <label class="text-left">板块管理者</label>
                         </div>
                         <div class="col-md-4">
@@ -102,7 +105,7 @@
                     </div>
                     <br>
                     <div class="row form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-2"  style="font-size: 17px;">
                             <label class="text-left">添加到模块</label>
                         </div>
                         <div class="col-md-4">
@@ -112,8 +115,11 @@
                     </div>
                     <br>
                     <div class="row form-group">
-                        <div class="col-md-2">
-                            <label class="text-left">板块类型</label>
+                        <div class="col-md-2"  style="font-size: 17px;">
+                            <label class="text-left">
+                                板块类型<br>
+                                <small>(不超过5字)</small>
+                            </label>
                         </div>
                         <div class="col-md-4">
                             <form:input path="boardType" cssClass="form-control"/>
@@ -121,29 +127,35 @@
                     </div>
                     <br>
                     <div class="row form-group">
-                        <div class="col-md-2">
-                            <label for="info">简介</label>
+                        <div class="col-md-2"  style="font-size: 17px;">
+                            <label for="info">
+                                简介<br>
+                                <small>(最多150字)</small>
+                            </label>
                         </div>
                         <div class="col-md-8">
                             <form:textarea id="info" path="info" cols="40" rows="5" class="form-control"/>
                         </div>
                     </div>
                     <br>
-                    <div class="row form-group">
-                        <div class="col-md-2">
-                            <label for="details">功能详情</label>
+                    <div class="row form-group" >
+                        <div class="col-md-2"  style="font-size: 17px;">
+                            <label for="details">
+                                功能详情<br>
+                                <small>(最高300字)</small>
+                            </label>
                         </div>
                         <div class="col-md-8">
-                            <form:textarea id="details" path="details" cols="40" rows="10" class="form-control"/>
+                            <form:textarea id="details" path="details" cols="40" rows="8" class="form-control"/>
                         </div>
                     </div>
                     <br>
                     <div class="row form-group">
-                        <div class="col-md-offset-4  col-md-2">
-                            <button type="submit" class="btn btn-info">添加</button>
+                        <div class="col-md-offset-2  col-md-1">
+                            <button type="reset" class="btn btn-default btn-lg">重置</button>
                         </div>
                         <div class="col-md-2">
-                            <button type="reset" class="btn btn-info">重置</button>
+                            <button type="submit" class="btn btn-info btn-lg">添加</button>
                         </div>
                     </div>
                 </form:form>

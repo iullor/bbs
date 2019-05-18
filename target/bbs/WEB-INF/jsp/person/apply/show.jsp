@@ -6,6 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>申请贴子置顶</title>
+    <%--引入顶栏--%>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
     <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>

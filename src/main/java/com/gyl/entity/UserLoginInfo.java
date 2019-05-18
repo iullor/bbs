@@ -34,6 +34,8 @@ public class UserLoginInfo {
      */
     private Integer accessNum;
 
+    //使用的主题
+    private Integer theme;
 
     public String getIpAdreess() {
         return ipAdreess;
@@ -65,5 +67,13 @@ public class UserLoginInfo {
 
     public void setAccessNum(Integer accessNum) {
         this.accessNum = accessNum;
+    }
+
+    public Integer getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Integer theme) {
+        this.theme = theme;
     }
 }

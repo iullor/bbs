@@ -1,0 +1,97 @@
+/*朋友圈*/
+body {
+    background-color: #f5f5f5 !important;
+}
+
+.circle-left {
+    margin-top: 130px;
+    margin-left: 50px;
+    position: fixed;
+    border: 1px solid #CCCC99;
+    border-radius: 15px;
+    width: 12%;
+    height: auto;
+    min-height: 400px;
+}
+
+.circle-right {
+    /*border: 1px solid #FFCCCC;*/
+    border-radius: 15px;
+    height: auto !important;
+    min-height: 800px !important;
+}
+
+.recent-friend {
+    padding: 5px;
+    border-top: 1px solid rgba(255, 102, 102, 0.46);
+    border-bottom: 1px solid rgba(255, 102, 102, 0.46);
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.recent-friend img:first-child {
+    border: 1px solid #FFCC99;
+}
+
+.recent-friend a:nth-child(2) {
+    margin-left: 20px;
+}
+
+.recent-friend a:last-child {
+    margin: 10px 10px 10px auto
+}
+
+.recent-friend:hover {
+    background-color: rgba(0, 0, 255, 0.48);
+}
+
+.circle-right-tab {
+    height: 50px;
+    padding: 15px;
+    font-size: 25px;
+    color: #993333;
+    margin-bottom: 80px;
+}
+
+.circle-right-tab select {
+    color: black;
+    width: 150px;
+    float: right !important;
+    line-height: 50px;
+    padding: 3px;
+    font-size: 18px;
+}
+
+.circle-list {
+    padding-top: 8px;
+    min-height: 80px;
+    max-height: 150px;
+    margin-bottom: 10px;
+}
+
+.circle-list-head {
+    margin: 0px;
+}
+
+.circle-list-head > a {
+    text-indent: 2em;
+    font-size: 18px;
+}
+
+.circle-list-body {
+    margin: 0px;
+    font-size: 16px;
+    padding-top: 5px;
+    height: 50px;
+}
+
+.circle-list-foot {
+    margin-top: 20px;
+    font-size: 15px;
+    padding-left: 150px;
+}
+
+.circle-list-foot > span {
+    color: gray;
+    margin-left: 150px;
+}

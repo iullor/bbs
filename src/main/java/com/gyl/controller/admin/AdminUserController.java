@@ -1,15 +1,19 @@
 package com.gyl.controller.admin;
 
 import com.gyl.commons.page.PageResult;
+import com.gyl.entity.BrokenRules;
 import com.gyl.entity.User;
 import com.gyl.entity.UserAccountStatus;
+import com.gyl.service.BrokenRulesService;
 import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -24,6 +28,8 @@ public class AdminUserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private BrokenRulesService brokenRulesService;
 
     /**
      * admin的操作
@@ -108,25 +114,59 @@ public class AdminUserController {
     @RequestMapping(value = "/admin/user/updateUserAccountStatus")
     public String updateUserStatus(String id, UserAccountStatus userAccountStatus) {
         User user = userService.selectUserById(id);
-
+        UserAccountStatus userAccountStatus1 = user.getUserAccountStatus();
         /**
          * 如果前台为选中on
          */
         if (userAccountStatus.getAllowComment() != null && userAccountStatus.getAllowComment().equals("on")) {
-            userAccountStatus.setAllowComment("1");
+            userAccountStatus1.setAllowComment("1");
         } else {
-            userAccountStatus.setAllowComment("0");
+            userAccountStatus1.setAllowComment("0");
         }
         if (userAccountStatus.getAllowPost() != null && userAccountStatus.getAllowPost().equals("on")) {
-            userAccountStatus.setAllowPost("1");
+            userAccountStatus1.setAllowPost("1");
         } else {
-            userAccountStatus.setAllowPost("0");
+            userAccountStatus1.setAllowPost("0");
         }
-        user.setUserAccountStatus(userAccountStatus);
-        user.getUserBaseInfo();
-        user.getUserLoginInfo();
-        userService.update(user);
+        userAccountStatus1.setStatus(userAccountStatus.getStatus());
+        userAccountStatus1.setWarningInfo(userAccountStatus.getWarningInfo());
+
+        user.setUserAccountStatus(userAccountStatus1);
+        int status = userService.update(user);
         return "redirect:/admin/user";
     }
+
+    /**
+     * 违规用户
+     *
+     * @return
+     */
+    @RequestMapping("/admin/user/brokeRolesUser")
+    public String brokeRolesUser(Model model) {
+        List<BrokenRules> brokenRulesUsers = brokenRulesService.list();
+        model.addAttribute("brokenRulesUsers", brokenRulesUsers);
+        return "/admin/user/brokenRulesUsersList";
+    }
+
+
+    /**
+     * 通过用户的名字去查找
+     *
+     * @return
+     */
+    @RequestMapping(value = "/admin/user/searchByNickName", method = RequestMethod.GET)
+    public String searchByNickName(String nickName,ModelMap map) {
+        //默认值
+        int currentPage = 1;
+        int pageSize = 5;
+        List<User> users = userService.selectUsersByNickName(nickName);
+        PageResult pageResult = userService.sortPageByAdmin(users, currentPage, pageSize);
+        users = pageResult.getNewPage();
+        map.addAttribute("pageResult", pageResult);
+        map.addAttribute("users", users);
+        return "admin/user/list";
+
+    }
+
 
 }

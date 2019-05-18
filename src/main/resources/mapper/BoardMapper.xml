@@ -145,4 +145,9 @@
             where post.board_id =board.id
             group by board_id  order by posts desc limit 6;
     </select>
+    <select id="countAreaNumberByBoardId" resultType="integer">
+        select count(id)
+        from t_area area
+        where area.board_id = #{id}
+    </select>
 </mapper>

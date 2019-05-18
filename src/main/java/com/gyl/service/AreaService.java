@@ -54,15 +54,17 @@ public class AreaService {
      * @return
      */
     public Area getAreaById(String id) {
-        Area area = areaMapper.getAreaById(id);
+        Area area = areaMapper.getAreaByIdExceptSecretPost(id);
         if (area != null) {
             List<Post> posts = area.getPosts();
             for (Post post : posts) {
                 User user = userMapper.selectUserById(post.getUserId());
                 post.setUser(user);
             }
+            return area;
+        }else {
+            return areaMapper.getAreaById(id);
         }
-        return area;
     }
 
     /**
@@ -74,7 +76,7 @@ public class AreaService {
      * @return
      */
     public Area getAreaPostsById(String id, Integer currentPage, Integer pageSize) {
-        Area area = areaMapper.getAreaById(id);
+        Area area = areaMapper.getAreaByIdExceptSecretPost(id);
         if (area != null) {
             PageResult pageResult = listPosts(id, currentPage, pageSize);
             List<Post> posts = pageResult.getNewPage();
@@ -83,8 +85,12 @@ public class AreaService {
                 post.setUser(user);
             }
             area.setPosts(posts);
+            return area;
+        } else {
+            //若没有贴子，让它查出来分区的信息即可
+            return areaMapper.getAreaById(id);
         }
-        return area;
+
     }
 
     /**
@@ -93,7 +99,10 @@ public class AreaService {
      * @return
      */
     public PageResult listPosts(String id, Integer currentPage, Integer pageSize) {
-        Area area = areaMapper.getAreaById(id);
+        Area area = areaMapper.getAreaByIdExceptSecretPost(id);
+        if (area==null) {
+            area = areaMapper.getAreaById(id);
+        }
         Integer count = area.getPosts().size();
         List<Post> posts = area.getPosts();
         PageResult pageResult = new PageResult(posts, count, currentPage, pageSize);
@@ -104,6 +113,7 @@ public class AreaService {
         }
         return pageResult;
     }
+
     public List<Area> getAreasByBoardId(String boardId) {
         return areaMapper.getAreasByBoardId(boardId);
     }

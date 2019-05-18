@@ -1,6 +1,7 @@
 package com.gyl.mapper;
 
 import com.gyl.entity.Post;
+import com.gyl.entity.Topic;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -61,4 +62,17 @@ public interface PostMapper {
     int countPostsByUserId(@Param("id") String id);
 
     List<Post> getTopFivePostsByAreaId(@Param("areaId") String areaId);
+
+    /**
+     * 列出来
+     *
+     * @return
+     */
+    List<Post> selectPostTitleAndPostType();
+
+    List<Post> getMyFocusPosts(@Param("id") String id);
+
+    List<Post> selectByPostTitle(@Param("postTitle") String postTitle);
+
+    List<Post> getMyPostByIdAndPostTitle(@Param("id") String id, @Param("myPostTitle") String myPostTitle);
 }

@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * 贴子
@@ -77,6 +75,11 @@ public class Post {
      * 贴子中的第一张图片的url
      */
     private String firstImage;
+
+    /**
+     * 按照小时将贴子计数
+     */
+    private Map<Integer, Integer> countByHour = new HashMap<>();
 
     public String getId() {
         return id;
@@ -236,5 +239,14 @@ public class Post {
 
     public void setBoardTitle(String boardTitle) {
         this.boardTitle = boardTitle;
+    }
+
+
+    public Map<Integer, Integer> getCountByHour() {
+        return countByHour;
+    }
+
+    public void setCountByHour(Map<Integer, Integer> countByHour) {
+        this.countByHour = countByHour;
     }
 }

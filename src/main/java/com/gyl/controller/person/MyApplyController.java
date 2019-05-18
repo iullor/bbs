@@ -112,7 +112,7 @@ public class MyApplyController {
      */
     @RequestMapping(value = "/person/apply/cancelApply/{id}", method = RequestMethod.GET)
     public String update(@PathVariable("id") String id) {
-        Option option = optionService.selectById(id);
+        Option option = optionService.selectOptionAboutPostById(id);
         int i = optionService.updateById(option);
         return "redirect:/person/apply/progress";
     }
@@ -130,7 +130,7 @@ public class MyApplyController {
      */
     @RequestMapping("/person/apply/showApplyReason/{optionId}")
     public String showApplyReason(@PathVariable("optionId") String optionId, Model model) {
-        Option option = optionService.selectById(optionId);
+        Option option = optionService.selectOptionAboutPostById(optionId);
         model.addAttribute("option", option);
         return "/person/apply/show";
     }

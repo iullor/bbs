@@ -51,7 +51,6 @@ public class AdminController {
         return "redirect:/admin/logon";
     }
 
-
     /**
      * 注销登录
      *
@@ -59,7 +58,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/admin/logout")
     public String logoutAdmin(HttpServletRequest request) {
-        request.getSession().invalidate();
+        request.getSession().removeAttribute("ADMIN_USER");
         return "redirect:/admin/logon";
     }
 
