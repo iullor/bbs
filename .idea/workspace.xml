@@ -20,370 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/ErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/SystemInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/SystemInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/SystemInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SystemInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/panel/panel.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/area/area-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/commons-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/index-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/person_show-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/person_show.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/circle/circle-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/circle/circle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/person/person_manager-left-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_list-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/public-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/topic-pink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/index/index-favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/logo-pink.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/hot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/stick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/public/stick1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/topic/default-image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/commons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/echarts/echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/echarts/echarts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/gyl/PostCountBySortTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c9e8cdef-c172-46ed-ae97-62d638adc765.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c9e8cdef-c172-46ed-ae97-62d638adc765.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/umeditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/umeditor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bbs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bbs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/CollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/CollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/DiscussController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/DiscussController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/EmailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminSystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyApplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyApplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCircleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCircleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyPostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyTopicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyTopicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/ThemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/ThemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/BrokenRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/BrokenRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserLoginInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/entity/UserLoginInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BrokenRulesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/BrokenRulesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/OptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/OptionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PanelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/PostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/TopicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/TopicMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/AreaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/BrokenRulesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/BrokenRulesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/PanelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/TopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gyl/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BrokenRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BrokenRulesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bbs.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bbs1.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PanelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PostMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TopicMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/acount_active_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/acount_active_info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/board_manager_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/board_manager_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/panel_manager_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/topic_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/show_reason.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/show_reason.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/feedback/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/notice/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/notice/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/notice/history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/notice/history.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/permission/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/topic/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/topic/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/topic/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/topic/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/addUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/addUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/brokenRulesUsersList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/brokenRulesUsersList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/loginStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/loginStatus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/options.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/options.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/userBaseInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/user/userBaseInfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_logon.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/404.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/404.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/500.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/hello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/permission.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/permission.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/panel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/board/board_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/commons/top-navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/commons/top-navbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/notice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/notice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/topic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/foreground/topic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/logon.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply_progress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/apply_progress.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/apply/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/basic/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_areas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_areas.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/collection/collection_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/focus/focus_person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/focus/focus_person.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/message/message.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/myCircle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/myCircle.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/post/person_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/post/person_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/themes/person_theme_setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/themes/person_theme_setting.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/topic/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/topic/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/topic/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/topic/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/public.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/public.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/board/board_post_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/area/area.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/logon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/logon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons/sidebar_left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/basic_info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/basic_info.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/person_account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/basic_info/person_account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_board.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_posts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/collection/collection_posts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/message/message.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/message/message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/person_manager-left.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/person_manager-left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/person/post/person_posts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/person/post/person_posts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_edit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/post/post_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/public.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/public.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/topic.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/topic.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/nav/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images/nav/logo-default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/CollectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/CollectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/DiscussController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/DiscussController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/EmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/EmailController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PanelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminCheckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminCheckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPanelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminPostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminSystemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminSystemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/admin/AdminUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyApplyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyApplyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyCircleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyCircleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyPostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyTopicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/MyTopicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/ThemeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/controller/person/ThemeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/BrokenRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/BrokenRules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/UserLoginInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/entity/UserLoginInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/AreaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/AreaMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BoardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BoardMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BrokenRulesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/BrokenRulesMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/OptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/OptionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PanelMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PanelMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/PostMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/TopicMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/TopicMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/AreaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/AreaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/BrokenRulesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/BrokenRulesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/MessageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/OptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/OptionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PanelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PanelService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/TopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/com/gyl/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/AreaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BrokenRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/BrokenRulesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/CollectionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bbs.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PanelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/PostMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/TopicMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/acount_active_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/acount_active_info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/area/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/board_manager_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/board_manager_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/panel_manager_check.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/posts_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/posts_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/show_reason.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/examination/show_reason.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/feedback/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/notice/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/notice/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/notice/history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/notice/history.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/panel/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/permission/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/post/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/shield/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/topic/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/topic/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/topic/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/topic/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/addUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/addUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/brokenRulesUsersList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/brokenRulesUsersList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/loginStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/loginStatus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/options.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/options.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/userBaseInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin/user/userBaseInfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin_logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/admin_logon.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/404.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/404.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/500.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/hello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/permission.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/error/permission.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/area/area.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/area/area.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/board/board_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/commons/top-navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/commons/top-navbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/notice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/notice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/post/post_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/topic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/foreground/topic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/logon.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/apply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/apply.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/apply_progress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/apply_progress.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/apply/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/basic/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_areas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_areas.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/collection/collection_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/focus/focus_person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/focus/focus_person.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/message/message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/message/message.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/myCircle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/myCircle.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/post/person_posts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/post/person_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/themes/person_theme_setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/themes/person_theme_setting.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/topic/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/topic/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/topic/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/person/topic/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/public.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/public.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/reset_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/reset_password.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/jsp/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/board/board_post_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/logon.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/logon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/commons/sidebar_left.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/commons/sidebar_left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/basic_info/basic_info.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/basic_info/basic_info.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/basic_info/person_account.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/basic_info/person_account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_board.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_posts.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/collection/collection_posts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/message/message.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/message/message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/person_manager-left.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/person_manager-left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/person/post/person_posts.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/person/post/person_posts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/post/post_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/post/post_edit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/post/post_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/post/post_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/public.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/public.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/css/topic.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/css/topic.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/images/nav/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/test.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/CollectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/CollectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/DiscussController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/DiscussController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/EmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/EmailController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/PanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/PanelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminCheckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminCheckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPanelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminPostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminSystemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminSystemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/admin/AdminUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyApplyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyApplyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyCircleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyCircleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyPostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyTopicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/MyTopicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/ThemeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/controller/person/ThemeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/BrokenRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/BrokenRules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/entity/UserLoginInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/entity/UserLoginInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/AreaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/AreaMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BoardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BoardMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BrokenRulesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/BrokenRulesMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/OptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/OptionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PanelMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PanelMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/PostMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/TopicMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/TopicMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/AreaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/AreaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/BrokenRulesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/BrokenRulesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/MessageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/OptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/OptionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/PanelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/PanelService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/TopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gyl/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AreaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/AreaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BrokenRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BrokenRulesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CollectionMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PanelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PanelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TopicMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -421,19 +70,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="test_bbs: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="test_bbs: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="t_board: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -444,26 +80,7 @@
     <favorites_list name="bbs" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_area">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -483,7 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>添加管理员</find>
       <find>增加管理员</find>
       <find>reme</find>
       <find>重置密码</find>
@@ -513,6 +129,7 @@
       <find>系统反馈</find>
       <find>时间</find>
       <find>id</find>
+      <find>mysql</find>
     </findStrings>
     <replaceStrings>
       <replace>area</replace>
@@ -591,11 +208,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/MessageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/service/OptionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/mapper/OptionMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyApplyController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/board_manager_check.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/topic_check.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/entity/Panel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/panel/edit.jsp" />
@@ -609,6 +224,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/posts_check.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminCheckController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" />
       </list>
     </option>
   </component>
@@ -647,9 +264,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="28" />
-    <option name="width" value="1920" />
-    <option name="height" value="1052" />
+    <option name="x" value="252" />
+    <option name="y" value="153" />
+    <option name="width" value="1717" />
+    <option name="height" value="940" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -659,8 +277,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -681,88 +297,14 @@
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="gyl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1219,12 +761,21 @@
       <workItem from="1558118838150" duration="631000" />
       <workItem from="1558119695587" duration="488000" />
       <workItem from="1558138589435" duration="2993000" />
-      <workItem from="1558143145558" duration="1025000" />
+      <workItem from="1558143145558" duration="2497000" />
+      <workItem from="1558149972604" duration="64000" />
+      <workItem from="1558244024156" duration="652000" />
+      <workItem from="1558244733529" duration="718000" />
+      <workItem from="1558274576419" duration="4279000" />
+      <workItem from="1558334530842" duration="1216000" />
+      <workItem from="1558339150832" duration="10000" />
+      <workItem from="1558343502346" duration="46000" />
+      <workItem from="1558343605224" duration="258000" />
+      <workItem from="1559193350802" duration="1038000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1734652000" />
+    <option name="totallyTimeSpent" value="1744405000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1236,10 +787,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="36" width="1920" height="1044" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39879155" visible="true" weight="0.19946237" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39879155" visible="true" weight="0.18514532" />
       <window_info id="Structure" order="1" sideWeight="0.4671126" side_tool="true" weight="0.19860065" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1254,9 +804,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="6" sideWeight="0.48821008" weight="0.32666665" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31777778" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3171806" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32785088" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.54394424" side_tool="true" weight="0.45285088" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.54394424" side_tool="true" weight="0.39444444" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.4834931" />
       <window_info anchor="bottom" id="DB Execution Console" order="12" />
@@ -1271,7 +821,7 @@
       <window_info anchor="bottom" id="Run with VisualVM" order="21" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="22" />
       <window_info anchor="bottom" id="TODO" order="23" weight="0.3234649" />
-      <window_info anchor="bottom" id="Debug" order="24" sideWeight="0.45551983" weight="0.42222223" />
+      <window_info anchor="bottom" id="Debug" order="24" sideWeight="0.45551983" weight="0.41409692" />
       <window_info active="true" anchor="right" id="JRebel Setup Guide" order="0" weight="0.32994652" />
       <window_info anchor="right" id="Coverage" order="1" side_tool="true" />
       <window_info anchor="right" id="Favorites" order="2" sideWeight="0.39035088" weight="0.187567" />
@@ -1284,10 +834,10 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Web" order="10" sideWeight="0.5005359" side_tool="true" weight="0.25026795" />
       <window_info anchor="right" id="Mybatis datasource" order="11" sideWeight="0.5010965" side_tool="true" weight="0.25830653" />
-      <window_info anchor="right" id="Ant Build" order="12" weight="0.24973205" />
+      <window_info anchor="right" id="Ant Build" order="12" weight="0.24946237" />
       <window_info anchor="right" id="Maven" order="13" weight="0.20698924" />
       <window_info anchor="right" x="0" y="0" width="430" height="852" id="Documentation" order="14" sideWeight="0.5005359" side_tool="true" weight="0.25053763" />
-      <window_info anchor="right" id="Database" order="15" weight="0.26075268" />
+      <window_info anchor="right" id="Database" order="15" weight="0.1598493" />
       <window_info anchor="right" id="RestServices" order="16" sideWeight="0.4989035" weight="0.24569893" />
     </layout>
     <layout-to-restore>
@@ -1769,58 +1319,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/service/PostService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-          <folding>
-            <element signature="method#sortPageByAdmin#0;class#PostService#0" />
-            <element signature="method#getMyFocusPosts#0;class#PostService#0" />
-            <element signature="e#5127#5128#0" expanded="true" />
-            <element signature="e#5189#5190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/shield/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/person/MyCircleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/examination/show_reason.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1289">
-          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Topic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding>
-            <element signature="e#1211#1212#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_options">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/entity/Option.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="727">
@@ -1891,23 +1389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1872">
-          <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
-          <folding>
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#select#4;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#5;n#mapper#0;n#!!top" />
-            <element signature="n#select#6;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#3;n#mapper#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2076,7 +1557,7 @@
     <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true">
+          <filtering>
             <filter text="" />
           </filtering>
         </state>
@@ -2230,7 +1711,7 @@
     <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_board">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true">
+          <filtering>
             <filter text="" />
           </filtering>
         </state>
@@ -2246,21 +1727,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_area">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bbs1.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="das://c9e8cdef-c172-46ed-ae97-62d638adc765/schema/test_bbs/table/t_area">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="efcfefa0-9bd1-4465-9746-b7ba2d09602d">
+          <filtering />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="503">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fca0de07-caa4-42dd-8345-b7156db4e43a/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1017">
+          <caret line="86" column="43" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+          <folding>
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#3;n#mapper#0;n#!!top" />
+            <element signature="n#update#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#4;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#5;n#mapper#0;n#!!top" />
+            <element signature="n#select#6;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#3;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gyl/mapper/AreaMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bbs.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2886" />
       </provider>
     </entry>
   </component>
