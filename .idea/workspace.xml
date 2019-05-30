@@ -19,22 +19,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/gyl/controller/admin/AdminPanelController.java" line="103" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bbs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bbs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bbs.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bbs1.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/bbs/WEB-INF/classes/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OptionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/OptionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="45e161ff-7d04-4830-8e71-a6095eca3dbb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -263,9 +248,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="252" />
-    <option name="y" value="153" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="128" />
+    <option name="y" value="110" />
     <option name="width" value="1717" />
     <option name="height" value="940" />
   </component>
@@ -770,12 +755,12 @@
       <workItem from="1558339150832" duration="10000" />
       <workItem from="1558343502346" duration="46000" />
       <workItem from="1558343605224" duration="258000" />
-      <workItem from="1559193350802" duration="1038000" />
+      <workItem from="1559193350802" duration="1473000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1744405000" />
+    <option name="totallyTimeSpent" value="1744840000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -787,9 +772,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="36" width="1920" height="1044" extended-state="6" />
+    <frame x="128" y="110" width="1717" height="940" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39879155" visible="true" weight="0.18514532" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39879155" visible="true" weight="0.20785499" />
       <window_info id="Structure" order="1" sideWeight="0.4671126" side_tool="true" weight="0.19860065" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -804,7 +789,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="6" sideWeight="0.48821008" weight="0.32666665" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3171806" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3171806" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32785088" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.54394424" side_tool="true" weight="0.39444444" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
