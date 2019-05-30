@@ -137,7 +137,7 @@
         <if test="option.remakes!=null">remakes=#{option.remakes}</if>
         where id=#{option.id}
     </update>
-    <select id="selectAllPostsOptionsHasChecked" resultMap="map2" parameterType="integer">
+    <select id="selectAllPostsOptionsHasChecked" resultMap="map1" parameterType="integer">
          select
             op.id,
             op.brief,

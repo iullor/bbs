@@ -56,8 +56,6 @@
             <mvc:mapping path="/person/**"/>
             <!--<mvc:exclude-mapping path="/user/login"/>-->
             <bean class="com.gyl.interceptors.LogonInterceptor">
-
-
             </bean>
         </mvc:interceptor>
         <mvc:interceptor>

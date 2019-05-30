@@ -11,5 +11,11 @@
       <user-name>root</user-name>
       <introspection-schemas>*:test_bbs</introspection-schemas>
     </data-source>
+    <data-source name="server" uuid="fca0de07-caa4-42dd-8345-b7156db4e43a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>user-bbs</user-name>
+      <introspection-schemas>*:*</introspection-schemas>
+    </data-source>
   </component>
 </project>
