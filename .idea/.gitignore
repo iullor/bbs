@@ -2,3 +2,5 @@
 /dataSources/
 # Default ignored files
 /workspace.xml
+
+/target/*
