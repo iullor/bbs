@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>重置密码</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/random-code.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/random-code.js"></script>
     <!--重置密码的样式-->
     <style>
         body {
@@ -74,7 +74,7 @@
             <h3 class="text-warning">重置密码</h3>
         </div>
         <div class="col-md-3">
-            <form action="/user/resetPassword" method="post">
+            <form action="${pageContext.request.contextPath}/user/resetPassword" method="post">
                 <div class="form-group">
                     <label for="myUsername">用户名</label>
                     <input type="text" class="form-control" name="username" id="myUsername">

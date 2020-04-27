@@ -22,7 +22,7 @@
     function test() {
         var form = new FormData(document.getElementById("tf"));
         $.ajax({
-            url: "/panel/fileUpload",
+            url: "${pageContext.request.contextPath}/panel/fileUpload",
             type: "post",
             data: form,
             processData: false,

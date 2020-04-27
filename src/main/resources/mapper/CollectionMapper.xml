@@ -2,41 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gyl.mapper.CollectionMapper">
     <insert id="addUserToCollections" parameterType="com.gyl.entity.Collection">
-        insert into test_bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
+        insert into bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
     </insert>
 
     <insert id="addPostToCollections" parameterType="com.gyl.entity.Collection">
-        insert into test_bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
+        insert into bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
 
     </insert>
     <insert id="addAreaToCollections" parameterType="com.gyl.entity.Collection">
-        insert into test_bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
+        insert into bbs.t_collections(id,current_user_id,user_id,post_id,area_id,create_time) values (#{id},#{currentUserId},#{userId},#{postId},#{areaId},#{createTime});
     </insert>
 
     <!--
         删除记录
     -->
     <delete id="cancelUserFromCollections">
-        delete from test_bbs.t_collections where user_id=#{userId} and current_user_id=#{currentUserId}
+        delete from bbs.t_collections where user_id=#{userId} and current_user_id=#{currentUserId}
     </delete>
     <delete id="cancelPostFromCollections">
-        delete from test_bbs.t_collections where post_id=#{postId} and current_user_id=#{currentUserId}
+        delete from bbs.t_collections where post_id=#{postId} and current_user_id=#{currentUserId}
     </delete>
     <delete id="cancelAreaFromCollections">
-         delete from test_bbs.t_collections where area_id=#{areaId} and current_user_id=#{currentUserId}
+         delete from bbs.t_collections where area_id=#{areaId} and current_user_id=#{currentUserId}
     </delete>
 
     <!--
         查询关注用户
     -->
     <select id="getCollectByUserId" resultType="com.gyl.entity.Collection">
-        select * from test_bbs.t_collections where user_id=#{userId} and current_user_id=#{currentUserId}
+        select * from bbs.t_collections where user_id=#{userId} and current_user_id=#{currentUserId}
     </select>
     <select id="getCollectByPostId" resultType="com.gyl.entity.Collection">
-        select * from test_bbs.t_collections where post_id=#{postId} and current_user_id=#{currentUserId}
+        select * from bbs.t_collections where post_id=#{postId} and current_user_id=#{currentUserId}
     </select>
     <select id="getCollectByAreaId" resultType="com.gyl.entity.Collection">
-        select * from test_bbs.t_collections where area_id=#{areaId} and current_user_id=#{currentUserId}
+        select * from bbs.t_collections where area_id=#{areaId} and current_user_id=#{currentUserId}
     </select>
 
     <!--根据当前用户的id查找收藏的所有贴子-->
@@ -54,9 +54,9 @@
                  c.post_id       as post_id,
                  post.post_title as post_title,
                  pt.name         as post_type
-          from test_bbs.t_collections c,
-               test_bbs.t_post post,
-               test_bbs.post_type pt
+          from bbs.t_collections c,
+               bbs.t_post post,
+               bbs.post_type pt
           where c.current_user_id = #{id}
             and c.post_id = post.id
             and post.post_type = pt.id order by c.create_time desc;
@@ -97,10 +97,10 @@
                        u.id          as manager_id,
                        u.nick_name   as manager_nick_name,
                        u.head_image  as manager_head_image
-                from test_bbs.t_area a,
-                     test_bbs.t_user u
+                from bbs.t_area a,
+                     bbs.t_user u
                 where a.user_id = u.id) as tmp,
-              test_bbs.t_collections c
+              bbs.t_collections c
           where c.current_user_id = #{id}
            and tmp.id = c.area_id;
     </select>
@@ -120,15 +120,15 @@
               u.nick_name   as nick_name,
               u.head_image  as head_image,
               u.access_time as access_time
-        from test_bbs.t_user u
+        from bbs.t_user u
         where u.id in (
-          select user_id from test_bbs.t_collections c2 where c2.current_user_id =#{id}
+          select user_id from bbs.t_collections c2 where c2.current_user_id =#{id}
         )
     </select>
 
     <!--根据用户id去查关注他的所有粉丝-->
     <select id="countFansByUserId" resultType="integer">
-        select count(id) from test_bbs.t_collections c where c.user_id=#{id}
+        select count(id) from bbs.t_collections c where c.user_id=#{id}
     </select>
 
 </mapper>

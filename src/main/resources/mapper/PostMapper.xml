@@ -4,16 +4,16 @@
 
 
     <insert id="addPost" parameterType="com.gyl.entity.Post">
-      insert into test_bbs.t_post
+      insert into bbs.t_post
        (id,user_id,post_type,post_title,post_content,create_time,board_id,area_id,participants,praises,comments,ban_comment,up,secret,first_image)
       values(#{id},#{userId},#{postType},#{postTitle},#{postContent},#{createTime},#{boardId},#{areaId},#{participants},#{praises},#{comm},#{banComment},#{up},#{secret},#{firstImage})
   </insert>
 
     <delete id="delete">
-    delete from test_bbs.t_post where id=#{id};
+    delete from bbs.t_post where id=#{id};
     </delete>
     <update id="update">
-        update test_bbs.t_post
+        update bbs.t_post
         <set>
             <if test="userId!=null">user_id=#{userId},</if>
             <if test="postType!=null">post_type=#{postType},</if>
@@ -53,9 +53,9 @@
                    type.name as post_type,
                    u.nick_name as nick_name,
                    u.head_image as head_image
-            from test_bbs.t_post post
-                   left outer join test_bbs.post_type type on  post.post_type=type.id
-                   left outer join test_bbs.t_user u on u.id=post.user_id
+            from bbs.t_post post
+                   left outer join bbs.post_type type on  post.post_type=type.id
+                   left outer join bbs.t_user u on u.id=post.user_id
             where post.id=#{id};
     </select>
 
@@ -87,7 +87,7 @@
           post.secret as secret,
           post.first_image as first_image,
           type.name as post_type
-        from test_bbs.t_post post ,test_bbs.post_type type
+        from bbs.t_post post ,bbs.post_type type
         where post.user_id=#{id} and post.post_type =type.id ;
     </select>
 
@@ -96,7 +96,7 @@
     -->
     <select id="listByAreaId" resultMap="postMap1">
         select
-        from test_bbs.t_post p
+        from bbs.t_post p
         where p.area_id=#{id}
     </select>
 
@@ -121,7 +121,7 @@
         type.name as post_type,
         user.nick_name as nick_name,
         user.head_image as head_image
-        from test_bbs.t_post post ,test_bbs.post_type type,test_bbs.t_user user
+        from bbs.t_post post ,bbs.post_type type,bbs.t_user user
         where /*DATEDIFF(post.create_time,NOW())&lt;1 AND DATEDIFF(post.create_time,NOW())&gt;-3 AND*/
         post.user_id=user.id AND post.post_type =type.id AND post.first_image is not null order by RAND()  limit 4;
     </select>
@@ -141,7 +141,7 @@
         post.comments as comm,
         post.first_image as first_image,
         post.up as up
-        from test_bbs.t_post post
+        from bbs.t_post post
         where post.board_id=#{boardId} /*and DATEDIFF(post.create_time,NOW())&lt;1 and DATEDIFF(post.create_time,NOW())&gt;-5*/
         order by post.participants desc limit 5;
     </select>
@@ -159,10 +159,10 @@
         post.first_image as first_image,
         post.up as up,
         b1.board_title as board_title
-        from test_bbs.t_post post,test_bbs.t_board b1
+        from bbs.t_post post,bbs.t_board b1
         where post.board_id in (
                 select id
-                from test_bbs.t_board board
+                from bbs.t_board board
                 where board.panel_id =#{panelId})
 /*        and DATEDIFF(post.create_time, NOW())&lt;1
         and DATEDIFF(post.create_time, NOW())&gt; -5*/
@@ -192,7 +192,7 @@
             post.up,
             post.ban_comment,
             post.secret
-      from test_bbs.t_post post,
+      from bbs.t_post post,
             t_board board,
             t_user user
       where board.id = post.board_id
@@ -209,14 +209,14 @@
                 post.up,
                 post.ban_comment,
                 post.secret
-        from    test_bbs.t_post post,
-                test_bbs.t_board b1,
-                test_bbs.t_user u
+        from    bbs.t_post post,
+                bbs.t_board b1,
+                bbs.t_user u
         where   post.board_id in (
                 select id
-                from test_bbs.t_board board
+                from bbs.t_board board
                 where board.panel_id in (
-                    select id from test_bbs.t_panel panel where panel.user_manager_id = #{id}
+                    select id from bbs.t_panel panel where panel.user_manager_id = #{id}
                 ))
           and    post.board_id = b1.id and u.id=post.user_id
         order by post.create_time desc;
@@ -234,12 +234,12 @@
                post.ban_comment,
                post.secret,
                board.board_title as board_title
-        from   test_bbs.t_post post,
-               test_bbs.t_board board,
-               test_bbs.t_user user
+        from   bbs.t_post post,
+               bbs.t_board board,
+               bbs.t_user user
         where  post.board_id = board.id
           and  board.id in (
-               select id from test_bbs.t_board b where b.user_id = #{id}
+               select id from bbs.t_board b where b.user_id = #{id}
         )
           and user.id = post.user_id;
     </select>
@@ -256,7 +256,7 @@
             post.up,
             post.ban_comment,
             post.secret
-      from test_bbs.t_post post,
+      from bbs.t_post post,
             t_board board,
             t_user user
       where board.id = post.board_id
@@ -265,7 +265,7 @@
     </select>
 
     <select id="countPostsByUserId" resultType="integer">
-        select count(id) from test_bbs.t_post p where p.user_id=#{id}
+        select count(id) from bbs.t_post p where p.user_id=#{id}
     </select>
 
     <select id="getTopFivePostsByAreaId" resultMap="postMap1">
@@ -278,8 +278,8 @@
     </resultMap>
     <select id="selectPostTitleAndPostType" resultMap="systemInfoMap">
         select post.post_title,post.create_time, type.name post_type
-            from test_bbs.t_post post,
-                 test_bbs.post_type type
+            from bbs.t_post post,
+                 bbs.post_type type
         where post.post_type = type.id;
     </select>
 
@@ -322,7 +322,7 @@
             post.up,
             post.ban_comment,
             post.secret
-      from test_bbs.t_post post,
+      from bbs.t_post post,
             t_board board,
             t_user user
       where board.id = post.board_id
@@ -345,7 +345,7 @@
           post.secret as secret,
           post.first_image as first_image,
           type.name as post_type
-        from test_bbs.t_post post ,test_bbs.post_type type
+        from bbs.t_post post ,bbs.post_type type
         where post.user_id=#{id} and post.post_type =type.id and post.post_title like "%"#{myPostTitle}"%" ;
     </select>
 </mapper>

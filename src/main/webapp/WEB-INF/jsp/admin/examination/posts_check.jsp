@@ -6,14 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <title>审核审查</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
         .input-group {
             bottom: 20px;
@@ -59,12 +59,12 @@
                             <c:forEach items="${options}" var="op" varStatus="i">
                                 <tr>
                                     <td><a href="#">${i.index+1}</a></td>
-                                    <td><a href="/account/${op.user.id}">${op.user.nickName}</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/account/${op.user.id}">${op.user.nickName}</a></td>
                                     <td>${op.applyType}</td>
-                                    <td><a href="/post/${op.post.id}">${op.post.postTitle}</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/post/${op.post.id}">${op.post.postTitle}</a></td>
                                     <td>
                                         <a href="#">${op.brief}
-                                            <a href="/admin/apply/showApplyReason/${op.id}" title="点击查看详情"
+                                            <a href="${pageContext.request.contextPath}/admin/apply/showApplyReason/${op.id}" title="点击查看详情"
                                                class="pull-right" target="_blank">查看</a>
                                         </a>
                                     </td>
@@ -82,7 +82,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <form action="/admin/check" class="remakes" method="post">
+                                        <form action="${pageContext.request.contextPath}/admin/check" class="remakes" method="post">
                                             <input type="text" width="50" name="remakes">
                                             <input type="hidden" name="id" value="${op.id}"/>
                                             <input type="hidden" name="status" value=""/>
@@ -127,13 +127,13 @@
                                         {{:#getIndex()+1}}
                                     </td>
                                     <td>
-                                         <a href="/account/{{:user.id}}">{{:user.nickName}}</a>
+                                         <a href="${pageContext.request.contextPath}/account/{{:user.id}}">{{:user.nickName}}</a>
                                     </td>
                                     <td><a href="#">{{:applyType}}</a></td>
-                                    <td><a href="/post/{{:post.id}}">{{:post.postTitle}}</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/post/{{:post.id}}">{{:post.postTitle}}</a></td>
                                     <td>
                                         <a href="#">{{:brief}}</a>
-                                        <a href="/person/apply/showApplyReason/{{:id}}" class="pull-right">详情</a>
+                                        <a href="${pageContext.request.contextPath}/person/apply/showApplyReason/{{:id}}" class="pull-right">详情</a>
                                     </td>
                                     <td>
                                         <a href="#">{{:applyTime}}</a>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                     <%--跳转的框--%>
-                    <form id="goPage" action="/admin/check/post" method="get">
+                    <form id="goPage" action="${pageContext.request.contextPath}/admin/check/post" method="get">
                         <input type="hidden" name="currentPage">
                         <input type="hidden" name="pageSize">
                     </form>

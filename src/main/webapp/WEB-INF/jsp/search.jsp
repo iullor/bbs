@@ -7,18 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>搜索结果</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <!--sidebar-left样式-->
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
     <!--login的模态框-->
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modal/modal_login.css">
     <!--主样式，覆盖前面的样式-->
-    <link rel="stylesheet" href="/css/commons/index.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/index.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <!--控制侧栏-->
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
         .content {
             margin-top: 50px;
@@ -45,14 +45,15 @@
                                         <c:forEach items="${searchResults.users}" var="user">
                                             <tr>
                                                 <td>
-                                                    <a href="/account/${user.id}">
+                                                    <a href="${pageContext.request.contextPath}/account/${user.id}">
                                                         <img src="" class="showUserHeadImg"
+                                                             path="${pageContext.request.contextPath}"
                                                              value="${user.userBaseInfo.headImage}" width="50"
                                                              height="50" alt="">
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="/account/${user.id}">
+                                                    <a href="${pageContext.request.contextPath}/account/${user.id}">
                                                             ${user.nickName}
                                                     </a>
                                                 </td>
@@ -77,7 +78,7 @@
                                         <c:forEach items="${searchResults.areas}" var="area">
                                             <tr>
                                                 <td>
-                                                    <a href="/area/${area.id}">${area.areaTitle}</a>
+                                                    <a href="${pageContext.request.contextPath}/area/${area.id}">${area.areaTitle}</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -99,7 +100,7 @@
                                     <table class="table table-striped  table-hover">
                                         <c:forEach items="${searchResults.topics}" var="topic">
                                             <tr>
-                                                <td><a href="/public/${topic.id}">${topic.topicTitle}</a></td>
+                                                <td><a href="${pageContext.request.contextPath}/public/${topic.id}">${topic.topicTitle}</a></td>
                                             </tr>
                                         </c:forEach>
                                     </table>
@@ -121,7 +122,7 @@
                                     <table class="table table-striped  table-hover">
                                         <c:forEach items="${searchResults.posts}" var="post">
                                             <tr>
-                                                <td><a href="/post/${post.id}">${post.postTitle}</a></td>
+                                                <td><a href="${pageContext.request.contextPath}/post/${post.id}">${post.postTitle}</a></td>
                                             </tr>
                                         </c:forEach>
                                     </table>

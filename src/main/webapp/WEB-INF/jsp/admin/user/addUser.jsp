@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>添加新用户</title>
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/jd/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/jd/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
         body {
             font-size: 18px;
@@ -33,7 +33,7 @@
     </div>
     <div class="row" style="margin-top: 100px;">
         <div class="col-md-offset-3 col-md-6">
-            <form action="/admin/user/add" method="post" role="form">
+            <form action="${pageContext.request.contextPath}/admin/user/add" method="post" role="form">
                 <input type="hidden" name="userAccountStatus.status" value="1"/>
                 <div class="row">
                     <div class="form-group col-md-6">

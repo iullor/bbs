@@ -8,14 +8,14 @@
     <title>板块</title>
 
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="/js/commons.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/commons.js"></script>
 
 </head>
 <body>
@@ -27,7 +27,7 @@
 
         <div class="col-md-offset-5 col-md-1">
             <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
-                <a href="/admin/board/input/0">
+                <a href="${pageContext.request.contextPath}/admin/board/input/0">
                     <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加板块
                     </button>
                 </a>
@@ -41,7 +41,7 @@
             <%--热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>--%>
         </div>
-        <form action="/board/searchByBoardTitle" method="get">
+        <form action="${pageContext.request.contextPath}/board/searchByBoardTitle" method="get">
             <div class="col-md-2">
                <%-- <div class="form-group">
                     <input type="text" class="form-control" name="inputBoardTitle" placeholder="模块名">
@@ -123,15 +123,15 @@
                                     <td><a href="#">
                                         <f:formatDate value="${b.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </a></td>
-                                    <td><a href="/admin/board/input/${b.id}">编辑</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/admin/board/input/${b.id}">编辑</a></td>
                                     <td>
-                                        <a class="delete" href="/admin/board/${b.id}">删除</a>
+                                        <a class="delete" href="${pageContext.request.contextPath}/admin/board/${b.id}">删除</a>
                                     </td>
                                     <form action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
                                     </form>
                                     <td>
-                                        <a href="/admin/area/addAreaToBoard/${b.id}">添加</a>
+                                        <a href="${pageContext.request.contextPath}/admin/area/addAreaToBoard/${b.id}">添加</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -139,7 +139,7 @@
                         <c:otherwise>
                             <tr>
                                 <td colspan="7" class="text-center text-info text-lg">
-                                    当前还没有板块,请去 <a href="/admin/board/input/0">添加</a>
+                                    当前还没有板块,请去 <a href="${pageContext.request.contextPath}/admin/board/input/0">添加</a>
                                 </td>
                             </tr>
                         </c:otherwise>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                     <%--跳转的框--%>
-                    <form id="goPage" action="/admin/board" method="get">
+                    <form id="goPage" action="${pageContext.request.contextPath}/admin/board" method="get">
                         <input type="hidden" name="currentPage">
                         <input type="hidden" name="pageSize">
                     </form>

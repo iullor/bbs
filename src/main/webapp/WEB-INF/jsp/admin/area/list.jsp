@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <title>区</title>
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="/js/commons.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/commons.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -23,7 +23,7 @@
     <%--操作栏--%>
     <div class="row text-center">
         <div class="col-md-offset-5 col-md-1">
-            <a href="/admin/area/input/0">
+            <a href="${pageContext.request.contextPath}/admin/area/input/0">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加分区
                 </button>
             </a>
@@ -36,7 +36,7 @@
             热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
         </div>
-        <form action="/area/searchByAreaTitle" method="get">
+        <form action="${pageContext.request.contextPath}/area/searchByAreaTitle" method="get">
             <div class="col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="分区名">
@@ -126,9 +126,9 @@
                                         <td><a href="#">
                                             <f:formatDate value="${a.createTime}" pattern="yyyy-MM-dd"/>
                                         </a></td>
-                                        <td><a href="/admin/area/input/${a.id}">编辑</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/area/input/${a.id}">编辑</a></td>
                                         <td>
-                                            <a class="delete" href="/admin/area/${a.id}">删除</a>
+                                            <a class="delete" href="${pageContext.request.contextPath}/admin/area/${a.id}">删除</a>
                                         </td>
                                         <form action="" method="POST">
                                             <input type="hidden" name="_method" value="DELETE"/>
@@ -139,7 +139,7 @@
                             <c:otherwise>
                                 <tr>
                                     <td colspan="7" class="text-center text-info text-lg">
-                                        当前还没有板块,请去 <a href="/admin/area/input/0">添加</a>
+                                        当前还没有板块,请去 <a href="${pageContext.request.contextPath}/admin/area/input/0">添加</a>
                                     </td>
                                 </tr>
                             </c:otherwise>
@@ -167,9 +167,9 @@
                                         <td><a href="#">
                                             <f:formatDate value="${a.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                         </a></td>
-                                        <td><a href="/admin/area/input/${a.id}">编辑</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/area/input/${a.id}">编辑</a></td>
                                         <td>
-                                            <a class="delete" href="/admin/area/${a.id}">删除</a>
+                                            <a class="delete" href="${pageContext.request.contextPath}/admin/area/${a.id}">删除</a>
                                         </td>
                                         <form action="" method="POST">
                                             <input type="hidden" name="_method" value="DELETE"/>
@@ -180,7 +180,7 @@
                             <c:otherwise>
                                 <tr>
                                     <td colspan="7" class="text-center text-info text-lg">
-                                        当前还没有板块,请去 <a href="/admin/area/input/0">添加</a>
+                                        当前还没有板块,请去 <a href="${pageContext.request.contextPath}/admin/area/input/0">添加</a>
                                     </td>
                                 </tr>
                             </c:otherwise>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                     <%--跳转的框--%>
-                    <form id="goPage" action="/admin/area" method="get">
+                    <form id="goPage" action="${pageContext.request.contextPath}/admin/area" method="get">
                         <input type="hidden" name="currentPage">
                         <input type="hidden" name="pageSize">
                     </form>

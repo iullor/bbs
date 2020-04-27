@@ -7,19 +7,19 @@
     <meta charset="UTF-8">
     <title>编辑贴子</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="/css/commons/commons.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/post/post_edit.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/commons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/post/post_edit.css">
     <link rel=”shortcut icon” href=”/images/index/index-favicon.ico” type=”image/x-icon”>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="/lib/ueditor/ueditor.config.js"></script>
-    <script src="/lib/ueditor/ueditor.all.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.config.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.all.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
@@ -28,14 +28,14 @@
         <div class="row">
             <div style="margin-left: 50px;margin-bottom: -10px;font-size: 18px">
                 <ol class="breadcrumb">
-                    <li><a href="/index.jsp">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
                     <li class="active">新建</li>
                 </ol>
             </div>
             <div class="col-md-offset-1 col-md-6" id="content1">
                 <h4><span class="text-grey">编辑新帖子</span></h4>
                 <input type="hidden" id="canPostOrNot" value="${canPostOrNot}">
-                <form:form action="/post" method="post" id="postForm" modelAttribute="post">
+                <form:form action="${pageContext.request.contextPath}/post" method="post" id="postForm" modelAttribute="post">
                     <c:choose>
                         <c:when test="${not empty post.id}">
                             <input type="hidden" name="_method" value="put">

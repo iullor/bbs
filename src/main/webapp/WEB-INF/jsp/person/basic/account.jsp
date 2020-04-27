@@ -6,20 +6,20 @@
 <head>
     <meta charset="UTF-8">
     <title>个人管理</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <%--左侧栏的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
-        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left-pink.css">
     </c:if>
-    <link rel="stylesheet" href="/css/person/basic_info/person_account.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/person-left.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/basic_info/person_account.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/person-left.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <%--引入顶栏--%>
@@ -40,9 +40,9 @@
                     <div id="person-basic-info" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
-                                <li class="active"><a href="/person/basic/account" class="">账号信息</a></li>
-                                <li><a href="/person/basic/info" class="">基本信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
+                                <li class="active"><a href="${pageContext.request.contextPath}/person/basic/account" class="">账号信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div id="person_posts" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/mypost">我的贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/mypost">我的贴子</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/message/0">
+                            <a href="${pageContext.request.contextPath}/person/message/0">
                                 <span class="glyphicon glyphicon-comment"></span><span>消息</span>
                             </a>
                         </div>
@@ -83,8 +83,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
-                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/myfocus" class="">
+                            <a href="${pageContext.request.contextPath}/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/themes/basic" class="">主题显示</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>
@@ -125,8 +125,8 @@
                     <div id="person_apply" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/apply" class="">申请</a></li>
-                                <li><a href="/person/apply/progress" class="">进度</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply" class="">申请</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/myCircle"><span
+                            <a href="${pageContext.request.contextPath}/person/myCircle"><span
                                     class="glyphicon glyphicon-globe"></span><span>朋友圈</span></a>
                         </div>
                     </div>
@@ -150,8 +150,8 @@
                     <div id="createMyBoard" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/topic/input/0" class="">创建</a></li>
-                                <li><a href="/person/topic" class="">查看</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/topic" class="">查看</a></li>
                             </ul>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-9">
-                    <form:form action="/user/updateAccount" id="changeAccount" method="post" modelAttribute="user">
+                    <form:form action="${pageContext.request.contextPath}/user/updateAccount" id="changeAccount" method="post" modelAttribute="user">
                         <input type="hidden" name="_method" value="put"/>
                         <form:hidden path="userBaseInfo.headImage"/>
                         <form:hidden path="id"/>
@@ -258,9 +258,9 @@
                 </div>
                 <div class="col-md-3 image text-center">
                     <!--使用Ajax异步上传-->
-                    <form action="/person/basic/accountUploadImg" id="imgForm" enctype="multipart/form-data">
+                    <form action="${pageContext.request.contextPath}/person/basic/accountUploadImg" id="imgForm" enctype="multipart/form-data">
                         <div style="height: 80px;margin-bottom: 10px">
-                            <img src="/images/favicon.ico" width="100px" height="100px"
+                            <img src="${pageContext.request.contextPath}/images/favicon.ico" width="100px" height="100px"
                                  style="margin-top: -50px;margin-right:10px "/>
                             <span class="glyphicon glyphicon-plus" id="uploadImage"></span>
                         </div>
@@ -292,7 +292,7 @@
             var form1 = document.getElementById("imgForm");
             var form = new FormData(form1);
             $.ajax({
-                url: "/person/basic/accountUploadImg",
+                url: "${pageContext.request.contextPath}/person/basic/accountUploadImg",
                 method: 'post',
                 data: form,
                 processData: false,
@@ -306,7 +306,7 @@
                         alert("上传成功")
                         var lastIndex = (e.responseText).search("/webapp/") + 7;
                         var str = (e.responseText).substring(lastIndex, (e.responseText).length)
-                        $("img").attr("src", str)
+                        $("img").attr("src", ${pageContext.request.contextPath}+str)
                         $("input[name='userBaseInfo.headImage']").val(e.responseText)
                     }
                 }
@@ -369,7 +369,7 @@
             $.ajax({
                 type: "post",
                 data: JSON.stringify(obj),
-                url: '/person/basic/account/checkUserName',
+                url: '${pageContext.request.contextPath}/person/basic/account/checkUserName',
                 contentType: "application/json",
                 success: function (data) {
                     if (data.info === '可以使用') {
@@ -402,7 +402,7 @@
             $.ajax({
                 type: 'post',
                 data: JSON.stringify(obj),
-                url: '/person/basic/account/checkPassword',
+                url: '${pageContext.request.contextPath}/person/basic/account/checkPassword',
                 contentType: "application/json",
                 success: function (data) {
                     if (data.info === '密码错误') {

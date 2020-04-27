@@ -7,18 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>朋友圈</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <%--左侧栏的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
-        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left-pink.css">
     </c:if>
-    <link rel="stylesheet" href="/css/person/circle/circle.css">
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/circle/circle.css">
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <%--引入顶栏--%>
@@ -52,18 +52,19 @@
                             </div>
                             <div class="col-md-2" style="border-top: 1px solid rgba(153, 51, 51, 0.46);;">
                                 <p class="text-center" style="margin-top: 8px;">
-                                    <a href="/account/${post.userId}">
-                                        <img src="/images/superman.png" class="showUserHeadImg"
+                                    <a href="${pageContext.request.contextPath}/account/${post.userId}">
+                                        <img src="${pageContext.request.contextPath}/images/superman.png" class="showUserHeadImg"
+                                             path="${pageContext.request.contextPath}"
                                              value="${post.user.userBaseInfo.headImage}" width="50" height="40" alt="">
                                     </a>
                                 </p>
                                 <p class="text-center">
-                                    <a href="/account/${post.userId}">${post.user.nickName}</a>
+                                    <a href="${pageContext.request.contextPath}/account/${post.userId}">${post.user.nickName}</a>
                                 </p>
                             </div>
                             <div class="col-md-8" style="border-top: 1px solid rgba(153, 51, 51, 0.46);">
                                 <p class="circle-list-head" style="font-size: 18px;margin-top: 30px">
-                                    <a href="/post/${post.id}">${post.postTitle}</a>
+                                    <a href="${pageContext.request.contextPath}/post/${post.id}">${post.postTitle}</a>
                                     <span class="pull-right" style="margin:0px 50px;">${post.postType}</span>
                                     <span class="pull-right" style="margin:0px 50px;">
                                         <span class="glyphicon glyphicon-comment"></span>
@@ -80,18 +81,19 @@
                              style="height: 120px;padding-top: 5px;border-top: 1px solid rgba(153, 51, 51, 0.46);">
                             <div class="col-md-2">
                                 <p class="text-center">
-                                    <a href="/account/${topic.userId}">
-                                        <img src="/images/superman.png" class="showUserHeadImg"
+                                    <a href="${pageContext.request.contextPath}/account/${topic.userId}">
+                                        <img src="${pageContext.request.contextPath}/images/superman.png" class="showUserHeadImg"
+                                             path="${pageContext.request.contextPath}"
                                              value="${topic.user.userBaseInfo.headImage}" width="80" height="80" alt="">
                                     </a>
                                 </p>
                                 <p class="text-center">
-                                    <a href="/account/${topic.userId}">${topic.user.nickName}</a>
+                                    <a href="${pageContext.request.contextPath}/account/${topic.userId}">${topic.user.nickName}</a>
                                 </p>
                             </div>
                             <div class="col-md-10">
                                 <p class="circle-list-head">
-                                    <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                    <a href="${pageContext.request.contextPath}/public/${topic.id}">${topic.topicTitle}</a>
                                 </p>
                                 <p class="circle-list-body">
                                     &nbsp;&nbsp;
@@ -134,14 +136,15 @@
                 </h4>
                 <c:forEach items="${myFocusUsers}" var="focus">
                     <p class="recent-friend">
-                        <a href="/account/${focus.user.id}">
-                            <img src="/images/superman.png" class="showUserHeadImg"
+                        <a href="${pageContext.request.contextPath}/account/${focus.user.id}">
+                            <img src="${pageContext.request.contextPath}/images/superman.png" class="showUserHeadImg"
+                                 path="${pageContext.request.contextPath}"
                                  value="${focus.user.userBaseInfo.headImage}" width="50" height="50" class="img-circle"
                                  alt="">
                         </a>
-                        <a href="/account/${focus.user.id}">${focus.user.nickName}</a>
+                        <a href="${pageContext.request.contextPath}/account/${focus.user.id}">${focus.user.nickName}</a>
                         <a href="#" class="pull-right send-email" data-toggle="modal" data-target="#email">
-                            <img src="/images/public/email.png" width="25" height="25" alt="" style="margin-top: 10px">
+                            <img src="${pageContext.request.contextPath}/images/public/email.png" width="25" height="25" alt="" style="margin-top: 10px">
                         </a>
                         <input type="hidden" value="${focus.user.email}">
                     </p>
@@ -157,10 +160,10 @@
                             aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="exampleModalLabel">
-                        <img src="/images/public/email.png" width="40" height="40" alt="">新邮件
+                        <img src="${pageContext.request.contextPath}/images/public/email.png" width="40" height="40" alt="">新邮件
                     </h4>
                 </div>
-                <form action="/email" method="post">
+                <form action="${pageContext.request.contextPath}/email" method="post">
                     <div class="modal-body">
 
                         <div class="form-group">
@@ -187,7 +190,7 @@
                         <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
                         <button type="submit" class="btn btn-success">
                             发送&nbsp;
-                            <img src="/images/public/send.png" width="30" height="30" alt="">
+                            <img src="${pageContext.request.contextPath}/images/public/send.png" width="30" height="30" alt="">
                         </button>
                     </div>
                 </form>

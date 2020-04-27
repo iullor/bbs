@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <title>模块增加</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
 
         .container-fluid {
@@ -62,7 +62,7 @@
                 该值在/panel/input/{id} 中获取id，
                     用pid，查询db，有的话，赋值给 panel，传递给页面，页面通过panel.id 是否有值，来判断是否添加隐藏域，给springmvc框架标示为restful 接口风格
             --%>
-            <form:form action="/admin/panel" modelAttribute="panel" method="post">
+            <form:form action="${pageContext.request.contextPath}/admin/panel" modelAttribute="panel" method="post">
                 <c:if test="${not empty panel.id}">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>
@@ -204,7 +204,7 @@
         $("#upload").click(function () {
             var form = new FormData(document.getElementById("uploadForm"));
             $.ajax({
-                url: "/admin/panel/fileUpload",
+                url: "${pageContext.request.contextPath}/admin/panel/fileUpload",
                 type: "post",
                 data: form,
                 processData: false,

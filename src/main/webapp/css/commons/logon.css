@@ -10,7 +10,7 @@ html, body {
 
 body {
     display: -ms-flexbox;
-    background-image: url("/images/bg/user-logon-bg.jpg");
+    background-image: url("/bbs/images/bg/user-logon-bg.jpg");
 }
 
 body > h3 {

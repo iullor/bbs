@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gyl.mapper.MessageMapper">
     <insert id="sendCommentToUser" parameterType="com.gyl.entity.Message">
-        insert into test_bbs.t_message (from_user_id,to_user_id,message_type,create_time,read_status,message)
+        insert into bbs.t_message (from_user_id,to_user_id,message_type,create_time,read_status,message)
         values (#{fromUserId},#{toUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
 
@@ -21,33 +21,33 @@
         m.create_time,
         u.id as user_id,
         u.nick_name
-        from test_bbs.t_message m
-        left outer join test_bbs.t_user u on u.id=m.from_user_id
+        from bbs.t_message m
+        left outer join bbs.t_user u on u.id=m.from_user_id
         where m.to_user_id=#{userId} and m.read_status=#{readStatus} order by m.create_time desc;
     </select>
 
     <update id="updateStatusById" parameterType="com.gyl.entity.Message">
-        update test_bbs.t_message
+        update bbs.t_message
         <set>
             <if test="#{readStatus}!=null">read_status=#{readStatus}</if>
         </set>
         where id =#{id}
     </update>
     <insert id="sendCheckMessage">
-       insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+       insert into bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
         values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
     <insert id="sendBrokenRulesMessage">
-       insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+       insert into bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
         values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
 
     <insert id="sendReplyToUser">
-         insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+         insert into bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
         values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
     <insert id="sendMessages">
-         insert into test_bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
+         insert into bbs.t_message (to_user_id,from_user_id,message_type,create_time,read_status,message)
         values (#{toUserId},#{fromUserId},#{messageType},#{createTime},#{readStatus},#{message});
     </insert>
 

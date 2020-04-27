@@ -3,19 +3,19 @@
 <mapper namespace="com.gyl.mapper.PraiseMapper">
 
     <insert id="add">
-        insert into test_bbs.t_praise (user_id,post_id,discuss_id) values (#{userId},#{postId},#{discussId})
+        insert into bbs.t_praise (user_id,post_id,discuss_id) values (#{userId},#{postId},#{discussId})
     </insert>
     <delete id="deletePostPaise">
-        delete from test_bbs.t_praise where user_id=#{userId} and post_id =#{postId};
+        delete from bbs.t_praise where user_id=#{userId} and post_id =#{postId};
     </delete>
     <delete id="deleteDiscussPaise">
-        delete from test_bbs.t_praise where user_id=#{userId} and discuss_id =#{discussId};
+        delete from bbs.t_praise where user_id=#{userId} and discuss_id =#{discussId};
     </delete>
     <select id="listPraisePostById" resultType="integer">
-        select count(id) from test_bbs.t_praise where user_id=#{userId} and post_id=#{postId} ;
+        select count(id) from bbs.t_praise where user_id=#{userId} and post_id=#{postId} ;
     </select>
     <select id="listPraiseDiscussById" resultType="integer">
-        select count(id) from test_bbs.t_praise where user_id=#{userId} and discuss_id=#{discussId} ;
+        select count(id) from bbs.t_praise where user_id=#{userId} and discuss_id=#{discussId} ;
     </select>
 
 </mapper>

@@ -57,6 +57,6 @@
               d.praises,
               u.nick_name,
               u.head_image as user_headImage
-        from test_bbs.t_discuss d ,test_bbs.t_user u where d.topic_id =#{topicId}  and u.id=d.user_id order by d.create_time desc;
+        from bbs.t_discuss d ,bbs.t_user u where d.topic_id =#{topicId}  and u.id=d.user_id order by d.create_time desc;
     </select>
 </mapper>

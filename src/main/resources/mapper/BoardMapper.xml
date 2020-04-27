@@ -26,19 +26,19 @@
         </association>
     </resultMap>
     <select id="list" resultType="list" resultMap="listBoards">
-      select * from test_bbs.t_board b
-      left outer join test_bbs.t_user u on b.user_id =u.id
-      left outer join test_bbs.t_panel p on b.panel_id = p.id;
+      select * from bbs.t_board b
+      left outer join bbs.t_user u on b.user_id =u.id
+      left outer join bbs.t_panel p on b.panel_id = p.id;
     </select>
 
     <insert id="add" parameterType="com.gyl.entity.Board">
-      insert into test_bbs.t_board
+      insert into bbs.t_board
       (id,board_title,create_time,board_type,logo_path,panel_id,user_id,info,details)
       values
        (#{id},#{boardTitle},#{createTime},#{boardType},#{logoPath},#{panelId},#{boardManagerId},#{info},#{details});
     </insert>
     <update id="update" parameterType="com.gyl.entity.Board">
-        update test_bbs.t_board
+        update bbs.t_board
         <set>
             <if test="boardTitle!=null ">board_title=#{boardTitle},</if>
             <if test="createTime!=null">create_time=#{createTime},</if>
@@ -53,16 +53,16 @@
     </update>
 
     <delete id="delete">
-        delete from test_bbs.t_board where id=#{id}
+        delete from bbs.t_board where id=#{id}
     </delete>
 
     <select id="getBoardById" resultMap="listBoards">
-        select * from test_bbs.t_board where id=#{id};
+        select * from bbs.t_board where id=#{id};
     </select>
 
 
     <select id="selectBoardsByPanelId" resultMap="listBoards">
-        select * from test_bbs.t_board where panel_id=#{pid};
+        select * from bbs.t_board where panel_id=#{pid};
     </select>
 
     <!--找到所有的board，以及每个board下面的area的信息-->
@@ -80,7 +80,7 @@
         b.board_title,
         a.id as area_id,
         a.area_title
-        from test_bbs.t_board b,test_bbs.t_area a
+        from bbs.t_board b,bbs.t_area a
         where b.id =a.board_id;
     </select>
 
@@ -110,12 +110,12 @@
                board.details     as details,
                user.username as username,
                panel.title as panel_title
-        from test_bbs.t_board board,
-             test_bbs.t_user user,
-             test_bbs.t_panel panel
+        from bbs.t_board board,
+             bbs.t_user user,
+             bbs.t_panel panel
         where board.panel_id in (
                select id as panel_id
-               from test_bbs.t_panel p
+               from bbs.t_panel p
                where p.user_manager_id =#{id} )
          and user.id = board.user_id and panel.id=board.panel_id;
     </select>
@@ -131,9 +131,9 @@
                 board.details     as details,
                 user.username     as username,
                 panel.title as panel_title
-        from test_bbs.t_board board,
-             test_bbs.t_user user,
-             test_bbs.t_panel panel
+        from bbs.t_board board,
+             bbs.t_user user,
+             bbs.t_panel panel
         where board.user_id = #{id} and user.id =board.user_id and board.panel_id=panel.id
     </select>
 
@@ -141,7 +141,7 @@
             select count(board_id) posts,
             board.id ,
             board.board_title
-            from test_bbs.t_post post,test_bbs.t_board board
+            from bbs.t_post post,bbs.t_board board
             where post.board_id =board.id
             group by board_id  order by posts desc limit 6;
     </select>

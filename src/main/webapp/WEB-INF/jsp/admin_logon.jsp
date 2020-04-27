@@ -6,16 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员登录</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/commons/logon.css">
-    <link rel="stylesheet" href="/css/commons/commons.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/random-code.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/logon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/commons.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/random-code.js"></script>
     <style>
         body {
-            background-image: url("/images/bg/admin-logon-bg.jpg");
+            background-image: url("${pageContext.request.contextPath}/images/bg/admin-logon-bg.jpg");
         }
     </style>
 </head>
@@ -23,7 +23,7 @@
 <h3>Admin-Logon</h3>
 <div class="container">
     <div class="form-logon">
-        <form action="/admin/checkLogon" method="post">
+        <form action="${pageContext.request.contextPath}/admin/checkLogon" method="post">
             <p class="text-red" id="logon-info"></p>
             <lable><strong>用户名</strong></lable>
             <input type="text" class="form-control" name="username">

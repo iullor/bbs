@@ -6,17 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <title>${topNavbarInfo.boardTitle}</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <!--引入一些样式-->
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/commons/top.css">
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
-    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/top.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modal/modal_login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/board/board.css">
     <!--js-->
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
         .panel{
             height: 250px;
@@ -30,8 +30,8 @@
         <!--路径导航栏-->
         <div class="row area-nav" style="margin-top: 55px">
             <ol class="breadcrumb">
-                <li><a href="/index">首页</a></li>
-                <li><a href="/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
+                <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
                 <li class="active">${topNavbarInfo.boardTitle}</li>
             </ol>
         </div>
@@ -43,18 +43,18 @@
                             <h5 class="panel-title">
                                 <span>
                                     <span class="text-center">
-                                        <img src="/images/board/school.svg" width="25" height="25">
+                                        <img src="${pageContext.request.contextPath}/images/board/school.svg" width="25" height="25">
                                     </span>&nbsp;&nbsp;&nbsp;
-                                    <a href="/area/${area.id}">${area.areaTitle}</a>
+                                    <a href="${pageContext.request.contextPath}/area/${area.id}">${area.areaTitle}</a>
                                 </span>
-                                <a href="/area/${area.id}"><span
+                                <a href="${pageContext.request.contextPath}/area/${area.id}"><span
                                         class="pull-right glyphicon glyphicon-chevron-right"></span></a>
                             </h5>
                         </div>
                         <div class="panel-body">
                             <c:forEach items="${area.posts}" var="post">
                                 <p>
-                                    <a href="/post/${post.id}"><span>${post.postTitle}</span></a>
+                                    <a href="${pageContext.request.contextPath}/post/${post.id}"><span>${post.postTitle}</span></a>
                                     <span class="pull-right glyphicon glyphicon-eye-open">&nbsp;${post.comm}</span>
                                 </p>
                             </c:forEach>

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>关键词过滤</title>
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
         .input-group {
             bottom: 20px;
@@ -31,7 +31,7 @@
     <%--操作栏--%>
     <div class="row text-center">
         <div class="col-md-offset-5 col-md-1">
-            <a href="/admin/shield/input/0">
+            <a href="${pageContext.request.contextPath}/admin/shield/input/0">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加过滤词
                 </button>
             </a>
@@ -44,7 +44,7 @@
             热度&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="#"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
         </div>
-        <form action="/area/searchByAreaTitle" method="get">
+        <form action="${pageContext.request.contextPath}/area/searchByAreaTitle" method="get">
             <div class="col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="keyword">

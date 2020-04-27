@@ -91,11 +91,11 @@
     </select>
 
     <select id="list" resultMap="userMap">
-      select * from test_bbs.t_user order by create_time ASC ;
+      select * from bbs.t_user order by create_time ASC ;
     </select>
 
     <update id="update" parameterType="com.gyl.entity.User">
-        update test_bbs.t_user
+        update bbs.t_user
         <set>
             <if test="username!=null">username=#{username},</if>
             <if test="password!=null">password=#{password},</if>
@@ -133,40 +133,40 @@
     </update>
 
     <delete id="delete">
-        delete from test_bbs.t_user where id=#{id}
+        delete from bbs.t_user where id=#{id}
     </delete>
 
     <!--
       更改用户名
     -->
     <select id="selectUsername" resultType="com.gyl.entity.User">
-        select username from test_bbs.t_user where username=#{username};
+        select username from bbs.t_user where username=#{username};
     </select>
     <update id="activeAccountById">
-        update test_bbs.t_user set status=1 where id=#{id}
+        update bbs.t_user set status=1 where id=#{id}
     </update>
     <update id="updateIntroduce">
-        update test_bbs.t_user set introduce=#{introduce} where id=#{id}
+        update bbs.t_user set introduce=#{introduce} where id=#{id}
     </update>
 
     <select id="adminLogon" resultMap="userMap">
-        select * from test_bbs.t_user,test_bbs.t_role
+        select * from bbs.t_user,bbs.t_role
          where username=#{username} and password=#{password} and role_id&lt;4 and role_id&gt;0;
     </select>
 
     <update id="changeTheme">
-        update test_bbs.t_user user set user.theme =#{value} where user.id=#{id}
+        update bbs.t_user user set user.theme =#{value} where user.id=#{id}
     </update>
 
     <select id="selectUserByUNameAndEmail" resultMap="userMap">
-        select id from test_bbs.t_user where username=#{username} and email=#{email}
+        select id from bbs.t_user where username=#{username} and email=#{email}
     </select>
     <update id="updateTmpPassword">
-        update test_bbs.t_user set password=#{tmpPassword} where id=#{id}
+        update bbs.t_user set password=#{tmpPassword} where id=#{id}
     </update>
 
     <select id="selectUsersByNickName" resultMap="userMap">
-         select * from test_bbs.t_user user where user.nick_name like "%"#{nickName}"%" order by create_time ASC ;
+         select * from bbs.t_user user where user.nick_name like "%"#{nickName}"%" order by create_time ASC ;
     </select>
 
 </mapper>

@@ -3,7 +3,7 @@
 <mapper namespace="com.gyl.mapper.ReplyMapper">
 
     <insert id="addReplyToComment">
-        insert into test_bbs.t_reply
+        insert into bbs.t_reply
         (id,to_comment_id,reply_id,reply_type,reply_content,from_user_id,to_user_id,create_time,to_discuss_id)
         values
         (#{id},#{toCommentId},#{replyId},#{replyType},#{replyContent},#{fromUserId},#{toUserId},#{createTime},#{toDiscussId} )
@@ -31,8 +31,8 @@
          u.id as reply_user_id,
          u.nick_name as nick_name,
          u.head_image as head_image
-         from test_bbs.t_reply reply
-         left outer join test_bbs.t_user u on u.id =reply.from_user_id
+         from bbs.t_reply reply
+         left outer join bbs.t_user u on u.id =reply.from_user_id
         where reply.to_comment_id =#{id} order by reply.create_time asc;
     </select>
 
@@ -46,8 +46,8 @@
             u.id as reply_user_id,
             u.nick_name as nick_name,
             u.head_image as head_image
-         from test_bbs.t_reply reply
-             left outer join test_bbs.t_user u on u.id =reply.from_user_id
+         from bbs.t_reply reply
+             left outer join bbs.t_user u on u.id =reply.from_user_id
         where reply.to_discuss_id =#{discussId}  order by reply.create_time asc;
     </select>
 </mapper>

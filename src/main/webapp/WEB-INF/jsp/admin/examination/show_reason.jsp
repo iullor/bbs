@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <title>申请贴子置顶</title>
     <%--引入顶栏--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
     <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/ueditor/ueditor.config.js"></script>
-    <script src="/lib/ueditor/ueditor.all.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.config.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.all.js"></script>
     <style>
         body {
             background-color: #f5f5f5;
@@ -70,7 +70,7 @@
             <td>
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
-                        <a href="/post/${option.post.id}">${option.post.postTitle}</a>
+                        <a href="${pageContext.request.contextPath}/post/${option.post.id}">${option.post.postTitle}</a>
                     </div>
                 </div>
             </td>

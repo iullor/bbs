@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>模块</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
 
     </style>
@@ -24,13 +24,13 @@
     <div class="row">
         <div class="col-md-1">
             <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role==1}">
-                <a href="/admin/panel/input/0">
+                <a href="${pageContext.request.contextPath}/admin/panel/input/0">
                     <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 增加
                     </button>
                 </a>
             </c:if>
         </div>
-        <form action="/admin/panel/searchByPanelTitle" method="get">
+        <form action="${pageContext.request.contextPath}/admin/panel/searchByPanelTitle" method="get">
             <div class="col-md-offset-7 col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="inputPanelTitle" placeholder="模块名">
@@ -75,7 +75,7 @@
                         <c:when test="${empty panels}">
                             <tr>
                                 <td colspan="7" class="text-center text-info text-lg">
-                                    当前还没有模块,请去 <a href="/admin/panel/input/0">添加</a>
+                                    当前还没有模块,请去 <a href="${pageContext.request.contextPath}/admin/panel/input/0">添加</a>
                                 </td>
                             </tr>
                         </c:when>
@@ -86,8 +86,10 @@
                                             ${i.index+1}
                                     </td>
                                     <td>
-                                        <img src="" class="showUserHeadImg" value='${p.logoPath}' alt="logo"
+                                        <img src="" class="showUserHeadImg"
+                                             value='${p.logoPath}' alt="logo"
                                              width="30px"
+                                             path="${pageContext.request.contextPath}"
                                              height="30px">
                                     </td>
                                     <td><a href="#">${p.title}</a></td>
@@ -96,12 +98,12 @@
                                     <td>
                                         <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                     </td>
-                                    <td><a href="/admin/panel/input/${p.id}">编辑</a></td>
-                                    <td><a class="delete" href="/admin/panel/${p.id}">删除</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/admin/panel/input/${p.id}">编辑</a></td>
+                                    <td><a class="delete" href="${pageContext.request.contextPath}/admin/panel/${p.id}">删除</a></td>
                                     <td>
-                                        <a href="/panel/${p.id}">查看</a>
+                                        <a href="${pageContext.request.contextPath}/panel/${p.id}">查看</a>
                                     </td>
-                                    <td><a class="addBoard" href="/admin/board/addBoardToPanel/${p.id}">添加</a></td>
+                                    <td><a class="addBoard" href="${pageContext.request.contextPath}/admin/board/addBoardToPanel/${p.id}">添加</a></td>
                                     <form id="deleteForm" action="" method="POST">
                                         <input type="hidden" name="_method" value="DELETE"/>
                                     </form>
@@ -148,7 +150,7 @@
                 </div>
                 <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                     <%--跳转的框--%>
-                    <form id="goPage" action="/admin/panel" method="get">
+                    <form id="goPage" action="${pageContext.request.contextPath}/admin/panel" method="get">
                         <input type="hidden" name="currentPage">
                         <input type="hidden" name="pageSize">
                     </form>
@@ -165,10 +167,11 @@
     //显示图片
     $(".showUserHeadImg").each(function () {
         var headImg = $(this).attr("value");
-        let beginIndex = headImg.indexOf("/webapp/") + 7;
-        let endIndex = headImg.length;
-        let src = headImg.substring(beginIndex, endIndex);
-        $(this).attr("src", src);
+        var path = $(this).attr("path");
+        // let beginIndex = headImg.indexOf("/webapp/") + 7;
+        // let endIndex = headImg.length;
+        // let src = headImg.substring(beginIndex, endIndex);
+        $(this).attr("src", path+headImg);
     })
 
     function goPage(pageNumber) {
@@ -179,7 +182,7 @@
 
     $(function () {
         $("#searchAll").on("click", function () {
-            window.location.href = "/admin/panel"
+            window.location.href = "/bbs/admin/panel"
         });
         //删除确认
         $(".delete").on("click", function () {

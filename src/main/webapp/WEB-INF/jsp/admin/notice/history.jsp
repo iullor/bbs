@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <title>模块</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
 
@@ -20,8 +20,8 @@
 <body>
 <div class="container-fluid">
     <div class="row text-right" style="margin-right: 80px;">
-        <a href="/admin/notice" class="btn btn-info">历史记录</a>
-        <a href="/admin/notice/input/0" class="btn btn-primary">
+        <a href="${pageContext.request.contextPath}/admin/notice" class="btn btn-info">历史记录</a>
+        <a href="${pageContext.request.contextPath}/admin/notice/input/0" class="btn btn-primary">
             添加 <span class="glyphicon glyphicon-plus"></span>
         </a>
     </div>
@@ -44,7 +44,7 @@
                             ${i.index+1}
                     </td>
                     <td>
-                        <a href="/admin/notice/${notice.id}" target="_blank">${notice.noticeTitle}</a>
+                        <a href="${pageContext.request.contextPath}/admin/notice/${notice.id}" target="_blank">${notice.noticeTitle}</a>
                     </td>
                     <td>
                         <f:formatDate value="${notice.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>

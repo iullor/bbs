@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>后台管理页面首页</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
-    <script src="/lib/jQuery/jquery.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <%--引入echarts库--%>
-    <script src="/lib/echarts/echarts.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/echarts/echarts.js"></script>
     <style>
         table thead th {
             text-align: center;
@@ -80,8 +80,8 @@
             <th><span class="glyphicon glyphicon-flag"></span>&nbsp;系统贴子</th>
             <th><span class="glyphicon glyphicon-list-alt"></span>&nbsp;系统话题</th>
             <th><span class="glyphicon glyphicon-volume-up"></span>&nbsp;系统公告</th>
-            <th><span><img src="/images/public/stick.png" width="15" height="15"></span>&nbsp;置顶贴子</th>
-            <th><span><img src="/images/public/hot.png" width="20" height="20"></span>&nbsp;热门话题</th>
+            <th><span><img src="${pageContext.request.contextPath}/images/public/stick.png" width="15" height="15"></span>&nbsp;置顶贴子</th>
+            <th><span><img src="${pageContext.request.contextPath}/images/public/hot.png" width="20" height="20"></span>&nbsp;热门话题</th>
             </thead>
             <tbody>
             <tr>

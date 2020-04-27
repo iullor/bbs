@@ -7,17 +7,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>公共圈子</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
-        <link rel="stylesheet" href="/css/public.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/public-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
@@ -35,9 +35,10 @@
                         <div class="row topic-transfer">
                             <div class="col-md-4" style="margin-top:30px;">
                                 <p style="margin-left: -10px;">
-                                    <a href="/public/${topic.id}">
+                                    <a href="${pageContext.request.contextPath}/public/${topic.id}">
                                         <img class="showUserHeadImg tmp1" value="${topic.topicPicture}"
-                                             src="/images/topic/default.png" width="320"
+                                             path="${pageContext.request.contextPath}"
+                                             src="${pageContext.request.contextPath}/images/topic/default.png" width="320"
                                              height="180" alt="点击查看话题">
                                     </a>
                                 </p>
@@ -45,10 +46,10 @@
                             <div class="col-md-8" style="padding-top: 0px;padding-left: 30px">
                                 <div style="height:50px;padding-top: 10px;font-size: 20px;border-bottom: 1px black solid;">
                                     <p>
-                                        <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                        <a href="${pageContext.request.contextPath}/public/${topic.id}">${topic.topicTitle}</a>
                                         <c:if test="${i.index+1<6}">
                                             <span class="pull-right">
-                                                <img src="/images/public/hot1.png" width="50" height="50" alt="">
+                                                <img src="${pageContext.request.contextPath}/images/public/hot1.png" width="50" height="50" alt="">
                                             </span>
                                         </c:if>
                                     </p>
@@ -97,10 +98,10 @@
                         <tbody>
                         <tr style="background-color: #f5f5f5;">
                             <td width="50%" class="text-center bg-toIndex">
-                                <a href="/index">主页</a>
+                                <a href="${pageContext.request.contextPath}/index">主页</a>
                             </td>
                             <td width="50%" class="text-center">
-                                <a href="/person/myfocus" style="font-size: 18px;color: black;">我的关注</a>
+                                <a href="${pageContext.request.contextPath}/person/myfocus" style="font-size: 18px;color: black;">我的关注</a>
                             </td>
                         </tr>
                         </tbody>
@@ -118,7 +119,7 @@
                                         <c:forEach items="${hotTopicsKeywords}" var="topic">
                                             <div class="col-sm-6 hotTopicsTitle"
                                                  style="height: 40px;font-size: 17px;border: 1px solid silver;padding-top: 8px;">
-                                                <a href="/public/${topic.id}">
+                                                <a href="${pageContext.request.contextPath}/public/${topic.id}">
                                                         ${topic.topicKeyword}
                                                 </a>
                                             </div>
@@ -142,7 +143,7 @@
                                         <c:forEach items="${hotBoards}" var="board">
                                             <div class="col-sm-6 hotTopicsTitle"
                                                  style="height: 40px;font-size: 17px;border: 1px solid silver;padding-top: 8px;">
-                                                <a href="/board/${board.id}">
+                                                <a href="${pageContext.request.contextPath}/board/${board.id}">
                                                         ${board.boardTitle}
                                                 </a>
                                             </div>
@@ -193,7 +194,7 @@
         </div>
         <div class="col-md-2" style="margin-left:-260px;height: 78px;padding-top: 10px;">
             <%--跳转的框--%>
-            <form id="goPage" action="/public" method="get">
+            <form id="goPage" action="${pageContext.request.contextPath}/public" method="get">
                 <input type="hidden" name="currentPage">
                 <input type="hidden" name="pageSize">
             </form>

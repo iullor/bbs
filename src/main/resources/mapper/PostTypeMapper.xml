@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gyl.mapper.PostTypeMapper">
     <insert id="addPostType">
-      insert into test_bbs.post_type (name) value (#{name})
+      insert into bbs.post_type (name) value (#{name})
   </insert>
 
     <select id="listPostType" resultMap="postType">
-        select * from test_bbs.post_type;
+        select * from bbs.post_type;
     </select>
     <resultMap id="postType" type="com.gyl.entity.PostType">
         <id property="id" column="id"/>
@@ -14,13 +14,13 @@
     </resultMap>
 
     <update id="updatePostType">
-        update test_bbs.post_type set name=#{name};
+        update bbs.post_type set name=#{name};
     </update>
 
     <delete id="deletePostType">
-        delete from test_bbs.post_type where id=#{id};
+        delete from bbs.post_type where id=#{id};
     </delete>
     <select id="selectIdByName" resultType="string">
-      select id from test_bbs.post_type where name=#{name};
+      select id from bbs.post_type where name=#{name};
     </select>
 </mapper>

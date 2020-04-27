@@ -6,19 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title>个人管理</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <%--左侧栏的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
-        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/person-left.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/person-left.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
     </style>
 </head>
@@ -41,9 +41,9 @@
                     <div id="person-basic-info" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
-                                <li><a href="/person/basic/account" class="">账号信息</a></li>
-                                <li><a href="/person/basic/info" class="">基本信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/account" class="">账号信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div id="person_posts" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/mypost">我的贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/mypost">我的贴子</a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/message/0">
+                            <a href="${pageContext.request.contextPath}/person/message/0">
                                 <span class="glyphicon glyphicon-comment"></span><span>消息</span>
                             </a>
                         </div>
@@ -84,8 +84,8 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/collection/myPosts" class="">贴子</a></li>
-                                <li><a href="/person/collection/myAreas" class="">分区</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts" class="">贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas" class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/myfocus" class="">
+                            <a href="${pageContext.request.contextPath}/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
                         </div>
@@ -110,7 +110,7 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/themes/basic" class="">主题显示</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a></li>
                             </ul>
                         </div>
                     </div>
@@ -126,8 +126,8 @@
                     <div id="person_apply" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/apply" class="">申请</a></li>
-                                <li><a href="/person/apply/progress" class="">进度</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply" class="">申请</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a></li>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <a href="/person/myCircle"><span
+                            <a href="${pageContext.request.contextPath}/person/myCircle"><span
                                     class="glyphicon glyphicon-globe"></span><span>朋友圈</span></a>
                         </div>
                     </div>
@@ -151,8 +151,8 @@
                     <div id="createMyBoard" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="/person/topic/input/0" class="">创建</a></li>
-                                <li class="active"><a href="/person/topic" class="">查看</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a></li>
+                                <li class="active"><a href="${pageContext.request.contextPath}/person/topic" class="">查看</a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,22 +167,22 @@
                         <div class="row" style="height: 250px;border: 1px #f0f0f0 solid;margin-bottom: 10px;">
                             <div class="col-md-4" style="padding-top: 10px;padding-left: 25px">
                                 <p>
-                                    <a href="/public/${topic.id}">
-                                        <img class="showUserHeadImg" value="${topic.topicPicture}"
-                                             src="/images/topic/default.png" width="400"
+                                    <a href="${pageContext.request.contextPath}/public/${topic.id}">
+                                        <img class="showUserHeadImg" value="${topic.topicPicture}" path="${pageContext.request.contextPath}"
+                                             src="${pageContext.request.contextPath}/images/topic/default.png" width="400"
                                              height="225" alt="点击查看话题">
                                     </a>
                                 </p>
                             </div>
                             <div class="col-md-8" style="padding-top: 0px;">
                                 <div style="height:65px;padding-top: 10px;font-size: 25px;border-bottom: 1px gray dashed;">
-                                    <a href="/person/topic/delete/${topic.id}">
+                                    <a href="${pageContext.request.contextPath}/person/topic/delete/${topic.id}">
                                          <span class="text-danger pull-right">
                                             &times;
                                         </span>
                                     </a>
                                     <p>
-                                        <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                        <a href="${pageContext.request.contextPath}/public/${topic.id}">${topic.topicTitle}</a>
                                     </p>
                                 </div>
                                 <div style="height: 150px;font-size: 18px;padding-top: 10px">
@@ -190,7 +190,7 @@
                                 </div>
                                 <div>
                                     <p class="text-right" style="padding-top: 0px;">
-                                        <a href="/person/topic/input/${topic.id}" style="margin-right: 20px;">
+                                        <a href="${pageContext.request.contextPath}/person/topic/input/${topic.id}" style="margin-right: 20px;">
                                             <span class="btn btn-primary btn-sm">
                                                编辑
                                             </span>
@@ -210,7 +210,7 @@
                 </c:when>
                 <c:otherwise>
                     <h3 style="margin-top: 200px;text-align: center;">
-                        创建话题<a href="/person/topic/input/0">去</a>
+                        创建话题<a href="${pageContext.request.contextPath}/person/topic/input/0">去</a>
                     </h3>
                 </c:otherwise>
             </c:choose>

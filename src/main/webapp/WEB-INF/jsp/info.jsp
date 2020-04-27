@@ -4,7 +4,7 @@
     <title>Test</title>
 </head>
 <body>
-<form action="/test/save" method="post">
+<form action="${pageContext.request.contextPath}/test/save" method="post">
     <input type="text" name="info">
     <button type="submit">提交</button>
 </form>

@@ -39,6 +39,6 @@
     where id = #{id}
   </update>
     <select id="list" resultMap="BaseResultMap">
-    select * from  test_bbs.t_broken_rules ;
+    select * from  bbs.t_broken_rules ;
   </select>
 </mapper>

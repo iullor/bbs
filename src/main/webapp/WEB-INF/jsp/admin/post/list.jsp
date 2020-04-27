@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <title>贴子列表</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <%--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>--%>
-    <script src="/lib/jQuery/jquery.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <style>
         .post-sort {
             line-height: 20px;
@@ -40,7 +40,7 @@
           </div>--%>
         <div class="col-md-offset-8 col-md-2">
             <div class="input-group">
-                <form action="/admin/post/searchByPostTitle" method="get">
+                <form action="${pageContext.request.contextPath}/admin/post/searchByPostTitle" method="get">
                     <input type="text" name="postTitle" placeholder="id/昵称">
                     <button id="search" type="submit" class="btn btn-default">查找<span class="glyphicon glyphicon-search"></span></button>
                 </form>
@@ -78,13 +78,13 @@
                         <c:forEach items="${posts}" var="p" varStatus="i">
                             <tr>
                                 <td><a href="#">${i.index+1}</a></td>
-                                <td><a href="/post/${p.id}" target="_blank">${p.postTitle}</a></td>
-                                <td><a href="/account/${p.userId}" target="_blank">${p.user.nickName}</a></td>
+                                <td><a href="${pageContext.request.contextPath}/post/${p.id}" target="_blank">${p.postTitle}</a></td>
+                                <td><a href="${pageContext.request.contextPath}/account/${p.userId}" target="_blank">${p.user.nickName}</a></td>
                                 <td>
                                     <f:formatDate value="${p.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                 </td>
                                 <td><a href="#">${p.boardTitle}</a></td>
-                                <form action="/admin/post/update" method="post">
+                                <form action="${pageContext.request.contextPath}/admin/post/update" method="post">
                                     <td>
                                         <input class='post-up' pid="${p.id}" class="post-up" type="checkbox"
                                                name="up" ${p.up==1?'checked':''}>
@@ -155,7 +155,7 @@
             </div>
             <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                 <%--跳转的框--%>
-                <form id="goPage" action="/admin/post" method="get">
+                <form id="goPage" action="${pageContext.request.contextPath}/admin/post" method="get">
                     <input type="hidden" name="currentPage">
                     <input type="hidden" name="pageSize">
                 </form>

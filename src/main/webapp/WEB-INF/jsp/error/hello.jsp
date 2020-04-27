@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
 </head>
 <body>
     啦啦啦啦.jsp

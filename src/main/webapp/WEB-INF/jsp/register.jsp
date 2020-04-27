@@ -6,12 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <title>新用户注册</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/commons/register.css">
-    <link rel="stylesheet" href="/css/commons/index.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/register.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/index.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <style>
         body {
             font-size: 18px;
@@ -34,7 +34,7 @@
     </div>
     <div class="row" style="margin-top: 100px;">
         <div class="col-md-offset-3 col-md-6">
-            <form action="/user" method="post" role="form">
+            <form action="${pageContext.request.contextPath}/user" method="post" role="form">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="Username" class="control-label">Username

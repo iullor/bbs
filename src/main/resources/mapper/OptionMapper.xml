@@ -43,19 +43,19 @@
             user.nick_name as nick_name,
             post.id        as post_id,
             post.post_title as post_title
-         from test_bbs.t_options op,
-              test_bbs.t_post post,
-              test_bbs.t_user user
+         from bbs.t_options op,
+              bbs.t_post post,
+              bbs.t_user user
          where op.id = #{id}
          and op.apply_user_id = user.id
          and op.post_id = post.id;
     </select>
     <delete id="deleteById" parameterType="java.lang.String">
-    delete from test_bbs.t_options
+    delete from bbs.t_options
     where id = #{id}
     </delete>
     <insert id="insert" parameterType="com.gyl.entity.Option">
-    insert into test_bbs.t_options (id, apply_user_id, handle_user_id, 
+    insert into bbs.t_options (id, apply_user_id, handle_user_id,
       apply_reason, apply_type, apply_time, 
       handle_time, post_id, topic_id, 
       board_id, remakes, `status`,brief
@@ -67,7 +67,7 @@
       )
   </insert>
     <update id="updateById" parameterType="com.gyl.entity.Option">
-        update test_bbs.t_options
+        update bbs.t_options
         set apply_user_id = #{applyUserId},
           `status` = #{status}
         where id = #{id}
@@ -79,13 +79,13 @@
     <select id="selectAllOptionsByStatus" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from test_bbs.t_options op where op.status=#{status} ;
+        from bbs.t_options op where op.status=#{status} ;
     </select>
 
     <select id="selectByApplyUserId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from test_bbs.t_options op
+        from bbs.t_options op
         where op.apply_user_id=#{applyUserId} order by apply_time desc
     </select>
 
@@ -123,15 +123,15 @@
             user.nick_name as nick_name,
             post.id        as post_id,
             post.post_title as post_title
-        from test_bbs.t_options op,
-             test_bbs.t_post post,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_post post,
+             bbs.t_user user
         where op.status = #{status}
         and op.apply_user_id = user.id
         and op.post_id = post.id order by op.apply_time desc;
     </select>
     <update id="updateOptionById" parameterType="com.gyl.entity.Option">
-        update test_bbs.t_options
+        update bbs.t_options
         set
         <if test="option.status!=null">status=#{option.status},</if>
         <if test="option.remakes!=null">remakes=#{option.remakes}</if>
@@ -150,9 +150,9 @@
             user.nick_name as nick_name,
             post.id        as post_id,
             post.post_title as post_title
-        from test_bbs.t_options op,
-             test_bbs.t_post post,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_post post,
+             bbs.t_user user
         where op.status >2
         and op.apply_user_id = user.id
         and op.post_id = post.id order by op.apply_time desc;
@@ -190,9 +190,9 @@
             user.nick_name as nick_name,
             topic.id        as topic_id,
             topic.topic_title as topic_title
-        from test_bbs.t_options op,
-             test_bbs.t_topic topic,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_topic topic,
+             bbs.t_user user
          where op.id = #{id}
          and op.apply_user_id = user.id
           and op.topic_id= topic.id;
@@ -208,9 +208,9 @@
             user.nick_name as nick_name,
             topic.id        as topic_id,
             topic.topic_title as topic_title
-        from test_bbs.t_options op,
-             test_bbs.t_topic topic,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_topic topic,
+             bbs.t_user user
         where op.status = #{status}
         and op.apply_user_id = user.id
         and op.topic_id= topic.id order by op.apply_time desc;
@@ -249,9 +249,9 @@
             user.nick_name as nick_name,
             board.id        as board_id,
             board.board_title as board_title
-        from test_bbs.t_options op,
-             test_bbs.t_board board,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_board board,
+             bbs.t_user user
          where op.id = #{id}
          and op.apply_user_id = user.id
          and op.board_id= board.id;
@@ -267,9 +267,9 @@
             user.nick_name as nick_name,
             board.id        as board_id,
             board.board_title as board_title
-        from test_bbs.t_options op,
-             test_bbs.t_board board,
-             test_bbs.t_user user
+        from bbs.t_options op,
+             bbs.t_board board,
+             bbs.t_user user
         where op.status = #{status}
         and op.apply_user_id = user.id
         and op.board_id= board.id order by op.apply_time desc;

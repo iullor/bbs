@@ -7,7 +7,7 @@
         values(#{id},#{title},#{createTime},#{logoPath},#{panelManagerId},#{info},#{detail},#{panelDisabled});
     </insert>
     <select id="list" resultMap="listPanel1">
-        select * from test_bbs.t_panel  order by create_time desc ;
+        select * from bbs.t_panel  order by create_time desc ;
     </select>
 
     <resultMap id="listPanel1" type="com.gyl.entity.Panel">
@@ -33,10 +33,10 @@
           a.area_title as area_title,
           post.id as post_id,
           post.post_title as post_title
-        from test_bbs.t_panel p
-          left outer join test_bbs.t_board b on b.panel_id =p.id
-          left outer join test_bbs.t_area a on b.id = a.board_id
-          left outer join test_bbs.t_post post on post.board_id=b.id
+        from bbs.t_panel p
+          left outer join bbs.t_board b on b.panel_id =p.id
+          left outer join bbs.t_area a on b.id = a.board_id
+          left outer join bbs.t_post post on post.board_id=b.id
         order by p.create_time asc
     </select>
     <resultMap id="listPanel2" type="com.gyl.entity.Panel">
@@ -60,7 +60,7 @@
 
 
     <update id="update" parameterType="com.gyl.entity.Panel">
-        update test_bbs.t_panel
+        update bbs.t_panel
         <set>
             <if test="title != null">title=#{title},</if>
             <if test="createTime != null">create_time=#{createTime},</if>
@@ -73,11 +73,11 @@
         where id=#{id};
     </update>
     <delete id="delete">
-        delete from test_bbs.t_panel where id=#{pid}
+        delete from bbs.t_panel where id=#{pid}
     </delete>
 
     <select id="getPanelById" resultType="com.gyl.entity.Panel" resultMap="listPanel1">
-        select * from test_bbs.t_panel p where id=#{pid}
+        select * from bbs.t_panel p where id=#{pid}
     </select>
 
     <select id="selectPanelById" resultMap="listPanel3">
@@ -102,9 +102,9 @@
           a.details as area_details,
           a.area_title as area_title,
           a.create_time as area_create_time
-         from test_bbs.t_panel p
-            left outer join test_bbs.t_board b on p.id = b.panel_id
-            left outer join test_bbs.t_area a on b.id = a.board_id
+         from bbs.t_panel p
+            left outer join bbs.t_board b on p.id = b.panel_id
+            left outer join bbs.t_area a on b.id = a.board_id
          where p.id=#{pid}
     </select>
 
@@ -134,7 +134,7 @@
         </collection>
     </resultMap>
     <select id="searchByPanelTitle" resultMap="listPanel1">
-        select * from test_bbs.t_panel
+        select * from bbs.t_panel
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="title != null">
                 title = #{title}
@@ -160,11 +160,11 @@
            b.board_title as board_title,
            b.logo_path as board_logo_path,
            b.create_time as board_crate_time
-        from test_bbs.t_panel p,test_bbs.t_board b
+        from bbs.t_panel p,bbs.t_board b
         where p.id=b.panel_id and p.panel_disabled>0 order by p.create_time desc;
     </select>
     <select id="listByPanelManagerId" resultMap="listPanel1">
-        select * from test_bbs.t_panel p where p.user_manager_id=#{id} order by p.create_time asc;
+        select * from bbs.t_panel p where p.user_manager_id=#{id} order by p.create_time asc;
     </select>
 
     <select id="countPostNumberByPanelId" resultType="integer">

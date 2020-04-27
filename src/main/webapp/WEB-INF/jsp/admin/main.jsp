@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理页面首页</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin.css">
     <!--js-->
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
         #pageContainer {
             top: 50px;
@@ -31,7 +31,7 @@
                             data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <a class="navbar-brand" href="/admin/main">管理员界面</a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/main">管理员界面</a>
                 </div>
                 <div class="navbar-right">
                     <div class="dropdown" style=";margin-top: 10px;margin-right: 20px">
@@ -41,8 +41,8 @@
                             操作<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="/index">主页面</a></li>
-                            <li><a href="/admin/logout">注销</a></li>
+                            <li><a href="${pageContext.request.contextPath}/index">主页面</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/logout">注销</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,7 +55,9 @@
             <ul>
                 <li class="text-center" style="margin-left: -80px">
                     <a href="#">
-                        <img src="" width="60" height="60" value='${sessionScope.ADMIN_USER.userBaseInfo.headImage}'
+                        <img src="" width="60" height="60"
+                             value='${sessionScope.ADMIN_USER.userBaseInfo.headImage}'
+                             path="${pageContext.request.contextPath}"
                              class="showUserHeadImg"/>
                     </a>
                     <span>
@@ -63,12 +65,12 @@
                     </span>
                 </li>
                 <li id="system">
-                    <a href="/admin/system/info">
+                    <a href="${pageContext.request.contextPath}/admin/system/info">
                         <span class="glyphicon glyphicon-cog"></span>系统<span></span>
                     </a>
                 </li>
                 <li id="public">
-                    <a href="/admin/notice">
+                    <a href="${pageContext.request.contextPath}/admin/notice">
                         <span class="glyphicon glyphicon-volume-up"></span>公告板<span></span>
                     </a>
                 </li>
@@ -78,8 +80,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/topic/input/0">新建</a></li>
-                            <li><a href="/admin/topic">列表</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/topic/input/0">新建</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/topic">列表</a></li>
                         </ul>
                     </div>
                 </li>
@@ -91,7 +93,7 @@
                         </a>
                         <div>
                             <ul>
-                                <li><a href="/admin/panel">列表</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/panel">列表</a></li>
                             </ul>
                         </div>
                     </li>
@@ -104,7 +106,7 @@
                         </a>
                         <div>
                             <ul>
-                                <li><a href="/admin/board">列表</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/board">列表</a></li>
                             </ul>
                         </div>
                     </li>
@@ -116,7 +118,7 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/area">列表</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/area">列表</a></li>
                         </ul>
                     </div>
                 </li>
@@ -127,8 +129,8 @@
                     </a>
                     <div id="postManager">
                         <ul>
-                            <li><a href="/admin/post">列表</a></li>
-                            <li><a href="/admin/post/input/0">添加类型</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/post">列表</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/post/input/0">添加类型</a></li>
                         </ul>
                     </div>
                 </li>
@@ -140,8 +142,8 @@
                         </a>
                         <div id="userManager">
                             <ul>
-                                <li><a href="/admin/user">用户列表</a></li>
-                                <%--<li><a href="/admin/user/brokeRolesUser">违规用户</a></li>--%>
+                                <li><a href="${pageContext.request.contextPath}/admin/user">用户列表</a></li>
+                                <%--<li><a href="${pageContext.request.contextPath}/admin/user/brokeRolesUser">违规用户</a></li>--%>
                             </ul>
                         </div>
                     </li>
@@ -154,10 +156,10 @@
                     <div>
                         <ul>
                             <c:if test="${sessionScope.ADMIN_USER.userAccountStatus.role<3}">
-                                <li><a href="/admin/check/boardManager">版主申请</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/check/boardManager">版主申请</a></li>
                             </c:if>
-                            <li><a href="/admin/check/myTopicUp">话题申请</a></li>
-                            <li><a href="/admin/check/post">贴子的申请</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/check/myTopicUp">话题申请</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/check/post">贴子的申请</a></li>
                         </ul>
                     </div>
                 </li>
@@ -169,8 +171,8 @@
                         </a>
                         <div>
                             <ul>
-                                <li><a href="/admin/permission">列表</a></li>
-                                <li><a href="/admin/permission/input/0">设置权限</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/permission">列表</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/permission/input/0">设置权限</a></li>
                             </ul>
                         </div>
                     </li>
@@ -181,8 +183,8 @@
                     </a>
                     <div>
                         <ul>
-                            <li><a href="/admin/feedback">反馈列表</a></li>
-                            <li><a href="/admin/feedback/input/0">回复</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/feedback">反馈列表</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/feedback/input/0">回复</a></li>
                         </ul>
                     </div>
                 </li>--%>
@@ -194,7 +196,7 @@
     </div>
     <!--内容-->
     <div id="pageContainer" class="col-md-10  pull-right">
-        <iframe src="/admin/system/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
+        <iframe src="${pageContext.request.contextPath}/admin/system/info" frameborder="0" scrolling="no" id="external-frame" width="100%"
                 onload="setIframeHeight(this)" style="margin-left: -30px;"></iframe>
     </div>
 </div>

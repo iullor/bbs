@@ -4,21 +4,22 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <!--login的模态框-->
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
-    <link rel="stylesheet" href="/lib/bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modal/modal_login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bxslider/jquery.bxslider.css">
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
-        <link id="navbar-top" rel="stylesheet" href="/css/commons/sidebar_left.css">
+        <link id="navbar-top" rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link id="navbar-top" rel="stylesheet" href="/css/commons/sidebar_left-pink.css">
+        <link id="navbar-top" rel="stylesheet"
+              href="${pageContext.request.contextPath}/css/commons/sidebar_left-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <header class="navbar navbar-fixed-top">
@@ -32,12 +33,12 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="/index.jsp">
+                    <a class="navbar-brand logo" href="${pageContext.request.contextPath}/index.jsp">
                     </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
-                        <form id="searchForm" action="/search">
+                        <form id="searchForm" action="${pageContext.request.contextPath}/search">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="search" name="keyword" placeholder="Search">
                             </div>
@@ -56,9 +57,9 @@
                     </div>
                 </div>
                 <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <a href="${pageContext.request.contextPath}/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
                     <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle"><span
+                        <a href="${pageContext.request.contextPath}/person/myCircle"><span
                                 class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
                     </c:if>
                 </div>
@@ -78,19 +79,21 @@
                                    aria-haspopup="true" aria-expanded="false">
                                     <img src="" width="40" height="40"
                                          value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
+                                         path="${pageContext.request.contextPath}"
                                          class="showUserHeadImg"/>
                                     <span class="caret" style="margin-left: 13px;"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/account">账户</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/info">基本信息</a></li>
                                     <li><a href="#">我的创作</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">添加</a></li>
                                     <li><a href="#">维修</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="${pageContext.request.contextPath}/logout">注销<span
+                                            class="glyphicon glyphicon-log-in"></span></a>
                                     </li>
                                 </ul>
                                 <br>
@@ -107,7 +110,7 @@
     {{:users}}
     {{else}}
         <p>
-            <a href="/account/{{:id}}">
+            <a href="${pageContext.request.contextPath}/account/{{:id}}">
                 <img src="" height="30" width="30"
                      style="margin-left: 1%;border: 1px solid blue;" value="{{:userBaseInfo.headImage}}"
                      alt="">
@@ -121,13 +124,15 @@
 
 
 
+
+
 </script>
 <script type="text/x-jsrender" id="renderArea">
     {{for areas}}
     {{:areas}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/area/{{:id}}">
+            <a href="${pageContext.request.contextPath}/area/{{:id}}">
                 <span style="margin-right:1%"  class="text-success pull-right">
                      分区
                 </span>
@@ -140,13 +145,15 @@
 
 
 
+
+
 </script>
 <script type="text/x-jsrender" id="renderPost">
     {{for posts}}
     {{:posts}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/post/{{:id}}">
+            <a href="${pageContext.request.contextPath}/post/{{:id}}">
                 <span style="margin-left: 1%">
                    {{:postTitle}}
                 </span>
@@ -159,13 +166,15 @@
 
 
 
+
+
 </script>
 <script type="text/x-jsrender" id="renderTopic">
      {{for topics}}
     {{:topics}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/public/{{:id}}">
+            <a href="${pageContext.request.contextPath}/public/{{:id}}">
                 <span style="margin-left: 2%">
                     {{:topicTitle}}
                 </span>
@@ -175,6 +184,8 @@
              </a>
           </p>
     {{/for}}
+
+
 
 
 
@@ -197,7 +208,7 @@
             if (keyword !== null && keyword !== '' && keyword !== 'undefined') {
                 //发送ajax请求
                 $.ajax({
-                    url: '/search/asynchronous/' + keyword,
+                    url: '${pageContext.request.contextPath}/search/asynchronous/' + keyword,
                     type: 'get',
                     success: function (data) {
                         console.log("成功查询----")
@@ -274,7 +285,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form action="/checkLogon" method="get">
+                <form action="${pageContext.request.contextPath}/checkLogon" method="get">
                     <div class="form-group">
                         <label for="username" class="control-label">
                             <small>用户名</small>

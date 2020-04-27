@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
         body {
             margin-top: 50px;
@@ -28,7 +28,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="/person/topic" method="post" id="topic">
+                    <form action="${pageContext.request.contextPath}/person/topic" method="post" id="topic">
                         <%--用来隐藏话题配图的路径--%>
                         <input type="hidden" name="topicPicture"/>
                         <div class="form-group">
@@ -64,7 +64,7 @@
                         配图
                     </label>
                     <p style="z-index: -10;margin-left: 50px;margin-top: 30px">
-                        <img id="showPicture" src="/images/topic/default.png" value="" width="480" height="270"
+                        <img id="showPicture" src="${pageContext.request.contextPath}/images/topic/default.png" value="" width="480" height="270"
                              srcset="">
                     </p>
                 </div>
@@ -78,7 +78,7 @@
         $(":file").on("change", function () {
             var form = new FormData(document.getElementById("topic"));
             $.ajax({
-                url: "/person/topic/uploadPicture",
+                url: "${pageContext.request.contextPath}/person/topic/uploadPicture",
                 type: "post",
                 data: form,
                 processData: false,

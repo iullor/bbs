@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <title>区域增加</title>
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
     <script src="../../../../lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../../../lib/bootstrap-switch/bootstrap-switch.min.js"></script>
     <link rel="stylesheet" href="../../../../css/admin/admin_pages.css">
     <style>
@@ -44,7 +44,7 @@
     <div class="row">
         <div id="addModel" class="col-md-offset-2 col-md-8">
             <h2 class="text-left" style="margin-bottom: 50px"></h2>
-            <form:form action="/admin/area" method="post" modelAttribute="area">
+            <form:form action="${pageContext.request.contextPath}/admin/area" method="post" modelAttribute="area">
                 <c:if test="${not empty area.id}">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden path="id"/>

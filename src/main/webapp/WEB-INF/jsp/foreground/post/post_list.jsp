@@ -6,21 +6,21 @@
 <head>
     <meta charset="UTF-8">
     <title>post</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/commons.css">
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
-        <link rel="stylesheet" href="/css/post/post_list.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/post/post_list.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/post/post_list-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/post/post_list-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <!--动态添加留言的对话框-->
-    <script src="/lib/ueditor/ueditor.config.js"></script>
-    <script src="/lib/ueditor/ueditor.all.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.config.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/ueditor/ueditor.all.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
@@ -29,10 +29,10 @@
         <!--路径导航栏-->
         <div class="row post-nav">
             <ol class="breadcrumb">
-                <li><a href="/index">首页</a></li>
-                <li><a href="/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
-                <li><a href="/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
-                <li><a href="/area/${topNavbarInfo.areaId}">${topNavbarInfo.areaTitle}</a></li>
+                <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
+                <li><a href="${pageContext.request.contextPath}/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
+                <li><a href="${pageContext.request.contextPath}/area/${topNavbarInfo.areaId}">${topNavbarInfo.areaTitle}</a></li>
                 <li class="active">${topNavbarInfo.postTitle}</li>
             </ol>
         </div>
@@ -42,7 +42,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
                             <a href="#">
-                                <img src="/images/路飞.jpg" class="showUserHeadImg"
+                                <img src="" class="showUserHeadImg"
+                                     path="${pageContext.request.contextPath}"
                                      value="${post.user.userBaseInfo.headImage}"/></a>
                             <p><a href="#">${post.user.nickName}</a></p>
                         </div>
@@ -123,12 +124,13 @@
                                                             ${(pageResult.currentPage-1)*pageResult.pageSize+i.index+1}楼
                                                     </span>
                                                     <a href="#">
-                                                        <img src="/images/哈士奇.jpg" class="showUserHeadImg"
+                                                        <img src="" class="showUserHeadImg"
+                                                             path="${pageContext.request.contextPath}"
                                                              value="${comment.user.userBaseInfo.headImage}"
                                                              width="60" height="60">
                                                     </a>
                                                     <span>
-                                                                <a href="/account/${comment.user.id}">${comment.user.nickName}</a></span>
+                                                                <a href="${pageContext.request.contextPath}/account/${comment.user.id}">${comment.user.nickName}</a></span>
                                                 </div>
                                                 <p></p>
                                             </div>
@@ -171,15 +173,16 @@
                                                                     <div class="panel-body panel-comment">
                                                                         <div class="media">
                                                                             <div class="media-left">
-                                                                                <a href="/account/${reply.user.id}">
+                                                                                <a href="${pageContext.request.contextPath}/account/${reply.user.id}">
                                                                                     <img
                                                                                             class="showUserHeadImg"
-                                                                                            src="/images/favicon.ico"
+                                                                                            src="${pageContext.request.contextPath}/images/favicon.ico"
                                                                                             width="50"
                                                                                             height="50"
+                                                                                            path="${pageContext.request.contextPath}"
                                                                                             value="${reply.user.userBaseInfo.headImage}"></a>
                                                                                 <small><a
-                                                                                        href="/account/${reply.user.id}">${reply.user.nickName}</a>
+                                                                                        href="${pageContext.request.contextPath}/account/${reply.user.id}">${reply.user.nickName}</a>
                                                                                 </small>
                                                                             </div>
                                                                             <div class="media-body media-middle">
@@ -254,7 +257,7 @@
                             </div>
                             <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                                     <%--跳转的框--%>
-                                <form id="goPage" action="/post/${post.id}" method="get">
+                                <form id="goPage" action="${pageContext.request.contextPath}/post/${post.id}" method="get">
                                     <input type="hidden" name="currentPage">
                                     <input type="hidden" name="pageSize">
                                 </form>
@@ -274,7 +277,7 @@
                 </c:choose>
             </div>
             <div class="row" style="width: 1150px;margin-left: 10px">
-                <form id="myInput" action="/comment" method="post">
+                <form id="myInput" action="${pageContext.request.contextPath}/comment" method="post">
                     <%--当前用户--%>
                     <input type="hidden" name="userId">
                     <input type="hidden" name="postUserId" value="${post.userId}">
@@ -313,7 +316,7 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <form action="/checkLogon" method="get">
+                        <form action="${pageContext.request.contextPath}/checkLogon" method="get">
                             <div class="form-group">
                                 <label for="username" class="control-label">
                                     <small>用户名</small>
@@ -333,7 +336,6 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -378,7 +380,7 @@
             let num = 0;
             if (parten.match("glyphicon-thumbs-up-done") == null) {
                 $.ajax({
-                    url: "/post/update/praise/" + 1,
+                    url: "${pageContext.request.contextPath}/post/update/praise/" + 1,
                     type: "post",
                     contentType: "application/json",
                     data: JSON.stringify(id),
@@ -393,7 +395,7 @@
             } else {
                 //取消点赞
                 $.ajax({
-                    url: "/post/update/praise/" + 0,
+                    url: "${pageContext.request.contextPath}/post/update/praise/" + 0,
                     type: "post",
                     contentType: "application/json",
                     data: JSON.stringify(id),
@@ -429,7 +431,7 @@
             //如果当前的样式没有收藏，就发送收藏
             if (currentClass.match("btn-success") == null) {
                 $.ajax({
-                    url: "/collection/post/" + 1,
+                    url: "${pageContext.request.contextPath}/collection/post/" + 1,
                     type: "post",
                     data: JSON.stringify(obj3),
                     contentType: "application/json",
@@ -447,7 +449,7 @@
             } else {
                 //取消收藏
                 $.ajax({
-                    url: "/collection/post/" + 0,
+                    url: "${pageContext.request.contextPath}/collection/post/" + 0,
                     type: "post",
                     data: JSON.stringify(obj3),
                     contentType: "application/json",
@@ -477,7 +479,7 @@
             //如果当前的样式没有绿色，就发送关注
             if (currentClass.match("btn-success") == null) {
                 $.ajax({
-                    url: "/collection/user/" + 1,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 1,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -496,7 +498,7 @@
             } else {
                 //取消关注
                 $.ajax({
-                    url: "/collection/user/" + 0,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 0,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -529,7 +531,7 @@
                 userId: curPostUserId
             }
             $.ajax({
-                url: '/collection/user',
+                url: '${pageContext.request.contextPath}/collection/user',
                 type: 'post',
                 data: JSON.stringify(obj1),
                 contentType: "application/json",
@@ -551,7 +553,7 @@
                 postId: curPostId
             }
             $.ajax({
-                url: '/collection/post',
+                url: '${pageContext.request.contextPath}/collection/post',
                 type: 'post',
                 data: JSON.stringify(obj2),
                 contentType: "application/json",
@@ -608,9 +610,9 @@
         editor.addListener('selectionchange', function () {
             var currentContent = editor.getContentTxt();
             if (currentContent.match("回复@")) {
-                $("#myInput").attr("action", "/comment/reply");
+                $("#myInput").attr("action", "${pageContext.request.contextPath}/comment/reply");
             } else {
-                $("#myInput").attr("action", "/comment");
+                $("#myInput").attr("action", "${pageContext.request.contextPath}/comment");
             }
         })
         var isComment = '${post.banComment}'

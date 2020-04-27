@@ -54,12 +54,12 @@
             b.board_title,
             u.id,
             u.username
-            from test_bbs.t_area a
-            left outer join test_bbs.t_board b   on b.id=a.board_id
-            left outer join test_bbs.t_user u   on u.id =a.user_id
+            from bbs.t_area a
+            left outer join bbs.t_board b   on b.id=a.board_id
+            left outer join bbs.t_user u   on u.id =a.user_id
     </select>
     <update id="update" parameterType="com.gyl.entity.Area">
-        update test_bbs.t_area
+        update bbs.t_area
         <set>
             <if test="areaTitle!=null ">area_title=#{areaTitle},</if>
             <if test="createTime!=null">create_time=#{createTime},</if>
@@ -72,14 +72,14 @@
     </update>
 
     <insert id="add" parameterType="com.gyl.entity.Area">
-           insert into test_bbs.t_area
+           insert into bbs.t_area
               (id,area_title,create_time,board_id,user_id,info,details)
               values
           (#{id},#{areaTitle},#{createTime},#{boardId},#{areaManagerId},#{info},#{details});
     </insert>
 
     <delete id="delete">
-          delete from test_bbs.t_area where id=#{id}
+          delete from bbs.t_area where id=#{id}
     </delete>
 
 
@@ -133,10 +133,10 @@
            post.up as up,
            post.secret
         from
-           test_bbs.t_area a
-                  left outer join  test_bbs.t_board b    on  a.board_id = b.id
-                  left outer join  test_bbs.t_user u     on a.user_id = u.id
-                  left outer join  test_bbs.t_post post  on a.id=post.area_id
+           bbs.t_area a
+                  left outer join  bbs.t_board b    on  a.board_id = b.id
+                  left outer join  bbs.t_user u     on a.user_id = u.id
+                  left outer join  bbs.t_post post  on a.id=post.area_id
         where a.id=#{id} and post.secret&lt;1 order by post.up desc , post.create_time desc ;
     </select>
     <!--只查分区必要的信息-->
@@ -154,9 +154,9 @@
            u.id as area_manager_id,
            u.nick_name as area_manager_nick_name
         from
-           test_bbs.t_area a
-                  left outer join  test_bbs.t_board b    on  a.board_id = b.id
-                  left outer join  test_bbs.t_user u     on a.user_id = u.id
+           bbs.t_area a
+                  left outer join  bbs.t_board b    on  a.board_id = b.id
+                  left outer join  bbs.t_user u     on a.user_id = u.id
         where a.id=#{id} ;
     </select>
 
@@ -164,7 +164,7 @@
         先查出所有的boardId，之后再子查询出所有的来查询areas
     -->
     <select id="getAreasByBoardId" resultType="com.gyl.entity.Area">
-        select * from test_bbs.t_area where board_id=#{boardId};
+        select * from bbs.t_area where board_id=#{boardId};
     </select>
     <select id="listAreasByAllBoardId" resultMap="areaResultMap">
             select area.id,
@@ -178,13 +178,13 @@
                 board.board_title,
                 user.id,
                 user.username
-            from test_bbs.t_area area,
-                 test_bbs.t_user user,
-                 test_bbs.t_board board
+            from bbs.t_area area,
+                 bbs.t_user user,
+                 bbs.t_board board
             where board_id in (
-                select b.id from test_bbs.t_board b
+                select b.id from bbs.t_board b
                         where panel_id in (
-                            select id from test_bbs.t_panel where user_manager_id = #{id}))
+                            select id from bbs.t_panel where user_manager_id = #{id}))
             and area.user_id = user.id
             and area.board_id = board.id;
     </select>
@@ -193,15 +193,15 @@
     <select id="listAreasByManagerId" resultMap="areaResultMap">
         select
         <include refid="base_column"/>
-        from test_bbs.t_area area,
-        test_bbs.t_board board,
-        test_bbs.t_user user
+        from bbs.t_area area,
+        bbs.t_board board,
+        bbs.t_user user
         where board.user_id = #{id}
         and area.board_id = board.id
         and user.id = area.user_id;
     </select>
 
     <select id="countPostNumberByAreaId" resultType="integer">
-        select count(id) from test_bbs.t_post post where post.area_id=#{areaId}
+        select count(id) from bbs.t_post post where post.area_id=#{areaId}
     </select>
 </mapper>

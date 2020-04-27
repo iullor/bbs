@@ -6,20 +6,20 @@
 <head>
     <title>话题</title>
     <!--sidebar-left样式-->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
 
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
-        <link rel="stylesheet" href="/css/topic.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/topic.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/topic-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/topic-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
     <!--控制侧栏-->
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
         .glyphicon-thumbs-up-done {
             color: rgba(255, 0, 0, 0.97);
@@ -31,7 +31,7 @@
 <div class="container">
     <div style="position: fixed;bottom: 200px;right: 50px;background-color: white;height: 80px;width: 80px;text-align: center;padding-top: 15px;">
         <div>
-            <img src="/images/nav/discussion.png" class="join-discuss" width="30" height="30"><br>
+            <img src="${pageContext.request.contextPath}/images/nav/discussion.png" class="join-discuss" width="30" height="30"><br>
             <label>加入讨论</label>
         </div>
     </div>
@@ -39,14 +39,16 @@
         <h3>
             <a href="#" style="color: red;">#####${topic.topicTitle}#####</a>
             <span class="pull-right">
-                <img src="/images/public/hot1.png" width="50" height="50" alt="">
+                <img src="${pageContext.request.contextPath}/images/public/hot1.png" width="50" height="50" alt="">
             </span>
         </h3>
     </div>
     <div class="row text-left topic-show">
         <div class="col-md-8" style="height: 300px;padding-top: 10px;">
             <p style="padding-left: 50px">
-                <img src="/images/topic/default.png" class="showUserHeadImg" value="${topic.topicPicture}" alt=""
+                <img src="${pageContext.request.contextPath}/images/topic/default.png"
+                     path="${pageContext.request.contextPath}"
+                     class="showUserHeadImg" value="${topic.topicPicture}" alt=""
                      width="480" height="270">
             </p>
         </div>
@@ -54,7 +56,8 @@
              style="height: 300px;margin-top:-8px;background-color: white;border-bottom: 2px solid #f5f5f5;padding-top: -10px;">
             <div class="text-center" style=" width:105%;margin-left: 0px;margin-top: -5px;border-radius: 10px">
                 <a href="#">
-                    <img src="/images/路飞.jpg" class="showUserHeadImg" width="150" height="150"
+                    <img src="${pageContext.request.contextPath}/images/路飞.jpg" class="showUserHeadImg" width="150" height="150"
+                         path="${pageContext.request.contextPath}"
                          value="${topic.user.userBaseInfo.headImage}" style="margin-top: 20px;margin-left: -30px;"/></a>
                 <p style="margin-top: 10px;margin-left: -20px;"><a href="#">${topic.user.nickName}</a></p>
             </div>
@@ -91,8 +94,10 @@
             <c:forEach items="${discusses}" var="discuss">
                 <div class="row discuss">
                     <div class="col-md-2 text-center" style="padding-top: 20px">
-                        <a href="/account/${discuss.userId}">
-                            <img src="/images/路飞.jpg" class="img-circle showUserHeadImg"
+                        <a href="${pageContext.request.contextPath}/account/${discuss.userId}">
+                            <img src="${pageContext.request.contextPath}/images/路飞.jpg"
+                                 class="img-circle showUserHeadImg"
+                                 path="${pageContext.request.contextPath}"
                                  value="${discuss.user.userBaseInfo.headImage}" width="100" height="100" alt="">
                         </a>
                         <p>
@@ -190,7 +195,7 @@
             </div>
             <div class="col-md-4" style="margin-left:0px;height: 78px;padding-top: 10px;">
                 <%--跳转的框--%>
-                <form id="goPage" action="/public/${topic.id}" method="get">
+                <form id="goPage" action="${pageContext.request.contextPath}/public/${topic.id}" method="get">
                     <input type="hidden" name="currentPage">
                     <input type="hidden" name="pageSize">
                 </form>
@@ -205,7 +210,7 @@
     <%--输入框--%>
     <div class="row form-input">
         <label>请输入</label>
-        <form action="/discuss" id="discuss" method="post">
+        <form action="${pageContext.request.contextPath}/discuss" id="discuss" method="post">
             <div class="form-group text-right" style="margin-bottom: 2px">
                 <input type="hidden" name="discussPictures">
                 <input type="hidden" name="topicId" value="${topic.id}">
@@ -243,7 +248,7 @@
             </div>
             <div class="modal-footer">
                 <h5 class="text-left" id="replyToWho"></h5>
-                <form action="/discuss/reply" method="post">
+                <form action="${pageContext.request.contextPath}/discuss/reply" method="post">
                     <div class="form-group">
                         <input type="hidden" name="toDiscussId">
                         <input type="hidden" name="toUserId">
@@ -307,7 +312,7 @@
                 <h4 id="toWho"></h4>
             </div>
             <div class="modal-body">
-                <form action="/discuss/reply" method="post">
+                <form action="${pageContext.request.contextPath}/discuss/reply" method="post">
                     <div class="form-group">
                         <input type="hidden" name="toDiscussId">
                         <input type="hidden" name="toUserId">
@@ -412,7 +417,7 @@
         $(":file").on("change", function () {
             var form = new FormData(document.getElementById("discuss"));
             $.ajax({
-                url: "/discuss/uploadImages/",
+                url: "${pageContext.request.contextPath}/discuss/uploadImages/",
                 type: "post",
                 data: form,
                 processData: false,
@@ -426,7 +431,7 @@
                         let beginIndex = path.indexOf("/upload/");
                         let endIndex = path.length;
                         let src = path.substring(beginIndex, endIndex);
-                        $(".showUploadImages").append("<img src=" + src + " width='150' height='150'>")
+                        $(".showUploadImages").append("<img src=bbs/" + src + " width='150' height='150'>")
                         //拼接多张字符串给属性
                         discussPictures = discussPictures + path + "|";
                         alert(discussPictures)
@@ -479,7 +484,7 @@
             //如果当前的样式没有绿色，就发送关注
             if (currentClass.match("btn-success") == null) {
                 $.ajax({
-                    url: "/collection/user/" + 1,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 1,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -498,7 +503,7 @@
             } else {
                 //取消关注
                 $.ajax({
-                    url: "/collection/user/" + 0,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 0,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -563,7 +568,7 @@
             if (parten.match("glyphicon-thumbs-up-done") == null) {
                 //给一个标志位，将该对象保存，在ajax调用
                 $.ajax({
-                    url: "/discuss/update/praise/" + 1,
+                    url: "${pageContext.request.contextPath}/discuss/update/praise/" + 1,
                     type: "post",
                     contentType: "application/json",
                     data: JSON.stringify(id),
@@ -580,7 +585,7 @@
             } else {
                 //取消点赞
                 $.ajax({
-                    url: "/discuss/update/praise/" + 0,
+                    url: "${pageContext.request.contextPath}/discuss/update/praise/" + 0,
                     type: "post",
                     contentType: "application/json",
                     data: JSON.stringify(id),
@@ -644,7 +649,7 @@
             $("#comment-input-list input:hidden:nth-child(2)").val(toUserId)
             $("#comment-input-list input:hidden:nth-child(3)").val(topicId)
             $.ajax({
-                url: '/discuss/reply/list/' + discussId,
+                url: '${pageContext.request.contextPath}/discuss/reply/list/' + discussId,
                 type: 'get',
                 success: function (data) {
                     //返回的是一个回复的集合
@@ -661,7 +666,7 @@
                         let beginIndex = originSrc.lastIndexOf("/upload");
                         let endIndex = originSrc.length;
                         let src = originSrc.substring(beginIndex, endIndex);
-                        $(this).attr("src", src);
+                        $(this).attr("src", '${pageContext.request.contextPath}'+src);
                     });
                 }
             })

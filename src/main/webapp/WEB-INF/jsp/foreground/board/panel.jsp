@@ -6,18 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <title>${panel.title}</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/panel/panel.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/panel/panel.css">
     <!--引入一些样式-->
-    <link rel="stylesheet" href="/css/commons/top.css">
-    <link rel="stylesheet" href="/css/modal/modal_login.css">
-    <link rel="stylesheet" href="/css/commons/sidebar_left.css">
-    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/top.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modal/modal_login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/board/board.css">
 
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/foreground/commons/top-navbar.jsp"/>
@@ -27,7 +27,7 @@
             <!--路径导航栏-->
             <div class="row border-nav">
                 <ol class="breadcrumb">
-                    <li><a href="/index">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
                     <li class="active">${panel.title}</li>
                 </ol>
             </div>
@@ -37,7 +37,9 @@
                         <div class="row panel-message">
                             <div class="col-md-4">
                                 <div class="panel-logo text-center">
-                                    <img src="" alt="" value="${panel.logoPath}" class="showUserHeadImg" width="250"
+                                    <img src="" alt="" value="${panel.logoPath}"
+                                         class="showUserHeadImg" width="250"
+                                         path="${pageContext.request.contextPath}"
                                          height="250">
                                     <br>
                                     <div class="logo-title">
@@ -70,7 +72,7 @@
                                     <c:forEach items="${panel.hotPosts}" var="post">
                                         <p>
                                         <span>
-                                            <a href="/post/${post.id}"><span
+                                            <a href="${pageContext.request.contextPath}/post/${post.id}"><span
                                                     class="glyphicon glyphicon-option-vertical"></span>
                                                     ${post.postTitle}
                                             </a>
@@ -89,7 +91,7 @@
                             <c:forEach items="${panel.boards}" var="b" varStatus="i">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <span class="lead"><a href="/board/${b.id}">${b.boardTitle}</a></span>
+                                        <span class="lead"><a href="${pageContext.request.contextPath}/board/${b.id}">${b.boardTitle}</a></span>
                                         <div class="pull-right">
                                             <a role="button" data-toggle="collapse" href="#collapse${i.index}"
                                                aria-expanded="true"
@@ -102,7 +104,7 @@
                                             <c:forEach items="${b.areas}" var="a">
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <a href="/area/${a.id}">[${a.areaTitle}]</a>
+                                                        <a href="${pageContext.request.contextPath}/area/${a.id}">[${a.areaTitle}]</a>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <p class="text-info">[贴子数]:1354</p>

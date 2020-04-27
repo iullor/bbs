@@ -6,7 +6,7 @@
     </resultMap>
     <!--根据用户名查用户-->
     <select id="searchUserByNickName" resultMap="userMap">
-        select id,nick_name,head_image from test_bbs.t_user where nick_name like "%"#{nickName}"%"
+        select id,nick_name,head_image from bbs.t_user where nick_name like "%"#{nickName}"%"
     </select>
     <select id="searchPostByPostTitle" resultType="com.gyl.entity.Post">
         select id ,left(post_title,15) post_title from t_post where post_title like "%"#{postTitle}"%"

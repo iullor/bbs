@@ -6,31 +6,31 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/commons/logon.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/logon.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h3>BBS-Student</h3>
 <p class="pull-right" style="margin-top: -40px;margin-right: 30px">
-    <a href="/admin/logon"><span>管理员访问</span></a>
+    <a href="${pageContext.request.contextPath}/admin/logon"><span>管理员访问</span></a>
 </p>
 
 <div class="container">
     <div class="form-logon">
-        <form action="/checkLogon" method="get">
+        <form action="${pageContext.request.contextPath}/checkLogon" method="get">
             <p class="text-red" id="logon-info"></p>
             <lable><strong>用户名</strong></lable>
             <input type="text" class="form-control" name="username">
             <label>密码</label>
-            <span class="text-right"><a href="/resetPassword"><small
+            <span class="text-right"><a href="${pageContext.request.contextPath}/resetPassword"><small
                     class="pull-right">忘记密码？</small></a></span>
             <input type="password" class="form-control" name="password">
             <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-            <span><a href="/index">游客访问</a></span>
-            <span><a href="/register">新用户注册</a></span>
+            <span><a href="${pageContext.request.contextPath}/index">游客访问</a></span>
+            <span><a href="${pageContext.request.contextPath}/register">新用户注册</a></span>
 
         </form>
     </div>

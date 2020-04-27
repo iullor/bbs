@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>用户信息查询</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bootstrap-switch/bootstrap-switch.min.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/jd/bootstrap.min.js"></script>
-    <script src="/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <link rel="stylesheet" href="/css/admin/admin_pages.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/jd/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/admin_pages.css">
     <style>
         .options {
             /*border: 2px solid grey;*/
@@ -39,12 +39,12 @@
     <%--操作栏--%>
     <div class="row text-center">
         <div class="col-md-1">
-            <%-- <a href="/admin/user/toAdd">
+            <%-- <a href="${pageContext.request.contextPath}/admin/user/toAdd">
                  <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> 增加管理员
                  </button>
              </a>--%>
         </div>
-        <form action="/admin/user/searchByNickName" method="get">
+        <form action="${pageContext.request.contextPath}/admin/user/searchByNickName" method="get">
             <div class="col-md-offset-7 col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control" name="nickName" placeholder="用户名">
@@ -85,7 +85,7 @@
                         <c:when test="${empty users}">
                             <tr>
                                 <td colspan="7">
-                                    当前没有一个用户,前去<a href="/register">注册</a>吧
+                                    当前没有一个用户,前去<a href="${pageContext.request.contextPath}/register">注册</a>吧
                                 </td>
                             </tr>
                         </c:when>
@@ -97,15 +97,15 @@
                                     <td>${u.username}</td>
                                     <td>
                                         <a href="" target="_Blank">
-                                            <img src="" value='${u.userBaseInfo.headImage}'
+                                            <img src="" value='${pageContext.request.contextPath}/${u.userBaseInfo.headImage}'
                                                  width="50"
                                                  height="50" alt="点击查看大图">
                                         </a>
                                     </td>
                                     <td><a href="#">${u.posts.size()}</a></td>
-                                    <td><a href="/admin/user/userBaseInfo/${u.id}">查看</a></td>
-                                    <td><a href="/admin/user/loginStatus/${u.id}">查看</a></td>
-                                    <td><a href="/admin/user/options/${u.id}">修改</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/admin/user/userBaseInfo/${u.id}">查看</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/admin/user/loginStatus/${u.id}">查看</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/admin/user/options/${u.id}">修改</a></td>
                                 </tr>
                                 <tr class="options">
                                     <td colspan="12">
@@ -116,7 +116,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-body">
-                                                <form action="/admin/user/updateUserAccountStatus" method="post">
+                                                <form action="${pageContext.request.contextPath}/admin/user/updateUserAccountStatus" method="post">
                                                     <table class="table table-hover">
                                                         <input type="hidden" name="id" value="${u.id}"/>
                                                         <thead>
@@ -158,7 +158,7 @@
                                                                 <a href="#warning-info">添加</a>
                                                             </td>
                                                             <td colspan="1">
-                                                                <a class="delete" href="/admin/user/${u.id}">删除</a>
+                                                                <a class="delete" href="${pageContext.request.contextPath}/admin/user/${u.id}">删除</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -234,7 +234,7 @@
                 </div>
                 <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                     <%--跳转的框--%>
-                    <form id="goPage" action="/admin/user" method="get">
+                    <form id="goPage" action="${pageContext.request.contextPath}/admin/user" method="get">
                         <input type="hidden" name="currentPage">
                         <input type="hidden" name="pageSize">
                     </form>

@@ -58,6 +58,6 @@
     </select>
 
     <select id="listRecentUpNotices" resultMap="BaseResultMap">
-        select * from test_bbs.t_notice n where n.state=1;
+        select * from bbs.t_notice n where n.state=1;
     </select>
 </mapper>

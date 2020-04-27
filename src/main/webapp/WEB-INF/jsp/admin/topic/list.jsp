@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -38,12 +38,14 @@
                             <tr>
                                 <td>${i.index+1}</td>
                                 <td>
-                                    <a href="/public/${hotTopic.id}" target="_blank">${hotTopic.topicTitle}</a>
+                                    <a href="${pageContext.request.contextPath}/public/${hotTopic.id}" target="_blank">${hotTopic.topicTitle}</a>
                                 </td>
                                 <td>${hotTopic.user.nickName}</td>
                                 <td class="text-center">
                                     <img src="" class="showUserHeadImg" width="80" height="45"
-                                         value="${hotTopic.topicPicture}" alt="">
+                                         value="${hotTopic.topicPicture}"
+                                         path="${pageContext.request.contextPath}"
+                                         alt="">
                                 </td>
                                 <td>
                                     <f:formatDate value="${hotTopic.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -62,7 +64,7 @@
                 </c:when>
                 <c:otherwise>
                     <h3 style="text-align: center;margin-top: 100px;">
-                        <a href="/admin/topic/input/0">添加到主页</a>
+                        <a href="${pageContext.request.contextPath}/admin/topic/input/0">添加到主页</a>
                     </h3>
                 </c:otherwise>
             </c:choose>
@@ -72,7 +74,7 @@
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-12">
             <h3>所有的话题</h3>
-            <form action="/admin/topic/search/" method="get">
+            <form action="${pageContext.request.contextPath}/admin/topic/search/" method="get">
                 <div class="col-md-offset-6 col-md-4" style="margin-bottom: 10px;">
 
                     <input type="text" name="topicTitle" class="form-control" style="line-height:30px;font-size: 16px;"
@@ -80,7 +82,7 @@
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-info" type="submit"> 搜索 </button>
-                    <a href="/admin/topic" class="btn btn-success pull-right">显示全部</a>
+                    <a href="${pageContext.request.contextPath}/admin/topic" class="btn btn-success pull-right">显示全部</a>
                 </div>
             </form>
             <c:choose>
@@ -101,12 +103,14 @@
                             <tr>
                                 <td>${i.index+1}</td>
                                 <td>
-                                    <a href="/public/${topic.id}" target="_blank">${topic.topicTitle}</a>
+                                    <a href="${pageContext.request.contextPath}/public/${topic.id}" target="_blank">${topic.topicTitle}</a>
                                 </td>
                                 <td>${topic.user.nickName}</td>
                                 <td class="text-center">
                                     <img src="" class="showUserHeadImg" width="80" height="45"
-                                         value="${topic.topicPicture}" alt="">
+                                         value="${topic.topicPicture}"
+                                         path="${pageContext.request.contextPath}"
+                                         alt="">
                                 </td>
                                 <td>
                                     <f:formatDate value="${topic.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -125,12 +129,12 @@
                 </c:when>
                 <c:otherwise>
                     <h3 style="text-align: center;margin-top: 100px;">
-                        当前暂没有， <a href="/admin/topic/input/0">去添加</a>
+                        当前暂没有， <a href="${pageContext.request.contextPath}/admin/topic/input/0">去添加</a>
                     </h3>
                 </c:otherwise>
             </c:choose>
         </div>
-        <form action="/admin/topic/update" id="tmp" method="post">
+        <form action="${pageContext.request.contextPath}/admin/topic/update" id="tmp" method="post">
             <input type="hidden" name="id">
             <input type="hidden" name="level">
         </form>
@@ -171,7 +175,7 @@
         </div>
         <div class="col-md-3" style="margin-left:-70px;height: 78px;padding-top: 10px;">
             <%--跳转的框--%>
-            <form id="goPage" action="/admin/topic" method="get">
+            <form id="goPage" action="${pageContext.request.contextPath}/admin/topic" method="get">
                 <input type="hidden" name="currentPage">
                 <input type="hidden" name="pageSize">
             </form>

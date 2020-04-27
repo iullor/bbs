@@ -6,19 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title>分区</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0 || empty sessionScope.CURRENT_USER}">
-        <link rel="stylesheet" href="/css/area/area.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/area/area.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/area/area-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/area/area-pink.css">
     </c:if>
-    <link rel="stylesheet" href="/css/commons/commons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/commons.css">
 
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
     <style>
 
     </style>
@@ -31,9 +31,9 @@
             <!--路径导航栏-->
             <div class="row area-nav">
                 <ol class="breadcrumb">
-                    <li><a href="/index">首页</a></li>
-                    <li><a href="/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
-                    <li><a href="/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}/panel/${topNavbarInfo.panelId}">${topNavbarInfo.panelTitle}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/board/${topNavbarInfo.boardId}">${topNavbarInfo.boardTitle}</a></li>
                     <li class="active">${topNavbarInfo.areaTitle}</li>
                 </ol>
             </div>
@@ -43,7 +43,7 @@
                          style="height: 250px;border-top: 1px blue solid;border-bottom:1px grey solid;margin-top: -10px;padding-top: 20px">
                         <div class="col-md-4 text-vertical-center">
                             <p>
-                                <img src="/images/topic/default.png" width="150" height="150"
+                                <img src="${pageContext.request.contextPath}/images/topic/default.png" width="150" height="150"
                                      style="margin-left: 25px;margin-bottom: 30px;">
                             </p>
                             <p class="text-md text-grey text-left">${area.areaTitle}</p>
@@ -66,7 +66,7 @@
                             </span>
                             <span class="pull-right  btn btn-default"
                                   style="margin-right: 20px;margin-top: 7px;">
-                                        <a href="/post/input/0"><span
+                                        <a href="${pageContext.request.contextPath}/post/input/0"><span
                                                 class="glyphicon glyphicon-comment">发帖</span></a>
                             </span>
                         </div>
@@ -91,7 +91,7 @@
                                         <td class="col-md-1 text-left">
                                             <c:if test="${p.up==1}">
                                                 <%--<button class="label-top">置顶</button>--%>
-                                                <span style="margin-left: -10px"><img src="/images/public/stick1.png"
+                                                <span style="margin-left: -10px"><img src="${pageContext.request.contextPath}/images/public/stick1.png"
                                                                                       width="50" height="26.7"
                                                                                       alt=""></span>
                                             </c:if>
@@ -99,11 +99,12 @@
                                                 ${(pageResult.currentPage-1)*pageResult.pageSize+i.index+1}层
                                             </c:if>
                                         </td>
-                                        <td class="col-md-5"><a href="/post/${p.id}">${p.postTitle}</a>
+                                        <td class="col-md-5"><a href="${pageContext.request.contextPath}/post/${p.id}">${p.postTitle}</a>
                                         </td>
                                         <td class="col-md-2">
                                             <img src="" class="showUserHeadImg"
                                                  value="${p.user.userBaseInfo.headImage}" width="25"
+                                                 path="${pageContext.request.contextPath}"
                                                  height="25" style="margin-left: -10px">
                                                 ${p.user.nickName}
                                         </td>
@@ -155,7 +156,7 @@
                             </div>
                             <div class="col-md-2" style="margin-left:-70px;height: 78px;padding-top: 10px;">
                                     <%--跳转的框--%>
-                                <form id="goPage" action="/area/${area.id}" method="get">
+                                <form id="goPage" action="${pageContext.request.contextPath}/area/${area.id}" method="get">
                                     <input type="hidden" name="currentPage">
                                     <input type="hidden" name="pageSize">
                                 </form>
@@ -197,7 +198,7 @@
             let currentClass = $(this).attr("class");
             if (currentClass.match("btn-success") == null) {
                 $.ajax({
-                    url: "/collection/area/" + 1,
+                    url: "${pageContext.request.contextPath}/collection/area/" + 1,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -216,7 +217,7 @@
             } else {
                 //取消收藏
                 $.ajax({
-                    url: "/collection/area/" + 0,
+                    url: "${pageContext.request.contextPath}/collection/area/" + 0,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",

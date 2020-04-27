@@ -6,26 +6,26 @@
 <head>
     <meta charset="UTF-8">
     <title>${user.nickName}</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <%--左侧栏的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
-        <link rel="stylesheet" href="/css/person/person_manager-left.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/person/person_manager-left-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/person_manager-left-pink.css">
     </c:if>
     <%--自己的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
-        <link rel="stylesheet" href="/css/person/basic_info/person_show.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/basic_info/person_show.css">
     </c:if>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==1}">
-        <link rel="stylesheet" href="/css/person/basic_info/person_show-pink.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/person/basic_info/person_show-pink.css">
     </c:if>
-    <script src="/lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/person-left.js"></script>
-    <script src="/js/sidebar-left-control.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/person-left.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
 </head>
 <body>
 <%--引入顶栏--%>
@@ -47,7 +47,9 @@
             <div class="row" style="height: 300px;border-bottom: 2px solid #f5f5f5;">
                 <div class="col-md-4" style="border-right: 1px solid silver;">
                     <div class="text-center" style="height: 100%;font-size: 16px">
-                        <img src="/images/superman.png" class="showUserHeadImg" value="${user.userBaseInfo.headImage}"
+                        <img src="${pageContext.request.contextPath}/images/superman.png" class="showUserHeadImg"
+                             value="${user.userBaseInfo.headImage}"
+                             path="${pageContext.request.contextPath}"
                              width="200" height="200" alt=""
                              style="border: 1px solid #afd9ee">
                         <p style="margin-top: 5px;">
@@ -141,7 +143,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div style="margin-left: 30px;padding-top: 20px;">
-                                    <img class="img-circle" style="border: 1px blue solid;" src="/images/superman.png"
+                                    <img class="img-circle" style="border: 1px blue solid;" src="${pageContext.request.contextPath}/images/superman.png"
                                          width="50" height="50" alt="">
                                 </div>
                             </div>
@@ -156,7 +158,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div style="margin-left: 30px;padding-top: 20px;">
-                                    <img class="img-circle" style="border: 1px blue solid;" src="/images/superman.png"
+                                    <img class="img-circle" style="border: 1px blue solid;" src="${pageContext.request.contextPath}/images/superman.png"
                                          width="50" height="50" alt="">
                                 </div>
                             </div>
@@ -177,7 +179,7 @@
                                                 ${i.index+1}
                                         </div>
                                         <div class="col-md-8">
-                                            <a href="/post/${post.postId}">${post.post.postTitle}</a>
+                                            <a href="${pageContext.request.contextPath}/post/${post.postId}">${post.post.postTitle}</a>
                                         </div>
                                         <div class="col-md-3">
                                             收藏时间:
@@ -204,13 +206,14 @@
                                                 ${j.index+1}
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="/account/${focusUser.user.id}">
+                                            <a href="${pageContext.request.contextPath}/account/${focusUser.user.id}">
                                                 <img src="" style="height: 30px;width: 30px;" class="showUserHeadImg"
-                                                     value="${focusUser.user.userBaseInfo.headImage}" alt="">
+                                                     path="${pageContext.request.contextPath}"
+                                                     value="/${focusUser.user.userBaseInfo.headImage}" alt="">
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="/account/${focusUser.user.id}">${focusUser.user.nickName}</a>
+                                            <a href="${pageContext.request.contextPath}/account/${focusUser.user.id}">${focusUser.user.nickName}</a>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="hidden" class="hideUserId" value="${focusUser.user.id}">
@@ -239,7 +242,7 @@
                                                 ${k.index+1}
                                         </div>
                                         <div class="col-md-5">
-                                            <a href="/public/${topic.id}">${topic.topicTitle}</a>
+                                            <a href="${pageContext.request.contextPath}/public/${topic.id}">${topic.topicTitle}</a>
                                         </div>
                                         <div class="col-md-3">
                                             发起时间:
@@ -297,7 +300,7 @@
             let introduce = $(".introduce>textarea").val();
             let id = '${sessionScope.CURRENT_USER.id}';
             $.ajax({
-                url: "/account/updateIntroduce?id=" + id + "&&introduce=" + introduce,
+                url: "${pageContext.request.contextPath}/account/updateIntroduce?id=" + id + "&&introduce=" + introduce,
                 type: "post",
                 success: function (data) {
                     if (data === 1) {
@@ -323,7 +326,7 @@
             //如果当前的样式没有绿色，就发送关注
             if (currentClass.match("btn-success") == null) {
                 $.ajax({
-                    url: "/collection/user/" + 1,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 1,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",
@@ -342,7 +345,7 @@
             } else {
                 //取消关注
                 $.ajax({
-                    url: "/collection/user/" + 0,
+                    url: "${pageContext.request.contextPath}/collection/user/" + 0,
                     type: "post",
                     data: JSON.stringify(obj),
                     contentType: "application/json",

@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
 <!--login的模态框-->
-<link rel="stylesheet" href="/css/modal/modal_login.css">
-<link rel="stylesheet" href="/lib/bxslider/jquery.bxslider.css">
-<link rel="stylesheet" href="/css/commons/index.css">
-<link rel="stylesheet" href="/css/commons/sidebar_left.css">
-<script src="/lib/jQuery/jquery.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/modal/modal_login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bxslider/jquery.bxslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/index.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/commons/sidebar_left.css">
+<script src="${pageContext.request.contextPath}/lib/jQuery/jquery.js"></script>
 <script src="https://cdn.bootcss.com/jsrender/1.0.2/jsrender.js"></script>
-<script src="/js/sidebar-left-control.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/sidebar-left-control.js"></script>
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
 <header class="navbar navbar-fixed-top navbar-default">
     <nav class="navbar">
         <div class="container-fluid">
@@ -20,12 +20,12 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="/index.jsp">
+                    <a class="navbar-brand logo" href="${pageContext.request.contextPath}/index.jsp">
                     </a>
                 </div>
                 <div class="col-md-5">
                     <div class="row" style="margin-top: 6px">
-                        <form id="searchForm" action="/search">
+                        <form id="searchForm" action="${pageContext.request.contextPath}/search">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="search" name="keyword" placeholder="Search">
                             </div>
@@ -40,7 +40,7 @@
                         <div class="search-result-user">
                             <%--<p>
                                 <a href="#">
-                                    <img src="/images/superman.png" height="30" width="30" class="img-circle"
+                                    <img src="${pageContext.request.contextPath}/images/superman.png" height="30" width="30" class="img-circle"
                                          style="margin-left: 5%;border: 1px solid blue;"
                                          alt="">
                                     <span style="margin-left: 10%">咸蛋小超人</span>
@@ -48,7 +48,7 @@
                             </p>
                             <p>
                                 <a href="#">
-                                    <img src="/images/superman.png" height="30" width="30" class="img-circle"
+                                    <img src="${pageContext.request.contextPath}/images/superman.png" height="30" width="30" class="img-circle"
                                          style="margin-left: 5%;border: 1px solid blue;"
                                          alt="">
                                     <span style="margin-left: 10%">咸蛋小超人</span>
@@ -67,9 +67,9 @@
                     </div>
                 </div>
                 <div class="col-md-2  nav-addon">
-                    <a href="/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
+                    <a href="${pageContext.request.contextPath}/public"><span class="glyphicon glyphicon-cloud">&nbsp;话题广场</span></a>
                     <c:if test="${not empty sessionScope.CURRENT_USER}">
-                        <a href="/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
+                        <a href="${pageContext.request.contextPath}/person/myCircle/${sessionScope.CURRENT_USER.id}"><span
                                 class="glyphicon glyphicon-globe">&nbsp;我的圈子</span></a>
                     </c:if>
                 </div>
@@ -88,20 +88,21 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
                                     <img src="" width="40" height="40"
+                                         path="${pageContext.request.contextPath}"
                                          value='${sessionScope.CURRENT_USER.userBaseInfo.headImage}'
                                          class="showUserHeadImg"/>
                                     <span class="caret" style="margin-left: 13px;"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/person/basic/account">账户</a></li>
-                                    <li><a href="/person/basic/info">基本信息</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/account">账户</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/info">基本信息</a></li>
                                     <li><a href="#">我的创作</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">添加</a></li>
                                     <li><a href="#">维修</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="/person/basic/account">设置</a></li>
-                                    <li><a id="logout" href="/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
+                                    <li><a href="${pageContext.request.contextPath}/person/basic/account">设置</a></li>
+                                    <li><a id="logout" href="${pageContext.request.contextPath}/logout">注销<span class="glyphicon glyphicon-log-in"></span></a>
                                     </li>
                                 </ul>
                                 <br>
@@ -122,7 +123,7 @@
             if (keyword !== null && keyword !== '' && keyword !== 'undefined') {
                 //发送ajax请求
                 $.ajax({
-                    url: '/search/asynchronous/' + keyword,
+                    url: '${pageContext.request.contextPath}/search/asynchronous/' + keyword,
                     type: 'get',
                     success: function (data) {
                         console.log("成功查询----")
@@ -190,7 +191,7 @@
     {{:users}}
     {{else}}
         <p>
-            <a href="/account/{{:id}}">
+            <a href="${pageContext.request.contextPath}/account/{{:id}}">
                 <img src="" height="30" width="30"
                      style="margin-left: 1%;border: 1px solid blue;" value="{{:userBaseInfo.headImage}}"
                      alt="">
@@ -211,7 +212,7 @@
     {{:areas}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/area/{{:id}}">
+            <a href="${pageContext.request.contextPath}/area/{{:id}}">
                 <span style="margin-right:1%"  class="text-success pull-right">
                      分区
                 </span>
@@ -230,7 +231,7 @@
     {{:posts}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/post/{{:id}}">
+            <a href="${pageContext.request.contextPath}/post/{{:id}}">
                 <span style="margin-left: 1%">
                    {{:postTitle}}
                 </span>
@@ -246,7 +247,7 @@
     {{:topics}}
     {{else}}
          <p style="font-size: 17px;margin-bottom: 0px;line-height: 35px">
-            <a href="/public/{{:id}}">
+            <a href="${pageContext.request.contextPath}/public/{{:id}}">
                 <span style="margin-left: 2%">
                     {{:topicTitle}}
                 </span>
