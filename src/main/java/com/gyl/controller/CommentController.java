@@ -37,6 +37,9 @@ public class CommentController {
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
     public String add(Comment comment, String postUserId, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("CURRENT_USER");
+        if (user==null) {
+            return "redirect:/logon";
+        }
         comment.setUserId(user.getId());
         int status = commentService.add(comment);
         //添加成功，发送一条消息给对方

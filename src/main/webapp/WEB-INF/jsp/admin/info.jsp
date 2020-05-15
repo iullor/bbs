@@ -171,6 +171,7 @@
     // 指定图表的配置项和数据
     //获取每个模块的帖子数
     var postNumberEachPanel = '${postNumberEachPanel}'
+    console.log(postNumberEachPanel)
     var panelJSON = JSON.parse(postNumberEachPanel);
     var panelTitle1 = new Array()
     var postsEachPanel = new Array()

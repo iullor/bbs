@@ -4,6 +4,7 @@ import com.gyl.entity.User;
 import com.gyl.entity.UserBaseInfo;
 import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,9 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * 个人基本信息,账户信息
@@ -29,7 +34,8 @@ public class BasicController {
     @Autowired
     private UserService userService;
 
-    private static String uploadPath = "/home/gyl/Pictures/bbs-files/";
+    @Value("${file.upload.path}")
+    private String uploadPath;
 
 
     @RequestMapping(value = "/person/basic/info", method = RequestMethod.GET)
@@ -65,29 +71,35 @@ public class BasicController {
     @SuppressWarnings("all")
     @ResponseBody
     @RequestMapping(value = "/person/basic/accountUploadImg", method = RequestMethod.POST)
-    public String form(@RequestParam("headImage") MultipartFile multipartFile, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-        String realPath = session.getServletContext().getRealPath("/");
-        File file1 = new File(realPath + "/upload/headImage/");
-        if (!file1.exists()) {
-            file1.mkdirs();
+    public Map<String, Object> form(@RequestParam("headImage") MultipartFile multipartFile, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        //String diskPath = uploadPath + "/upload/headImage" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        //地址/日期/文件
+        String realPath = session.getServletContext().getRealPath("/").replace("\\", "/");
+        String createPath = "upload/headImage/" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        File file = new File(realPath + createPath);
+        if (!file.exists()) {
+            file.mkdirs();
         }
-        uploadPath = file1.getPath() + "/";
+        Map<String, Object> map = new HashMap<>();
         if (multipartFile != null && !multipartFile.isEmpty()) {
             String originalFilename = multipartFile.getOriginalFilename();
-            System.out.println("originalFilename = " + originalFilename);
             String fileNamePrefix = originalFilename.substring(0, originalFilename.lastIndexOf("."));
             String fileNameSubfix = originalFilename.substring(originalFilename.lastIndexOf("."));
-            String newFileName = fileNamePrefix + System.currentTimeMillis() + fileNameSubfix;
-            File file = new File(uploadPath + "/" + newFileName);
+            String newFileName = createPath + "/" + System.currentTimeMillis() + fileNameSubfix;
             try {
-                multipartFile.transferTo(file);
+                multipartFile.transferTo(new File(realPath + newFileName));
+                //相对路径
+                map.put("file", "/" + newFileName);
+                map.put("status", 200);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return uploadPath + newFileName;
+            return map;
         }
-        return null;
+        map.put("status", 10000);
+        return map;
     }
+
 
 
     /**
@@ -123,6 +135,5 @@ public class BasicController {
         }
         return map;
     }
-
 
 }

@@ -73,8 +73,8 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="col-md-1">
-                            <div class="myAccount img-circle">
+                        <div class="col-md-1"><%--img-circle--%>
+                            <div class="myAccount ">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
                                     <img src="" width="40" height="40"

@@ -145,7 +145,7 @@
             //先移除
             $("#area").empty();
             $.ajax({
-                url: '/area/' + boardId,
+                url: '${pageContext.request.contextPath}/area/' + boardId,
                 type: "post",
                 contentType: "application/json",
                 success: function (areas) {

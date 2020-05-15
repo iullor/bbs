@@ -9,6 +9,7 @@ import com.gyl.service.BoardService;
 import com.gyl.service.PanelService;
 import com.gyl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 模块添加
@@ -28,7 +33,8 @@ import java.util.List;
  */
 @Controller
 public class AdminPanelController {
-    private static String uploadPath = "/home/gyl/Pictures/bbs-files/";
+    @Value("${file.upload.path}")
+    private String uploadPath;
     @Autowired
     private PanelService panelService;
 
@@ -170,27 +176,32 @@ public class AdminPanelController {
     @SuppressWarnings("all")
     @ResponseBody
     @RequestMapping(value = "/admin/panel/fileUpload", method = RequestMethod.POST)
-    public String form(@RequestParam("img") MultipartFile multipartFile, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-        String realPath = session.getServletContext().getRealPath("/");
-        File file1 = new File(realPath + "/upload/panel/");
-        if (!file1.exists()) {
-            file1.mkdirs();
+    public Map<String, Object> form(@RequestParam("img") MultipartFile multipartFile, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        //String diskPath = uploadPath + "/upload/headImage" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        //地址/日期/文件
+        String realPath = session.getServletContext().getRealPath("/").replace("\\", "/");
+        String createPath = "upload/panel/" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        File file = new File(realPath + createPath);
+        if (!file.exists()) {
+            file.mkdirs();
         }
-        uploadPath = file1.getPath() + "/";
+        Map<String, Object> map = new HashMap<>();
         if (multipartFile != null && !multipartFile.isEmpty()) {
             String originalFilename = multipartFile.getOriginalFilename();
-            System.out.println("originalFilename = " + originalFilename);
             String fileNamePrefix = originalFilename.substring(0, originalFilename.lastIndexOf("."));
             String fileNameSubfix = originalFilename.substring(originalFilename.lastIndexOf("."));
-            String newFileName = fileNamePrefix + System.currentTimeMillis() + fileNameSubfix;
-            File file = new File(uploadPath + "/" + newFileName);
+            String newFileName = createPath + "/" + System.currentTimeMillis() + fileNameSubfix;
             try {
-                multipartFile.transferTo(file);
+                multipartFile.transferTo(new File(realPath + newFileName));
+                //相对路径
+                map.put("file", "/" + newFileName);
+                map.put("status", 200);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return uploadPath + newFileName;
+            return map;
         }
-        return null;
+        map.put("status", 10000);
+        return map;
     }
 }

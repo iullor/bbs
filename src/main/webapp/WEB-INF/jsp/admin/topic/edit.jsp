@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
-    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <script src="${pageContext.request.contextPath}/lib/jQuery/jquery-2.1.4.min.js"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -15,6 +15,7 @@
         body {
             margin-top: 50px;
         }
+
         .col-md-8 label {
             font-size: 17px;
         }
@@ -64,7 +65,9 @@
                         配图
                     </label>
                     <p style="z-index: -10;margin-left: 50px;margin-top: 30px">
-                        <img id="showPicture" src="${pageContext.request.contextPath}/images/topic/default.png" value="" width="480" height="270"
+                        <img id="showPicture" src="${pageContext.request.contextPath}/images/topic/default.png" value=""
+                             width="480" height="270"
+                             path="${pageContext.request.contextPath}"
                              srcset="">
                     </p>
                 </div>
@@ -83,20 +86,32 @@
                 data: form,
                 processData: false,
                 contentType: false,
-                error: function (data) {
-                    console.log(data)
-                    if (data.status == 200) {
+                success: function (data) {
+                    console.log(data.file)
+                    if (data.status === 200) {
                         alert("上传成功")
-                        let path = data.responseText;
-                        $(":hidden[name='topicPicture']").val(path);
-                        //alert(path)
+                        let realPath = data.file;
+                        $(":hidden[name='topicPicture']").val(realPath);
+                        let contextPath = $("#showPicture").attr("path")
                         //图片回显
-                        let beginIndex = path.indexOf("/webapp/") + 7;
-                        let endIndex = path.length;
-                        let src = path.substring(beginIndex, endIndex);
-                        $("#showPicture").attr("src", src);
+                        $("#showPicture").attr("src", contextPath + realPath);
                     }
                 }
+                // ,
+                // error: function (data) {
+                //     console.log(data)
+                //     if (data.status === 200) {
+                //         alert("上传成功")
+                //         let path = data.responseText;
+                //         $(":hidden[name='topicPicture']").val(path);
+                //         //alert(path)
+                //         //图片回显
+                //         let beginIndex = path.indexOf("/webapp/") + 7;
+                //         let endIndex = path.length;
+                //         let src = path.substring(beginIndex, endIndex);
+                //         $("#showPicture").attr("src", src);
+                //     }
+                // }
             });
         })
 

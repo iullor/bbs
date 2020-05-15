@@ -67,7 +67,7 @@
                         </p>
                     </div>
                     <div class="row text-center">
-                        <img src="" value="${pageContext.request.contextPath}/${board.logoPath}" id="showImg">
+                        <img src="" value="${board.logoPath}" id="showImg" path="${pageContext.request.contextPath}">
                     </div>
                 </form>
             </div>
@@ -185,14 +185,18 @@
                 data: form,
                 processData: false,
                 contentType: false,
-                error: function (e) {
-                    if (e.status == 200) {
+                success: function (data) {
+                    console.log(data.file)
+                    if (data.status === 200) {
                         alert("上传成功")
-                        var lastIndex = (e.responseText).search("/webapp/") + 7;
-                        var str = (e.responseText).substring(lastIndex, (e.responseText).length)
-                        $("#showImg").attr("src", str)
-                        $("#showImg").show();
-                        $("input[name='logoPath']").val(e.responseText)
+                        let realPath = data.file;
+                        console.log(realPath)
+                        $(":hidden[name='topicPicture']").val(realPath);
+                        let contextPath = $("#showImg").attr("path")
+                        //图片回显
+                        $("#showImg").attr("src", contextPath + realPath);
+                        // $("#showImg").show();
+                        $("input[name='logoPath']").val(realPath)
                     }
                 }
             });
@@ -202,12 +206,13 @@
         if ($("#showImg").attr("src") === '' || $("#showImg").attr("src") == null) {
             $("#showImg").hide();
         }
-        //图片回显
+          //图片回显
         if (${not empty board.id}) {
-            var pictruePath = $("#showImg").attr("value");
-            var lastIndex = pictruePath.indexOf("/webapp/") + 7;
-            var str = (pictruePath).substring(lastIndex, pictruePath.length)
-            $("#showImg").attr("src", str)
+            let realPath =$("#showImg").attr("value");
+            console.log(realPath)
+            let contextPath = $("#showImg").attr("path")
+            console.log(contextPath)
+            $("#showImg").attr("src", contextPath + realPath);
             $("#showImg").show();
         }
     })

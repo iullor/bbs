@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-8" style="margin-left: 50px;background-color: white;">
                                 <div class="text-left">
-                                    <h2><a href="#">河南中医药大学六十周年庆</a></h2>
+                                    <h2><a href="#">${panel.title}</a></h2>
                                 </div>
                                 <div class="hotPost">
                                     <c:forEach items="${panel.hotPosts}" var="post">

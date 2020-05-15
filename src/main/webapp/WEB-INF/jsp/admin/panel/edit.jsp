@@ -158,7 +158,7 @@
                         </div>
                     </div>
                     <div class="row form-group text-center" style="margin-top: 10px">
-                        <img id="showImg" src="">
+                        <img id="showImg" src="" path="${pageContext.request.contextPath}">
                     </div>
                 </form>
             </div>
@@ -210,20 +210,13 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data.status == 200) {
-                    }
-                },
-                error: function (e) {
-                    if (e.status == 200) {
+                    console.log(data.file)
+                    if (data.status === 200) {
                         alert("上传成功")
-                        /**
-                         * 找到相对位置
-                         * @type {number}
-                         */
-                        var lastIndex = (e.responseText).search("/webapp/") + 7;
-                        var str = (e.responseText).substring(lastIndex, (e.responseText).length)
-                        $("#showImg").attr("src", str)
-                        $("input[name='logoPath']").val(e.responseText)
+                        let realPath = data.file;
+                        let path = $("#showImg").attr("path")
+                        $("#showImg").attr("src", path + realPath);
+                        $("input[name='logoPath']").val(realPath);
                     }
                 }
             });
@@ -256,10 +249,10 @@
         })
         //图片回显
         if (${not empty panel.id}) {
-            var pictruePath = $("#logoPath").val();
-            var lastIndex = pictruePath.search("/webapp/") + 7;
-            var str = (pictruePath).substring(lastIndex, pictruePath.length)
-            $("#showImg").attr("src", str)
+            let realPath =$("#logoPath").attr("value");
+            let contextPath = $("#showImg").attr("path")
+            $("#showImg").attr("src", contextPath + realPath);
+            $("#showImg").show();
         }
     })
 

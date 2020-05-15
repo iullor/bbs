@@ -28,13 +28,15 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                console.log(data);
-                window.clearInterval(timer);
-                console.log("over..");
-            },
-            error: function (e) {
-                alert("错误！！");
-                window.clearInterval(timer);
+                console.log(data.file)
+                if (data.status === 200) {
+                    alert("上传成功")
+                    let realPath = data.file;
+                    $(":hidden[name='topicPicture']").val(realPath);
+                    let contextPath = $("#showPicture").attr("path")
+                    //图片回显
+                    $("#showPicture").attr("src", contextPath + realPath);
+                }
             }
         });
         get();//此处为上传文件的进度条

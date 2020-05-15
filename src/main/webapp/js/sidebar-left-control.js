@@ -6,10 +6,6 @@ $(function () {
     $(".showUserHeadImg").each(function () {
         let headImg = $(this).attr("value");
         let urlPath = $(this).attr("path");
-        // let beginIndex = headImg.indexOf("/webapp/") + 7;
-        // let endIndex = headImg.length;
-        // let src = headImg.substring(beginIndex, endIndex);
-        // console.log(urlPath+src)
         $(this).attr("src",urlPath+ headImg);
     })
     //第一个点击的时候

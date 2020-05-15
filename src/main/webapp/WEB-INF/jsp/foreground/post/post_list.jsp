@@ -279,7 +279,7 @@
             <div class="row" style="width: 1150px;margin-left: 10px">
                 <form id="myInput" action="${pageContext.request.contextPath}/comment" method="post">
                     <%--当前用户--%>
-                    <input type="hidden" name="userId">
+                    <input type="hidden" name="userId" value="${sessionScope.CURRENT_USER}">
                     <input type="hidden" name="postUserId" value="${post.userId}">
                     <input type="hidden" name="postId" value="${post.id}"/>
                     <input type="hidden" name="toCommentId"/>
@@ -301,7 +301,7 @@
                     href="https://www.google.com">Google</a>&nbsp;<a
                     href="https://www.github.com">GitHub</a></p>
             <div class="text-center">
-                <p>© 学生论坛版权所有</p>
+                <p>© 学生论坛版权所有 ${sessionScope.CURRENT_USER}</p>
             </div>
         </div>
         <!--游客用户登录的模态框-->
@@ -438,8 +438,9 @@
                     success: function (data) {
                         if (data.status === '3002') {
                             alert("收藏成功")
-                        } else {
-                            alert("网络问题")
+                        }else {
+                            $("#loginModal").click();
+                            return false;
                         }
                     }
                 })

@@ -174,8 +174,14 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data.status == 200) {
-
+                    console.log(data.file)
+                    if (data.status === 200) {
+                        alert("上传成功")
+                        let realPath = data.file;
+                        $(":hidden[name='topicPicture']").val(realPath);
+                        let contextPath = $("#showPicture").attr("path")
+                        //图片回显
+                        $("#showPicture").attr("src", contextPath + realPath);
                     }
                 },
                 error: function (e) {

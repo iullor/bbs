@@ -40,9 +40,12 @@
                     <div id="person-basic-info" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
-                                <li class="active"><a href="${pageContext.request.contextPath}/person/basic/account" class="">账号信息</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}"
+                                       class="">个人主页</a></li>
+                                <li class="active"><a href="${pageContext.request.contextPath}/person/basic/account"
+                                                      class="">账号信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -83,8 +86,10 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts" class="">贴子</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas" class="">分区</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts"
+                                       class="">贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas"
+                                       class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
@@ -109,7 +114,8 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -126,7 +132,8 @@
                         <div class="panel-body">
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/person/apply" class="">申请</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -150,7 +157,8 @@
                     <div id="createMyBoard" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a>
+                                </li>
                                 <li><a href="${pageContext.request.contextPath}/person/topic" class="">查看</a></li>
                             </ul>
                         </div>
@@ -163,9 +171,10 @@
             <hr>
             <div class="row">
                 <div class="col-md-9">
-                    <form:form action="${pageContext.request.contextPath}/user/updateAccount" id="changeAccount" method="post" modelAttribute="user">
+                    <form:form action="${pageContext.request.contextPath}/user/updateAccount" id="changeAccount"
+                               method="post" modelAttribute="user">
                         <input type="hidden" name="_method" value="put"/>
-                        <form:hidden path="userBaseInfo.headImage"/>
+                        <form:hidden path="userBaseInfo.headImage" file-url=""/>
                         <form:hidden path="id"/>
                         <div class="row">
                             <div class="col-md-12">
@@ -258,9 +267,11 @@
                 </div>
                 <div class="col-md-3 image text-center">
                     <!--使用Ajax异步上传-->
-                    <form action="${pageContext.request.contextPath}/person/basic/accountUploadImg" id="imgForm" enctype="multipart/form-data">
+                    <form action="${pageContext.request.contextPath}/person/basic/accountUploadImg" id="imgForm"
+                          enctype="multipart/form-data">
                         <div style="height: 80px;margin-bottom: 10px">
-                            <img src="${pageContext.request.contextPath}/images/favicon.ico" width="100px" height="100px"
+                            <img src="${pageContext.request.contextPath}/images/favicon.ico" width="100px"
+                                 height="100px"
                                  style="margin-top: -50px;margin-right:10px "/>
                             <span class="glyphicon glyphicon-plus" id="uploadImage"></span>
                         </div>
@@ -275,11 +286,11 @@
 </div>
 <script>
     $(function () {
-        var realPath = $("input[name='userBaseInfo.headImage']").val();
-        let beginIndex = realPath.lastIndexOf("/webapp/") + 7;
-        let endIndex = realPath.length;
-        var relativePath = realPath.substring(beginIndex, endIndex);
-        $("img").attr("src", relativePath);
+        let path='${pageContext.request.contextPath}';
+        console.log(path)
+        let realPath = $("input[name='userBaseInfo.headImage']").val();
+        $(".showUserHeadImg").attr("src",path+realPath)
+        $("#imgForm img").attr("src",path+realPath)
 
         $("a[href='#update']").on("click", function () {
             $(this).parents("small").prev("input").attr("readonly", false);
@@ -298,17 +309,20 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data.status == 200) {
+                    console.log(data)
+                    if (data.status === 200) {
+                        console.log('------上传成功-----')
+                        let contextPath = $(".showUserHeadImg").attr("path");
+                        $(".showUserHeadImg").attr("src",contextPath+data.file)
+                        $("#imgForm img").attr("src",contextPath+data.file)
+                        //将路径赋值
+                        $("input[name='userBaseInfo.headImage']").attr("value",data.file)
+                    }else {
+                        alert("上传失败")
                     }
                 },
-                error: function (e) {
-                    if (e.status == 200) {
-                        alert("上传成功")
-                        var lastIndex = (e.responseText).search("/webapp/") + 7;
-                        var str = (e.responseText).substring(lastIndex, (e.responseText).length)
-                        $("img").attr("src", ${pageContext.request.contextPath}+str)
-                        $("input[name='userBaseInfo.headImage']").val(e.responseText)
-                    }
+                error: function (data) {
+
                 }
             })
 

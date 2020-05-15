@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>收藏贴子</title>
-    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <%--左侧栏的样式--%>
     <c:if test="${sessionScope.CURRENT_USER.userLoginInfo.theme==0}">
@@ -61,9 +61,12 @@
                     <div id="person-basic-info" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}" class="">个人主页</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/basic/account" class="">账号信息</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a></li>
+                                <li><a href="${pageContext.request.contextPath}/account/${sessionScope.CURRENT_USER.id}"
+                                       class="">个人主页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/account" class="">账号信息</a>
+                                </li>
+                                <li><a href="${pageContext.request.contextPath}/person/basic/info" class="">基本信息</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -104,15 +107,17 @@
                     <div id="person_collections" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts" class="">贴子</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas" class="">分区</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myPosts"
+                                       class="">贴子</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/collection/myAreas"
+                                       class="">分区</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="panel">
                     <div class="panel-heading active">
-                        <div class="panel-title" >
+                        <div class="panel-title">
                             <a href="${pageContext.request.contextPath}/person/myfocus" class="">
                                 <span class="glyphicon glyphicon-heart"></span><span>关注</span>
                             </a>
@@ -130,7 +135,8 @@
                     <div id="person_themes_setting" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/themes/basic" class="">主题显示</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -147,7 +153,8 @@
                         <div class="panel-body">
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/person/apply" class="">申请</a></li>
-                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/apply/progress" class="">进度</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -171,7 +178,8 @@
                     <div id="createMyBoard" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a></li>
+                                <li><a href="${pageContext.request.contextPath}/person/topic/input/0" class="">创建</a>
+                                </li>
                                 <li><a href="${pageContext.request.contextPath}/person/topic" class="">查看</a></li>
                             </ul>
                         </div>
@@ -192,7 +200,9 @@
                             <div class="col-md-2">
                     <span>
                            <a href="#">
-                             <img class="headImg" src="${pageContext.request.contextPath}/images/路飞.jpg" value="${fu.user.userBaseInfo.headImage}" alt=""
+                             <img class="headImg" src="${pageContext.request.contextPath}/images/路飞.jpg"
+                                  value="${fu.user.userBaseInfo.headImage}" alt=""
+                                  path="${pageContext.request.contextPath}"
                                   width="50"
                                   height="50" style="border-radius: 50%;">
                            </a>
@@ -245,11 +255,12 @@
 <script>
     $(function () {
         $(".headImg").each(function () {
-            var headImg = $(this).attr("value");
-            let beginIndex = headImg.indexOf("/webapp/") + 7;
-            let endIndex = headImg.length;
-            let src = headImg.substring(beginIndex, endIndex);
-            $(this).attr("src", src);
+            let headImg = $(this).attr("value");
+            let path = $(this).attr("path");
+            // let beginIndex = headImg.indexOf("/webapp/") + 7;
+            // let endIndex = headImg.length;
+            // let src = headImg.substring(beginIndex, endIndex);
+            $(this).attr("src", path + headImg);
         })
 
         $(".cancelFocusUser").on("click", function () {
@@ -266,7 +277,7 @@
                 success: function (data) {
                     if (data.status === '3001') {
                         alert("取消成功");
-                        window.location.href = "/person/myfocus";
+                        window.location.href = "${pageContext.request.contextPath}/person/myfocus";
                     } else {
                         alert("网络错误，请稍后再试")
                     }
