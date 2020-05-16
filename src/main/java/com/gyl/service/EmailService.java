@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 /**
  * 用来收发邮件的
  *
- * @author gyl
+ *
  */
 @Service
 public class EmailService {
@@ -39,10 +39,10 @@ public class EmailService {
                     "<body>\n" +
                     "    <div class=\"before-click\">\n" +
                     "        学生论坛向您发来了一封激活账户的连接，点击链接用于激活您的账户！\n" +
-                    "        <a href=\"http:\\/\\/localhost:8080/account/active/" + userId + "\" target=\\\"_blank\\\">点这里</a>\n" +
+                    "        <a href=\"http:\\/\\/localhost:8080/bbs/account/active/" + userId + "\" target=\\\"_blank\\\">点这里</a>\n" +
                     "    </div>\n" +
                     "    <div class=\"after-click\">\n" +
-                    "        请等待后台服务器处理，5s后跳转到<a href=\"localhost:8080/logon\">登录主页</a>\n" +
+                    "        请等待后台服务器处理，5s后跳转到<a href=\"localhost:8080/bbs/logon\">登录主页</a>\n" +
                     "    </div>\n" +
                     "</body>\n" +
                     "\n" +

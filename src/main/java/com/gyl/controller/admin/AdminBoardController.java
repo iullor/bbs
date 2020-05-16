@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * 板块
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminBoardController {
@@ -42,7 +42,6 @@ public class AdminBoardController {
 
     @Value("${file.upload.path}")
     private String uploadPath;
-    ;
 
     @RequestMapping(value = "/admin/board", method = RequestMethod.GET)
     public String list(ModelMap map, HttpServletRequest request, Integer currentPage, Integer pageSize) {

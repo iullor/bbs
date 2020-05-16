@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 个人消息
  *
- * @author gyl
+ *
  */
 @Controller
 public class MyMessageController {

@@ -80,6 +80,7 @@
         //异步提交图片文件
         $(":file").on("change", function () {
             var form = new FormData(document.getElementById("topic"));
+            console.log(form)
             $.ajax({
                 url: "${pageContext.request.contextPath}/person/topic/uploadPicture",
                 type: "post",
@@ -96,34 +97,33 @@
                         //图片回显
                         $("#showPicture").attr("src", contextPath + realPath);
                     }
+                },
+                error: function (data) {
+                    console.log(data)
+                    if (data.status === 200) {
+                        alert("上传成功")
+                        let path = data.responseText;
+                        $(":hidden[name='topicPicture']").val(path);
+                        //alert(path)
+                        //图片回显
+                        let beginIndex = path.indexOf("/webapp/") + 7;
+                        let endIndex = path.length;
+                        let src = path.substring(beginIndex, endIndex);
+                        $("#showPicture").attr("src", src);
+                    }
                 }
-                // ,
-                // error: function (data) {
-                //     console.log(data)
-                //     if (data.status === 200) {
-                //         alert("上传成功")
-                //         let path = data.responseText;
-                //         $(":hidden[name='topicPicture']").val(path);
-                //         //alert(path)
-                //         //图片回显
-                //         let beginIndex = path.indexOf("/webapp/") + 7;
-                //         let endIndex = path.length;
-                //         let src = path.substring(beginIndex, endIndex);
-                //         $("#showPicture").attr("src", src);
-                //     }
-                // }
             });
         })
-
-        $("#topic").submit(function () {
-            //表单提交,判断是否有照片,没有的话,就提醒先上传照片
-            let path = $(":hidden[name='topicPicture']").val();
-            if (path !== null && path !== '' && path !== 'undefined') {
-                return true;
-            }
-            alert("请认真填写所有信息")
-            return false;
-        })
+        //
+        // $("#topic").submit(function () {
+        //     //表单提交,判断是否有照片,没有的话,就提醒先上传照片
+        //     let path = $(":hidden[name='topicPicture']").val();
+        //     if (path !== null && path !== '' && path !== 'undefined') {
+        //         return true;
+        //     }
+        //     alert("请认真填写所有信息")
+        //     return false;
+        // })
 
     })
 </script>

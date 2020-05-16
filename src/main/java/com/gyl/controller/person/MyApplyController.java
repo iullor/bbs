@@ -20,7 +20,7 @@ import java.util.List;
  * <p>
  * 版主，区主，贴子置顶，公版显示我的分区
  *
- * @author gyl
+ *
  */
 @Controller
 public class MyApplyController {

@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  */
 @Component
 public class Panel implements Serializable {

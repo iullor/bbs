@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * 为了方便，添加了顶路径导航信息类
  *
- * @author gyl
+ *
  */
 @Component
 public class TopNavbarInfo {

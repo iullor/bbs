@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  */
 @Service
 public class TopicService {

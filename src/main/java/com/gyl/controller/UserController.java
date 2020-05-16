@@ -17,7 +17,7 @@ import java.util.Map;
  * 用户注册登录
  * controller
  *
- * @author gyl
+ *
  */
 @Controller
 public class UserController {

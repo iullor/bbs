@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * 贴子
  *
- * @author gyl
+ *
  */
 public class Post {
     private String id;

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 页码的开始索引和接受索引
- * @author gyl
+ *
  */
 
 public class PageIndex {

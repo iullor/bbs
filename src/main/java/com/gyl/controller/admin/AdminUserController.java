@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * 管理员对用户的控制
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminUserController {

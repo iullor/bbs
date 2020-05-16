@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  */
 @Controller
 public class MyCircleController {

@@ -10,7 +10,7 @@
         <property name="port" value="587"/>
         <property name="protocol" value="smtp"/>
         <property name="username" value="928039229@qq.com"/>
-        <property name="password" value="ijfariwhnsqsbcjf"/>
+        <property name="password" value="vibczrciryxdbejf"/>
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="javaMailProperties">
             <props>

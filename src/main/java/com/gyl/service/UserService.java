@@ -38,7 +38,7 @@ public class UserService {
         //设置为普通用户
         userAccountStatus.setRole(4);
         //设置默认头像
-        userBaseInfo.setHeadImage("/home/gyl/git_repository/bbs/src/main/webapp/upload/headImage/default-headImg.svg");
+        userBaseInfo.setHeadImage("/upload/headImage/default-headImg.svg");
         //设置账户状态是未激活
         userAccountStatus.setStatus(StatusCode.USER_NOT_ACTIVE);
         //设置访问次数是0

@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 违规的信息
  *
- * @author gyl
+ *
  */
 @Service
 public class BrokenRulesService {

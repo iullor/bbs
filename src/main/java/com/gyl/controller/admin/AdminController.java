@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * admin 的控制
  *
- * @author gyl
+ *
  */
 
 @Controller

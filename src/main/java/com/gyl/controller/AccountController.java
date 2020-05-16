@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  */
 @Controller
 public class AccountController {

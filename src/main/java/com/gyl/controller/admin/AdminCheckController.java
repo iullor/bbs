@@ -30,7 +30,7 @@ import java.util.List;
  * <p>
  * 超时                  6
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminCheckController {

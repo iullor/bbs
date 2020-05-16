@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 广场
- * @author gyl
+ *
  */
 @Component
 public class Public {

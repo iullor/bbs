@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 系统整体信息
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminSystemController {
@@ -30,7 +30,6 @@ public class AdminSystemController {
     public String list(Model model) {
         //系统的整体信息
         SystemInfo systemInfo = systemInfoService.listComponents();
-
         //每一个模块对应的帖子数,分区数
         List<Panel> panels = systemInfoService.getNumbersFromEachPanel();
         String panelId = panels.get(0).getId();

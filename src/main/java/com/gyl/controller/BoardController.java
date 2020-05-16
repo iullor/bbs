@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  * 一个模块下所有的板块列表
  */
 @Controller

@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  * 一个版中有很多区
  * 分区信息
  */

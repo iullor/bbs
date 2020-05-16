@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  * 保存搜索显示的信息
  */
 @Component

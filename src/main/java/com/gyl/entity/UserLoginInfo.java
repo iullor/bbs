@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 用户的登录信息
  *
- * @author gyl
+ *
  */
 @Component
 public class UserLoginInfo {

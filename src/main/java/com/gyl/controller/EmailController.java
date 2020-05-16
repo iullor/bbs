@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 /**
  * 邮件的收发
  *
- * @author gyl
+ *
  */
 @Controller
 public class EmailController {

@@ -3,7 +3,7 @@ package com.gyl.commons;
 import org.springframework.stereotype.Component;
 
 /**
- * @author gyl
+ *
  */
 @Component
 public class MessageType {

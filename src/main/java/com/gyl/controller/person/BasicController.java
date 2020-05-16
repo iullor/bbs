@@ -27,7 +27,7 @@ import java.util.Properties;
 /**
  * 个人基本信息,账户信息
  *
- * @author gyl
+ *
  */
 @Controller
 public class BasicController {

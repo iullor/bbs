@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 贴子
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminPostController {

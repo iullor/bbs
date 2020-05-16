@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * 用户状态
  *
- * @author gyl
+ *
  */
 @Component
 public class UserAccountStatus {

@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 个人贴子
  *
- * @author gyl
+ *
  */
 @Controller
 public class MyPostController {

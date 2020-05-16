@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 用户基本信息
  *
- * @author gyl
+ *
  */
 @Component
 public class UserBaseInfo {

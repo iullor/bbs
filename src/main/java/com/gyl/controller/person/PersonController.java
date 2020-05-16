@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 个人管理
  *
- * @author gyl
+ *
  */
 @Controller
 public class PersonController {

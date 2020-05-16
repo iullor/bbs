@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * 自己创建的话题
  *
- * @author gyl
+ *
  */
 @Controller
 public class MyTopicController {

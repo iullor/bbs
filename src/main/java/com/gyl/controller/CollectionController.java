@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * 个人收藏
  *
- * @author gyl
+ *
  */
 @Controller
 @SuppressWarnings("all")

@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 回复贴子
  *
- * @author gyl
+ *
  */
 @Component
 public class Reply {

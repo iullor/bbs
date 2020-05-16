@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * 权限的控制
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminPermissionController {

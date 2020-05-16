@@ -3,7 +3,7 @@ package com.gyl.entity;
 import org.springframework.stereotype.Component;
 
 /**
- * @author gyl
+ *
  */
 @Component
 public class BrokenRules {

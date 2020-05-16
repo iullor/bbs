@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 用户的审核，处理人的操作类
  *
- * @author gyl
+ *
  */
 @Component
 public class Option {

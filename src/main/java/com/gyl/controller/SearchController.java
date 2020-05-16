@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 搜索的控制器
  *
- * @author gyl
+ *
  */
 @Controller
 public class SearchController {

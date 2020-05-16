@@ -20,7 +20,6 @@ import java.util.List;
 /**
  * 分区，类似计科
  *
- * @author gyl
  */
 @Controller
 @SuppressWarnings("all")

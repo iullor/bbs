@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 贴子的评论
  *
- * @author gyl
+ *
  */
 @Component
 public class Comment {

@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 系统公告板
  *
- * @author gyl
+ *
  */
 @Controller
 public class AdminNoticeController {

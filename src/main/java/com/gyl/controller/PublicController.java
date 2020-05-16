@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  */
 @Controller
 @SuppressWarnings("all")

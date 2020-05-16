@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 /**
- * @author gyl
+ *
  * <p>
  * 前台使用的panel
  */

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 注册用户
  *
- * @author gyl
+ *
  */
 @Component
 public class User {

@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author gyl
+ *
  * 点赞的表
  */
 @Repository
